@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloWin", "KoloWin\KoloWin.csproj", "{B8209AD4-FACF-42AE-9F77-B3652B4B33C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloWin.Web", "KoloWin.Web\KoloWin.Web.csproj", "{033542A1-878D-47D1-884F-D81C7E20FCE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloWin.Desktop", "KoloWin.Desktop\KoloWin.Desktop.csproj", "{B46B5E4D-33F1-46DD-BBE7-71E94762B849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloWin.CustomerService", "KoloWin.CustomerService\KoloWin.CustomerService.csproj", "{91820161-92DA-470A-9E35-76B50F3D60A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloWin.Poco", "KoloWin.Poco\KoloWin.Poco.csproj", "{9F205C19-98EA-42D9-B43E-4B710F5CE37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloWin.Utilities", "KoloWin.Utilities\KoloWin.Utilities.csproj", "{794C60C4-2002-4CED-869B-93BEBC315F3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8209AD4-FACF-42AE-9F77-B3652B4B33C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8209AD4-FACF-42AE-9F77-B3652B4B33C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8209AD4-FACF-42AE-9F77-B3652B4B33C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8209AD4-FACF-42AE-9F77-B3652B4B33C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033542A1-878D-47D1-884F-D81C7E20FCE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033542A1-878D-47D1-884F-D81C7E20FCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033542A1-878D-47D1-884F-D81C7E20FCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033542A1-878D-47D1-884F-D81C7E20FCE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46B5E4D-33F1-46DD-BBE7-71E94762B849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46B5E4D-33F1-46DD-BBE7-71E94762B849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46B5E4D-33F1-46DD-BBE7-71E94762B849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46B5E4D-33F1-46DD-BBE7-71E94762B849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91820161-92DA-470A-9E35-76B50F3D60A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91820161-92DA-470A-9E35-76B50F3D60A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91820161-92DA-470A-9E35-76B50F3D60A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91820161-92DA-470A-9E35-76B50F3D60A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F205C19-98EA-42D9-B43E-4B710F5CE37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F205C19-98EA-42D9-B43E-4B710F5CE37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F205C19-98EA-42D9-B43E-4B710F5CE37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F205C19-98EA-42D9-B43E-4B710F5CE37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{794C60C4-2002-4CED-869B-93BEBC315F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794C60C4-2002-4CED-869B-93BEBC315F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794C60C4-2002-4CED-869B-93BEBC315F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794C60C4-2002-4CED-869B-93BEBC315F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
