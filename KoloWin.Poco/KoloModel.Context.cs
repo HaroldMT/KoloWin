@@ -46,7 +46,6 @@ namespace KoloWin.Poco
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<ExternalAccount> ExternalAccounts { get; set; }
         public virtual DbSet<ExternalAccountHistory> ExternalAccountHistories { get; set; }
-        public virtual DbSet<ForeasNotification> ForeasNotifications { get; set; }
         public virtual DbSet<GroupImage> GroupImages { get; set; }
         public virtual DbSet<LoginAttempt> LoginAttempts { get; set; }
         public virtual DbSet<MobileDevice> MobileDevices { get; set; }
@@ -87,5 +86,6 @@ namespace KoloWin.Poco
         public virtual DbSet<TransfertScheduled> TransfertScheduleds { get; set; }
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
         public virtual DbSet<KoloUser> KoloUsers { get; set; }
+        public virtual DbSet<KoloNotification> KoloNotifications { get; set; }
     }
 }
