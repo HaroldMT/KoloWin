@@ -44,7 +44,7 @@ namespace KoloWin.CustomerService.Util
 
         private static byte[] GetNewSalt(int size)
         {
-            byte[] randomBytes = new byte[size];
+            var randomBytes = new byte[size];
             rngCsp.GetBytes(randomBytes);
             return randomBytes;
         }

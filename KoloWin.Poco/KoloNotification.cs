@@ -12,7 +12,7 @@ namespace KoloWin.Poco
     using System;
     using System.Collections.Generic;
     
-    public partial class ForeasNotification
+    public partial class KoloNotification
     {
         public int IdNotification { get; set; }
         public int IdCustomer { get; set; }

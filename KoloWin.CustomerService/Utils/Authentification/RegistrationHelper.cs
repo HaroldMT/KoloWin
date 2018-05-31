@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Web;
 
 namespace KoloWin.CustomerService.Util
 {
@@ -29,7 +28,7 @@ namespace KoloWin.CustomerService.Util
         {
             return db.Registrations.Count(e => e.IdRegistration == id) > 0;
         }
-        
+
         public static Customer CreateCustomer(Registration registration)
         {
             var timeCreated = DateTime.Now;
@@ -38,7 +37,7 @@ namespace KoloWin.CustomerService.Util
                 DeviceId = registration.DeviceId,
                 LineNumber = registration.PhoneNumber,
                 NetworkOperator = registration.OperatorDeviceSim,
-                SimCountryIso = "",
+                SimCountryIso = string.Empty,
                 SimOperator = registration.OperatorDeviceSim,
                 SimSerialNumber = registration.SimSerialNumber,
                 SubscriberId = registration.SimSubscriberId
@@ -79,13 +78,12 @@ namespace KoloWin.CustomerService.Util
 
         public static Registration DoRegistration(Registration registration, KoloEntities db)
         {
-
             if (!RegistrationHelper.RegistrationExists(registration.PhoneNumber, db))
             {
                 registration.RegistrationStatusCode = "NEEDCONFIRM";
                 registration.RegistrationDate = DateTime.Now;
-                //string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
-                string token = RegistrationHelper.RandomString(4);
+
+                var token = RegistrationHelper.RandomString(4);
                 registration.RegistrationToken = token.Substring(0, Math.Min(ExpirationDelay, token.Length));
                 registration.RegistrationTokenExpiryDate = DateTime.Now.AddMinutes(10);
 
@@ -103,7 +101,7 @@ namespace KoloWin.CustomerService.Util
         public static Customer DoRegistrationConfirmation(Registration registration, KoloEntities db)
         {
             var confirmationTime = DateTime.Now;
-            // On a pris le token au lieu de l'ID mais on peut aussi ajouter tous les autres parametres qui nous interessent
+
             var reg = db.Registrations.Find(registration.IdRegistration);
             if (reg != null)
             {
@@ -117,7 +115,7 @@ namespace KoloWin.CustomerService.Util
                             reg.RegistrationConfirmDate = DateTime.Now;
                             var customer = RegistrationHelper.CreateCustomer(reg);
                             customer.Registration = reg;
-                            /*  reg.Customers.Add(customer); Venant de l'ancien modes   */
+
                             db.Customers.Add(customer);
                             try
                             {
@@ -125,8 +123,8 @@ namespace KoloWin.CustomerService.Util
                             }
                             catch (DbEntityValidationException e)
                             {
-                                string error = ExceptionHelper.GetExceptionMessage(e);
-                                error += "";
+                                var error = ExceptionHelper.GetExceptionMessage(e);
+                                error += string.Empty;
                             }
                             return customer;
                         }
@@ -138,7 +136,5 @@ namespace KoloWin.CustomerService.Util
             }
             return new Customer() { IdCustomer = -10 };
         }
-
-
     }
 }

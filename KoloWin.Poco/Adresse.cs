@@ -20,7 +20,9 @@ namespace KoloWin.Poco
         public string Line_3 { get; set; }
         public Nullable<int> IdCity { get; set; }
         public string PostCode { get; set; }
+        public string AddressTypeCode { get; set; }
     
         public virtual City City { get; set; }
+        public virtual RefAddressType RefAddressType { get; set; }
     }
 }

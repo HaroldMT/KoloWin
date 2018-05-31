@@ -3,18 +3,14 @@ using KoloWin.Poco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace KoloWin.CustomerService.Util
 {
     public static class LoginHelper
     {
-
-
-        // A revoir , en vertu de la modification du WPA2
         public static int DoLogin(LoginAttempt loginAttempt, KoloEntities db)
         {
-            RefResult refResult = new RefResult() { ResultCode = "FAIL" };
+            var refResult = new RefResult() { ResultCode = "FAIL" };
             var loginTime = DateTime.Now;
             var customer = db.Customers.Find(loginAttempt.IdCustomer);
             if (customer != null)
@@ -39,7 +35,6 @@ namespace KoloWin.CustomerService.Util
                             }
                             catch (Exception ex)
                             {
-                                var err = ex.Message;
                             }
                         }
                     }
@@ -54,9 +49,11 @@ namespace KoloWin.CustomerService.Util
 
         public static bool DeleteLoginAttempt(int id, KoloEntities db)
         {
-            LoginAttempt loginAttempt = db.LoginAttempts.Find(id);
+            var loginAttempt = db.LoginAttempts.Find(id);
             if (loginAttempt == null)
+            {
                 return false;
+            }
             db.LoginAttempts.Remove(loginAttempt);
             db.SaveChanges();
             return true;
@@ -66,11 +63,10 @@ namespace KoloWin.CustomerService.Util
         {
             return db.LoginAttempts.Count(e => e.IdLoginAttempt == id) > 0;
         }
-        
+
         public static bool CustomerLoginExists(int id, KoloEntities db)
         {
             return db.CustomerLogins.Count(e => e.IdCustomer == id) > 0;
         }
-
     }
 }

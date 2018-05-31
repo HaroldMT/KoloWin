@@ -112,9 +112,6 @@
     <Compile Include="ExternalAccountHistory.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ForeasNotification.cs">
-      <DependentUpon>KoloModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="GroupImage.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
@@ -126,6 +123,9 @@
     <Compile Include="KoloModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloNotification.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KoloUser.cs">

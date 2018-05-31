@@ -37,6 +37,7 @@
           <Property Name="Line_3" Type="nvarchar" MaxLength="50" />
           <Property Name="IdCity" Type="int" />
           <Property Name="PostCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="AddressTypeCode" Type="nvarchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Bill">
           <Key>
@@ -219,7 +220,14 @@
           <Property Name="NewBalance" Type="int" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="ForeasNotification">
+        <EntityType Name="GroupImage">
+          <Key>
+            <PropertyRef Name="IdCustomerGroup" />
+          </Key>
+          <Property Name="IdCustomerGroup" Type="int" Nullable="false" />
+          <Property Name="ImageBytes" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="KoloNotification">
           <Key>
             <PropertyRef Name="IdNotification" />
           </Key>
@@ -230,13 +238,6 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ExpiryDate" Type="datetime" />
           <Property Name="Readed" Type="bit" />
-        </EntityType>
-        <EntityType Name="GroupImage">
-          <Key>
-            <PropertyRef Name="IdCustomerGroup" />
-          </Key>
-          <Property Name="IdCustomerGroup" Type="int" Nullable="false" />
-          <Property Name="ImageBytes" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="KoloUser">
           <Key>
@@ -706,6 +707,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Adresse_RefAddressType">
+          <End Role="RefAddressType" Type="Self.RefAddressType" Multiplicity="1" />
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefAddressType">
+              <PropertyRef Name="AddressTypeCode" />
+            </Principal>
+            <Dependent Role="Adresse">
+              <PropertyRef Name="AddressTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Bill">
           <End Role="RefBillStatus" Type="Self.RefBillStatus" Multiplicity="0..1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
@@ -1148,12 +1161,12 @@
         </Association>
         <Association Name="fk_Notification_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="ForeasNotification" Type="Self.ForeasNotification" Multiplicity="*" />
+          <End Role="KoloNotification" Type="Self.KoloNotification" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="IdCustomer" />
             </Principal>
-            <Dependent Role="ForeasNotification">
+            <Dependent Role="KoloNotification">
               <PropertyRef Name="IdCustomer" />
             </Dependent>
           </ReferentialConstraint>
@@ -1654,8 +1667,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExternalAccount" EntityType="Self.ExternalAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExternalAccountHistory" EntityType="Self.ExternalAccountHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ForeasNotification" EntityType="Self.ForeasNotification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupImage" EntityType="Self.GroupImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KoloNotification" EntityType="Self.KoloNotification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KoloUser" EntityType="Self.KoloUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginAttempt" EntityType="Self.LoginAttempt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MobileDevice" EntityType="Self.MobileDevice" Schema="dbo" store:Type="Tables" />
@@ -1725,6 +1738,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           </AssociationSet>
           <AssociationSet Name="fk_Adresse_City" Association="Self.fk_Adresse_City">
             <End Role="City" EntitySet="City" />
+            <End Role="Adresse" EntitySet="Adresse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adresse_RefAddressType" Association="Self.FK_Adresse_RefAddressType">
+            <End Role="RefAddressType" EntitySet="RefAddressType" />
             <End Role="Adresse" EntitySet="Adresse" />
           </AssociationSet>
           <AssociationSet Name="fk_Bill" Association="Self.fk_Bill">
@@ -1873,7 +1890,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           </AssociationSet>
           <AssociationSet Name="fk_Notification_Customer" Association="Self.fk_Notification_Customer">
             <End Role="Customer" EntitySet="Customer" />
-            <End Role="ForeasNotification" EntitySet="ForeasNotification" />
+            <End Role="KoloNotification" EntitySet="KoloNotification" />
           </AssociationSet>
           <AssociationSet Name="fk_OperationRequest_CustomerAccount" Association="Self.fk_OperationRequest_CustomerAccount">
             <End Role="Customer" EntitySet="Customer" />
@@ -2078,6 +2095,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="IdCity" Type="Int32" />
           <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City" Relationship="Self.fk_Adresse_City" FromRole="Adresse" ToRole="City" />
+          <Property Name="AddressTypeCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RefAddressType" Relationship="KoloModel.FK_Adresse_RefAddressType" FromRole="Adresse" ToRole="RefAddressType" />
         </EntityType>
         <EntityType Name="Bill">
           <Key>
@@ -2290,19 +2309,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="Amount" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ExternalAccount" Relationship="Self.fk_ExternalAccount_History" FromRole="ExternalAccountHistory" ToRole="ExternalAccount" />
         </EntityType>
-        <EntityType Name="ForeasNotification">
-          <Key>
-            <PropertyRef Name="IdNotification" />
-          </Key>
-          <Property Name="IdNotification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="Readed" Type="Boolean" />
-          <NavigationProperty Name="Customer" Relationship="Self.fk_Notification_Customer" FromRole="ForeasNotification" ToRole="Customer" />
-        </EntityType>
         <EntityType Name="GroupImage">
           <Key>
             <PropertyRef Name="IdCustomerGroup" />
@@ -2452,6 +2458,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           </Key>
           <Property Name="AddressTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="AddressTypeCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Adresses" Relationship="KoloModel.FK_Adresse_RefAddressType" FromRole="RefAddressType" ToRole="Adresse" />
         </EntityType>
         <EntityType Name="RefBillStatu">
           <Key>
@@ -3149,18 +3156,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Notification_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="ForeasNotification" Type="Self.ForeasNotification" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="ForeasNotification">
-              <PropertyRef Name="IdCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_Partner_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Partner" Type="Self.Partner" Multiplicity="0..1" />
@@ -3707,7 +3702,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="Districts" EntityType="Self.District" />
           <EntitySet Name="ExternalAccounts" EntityType="Self.ExternalAccount" />
           <EntitySet Name="ExternalAccountHistories" EntityType="Self.ExternalAccountHistory" />
-          <EntitySet Name="ForeasNotifications" EntityType="Self.ForeasNotification" />
           <EntitySet Name="GroupImages" EntityType="Self.GroupImage" />
           <EntitySet Name="LoginAttempts" EntityType="Self.LoginAttempt" />
           <EntitySet Name="MobileDevices" EntityType="Self.MobileDevice" />
@@ -3890,10 +3884,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_customertags_customeraccount" Association="Self.fk_customertags_customeraccount">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerTags" EntitySet="CustomerTags" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Notification_Customer" Association="Self.fk_Notification_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="ForeasNotification" EntitySet="ForeasNotifications" />
           </AssociationSet>
           <AssociationSet Name="fk_Partner_Customer" Association="Self.fk_Partner_Customer">
             <End Role="Customer" EntitySet="Customers" />
@@ -4080,6 +4070,15 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="RefLoginStatu" EntitySet="RefLoginStatus" />
             <End Role="KoloUser" EntitySet="KoloUsers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Adresse_RefAddressType" Association="KoloModel.FK_Adresse_RefAddressType">
+            <End Role="RefAddressType" EntitySet="RefAddressTypes" />
+            <End Role="Adresse" EntitySet="Adresses" />
+          </AssociationSet>
+          <EntitySet Name="KoloNotifications" EntityType="KoloModel.KoloNotification" />
+          <AssociationSet Name="fk_Notification_Customer1" Association="KoloModel.fk_Notification_Customer1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="KoloNotification" EntitySet="KoloNotifications" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="KoloUser">
           <Key>
@@ -4123,6 +4122,43 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Adresse_RefAddressType">
+          <End Type="KoloModel.RefAddressType" Role="RefAddressType" Multiplicity="1" />
+          <End Type="KoloModel.Adresse" Role="Adresse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefAddressType">
+              <PropertyRef Name="AddressTypeCode" />
+            </Principal>
+            <Dependent Role="Adresse">
+              <PropertyRef Name="AddressTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KoloNotification">
+          <Key>
+            <PropertyRef Name="IdNotification" />
+          </Key>
+          <Property Name="IdNotification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="Readed" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Notification_Customer1" FromRole="KoloNotification" ToRole="Customer" />
+        </EntityType>
+        <Association Name="fk_Notification_Customer1">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.KoloNotification" Role="KoloNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="KoloNotification">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4156,6 +4192,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="Adresses">
             <EntityTypeMapping TypeName="KoloModel.Adresse">
               <MappingFragment StoreEntitySet="Adresse">
+                <ScalarProperty Name="AddressTypeCode" ColumnName="AddressTypeCode" />
                 <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
                 <ScalarProperty Name="Line_1" ColumnName="Line_1" />
                 <ScalarProperty Name="Line_2" ColumnName="Line_2" />
@@ -4350,19 +4387,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="OldBalance" ColumnName="OldBalance" />
                 <ScalarProperty Name="NewBalance" ColumnName="NewBalance" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ForeasNotifications">
-            <EntityTypeMapping TypeName="KoloModel.ForeasNotification">
-              <MappingFragment StoreEntitySet="ForeasNotification">
-                <ScalarProperty Name="IdNotification" ColumnName="IdNotification" />
-                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="Readed" ColumnName="Readed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4789,6 +4813,19 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KoloNotifications">
+            <EntityTypeMapping TypeName="KoloModel.KoloNotification">
+              <MappingFragment StoreEntitySet="KoloNotification">
+                <ScalarProperty Name="Readed" ColumnName="Readed" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="IdNotification" ColumnName="IdNotification" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 
 namespace KoloWin.CustomerService.Util
 {
@@ -10,8 +9,14 @@ namespace KoloWin.CustomerService.Util
         public static string GetExceptionMessage(Exception e)
         {
             string msg;
-            if (e.InnerException == null) msg = e.Message;
-            else msg = GetExceptionMessage(e.InnerException);
+            if (e.InnerException == null)
+            {
+                msg = e.Message;
+            }
+            else
+            {
+                msg = GetExceptionMessage(e.InnerException);
+            }
             return msg;
         }
     }

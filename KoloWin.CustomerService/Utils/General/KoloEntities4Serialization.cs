@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace KoloWin.CustomerService.Util
 {
@@ -9,7 +8,7 @@ namespace KoloWin.CustomerService.Util
     {
         public KoloEntities4Serialization()
         {
-            this.Configuration.ProxyCreationEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
     }
 }
