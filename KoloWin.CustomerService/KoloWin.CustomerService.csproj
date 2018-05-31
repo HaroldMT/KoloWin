@@ -159,10 +159,6 @@
       <Project>{794C60C4-2002-4CED-869B-93BEBC315F3F}</Project>
       <Name>KoloWin.Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\KoloWin.Web\KoloWin.Web.csproj">
-      <Project>{033542a1-878d-47d1-884f-d81c7e20fce2}</Project>
-      <Name>KoloWin.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
