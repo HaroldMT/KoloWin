@@ -1,10 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using KoloWin.Poco;
 
 namespace KoloWin.CustomerService
 {
     public class MyRefTypes
     {
+        AccountOperation a1;
+        AccountOperationRequest a2;
+        Adresse a3;
+        Bill a4;
+        BillPayment a5;
+        Business a6;
+        BusinessContact a7;
+        City a8;
+        Country a9;
+        Currency a10;
+        Customer a11;
+        CustomerAddress a12;
+        CustomerBalanceHistory a13;
+        CustomerExternalAccount a14;
+        CustomerGroup a15;
+        CustomerImage a16;
+        CustomerLogin a17;
+        CustomerTag a18;
+        District a19;
+        ExternalAccount a20;
+        ExternalAccountHistory a21;
+        KoloNotification a22;
+        GroupImage a23;
+        LoginAttempt a24;
+        MobileDevice a25;
+        Partner a26;
+        PartnerAddress a27;
+        PartnerBalanceHistory a28;
+        Person a29;
+        PersonRelationship a30;
+        Provision a31;
+        RecurringContribution a32;
+        RefAddressType a33;
+        RefBillStatu a34;
+        RefBillType a35;
+        RefCustomerType a36;
+        RefExternalAccountType a37;
+        RefGender a38;
+        RefGroupType a39;
+        RefIndustryCategory a40;
+        RefLoginStatu a41;
+        RefMaritalStatu a42;
+        RefOperationStatu a43;
+        RefOperationType a44;
+        RefPartnerType a45;
+        RefPersonRelationshipType a46;
+        RefProvisionStatu a47;
+        RefRegistrationStatu a48;
+        RefResult a49;
+        RefTransfertStatu a50;
+        Registration a51;
+        Reseller a52;
+        Tag a53;
+        Transfert2Cash a54;
+        Transfert2CashDetails a55;
+        TransfertE2e a56;
+        TransfertGroup a57;
+        TransfertGroupScheduled a58;
+        TransfertP2p a59;
+        TransfertScheduled a60;
+        KoloUser a61;
+        Wholesaler a62;
     }
 }
