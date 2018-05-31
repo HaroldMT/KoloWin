@@ -2293,7 +2293,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="ExternalLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ExternalPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ExternalAccountTypeCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="CustomerExternalAccounts" Relationship="Self.fk_Customer_ExternalAccount" FromRole="ExternalAccount" ToRole="CustomerExternalAccount" />
           <NavigationProperty Name="RefExternalAccountType" Relationship="Self.fk_ExternalAccount_Type" FromRole="ExternalAccount" ToRole="RefExternalAccountType" />
         </EntityType>
         <EntityType Name="ExternalAccountHistory">
@@ -2412,7 +2411,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="RefGender" Relationship="Self.fk_Person_Gender" FromRole="Person" ToRole="RefGender" />
           <NavigationProperty Name="RefMaritalStatu" Relationship="Self.fk_Person_MaritalStatus" FromRole="Person" ToRole="RefMaritalStatus" />
           <NavigationProperty Name="PersonRelationship" Relationship="Self.fk_Relationship_Customer" FromRole="Person" ToRole="PersonRelationship" />
-          <NavigationProperty Name="KoloUser" Relationship="KoloModel.FK_User_Person1" FromRole="Person" ToRole="KoloUser" />
         </EntityType>
         <EntityType Name="PersonRelationship">
           <Key>
@@ -2458,7 +2456,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           </Key>
           <Property Name="AddressTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="AddressTypeCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Adresses" Relationship="KoloModel.FK_Adresse_RefAddressType" FromRole="RefAddressType" ToRole="Adresse" />
         </EntityType>
         <EntityType Name="RefBillStatu">
           <Key>
@@ -2515,7 +2512,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           </Key>
           <Property Name="LoginStatusCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoginStatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="KoloUsers" Relationship="KoloModel.FK_User_RefLoginStatus1" FromRole="RefLoginStatu" ToRole="KoloUser" />
         </EntityType>
         <EntityType Name="RefMaritalStatu">
           <Key>

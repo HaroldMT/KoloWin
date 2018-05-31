@@ -14,19 +14,11 @@ namespace KoloWin.Poco
     
     public partial class ExternalAccount
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ExternalAccount()
-        {
-            this.CustomerExternalAccounts = new HashSet<CustomerExternalAccount>();
-        }
-    
         public int IdExternalAccount { get; set; }
         public string ExternalLogin { get; set; }
         public string ExternalPwd { get; set; }
         public string ExternalAccountTypeCode { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerExternalAccount> CustomerExternalAccounts { get; set; }
         public virtual RefExternalAccountType RefExternalAccountType { get; set; }
     }
 }

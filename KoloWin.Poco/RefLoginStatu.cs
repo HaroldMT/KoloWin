@@ -14,16 +14,7 @@ namespace KoloWin.Poco
     
     public partial class RefLoginStatu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RefLoginStatu()
-        {
-            this.KoloUsers = new HashSet<KoloUser>();
-        }
-    
         public string LoginStatusCode { get; set; }
         public string LoginStatusDescription { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KoloUser> KoloUsers { get; set; }
     }
 }

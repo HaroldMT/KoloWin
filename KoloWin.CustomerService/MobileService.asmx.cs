@@ -40,9 +40,10 @@ namespace KoloWin.CustomerService
         }
 
         [WebMethod]
-        public bool TestService(MyRefTypes myRefTypes)
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public MyRefTypes TestService(MyRefTypes myRefTypes)
         {
-            return true;
+            return myRefTypes;
         }
     }
 }

@@ -14,16 +14,7 @@ namespace KoloWin.Poco
     
     public partial class RefAddressType
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RefAddressType()
-        {
-            this.Adresses = new HashSet<Adresse>();
-        }
-    
         public string AddressTypeDescription { get; set; }
         public string AddressTypeCode { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adresse> Adresses { get; set; }
     }
 }

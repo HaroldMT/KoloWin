@@ -29,6 +29,5 @@ namespace KoloWin.Poco
         public virtual RefGender RefGender { get; set; }
         public virtual RefMaritalStatu RefMaritalStatu { get; set; }
         public virtual PersonRelationship PersonRelationship { get; set; }
-        public virtual KoloUser KoloUser { get; set; }
     }
 }

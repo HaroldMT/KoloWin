@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c9a67605394f4841bb5f76e97c35de45" Name="Diagram1">
+      <Diagram DiagramId="c9a67605394f4841bb5f76e97c35de45" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="KoloModel.AccountOperation" Width="1.5" PointX="13.875" PointY="47.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KoloModel.AccountOperationRequest" Width="1.5" PointX="5.625" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.AccountOperationRequest" Width="2" PointX="5.625" PointY="40" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.Adresse" Width="2.25" PointX="8.625" PointY="25.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.Bill" Width="1.5" PointX="11.625" PointY="36.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.BillPayment" Width="1.5" PointX="13.875" PointY="40.75" IsExpanded="true" />
@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="KoloModel.CustomerLogin" Width="1.5" PointX="11.625" PointY="47.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.CustomerTag" Width="1.5" PointX="11.625" PointY="41.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.District" Width="1.5" PointX="4.125" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KoloModel.ExternalAccount" Width="1.5" PointX="3.375" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.ExternalAccount" Width="2.625" PointX="2.5" PointY="55.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.ExternalAccountHistory" Width="1.5" PointX="5.625" PointY="57.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.GroupImage" Width="1.5" PointX="7.875" PointY="60.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.LoginAttempt" Width="1.5" PointX="16.875" PointY="47.5" IsExpanded="true" />
@@ -32,7 +32,7 @@
         <EntityTypeShape EntityType="KoloModel.Partner" Width="1.5" PointX="8.625" PointY="48" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.PartnerAddress" Width="1.5" PointX="16.875" PointY="52.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.PartnerBalanceHistory" Width="1.5" PointX="11.625" PointY="61.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KoloModel.Person" Width="1.5" PointX="8.625" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Person" Width="2" PointX="8.625" PointY="38.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.PersonRelationship" Width="1.5" PointX="13.875" PointY="44.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.Provision" Width="1.5" PointX="13.875" PointY="51.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.RecurringContribution" Width="1.5" PointX="7.875" PointY="55.625" IsExpanded="true" />
@@ -40,7 +40,7 @@
         <EntityTypeShape EntityType="KoloModel.RefBillStatu" Width="1.5" PointX="9.375" PointY="35.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.RefBillType" Width="1.5" PointX="9.375" PointY="32.875" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.RefCustomerType" Width="1.5" PointX="0.75" PointY="42.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KoloModel.RefExternalAccountType" Width="1.5" PointX="1.125" PointY="55.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefExternalAccountType" Width="1.5" PointX="0.5" PointY="56" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.RefGender" Width="1.5" PointX="6.375" PointY="34.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.RefGroupType" Width="1.5" PointX="3.375" PointY="61.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.RefIndustryCategory" Width="1.5" PointX="3.375" PointY="58.75" IsExpanded="true" />
