@@ -16,6 +16,9 @@ namespace KoloWin.CustomerService
     [System.ComponentModel.ToolboxItem(false)]
 
 
+
+
+
     public class MobileService : System.Web.Services.WebService
     {
         [WebMethod]
