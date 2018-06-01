@@ -26,7 +26,7 @@ namespace KoloWin.Desktop
         public RefAddressTypeForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.168/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
         }
 
         //Lorsqu'on clique sur le bouton actualiser
@@ -45,7 +45,6 @@ namespace KoloWin.Desktop
                 {
                     Context.AddToRefAddressTypes(addressTypeToCreate);
                     Context.SaveChanges();
-                    MessageBox.Show("Le type d'adresse a été enregistré avec succès");
                 }
             }
             catch (Exception ex)
@@ -68,7 +67,6 @@ namespace KoloWin.Desktop
                 {
                     Context.DeleteObject(addressTypeToDelete);
                     Context.SaveChanges();
-                    MessageBox.Show("Le type d'adresse a été supprimé avec succès");
                 }
             }
             catch (Exception ex)
@@ -114,7 +112,6 @@ namespace KoloWin.Desktop
                 {
                     Context.UpdateObject(addressTypeToUpdate);
                     Context.SaveChanges();
-                    MessageBox.Show("Le type d'adresse a été modifié avec succès");
                 }
             }
             catch (Exception ex)

@@ -63,8 +63,8 @@ namespace KoloWin.CustomerService
         public TransfertScheduled a60 { get; set; }
         public KoloUser a61 { get; set; }
         public Wholesaler a62 { get; set; }
-        public BusinessContact a7 { get; set; }
-        public City a8 { get; set; }
-        public Country a9 { get; set; }
+        public BusinessContact a63 { get; set; }
+        public City a64 { get; set; }
+        public Country a65 { get; set; }
     }
 }
