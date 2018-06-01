@@ -31,29 +31,29 @@ namespace KoloWin.CustomerService
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public string DoTransfertA2C()
+        public Poco.Transfert2Cash DoTransfertA2C(string jsonTransfert2c)
         {
             var Context = new Poco.KoloEntities();
             Context.Dispose();
-            return "Hello World";
+            return null;
         }
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public string DoTransfertC2A()
+        public Poco.Transfert2Cash DoTransfertC2A(string jsonTransfert2c)
         {
             var Context = new Poco.KoloEntities();
             Context.Dispose();
-            return "Hello World";
+            return null;
         }
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public string DoTransfertC2C()
+        public Poco.Transfert2Cash DoTransfertC2C(string jsonTransfert2c)
         {
             var Context = new Poco.KoloEntities();
             Context.Dispose();
-            return "Hello World";
+            return null;
         }
     }
 }
