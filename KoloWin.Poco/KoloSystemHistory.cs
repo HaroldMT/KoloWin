@@ -12,17 +12,14 @@ namespace KoloWin.Poco
     using System;
     using System.Collections.Generic;
     
-    public partial class BillPayment
+    public partial class KoloSystemHistory
     {
-        public int IdBillPayment { get; set; }
-        public int IdBill { get; set; }
-        public int IdPayingCustomer { get; set; }
-        public int IdIssuingCustomer { get; set; }
-        public System.DateTime DatePaid { get; set; }
-        public Nullable<int> PaidAmount { get; set; }
+        public int IdHistory { get; set; }
+        public int IdUser { get; set; }
+        public System.DateTime HistDate { get; set; }
+        public System.DateTime HistTime { get; set; }
+        public string Description { get; set; }
     
-        public virtual Bill Bill { get; set; }
-        public virtual Customer Issuer { get; set; }
-        public virtual Customer Receiver { get; set; }
+        public virtual KoloUser KoloUser { get; set; }
     }
 }

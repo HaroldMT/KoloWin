@@ -12,17 +12,13 @@ namespace KoloWin.Poco
     using System;
     using System.Collections.Generic;
     
-    public partial class BillPayment
+    public partial class KoloPermission
     {
-        public int IdBillPayment { get; set; }
-        public int IdBill { get; set; }
-        public int IdPayingCustomer { get; set; }
-        public int IdIssuingCustomer { get; set; }
-        public System.DateTime DatePaid { get; set; }
-        public Nullable<int> PaidAmount { get; set; }
+        public string ActionCode { get; set; }
+        public string GroupCode { get; set; }
+        public string ExpirationDate { get; set; }
     
-        public virtual Bill Bill { get; set; }
-        public virtual Customer Issuer { get; set; }
-        public virtual Customer Receiver { get; set; }
+        public virtual KoloGroup KoloGroup { get; set; }
+        public virtual KoloSystemAction KoloSystemAction { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace KoloWin.Poco
     
         public virtual RefBillStatu RefBillStatu { get; set; }
         public virtual RefBillType RefBillType { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual Customer Customer1 { get; set; }
+        public virtual Customer Issuer { get; set; }
+        public virtual Customer Receiver { get; set; }
     }
 }

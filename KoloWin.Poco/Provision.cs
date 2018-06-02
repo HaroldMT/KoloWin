@@ -23,8 +23,8 @@ namespace KoloWin.Poco
         public System.DateTime ProvisionDate { get; set; }
         public int Amount { get; set; }
     
-        public virtual Partner Partner { get; set; }
-        public virtual Partner Partner1 { get; set; }
+        public virtual Partner Reseller { get; set; }
+        public virtual Partner Wholesaler { get; set; }
         public virtual PartnerBalanceHistory PartnerBalanceHistory { get; set; }
         public virtual RefProvisionStatu RefProvisionStatu { get; set; }
     }

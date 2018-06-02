@@ -87,5 +87,9 @@ namespace KoloWin.Poco
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
         public virtual DbSet<KoloUser> KoloUsers { get; set; }
         public virtual DbSet<KoloNotification> KoloNotifications { get; set; }
+        public virtual DbSet<KoloGroup> KoloGroups { get; set; }
+        public virtual DbSet<KoloPermission> KoloPermissions { get; set; }
+        public virtual DbSet<KoloSystemAction> KoloSystemActions { get; set; }
+        public virtual DbSet<KoloSystemHistory> KoloSystemHistories { get; set; }
     }
 }
