@@ -18,13 +18,18 @@ namespace KoloWin.CustomerService
 
     public class KolOSphere : System.Web.Services.WebService
     {
+
+
+        #region Transfert Basic Methods
+
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
         public Poco.TransfertP2p DoTransfertA2A(string jsonTransfertP2p)
         {
+            string error = "";
             var tP2P = SerializationHelper.DeserializeFromJsonString<Poco.TransfertP2p>(jsonTransfertP2p);
             var Context = new KoloEntities4Serialization();
-            tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context);
+            tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
             Context.Dispose();
             return tP2P;
         }
@@ -55,5 +60,42 @@ namespace KoloWin.CustomerService
             Context.Dispose();
             return null;
         }
+
+        #endregion
+
+
+        #region Transfert Method For Good WOrkFlow
+
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public Poco.TransfertP2p GetTransfertP2p(int idCustomer)
+        {
+            var Context = new Poco.KoloEntities();
+            Context.Dispose();
+            return null;
+        }
+
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public Poco.Transfert2Cash GetTransfert2Cash(int idCustomer)
+        {
+            var Context = new Poco.KoloEntities();
+            Context.Dispose();
+            return null;
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public Poco.Transfert2CashDetails GetTransfert2CashDetails(int idTransfert2CashDetails)
+        {
+            var Context = new Poco.KoloEntities();
+            Context.Dispose();
+            return null;
+        }
+
+
+        #endregion
+
     }
 }

@@ -7,30 +7,36 @@ namespace KoloWin.CustomerService.Util
 {
     public static class TransfertP2PHelper
     {
-        public static Poco.TransfertP2p SendTransfertA2A(Poco.TransfertP2p tA2A, Poco.KoloEntities db)
+        public static Poco.TransfertP2p SendTransfertA2A(Poco.TransfertP2p tA2A, Poco.KoloEntities db, out string error)
         {
+            error = "";
             if (!TransfertVerification(tA2A))
             {
-                var sender = db.Customers.Find(tA2A.IdSendingCustomer);
-                var receiver = db.Customers.Find(tA2A.IdReceiverCustomer);
+                try
+                {
+                    var sender = db.Customers.Find(tA2A.IdSendingCustomer);
+                    var receiver = db.Customers.Find(tA2A.IdReceiverCustomer);
 
-                var senderBalanceHistory = new Poco.CustomerBalanceHistory();
-                var receiverBalanceHistory = new Poco.CustomerBalanceHistory();
+                    var senderBalanceHistory = new Poco.CustomerBalanceHistory();
+                    var receiverBalanceHistory = new Poco.CustomerBalanceHistory();
 
 
-                senderBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(sender, tA2A.Amount, "SENDA2A");
-                receiverBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(receiver, tA2A.Amount, "RECVA2A");
+                    senderBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(sender, tA2A.Amount, "SENDA2A");
+                    receiverBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(receiver, tA2A.Amount, "RECVA2A");
 
-                db.CustomerBalanceHistories.Add(senderBalanceHistory);
-                db.CustomerBalanceHistories.Add(receiverBalanceHistory);
+                    db.CustomerBalanceHistories.Add(senderBalanceHistory);
+                    db.CustomerBalanceHistories.Add(receiverBalanceHistory);
 
-                tA2A.TransfertDate = DateTime.Now;
+                    tA2A.TransfertDate = DateTime.Now;
 
-                tA2A.TransfertStatusCode = "RECEIVE";
-
-                db.SaveChanges();
-
-                return tA2A;
+                    tA2A.TransfertStatusCode = "RECEIVE";
+                    db.SaveChanges();
+                    return tA2A;
+                }
+                catch(Exception e)
+                {
+                    error = ExceptionHelper.GetExceptionMessage(e);
+                }
             }
             return null;
         }

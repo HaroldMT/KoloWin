@@ -142,6 +142,7 @@
     <Compile Include="Utils\Authentification\RegistrationHelper.cs" />
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
     <Compile Include="Utils\General\ExceptionHelper.cs" />
+    <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
     <Compile Include="Utils\Security\PasswordHasher.cs" />
     <Compile Include="Utils\Transfert\CustomerHistoryHelper.cs" />

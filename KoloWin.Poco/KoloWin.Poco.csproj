@@ -115,6 +115,9 @@
     <Compile Include="GroupImage.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="KoloGroup.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KoloModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +129,15 @@
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KoloNotification.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloPermission.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloSystemAction.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloSystemHistory.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KoloUser.cs">

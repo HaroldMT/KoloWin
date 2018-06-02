@@ -8,8 +8,9 @@ namespace KoloWin.CustomerService.Util
 {
     public static class LoginHelper
     {
-        public static int DoLogin(LoginAttempt loginAttempt, KoloEntities db)
+        public static int DoLogin(LoginAttempt loginAttempt, KoloEntities db, out string error)
         {
+            error = "";
             var refResult = new RefResult() { ResultCode = "FAIL" };
             var loginTime = DateTime.Now;
             var customer = db.Customers.Find(loginAttempt.IdCustomer);
@@ -35,6 +36,7 @@ namespace KoloWin.CustomerService.Util
                             }
                             catch (Exception ex)
                             {
+                                error = ExceptionHelper.GetExceptionMessage(ex);
                             }
                         }
                     }
