@@ -76,32 +76,37 @@ namespace KoloWin.CustomerService.Util
 
 
 
-        public static Registration DoRegistration(Registration registration, KoloEntities db)
+        public static Registration DoRegistration(Registration registration, KoloEntities db,out string error)
         {
-            if (!RegistrationHelper.RegistrationExists(registration.PhoneNumber, db))
+            error = "";
+            try
             {
-                registration.RegistrationStatusCode = "NEEDCONFIRM";
-                registration.RegistrationDate = DateTime.Now;
+                if (!RegistrationHelper.RegistrationExists(registration.PhoneNumber, db))
+                {
+                    registration.RegistrationStatusCode = "NEEDCONFIRM";
+                    registration.RegistrationDate = DateTime.Now;
 
-                var token = RegistrationHelper.RandomString(4);
-                registration.RegistrationToken = token.Substring(0, Math.Min(ExpirationDelay, token.Length));
-                registration.RegistrationTokenExpiryDate = DateTime.Now.AddMinutes(10);
+                    var token = RegistrationHelper.RandomString(4);
+                    registration.RegistrationToken = token.Substring(0, Math.Min(ExpirationDelay, token.Length));
+                    registration.RegistrationTokenExpiryDate = DateTime.Now.AddMinutes(10);
 
-                db.Registrations.Add(registration);
-                db.SaveChanges();
-                return registration;
+                    db.Registrations.Add(registration);
+                    db.SaveChanges();
+                    return registration;
+                }
             }
-            else
+            catch(Exception e)
             {
-                var reg = new Registration() { IdRegistration = -10, RegistrationStatusCode = "Account already exists" };
-                return reg;
+                error = ExceptionHelper.GetExceptionMessage(e);
             }
+            var reg = new Registration() { IdRegistration = -10, RegistrationStatusCode = "Account already exists" };
+            return reg;
         }
 
-        public static Customer DoRegistrationConfirmation(Registration registration, KoloEntities db)
+        public static Customer DoRegistrationConfirmation(Registration registration, KoloEntities db, out string error)
         {
             var confirmationTime = DateTime.Now;
-
+            error = "";
             var reg = db.Registrations.Find(registration.IdRegistration);
             if (reg != null)
             {
@@ -123,7 +128,7 @@ namespace KoloWin.CustomerService.Util
                             }
                             catch (DbEntityValidationException e)
                             {
-                                var error = ExceptionHelper.GetExceptionMessage(e);
+                                error = ExceptionHelper.GetExceptionMessage(e);
                                 error += string.Empty;
                             }
                             return customer;

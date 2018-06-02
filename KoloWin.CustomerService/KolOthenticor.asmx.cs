@@ -21,9 +21,10 @@ namespace KoloWin.CustomerService
         [WebMethod]
         public Poco.Registration DoRegistration(string jsonReg)
         {
+            string error = "";
             var inReg = SerializationHelper.DeserializeFromJsonString<Poco.Registration>(jsonReg);
             var context = new Poco.KoloEntities();
-            var outReg = RegistrationHelper.DoRegistration(inReg, context);
+            var outReg = RegistrationHelper.DoRegistration(inReg, context,out error);
             return outReg;
         }
 
@@ -32,9 +33,10 @@ namespace KoloWin.CustomerService
         [WebMethod]
         public Poco.Customer DoConfirmRegistration(string jsonReg)
         {
+            string error = "";
             var registration = SerializationHelper.DeserializeFromJsonString<Poco.Registration>(jsonReg);
             var context = new KoloEntities4Serialization();
-            var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context);
+            var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context,out error);
             return customer;
         }
 
@@ -42,10 +44,12 @@ namespace KoloWin.CustomerService
         [WebMethod]
         public Poco.LoginAttempt DoLogin(string jsonLogAttempt)
         {
+            string error = "";
             var logAttempt = SerializationHelper.DeserializeFromJsonString<Poco.LoginAttempt>(jsonLogAttempt);
             var context = new Poco.KoloEntities();
             var context4Serialization = new KoloEntities4Serialization();
-            logAttempt = context4Serialization.LoginAttempts.Find(LoginHelper.DoLogin(logAttempt, context));
+            logAttempt = context4Serialization.LoginAttempts.Find(LoginHelper.DoLogin(logAttempt, context,out
+                 error));
 
             return logAttempt;
         }
