@@ -32,13 +32,30 @@ namespace KoloWin.Desktop
         public RefExternalAccountTypesForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
         //Lorsqu'on clique sur le bouton actualiser
         private void btnActualiser(object sender, EventArgs e)
         {
+            //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
+            RefCreerExternalAccountBindingSource.DataSource = new RefAddressType();
+            RefCreerExternalAccountBindingSource.ResetBindings(false);
 
+            //Création du proxy du service
+            KoloContextHelper.Context = new KoloGateway.KoloEntities(KoloUri);
+
+            //Téléchargement de tous les types d'adresses
+            var refExternalAccountType = Context.RefExternalAccountTypes.ToList();
+
+            //Liaison du BindingSource avec la liste d'adresses téléchargées
+            refExternalAccountTypesBindingSource.DataSource = refExternalAccountType;
+
+            //Actualiser les contrôles liés au BindingSource (false veut dire qu'on ne recrée pas le schéma de présentation)
+            refExternalAccountTypesBindingSource.ResetBindings(false);
+
+            var nb = refExternalAccountType.Count;
+            MessageBox.Show(nb.ToString() + " adresses téléchargées");
         }
 
         //Lorsqu'on clique sur le bouton actualiser
@@ -87,29 +104,28 @@ namespace KoloWin.Desktop
         //Lorsqu'on clique sur le bouton actualiser
         private void btnCreer(object sender, EventArgs e)
         {
-            //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            RefCreerExternalAccountBindingSource.DataSource = new RefExternalAccountType();
-            RefCreerExternalAccountBindingSource.ResetBindings(false);
-
-            //Création du proxy du service
-            Context = new KoloGateway.KoloEntities(KoloUri);
-
-            //Téléchargement de tous les types d'adresses
-            var refExternalAccountTypes = Context.RefAddressTypes.ToList();
-
-            //Liaison du BindingSource avec la liste d'adresses téléchargées
-            RefCreerExternalAccountBindingSource.DataSource = refExternalAccountTypes;
-
-            //Actualiser les contrôles liés au BindingSource (false veut dire qu'on ne recrée pas le schéma de présentation)
-            RefCreerExternalAccountBindingSource.ResetBindings(false);
-
-            var nb = refExternalAccountTypes.Count;
-            MessageBox.Show(nb.ToString() + " type de compte externe téléchargées");
+            try
+            {
+                var externalAccountType = RefCreerExternalAccountBindingSource.Current as RefAddressType;
+                if (externalAccountType == null)
+                {
+                    MessageBox.Show("Adresse nulle invalide, veuillez recommencer");
+                    RefCreerExternalAccountBindingSource.DataSource = new RefAddressType();
+                    RefCreerExternalAccountBindingSource.ResetBindings(true);
+                }
+                else
+                {
+                    KoloContextHelper.Context.AddToRefAddressTypes(externalAccountType);
+                    KoloContextHelper.Context.SaveChanges();
+                    RefCreerExternalAccountBindingSource.ResetBindings(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void txtCode_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

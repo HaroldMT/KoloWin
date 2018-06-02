@@ -30,7 +30,7 @@ namespace KoloWin.Desktop
                 context = value ?? new KoloEntities(KoloUri);
 
                 InitializeComponent();
-                KoloUri = new Uri("http://192.168.1.168/KoloWin.Web/KoloWcfService.svc/");
+                KoloUri = KoloContextHelper.KoloUri;
             }
 
         }
@@ -38,8 +38,8 @@ namespace KoloWin.Desktop
         private void btnActualiser(object sender, EventArgs e)
         {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refBillStatusBindingSource.DataSource = new RefBillStatu();
-            refBillStatusBindingSource.ResetBindings(false);
+            RefCreerBillStatusBindingSource.DataSource = new RefBillStatu();
+            RefCreerBillStatusBindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);
@@ -70,6 +70,7 @@ namespace KoloWin.Desktop
                 {
                     Context.UpdateObject(billStatusToUpdate);
                     Context.SaveChanges();
+                    refBillStatusBindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)
@@ -91,6 +92,8 @@ namespace KoloWin.Desktop
                 {
                     Context.DeleteObject(billStatusToDelete);
                     Context.SaveChanges();
+                    refBillStatusBindingSource.ResetBindings(false);
+
                 }
             }
             catch (Exception ex)
@@ -115,12 +118,18 @@ namespace KoloWin.Desktop
                 {
                     Context.AddToRefBillStatus(billStatusToCreate);
                     Context.SaveChanges();
+                    RefCreerBillStatusBindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void RefBillStatusForm_Load(object sender, EventArgs e)
+        {
+            btnActualiser(null, null);
         }
     }
 }

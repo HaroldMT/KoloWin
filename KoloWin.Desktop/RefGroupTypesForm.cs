@@ -29,17 +29,16 @@ namespace KoloWin.Desktop
             }
 
          }
-               public RefGroupTypesForm()
-
-                {
+        public RefGroupTypesForm()
+        {
             InitializeComponent();
-                KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
-                 }
-                         private void btnActualiser(object sender, EventArgs e)
-                     {
+            KoloUri = KoloContextHelper.KoloUri;
+        }
+        private void btnActualiser(object sender, EventArgs e)
+        {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refGroupTypesBindingSource.DataSource = new RefGroupType();
-            refGroupTypesBindingSource.ResetBindings(false);
+            refCreerGroupTypesBindingSource.DataSource = new RefGroupType();
+            refCreerGroupTypesBindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);
@@ -114,6 +113,7 @@ namespace KoloWin.Desktop
                 {
                     Context.AddToRefGroupTypes(groupTypeToCreate);
                     Context.SaveChanges();
+                    refCreerGroupTypesBindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)

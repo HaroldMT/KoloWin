@@ -30,11 +30,10 @@ namespace KoloWin.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.billTypeCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.refCreerBillTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refCreerBillTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.billTypeDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -42,9 +41,7 @@ namespace KoloWin.Desktop
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.billTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.refBillTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.billTypeDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.refBillTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.refBillTypesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colBillTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,12 +56,14 @@ namespace KoloWin.Desktop
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.billTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.billTypeDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -77,9 +76,7 @@ namespace KoloWin.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billTypeCodeTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refBillTypesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billTypeDescriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refBillTypesGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -89,12 +86,14 @@ namespace KoloWin.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billTypeCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billTypeDescriptionTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -123,15 +122,15 @@ namespace KoloWin.Desktop
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(573, 277);
-            this.layoutControl1.TabIndex = 12;
+            this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // billTypeCodeTextEdit1
             // 
             this.billTypeCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerBillTypesBindingSource, "BillTypeCode", true));
-            this.billTypeCodeTextEdit1.Location = new System.Drawing.Point(72, 12);
+            this.billTypeCodeTextEdit1.Location = new System.Drawing.Point(469, 12);
             this.billTypeCodeTextEdit1.Name = "billTypeCodeTextEdit1";
-            this.billTypeCodeTextEdit1.Size = new System.Drawing.Size(213, 20);
+            this.billTypeCodeTextEdit1.Size = new System.Drawing.Size(92, 20);
             this.billTypeCodeTextEdit1.StyleController = this.layoutControl1;
             this.billTypeCodeTextEdit1.TabIndex = 5;
             // 
@@ -142,17 +141,17 @@ namespace KoloWin.Desktop
             // billTypeDescriptionTextEdit1
             // 
             this.billTypeDescriptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerBillTypesBindingSource, "BillTypeDescription", true));
-            this.billTypeDescriptionTextEdit1.Location = new System.Drawing.Point(349, 12);
+            this.billTypeDescriptionTextEdit1.Location = new System.Drawing.Point(72, 12);
             this.billTypeDescriptionTextEdit1.Name = "billTypeDescriptionTextEdit1";
-            this.billTypeDescriptionTextEdit1.Size = new System.Drawing.Size(212, 20);
+            this.billTypeDescriptionTextEdit1.Size = new System.Drawing.Size(333, 20);
             this.billTypeDescriptionTextEdit1.StyleController = this.layoutControl1;
             this.billTypeDescriptionTextEdit1.TabIndex = 7;
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(414, 36);
+            this.simpleButton4.Location = new System.Drawing.Point(473, 36);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(147, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(88, 22);
             this.simpleButton4.StyleController = this.layoutControl1;
             this.simpleButton4.TabIndex = 8;
             this.simpleButton4.Text = "Creer";
@@ -174,9 +173,9 @@ namespace KoloWin.Desktop
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.billTypeCodeTextEdit1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(397, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(277, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(156, 24);
             this.layoutControlItem9.Text = "Code:";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(57, 13);
             // 
@@ -185,48 +184,30 @@ namespace KoloWin.Desktop
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(402, 233);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(461, 233);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.simpleButton4;
-            this.layoutControlItem8.Location = new System.Drawing.Point(402, 24);
+            this.layoutControlItem8.Location = new System.Drawing.Point(461, 24);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(151, 233);
+            this.layoutControlItem8.Size = new System.Drawing.Size(92, 233);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.billTypeDescriptionTextEdit1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(277, 0);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(276, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(397, 24);
             this.layoutControlItem11.Text = "Description:";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // billTypeCodeTextEdit
-            // 
-            this.billTypeCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refBillTypesBindingSource, "BillTypeCode", true));
-            this.billTypeCodeTextEdit.Location = new System.Drawing.Point(96, 265);
-            this.billTypeCodeTextEdit.Name = "billTypeCodeTextEdit";
-            this.billTypeCodeTextEdit.Size = new System.Drawing.Size(212, 20);
-            this.billTypeCodeTextEdit.StyleController = this.dataLayoutControl1;
-            this.billTypeCodeTextEdit.TabIndex = 6;
             // 
             // refBillTypesBindingSource
             // 
             this.refBillTypesBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefBillType);
-            // 
-            // billTypeDescriptionTextEdit
-            // 
-            this.billTypeDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refBillTypesBindingSource, "BillTypeDescription", true));
-            this.billTypeDescriptionTextEdit.Location = new System.Drawing.Point(372, 265);
-            this.billTypeDescriptionTextEdit.Name = "billTypeDescriptionTextEdit";
-            this.billTypeDescriptionTextEdit.Size = new System.Drawing.Size(213, 20);
-            this.billTypeDescriptionTextEdit.StyleController = this.dataLayoutControl1;
-            this.billTypeDescriptionTextEdit.TabIndex = 8;
             // 
             // refBillTypesGridControl
             // 
@@ -235,7 +216,7 @@ namespace KoloWin.Desktop
             this.refBillTypesGridControl.MainView = this.gridView1;
             this.refBillTypesGridControl.Name = "refBillTypesGridControl";
             this.refBillTypesGridControl.Size = new System.Drawing.Size(573, 185);
-            this.refBillTypesGridControl.TabIndex = 4;
+            this.refBillTypesGridControl.TabIndex = 2;
             this.refBillTypesGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -253,7 +234,7 @@ namespace KoloWin.Desktop
             this.colBillTypeCode.FieldName = "BillTypeCode";
             this.colBillTypeCode.Name = "colBillTypeCode";
             this.colBillTypeCode.Visible = true;
-            this.colBillTypeCode.VisibleIndex = 0;
+            this.colBillTypeCode.VisibleIndex = 1;
             // 
             // colBillTypeDescription
             // 
@@ -261,7 +242,7 @@ namespace KoloWin.Desktop
             this.colBillTypeDescription.FieldName = "BillTypeDescription";
             this.colBillTypeDescription.Name = "colBillTypeDescription";
             this.colBillTypeDescription.Visible = true;
-            this.colBillTypeDescription.VisibleIndex = 1;
+            this.colBillTypeDescription.VisibleIndex = 0;
             // 
             // simpleButton1
             // 
@@ -269,7 +250,7 @@ namespace KoloWin.Desktop
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(57, 22);
             this.simpleButton1.StyleController = this.dataLayoutControl1;
-            this.simpleButton1.TabIndex = 9;
+            this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Actualiser";
             this.simpleButton1.Click += new System.EventHandler(this.btnActualiser);
             // 
@@ -279,7 +260,7 @@ namespace KoloWin.Desktop
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(63, 22);
             this.simpleButton2.StyleController = this.dataLayoutControl1;
-            this.simpleButton2.TabIndex = 10;
+            this.simpleButton2.TabIndex = 5;
             this.simpleButton2.Text = "Enregistrer";
             this.simpleButton2.Click += new System.EventHandler(this.btnEnregistrer);
             // 
@@ -289,7 +270,7 @@ namespace KoloWin.Desktop
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(58, 22);
             this.simpleButton3.StyleController = this.dataLayoutControl1;
-            this.simpleButton3.TabIndex = 11;
+            this.simpleButton3.TabIndex = 6;
             this.simpleButton3.Text = "Supprimer";
             this.simpleButton3.Click += new System.EventHandler(this.btnSupprimer);
             // 
@@ -307,8 +288,8 @@ namespace KoloWin.Desktop
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(601, 327);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
@@ -364,34 +345,6 @@ namespace KoloWin.Desktop
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem5});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 189);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(577, 66);
-            this.layoutControlGroup4.Text = "Details sur le type de facture";
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.billTypeCodeTextEdit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(276, 24);
-            this.layoutControlItem3.Text = "Code:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.billTypeDescriptionTextEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(276, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(277, 24);
-            this.layoutControlItem5.Text = "Description:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(57, 13);
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -418,6 +371,52 @@ namespace KoloWin.Desktop
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem5});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 189);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(577, 66);
+            this.layoutControlGroup4.Text = "Details sur le type de facture";
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.billTypeCodeTextEdit;
+            this.layoutControlItem3.Location = new System.Drawing.Point(310, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(243, 24);
+            this.layoutControlItem3.Text = "Code:";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // billTypeCodeTextEdit
+            // 
+            this.billTypeCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refBillTypesBindingSource, "BillTypeCode", true));
+            this.billTypeCodeTextEdit.Location = new System.Drawing.Point(406, 265);
+            this.billTypeCodeTextEdit.Name = "billTypeCodeTextEdit";
+            this.billTypeCodeTextEdit.Size = new System.Drawing.Size(179, 20);
+            this.billTypeCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.billTypeCodeTextEdit.TabIndex = 3;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.billTypeDescriptionTextEdit;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(310, 24);
+            this.layoutControlItem5.Text = "Description:";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // billTypeDescriptionTextEdit
+            // 
+            this.billTypeDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refBillTypesBindingSource, "BillTypeDescription", true));
+            this.billTypeDescriptionTextEdit.Location = new System.Drawing.Point(96, 265);
+            this.billTypeDescriptionTextEdit.Name = "billTypeDescriptionTextEdit";
+            this.billTypeDescriptionTextEdit.Size = new System.Drawing.Size(246, 20);
+            this.billTypeDescriptionTextEdit.StyleController = this.dataLayoutControl1;
+            this.billTypeDescriptionTextEdit.TabIndex = 8;
+            // 
             // RefBillTypesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,9 +438,7 @@ namespace KoloWin.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billTypeCodeTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refBillTypesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billTypeDescriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refBillTypesGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -451,12 +448,14 @@ namespace KoloWin.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billTypeCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billTypeDescriptionTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,9 +464,7 @@ namespace KoloWin.Desktop
         #endregion
 
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
-        private DevExpress.XtraEditors.TextEdit billTypeCodeTextEdit;
         private System.Windows.Forms.BindingSource refBillTypesBindingSource;
-        private DevExpress.XtraEditors.TextEdit billTypeDescriptionTextEdit;
         private DevExpress.XtraGrid.GridControl refBillTypesGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colBillTypeCode;
@@ -479,9 +476,6 @@ namespace KoloWin.Desktop
         private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
@@ -498,5 +492,10 @@ namespace KoloWin.Desktop
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraEditors.TextEdit billTypeCodeTextEdit;
+        private DevExpress.XtraEditors.TextEdit billTypeDescriptionTextEdit;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

@@ -43,8 +43,7 @@ namespace KoloWin.Desktop
             try
             {
                 var MaritalStatutToCreate = refCreateMaritalStatusBindingSource.Current as RefMaritalStatu;
-                MaritalStatutToCreate.MaritalStatusCode = txt2maritalStatusCodeTextEdit.Text;
-                MaritalStatutToCreate.MaritalStatusDescription = txt2maritalStatusDescriptionTextEdit.Text;
+               
 
                 if (MaritalStatutToCreate == null)
                 {
@@ -110,8 +109,7 @@ namespace KoloWin.Desktop
             try
             {
                 var MaritalStatusToUpdate = refMaritalStatusBindingSource.Current as RefMaritalStatu;
-                MaritalStatusToUpdate.MaritalStatusCode = txt2maritalStatusCodeTextEdit.Text;
-                MaritalStatusToUpdate.MaritalStatusDescription = txt2maritalStatusDescriptionTextEdit.Text;
+               
                 if (MaritalStatusToUpdate == null)
                 {
                     MessageBox.Show("Aucun statut matrimonial sélectionnée, l'opération ne peut continuer");

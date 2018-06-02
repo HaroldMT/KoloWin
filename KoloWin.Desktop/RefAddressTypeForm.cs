@@ -26,7 +26,7 @@ namespace KoloWin.Desktop
         public RefAddressTypeForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
         //Lorsqu'on clique sur le bouton actualiser
@@ -43,8 +43,9 @@ namespace KoloWin.Desktop
                 }
                 else
                 {
-                    Context.AddToRefAddressTypes(addressTypeToCreate);
-                    Context.SaveChanges();
+                    KoloContextHelper.Context.AddToRefAddressTypes(addressTypeToCreate);
+                    KoloContextHelper.Context.SaveChanges();
+                    refCreateAddressTypesBindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)
@@ -65,8 +66,8 @@ namespace KoloWin.Desktop
                 }
                 else
                 {
-                    Context.DeleteObject(addressTypeToDelete);
-                    Context.SaveChanges();
+                    KoloContextHelper.Context.DeleteObject(addressTypeToDelete);
+                    KoloContextHelper.Context.SaveChanges();
                 }
             }
             catch (Exception ex)
@@ -83,7 +84,7 @@ namespace KoloWin.Desktop
             refCreateAddressTypesBindingSource.ResetBindings(false);
 
             //Création du proxy du service
-            Context = new KoloGateway.KoloEntities(KoloUri);
+            KoloContextHelper.Context = new KoloGateway.KoloEntities(KoloUri);
 
             //Téléchargement de tous les types d'adresses
             var refAdressTypes = Context.RefAddressTypes.ToList();
@@ -110,8 +111,8 @@ namespace KoloWin.Desktop
                 }
                 else
                 {
-                    Context.UpdateObject(addressTypeToUpdate);
-                    Context.SaveChanges();
+                    KoloContextHelper.Context.UpdateObject(addressTypeToUpdate);
+                    KoloContextHelper.Context.SaveChanges();
                 }
             }
             catch (Exception ex)

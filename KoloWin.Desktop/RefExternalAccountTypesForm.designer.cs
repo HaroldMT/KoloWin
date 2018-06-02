@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.refExternalAccountTypesGridControl = new DevExpress.XtraGrid.GridControl();
-            this.refExternalAccountTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refExternalAccountTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,10 +55,10 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.RefCreerExternalAccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RefCreerExternalAccountBindingSource = new System.Windows.Forms.BindingSource();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refExternalAccountTypesGridControl)).BeginInit();
@@ -82,10 +81,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefCreerExternalAccountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -135,14 +134,14 @@
             this.gridColumn1.Caption = "Code";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.VisibleIndex = 1;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Description";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 0;
             // 
             // simpleButton1
             // 
@@ -176,7 +175,7 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(92, 328);
+            this.textEdit1.Location = new System.Drawing.Point(335, 328);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(183, 20);
             this.textEdit1.StyleController = this.layoutControl1;
@@ -184,7 +183,7 @@
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(335, 328);
+            this.textEdit2.Location = new System.Drawing.Point(92, 328);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(183, 20);
             this.textEdit2.StyleController = this.layoutControl1;
@@ -192,9 +191,9 @@
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(279, 70);
+            this.simpleButton4.Location = new System.Drawing.Point(430, 70);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(251, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(100, 22);
             this.simpleButton4.StyleController = this.layoutControl1;
             this.simpleButton4.TabIndex = 10;
             this.simpleButton4.Text = "Creer";
@@ -202,20 +201,20 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(335, 46);
+            this.txtDescription.Location = new System.Drawing.Point(80, 46);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(195, 20);
+            this.txtDescription.Size = new System.Drawing.Size(287, 20);
             this.txtDescription.StyleController = this.layoutControl1;
             this.txtDescription.TabIndex = 11;
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(80, 46);
+            this.txtCode.Location = new System.Drawing.Point(427, 46);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(195, 20);
+            this.txtCode.Size = new System.Drawing.Size(103, 20);
             this.txtCode.StyleController = this.layoutControl1;
             this.txtCode.TabIndex = 12;
-            this.txtCode.EditValueChanged += new System.EventHandler(this.txtCode_EditValueChanged);
+            //this.txtCode.EditValueChanged += new System.EventHandler(this.txtCode_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -231,8 +230,8 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup4;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(534, 390);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup3,
@@ -274,7 +273,7 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.textEdit1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(243, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(243, 24);
             this.layoutControlItem5.Text = "Code";
@@ -283,7 +282,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.textEdit2;
-            this.layoutControlItem6.Location = new System.Drawing.Point(243, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(243, 24);
             this.layoutControlItem6.Text = "Description";
@@ -327,10 +326,10 @@
             // layoutControlGroup4
             // 
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem9,
-            this.emptySpaceItem2,
+            this.emptySpaceItem3,
+            this.layoutControlItem7,
             this.layoutControlItem8,
-            this.layoutControlItem7});
+            this.layoutControlItem9});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(510, 344);
@@ -339,35 +338,27 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txtCode;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(347, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(255, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(163, 24);
             this.layoutControlItem9.Text = "Code";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(53, 13);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(255, 320);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.txtDescription;
-            this.layoutControlItem8.Location = new System.Drawing.Point(255, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(255, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(347, 24);
             this.layoutControlItem8.Text = "Description";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(53, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.simpleButton4;
-            this.layoutControlItem7.Location = new System.Drawing.Point(255, 24);
+            this.layoutControlItem7.Location = new System.Drawing.Point(406, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(255, 320);
+            this.layoutControlItem7.Size = new System.Drawing.Size(104, 320);
             this.layoutControlItem7.Text = "Creer";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
@@ -375,6 +366,14 @@
             // RefCreerExternalAccountBindingSource
             // 
             this.RefCreerExternalAccountBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefExternalAccountType);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(406, 320);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // RefExternalAccountTypesForm
             // 
@@ -406,10 +405,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefCreerExternalAccountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,9 +442,9 @@
         private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraEditors.TextEdit txtCode;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private System.Windows.Forms.BindingSource RefCreerExternalAccountBindingSource;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
     }
 }

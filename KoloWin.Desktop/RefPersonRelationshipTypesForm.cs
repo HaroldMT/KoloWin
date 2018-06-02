@@ -42,8 +42,7 @@ namespace KoloWin.Desktop
            try
             {
                 var PersonalRelationshipToCreate = refCreatePersonRelationshipTypesBindingSource.Current as RefPersonRelationshipType;
-                PersonalRelationshipToCreate.RelationshipTypeCode = txtrelationshipTypeCodeTextEdit1.Text;
-                PersonalRelationshipToCreate.RelationshipTypeDescription = txtrelationshipTypeDescriptionTextEdit1.Text;
+               
 
                 if (PersonalRelationshipToCreate == null)
                 {

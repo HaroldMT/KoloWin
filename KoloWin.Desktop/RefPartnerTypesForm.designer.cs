@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txt2partnerTypeCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.refCreatePartnerTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refCreatePartnerTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.txt2partnerTypeDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -41,7 +40,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.partnerTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.refPartnerTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refPartnerTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.partnerTypeDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refPartnerTypesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -304,8 +303,8 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup4;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(535, 332);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup3,
