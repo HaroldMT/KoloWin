@@ -48,9 +48,7 @@ namespace KoloWin.CustomerService
             var logAttempt = SerializationHelper.DeserializeFromJsonString<Poco.LoginAttempt>(jsonLogAttempt);
             var context = new Poco.KoloEntities();
             var context4Serialization = new KoloEntities4Serialization();
-            logAttempt = context4Serialization.LoginAttempts.Find(LoginHelper.DoLogin(logAttempt, context,out
-                 error));
-
+            logAttempt = context4Serialization.LoginAttempts.Find(LoginHelper.DoLogin(logAttempt, context,out error));
             return logAttempt;
         }
     }
