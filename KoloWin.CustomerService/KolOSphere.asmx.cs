@@ -66,14 +66,34 @@ namespace KoloWin.CustomerService
 
         #region Transfert Method For Good WOrkFlow
 
+
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Poco.Transfert2CashDetails GetTransfert2Cash(string jsonIdTransfert2CashDetails)
+        public Poco.TransfertP2p GetTransfertP2p(int idCustomer)
         {
             var Context = new Poco.KoloEntities();
             Context.Dispose();
             return null;
         }
+
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public Poco.Transfert2Cash GetTransfert2Cash(int idCustomer)
+        {
+            var Context = new Poco.KoloEntities();
+            Context.Dispose();
+            return null;
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public Poco.Transfert2CashDetails GetTransfert2CashDetails(int idTransfert2CashDetails)
+        {
+            var Context = new Poco.KoloEntities();
+            Context.Dispose();
+            return null;
+        }
+
 
         #endregion
 
