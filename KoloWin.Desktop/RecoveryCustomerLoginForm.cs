@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace KoloWin.Desktop
 {
-    public partial class Form1 : Form
+    public partial class RecoveryCustomerLoginForm : Form
     {
-        public Form1()
+        public RecoveryCustomerLoginForm()
         {
             InitializeComponent();
+        }
+
+        private void labelControl2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,14 +9,14 @@ namespace KoloWin.Desktop
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RefAddressTypeForm());
+            Application.Run(new RecoveryCustomerLoginForm());
         }
     }
 }

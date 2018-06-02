@@ -43,8 +43,6 @@
         <Property Name="IdCity" Type="Edm.Int32" />
         <Property Name="PostCode" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
         <NavigationProperty Name="City" Relationship="KoloModel.fk_Adresse_City" ToRole="City" FromRole="Adresse" />
-        <NavigationProperty Name="CustomerAddresses" Relationship="KoloModel.fk_CustomerAddress" ToRole="CustomerAddress" FromRole="Adresse" />
-        <NavigationProperty Name="PartnerAddresses" Relationship="KoloModel.fk_PartnerAddress_Address" ToRole="PartnerAddress" FromRole="Adresse" />
       </EntityType>
       <EntityType Name="Bill">
         <Key>
@@ -59,7 +57,6 @@
         <Property Name="TotalBillAmount" Type="Edm.Int32" Nullable="false" />
         <Property Name="LeftToPay" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="RefBillStatu" Relationship="KoloModel.fk_Bill" ToRole="RefBillStatus" FromRole="Bill" />
-        <NavigationProperty Name="BillPayments" Relationship="KoloModel.fk_BillPayement_Bill" ToRole="BillPayment" FromRole="Bill" />
         <NavigationProperty Name="RefBillType" Relationship="KoloModel.fk_Facture" ToRole="RefBillType" FromRole="Bill" />
         <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Facture_IssuingCustomer" ToRole="Customer" FromRole="Bill" />
         <NavigationProperty Name="Customer1" Relationship="KoloModel.fk_Facture_PayingCustomer" ToRole="Customer" FromRole="Bill" />
@@ -87,7 +84,6 @@
         <Property Name="BusinessName" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Business" ToRole="Customer" FromRole="Business" />
         <NavigationProperty Name="RefIndustryCategory" Relationship="KoloModel.fk_Business_IndustryCategory" ToRole="RefIndustryCategory" FromRole="Business" />
-        <NavigationProperty Name="BusinessContacts" Relationship="KoloModel.fk_BusinessContact_Business" ToRole="BusinessContact" FromRole="Business" />
       </EntityType>
       <EntityType Name="BusinessContact">
         <Key>
@@ -108,7 +104,6 @@
         <Property Name="CityName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         <Property Name="CountryCode" Type="Edm.String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         <Property Name="IdDistrict" Type="Edm.Int32" />
-        <NavigationProperty Name="Adresses" Relationship="KoloModel.fk_Adresse_City" ToRole="Adresse" FromRole="City" />
         <NavigationProperty Name="Country" Relationship="KoloModel.fk_City" ToRole="Country" FromRole="City" />
         <NavigationProperty Name="District" Relationship="KoloModel.fk_City_0" ToRole="District" FromRole="City" />
       </EntityType>
@@ -118,8 +113,6 @@
         </Key>
         <Property Name="CountryCode" Type="Edm.String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         <Property Name="CountryName" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Cities" Relationship="KoloModel.fk_City" ToRole="City" FromRole="Country" />
-        <NavigationProperty Name="People" Relationship="KoloModel.fk_Person" ToRole="Person" FromRole="Country" />
       </EntityType>
       <EntityType Name="Currency">
         <Key>
@@ -127,8 +120,6 @@
         </Key>
         <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
         <Property Name="CurrencyName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Customers" Relationship="KoloModel.fk_Customer_Currency" ToRole="Customer" FromRole="Currency" />
-        <NavigationProperty Name="Partners" Relationship="KoloModel.fk_Partner_0" ToRole="Partner" FromRole="Currency" />
       </EntityType>
       <EntityType Name="Customer">
         <Key>
@@ -140,34 +131,15 @@
         <Property Name="Balance" Type="Edm.Int32" Nullable="false" />
         <Property Name="DateCreated" Type="Edm.DateTime" Nullable="false" Precision="0" />
         <Property Name="IdRegistration" Type="Edm.Int32" />
-        <NavigationProperty Name="AccountOperationRequests" Relationship="KoloModel.fk_OperationRequest_CustomerAccount" ToRole="AccountOperationRequest" FromRole="Customer" />
-        <NavigationProperty Name="Bills" Relationship="KoloModel.fk_Facture_IssuingCustomer" ToRole="Bill" FromRole="Customer" />
-        <NavigationProperty Name="Bills1" Relationship="KoloModel.fk_Facture_PayingCustomer" ToRole="Bill" FromRole="Customer" />
-        <NavigationProperty Name="BillPayments" Relationship="KoloModel.fk_BillPayment_IssuingCustomer" ToRole="BillPayment" FromRole="Customer" />
-        <NavigationProperty Name="BillPayments1" Relationship="KoloModel.fk_BillPayment_PayingCustomer" ToRole="BillPayment" FromRole="Customer" />
         <NavigationProperty Name="Business" Relationship="KoloModel.fk_Business" ToRole="Business" FromRole="Customer" />
         <NavigationProperty Name="Currency" Relationship="KoloModel.fk_Customer_Currency" ToRole="Currency" FromRole="Customer" />
         <NavigationProperty Name="Registration" Relationship="KoloModel.fk_Customer" ToRole="Registration" FromRole="Customer" />
         <NavigationProperty Name="RefCustomerType" Relationship="KoloModel.fk_Customer_CustomerType" ToRole="RefCustomerType" FromRole="Customer" />
         <NavigationProperty Name="MobileDevice" Relationship="KoloModel.fk_Customer_Mobile" ToRole="MobileDevice" FromRole="Customer" />
-        <NavigationProperty Name="CustomerAddresses" Relationship="KoloModel.fk_CustomerAddress_0" ToRole="CustomerAddress" FromRole="Customer" />
-        <NavigationProperty Name="CustomerBalanceHistories" Relationship="KoloModel.fk_CustomerBalanceHistory" ToRole="CustomerBalanceHistory" FromRole="Customer" />
-        <NavigationProperty Name="CustomerGroups" Relationship="KoloModel.fk_CustomerGroup_MemberAccount" ToRole="CustomerGroup" FromRole="Customer" />
         <NavigationProperty Name="CustomerImage" Relationship="KoloModel.FK_CustomerImage_Customer" ToRole="CustomerImage" FromRole="Customer" />
         <NavigationProperty Name="CustomerLogin" Relationship="KoloModel.fk_CustomerLogin" ToRole="CustomerLogin" FromRole="Customer" />
-        <NavigationProperty Name="CustomerTags" Relationship="KoloModel.fk_customertags_customeraccount" ToRole="CustomerTags" FromRole="Customer" />
-        <NavigationProperty Name="ForeasNotifications" Relationship="KoloModel.fk_Notification_Customer" ToRole="ForeasNotification" FromRole="Customer" />
         <NavigationProperty Name="Partner" Relationship="KoloModel.fk_Partner_Customer" ToRole="Partner" FromRole="Customer" />
         <NavigationProperty Name="Person" Relationship="KoloModel.fk_Person_Customer" ToRole="Person" FromRole="Customer" />
-        <NavigationProperty Name="RecurringContributions" Relationship="KoloModel.fk_RecurringContribution_TreasuererCustomer" ToRole="RecurringContribution" FromRole="Customer" />
-        <NavigationProperty Name="Transfert2CashDetails" Relationship="KoloModel.fk_Transfert2CashDetails" ToRole="Transfert2CashDetails" FromRole="Customer" />
-        <NavigationProperty Name="TransfertE2e" Relationship="KoloModel.fk_TransfertE2e_Customer" ToRole="TransfertE2e" FromRole="Customer" />
-        <NavigationProperty Name="TransfertGroups" Relationship="KoloModel.fk_TransfertGroup_Sender" ToRole="TransfertGroup" FromRole="Customer" />
-        <NavigationProperty Name="TransfertGroupScheduleds" Relationship="KoloModel.fk_TransfertGroupScheduled_Sender" ToRole="TransfertGroupScheduled" FromRole="Customer" />
-        <NavigationProperty Name="TransfertP2p" Relationship="KoloModel.fk_TransfertP2p_Receiver" ToRole="TransfertP2p" FromRole="Customer" />
-        <NavigationProperty Name="TransfertScheduleds" Relationship="KoloModel.fk_TransfertScheduled_Customer" ToRole="TransfertScheduled" FromRole="Customer" />
-        <NavigationProperty Name="TransfertScheduleds1" Relationship="KoloModel.fk_TransfertScheduled_Sending" ToRole="TransfertScheduled" FromRole="Customer" />
-        <NavigationProperty Name="CustomerGroups1" Relationship="KoloModel.CustomerGroupAdmin" ToRole="CustomerGroup" FromRole="Customer" />
       </EntityType>
       <EntityType Name="CustomerAddress">
         <Key>
@@ -215,10 +187,6 @@
         <NavigationProperty Name="Customer" Relationship="KoloModel.fk_CustomerGroup_MemberAccount" ToRole="Customer" FromRole="CustomerGroup" />
         <NavigationProperty Name="RefGroupType" Relationship="KoloModel.fk_CustomerGroup_GroupType" ToRole="RefGroupType" FromRole="CustomerGroup" />
         <NavigationProperty Name="GroupImage" Relationship="KoloModel.FK_GroupImage_CustomerGroup" ToRole="GroupImage" FromRole="CustomerGroup" />
-        <NavigationProperty Name="RecurringContributions" Relationship="KoloModel.fk_RecurringContribution_CustomerGroup" ToRole="RecurringContribution" FromRole="CustomerGroup" />
-        <NavigationProperty Name="TransfertGroups" Relationship="KoloModel.fk_TransfertGroup_ReceiverGroup" ToRole="TransfertGroup" FromRole="CustomerGroup" />
-        <NavigationProperty Name="TransfertGroupScheduleds" Relationship="KoloModel.fk_TransfertGroupScheduled_ReceiverGroup" ToRole="TransfertGroupScheduled" FromRole="CustomerGroup" />
-        <NavigationProperty Name="Customers" Relationship="KoloModel.CustomerGroupAdmin" ToRole="Customer" FromRole="CustomerGroup" />
       </EntityType>
       <EntityType Name="CustomerImage">
         <Key>
@@ -244,7 +212,6 @@
         <Property Name="LoginStatusCode" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
         <NavigationProperty Name="Customer" Relationship="KoloModel.fk_CustomerLogin" ToRole="Customer" FromRole="CustomerLogin" />
         <NavigationProperty Name="RefLoginStatu" Relationship="KoloModel.fk_CustomerLogin_StatusCode" ToRole="RefLoginStatus" FromRole="CustomerLogin" />
-        <NavigationProperty Name="LoginAttempts" Relationship="KoloModel.fk_LoginAttempt_Customer" ToRole="LoginAttempt" FromRole="CustomerLogin" />
       </EntityType>
       <EntityType Name="CustomerTag">
         <Key>
@@ -263,7 +230,6 @@
         <Property Name="IdDistrict" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
         <Property Name="DistrictName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         <Property Name="CountryCode" Type="Edm.String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Cities" Relationship="KoloModel.fk_City_0" ToRole="City" FromRole="District" />
       </EntityType>
       <EntityType Name="ExternalAccount">
         <Key>
@@ -274,10 +240,7 @@
         <Property Name="ExternalPwd" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         <Property Name="ExternalAccountTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <NavigationProperty Name="CustomerExternalAccounts" Relationship="KoloModel.fk_Customer_ExternalAccount" ToRole="CustomerExternalAccount" FromRole="ExternalAccount" />
-        <NavigationProperty Name="ExternalAccountHistories" Relationship="KoloModel.fk_ExternalAccount_History" ToRole="ExternalAccountHistory" FromRole="ExternalAccount" />
         <NavigationProperty Name="RefExternalAccountType" Relationship="KoloModel.fk_ExternalAccount_Type" ToRole="RefExternalAccountType" FromRole="ExternalAccount" />
-        <NavigationProperty Name="TransfertE2e" Relationship="KoloModel.fk_TransfertE2e_Receiver" ToRole="TransfertE2e" FromRole="ExternalAccount" />
-        <NavigationProperty Name="TransfertE2e1" Relationship="KoloModel.fk_TransfertE2e_Sender" ToRole="TransfertE2e" FromRole="ExternalAccount" />
       </EntityType>
       <EntityType Name="ExternalAccountHistory">
         <Key>
@@ -362,15 +325,10 @@
         <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
         <Property Name="Balance" Type="Edm.Int32" Nullable="false" />
         <Property Name="DateCreated" Type="Edm.DateTime" Nullable="false" Precision="3" />
-        <NavigationProperty Name="AccountOperations" Relationship="KoloModel.fk_AccountOperation_2" ToRole="AccountOperation" FromRole="Partner" />
         <NavigationProperty Name="Currency" Relationship="KoloModel.fk_Partner_0" ToRole="Currency" FromRole="Partner" />
         <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Partner_Customer" ToRole="Customer" FromRole="Partner" />
         <NavigationProperty Name="RefPartnerType" Relationship="KoloModel.fk_Partner" ToRole="RefPartnerType" FromRole="Partner" />
-        <NavigationProperty Name="PartnerAddresses" Relationship="KoloModel.fk_PartnerAddress_Partner" ToRole="PartnerAddress" FromRole="Partner" />
-        <NavigationProperty Name="Provisions" Relationship="KoloModel.fk_Provision_ResellerPartnerAccount" ToRole="Provision" FromRole="Partner" />
-        <NavigationProperty Name="Provisions1" Relationship="KoloModel.fk_Provision_WholesalerPartnerAccount" ToRole="Provision" FromRole="Partner" />
         <NavigationProperty Name="Reseller" Relationship="KoloModel.fk_Reseller" ToRole="Reseller" FromRole="Partner" />
-        <NavigationProperty Name="Transfert2Cash" Relationship="KoloModel.fk_Transfert2Cash_PartnerAccount" ToRole="Transfert2Cash" FromRole="Partner" />
         <NavigationProperty Name="Wholesaler" Relationship="KoloModel.fk_Wholesaler" ToRole="Wholesaler" FromRole="Partner" />
       </EntityType>
       <EntityType Name="PartnerAddress">
@@ -394,8 +352,6 @@
         <Property Name="OldBalance" Type="Edm.Int32" Nullable="false" />
         <Property Name="NewBalance" Type="Edm.Int32" Nullable="false" />
         <Property Name="Amount" Type="Edm.Int32" Nullable="false" />
-        <NavigationProperty Name="AccountOperations" Relationship="KoloModel.fk_AccountOperation_History" ToRole="AccountOperation" FromRole="PartnerBalanceHistory" />
-        <NavigationProperty Name="Provisions" Relationship="KoloModel.fk_Provision_History" ToRole="Provision" FromRole="PartnerBalanceHistory" />
       </EntityType>
       <EntityType Name="Person">
         <Key>
@@ -410,13 +366,12 @@
         <Property Name="DateOfBirth" Type="Edm.DateTime" Precision="0" />
         <Property Name="DateCreated" Type="Edm.DateTime" Precision="3" />
         <Property Name="CountryCode" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="BusinessContacts" Relationship="KoloModel.fk_BusinessContact_Contact" ToRole="BusinessContact" FromRole="Person" />
         <NavigationProperty Name="Country" Relationship="KoloModel.fk_Person" ToRole="Country" FromRole="Person" />
         <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Person_Customer" ToRole="Customer" FromRole="Person" />
         <NavigationProperty Name="RefGender" Relationship="KoloModel.fk_Person_Gender" ToRole="RefGender" FromRole="Person" />
         <NavigationProperty Name="RefMaritalStatu" Relationship="KoloModel.fk_Person_MaritalStatus" ToRole="RefMaritalStatus" FromRole="Person" />
         <NavigationProperty Name="PersonRelationship" Relationship="KoloModel.fk_Relationship_Customer" ToRole="PersonRelationship" FromRole="Person" />
-        <NavigationProperty Name="PersonRelationships" Relationship="KoloModel.fk_Relationship_PersonRelation" ToRole="PersonRelationship" FromRole="Person" />
+        <NavigationProperty Name="KoloUser" Relationship="KoloModel.FK_User_Person1" ToRole="KoloUser" FromRole="Person" />
       </EntityType>
       <EntityType Name="PersonRelationship">
         <Key>
@@ -469,7 +424,6 @@
         </Key>
         <Property Name="BillStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="BillStatusDescription" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Bills" Relationship="KoloModel.fk_Bill" ToRole="Bill" FromRole="RefBillStatus" />
       </EntityType>
       <EntityType Name="RefBillType">
         <Key>
@@ -477,7 +431,6 @@
         </Key>
         <Property Name="BillTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="BillTypeDescription" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Bills" Relationship="KoloModel.fk_Facture" ToRole="Bill" FromRole="RefBillType" />
       </EntityType>
       <EntityType Name="RefCustomerType">
         <Key>
@@ -485,7 +438,6 @@
         </Key>
         <Property Name="CustomerTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="CustomerTypeDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Customers" Relationship="KoloModel.fk_Customer_CustomerType" ToRole="Customer" FromRole="RefCustomerType" />
       </EntityType>
       <EntityType Name="RefExternalAccountType">
         <Key>
@@ -493,7 +445,6 @@
         </Key>
         <Property Name="ExternalAccountTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="ExternalAccountTypeDescription" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="ExternalAccounts" Relationship="KoloModel.fk_ExternalAccount_Type" ToRole="ExternalAccount" FromRole="RefExternalAccountType" />
       </EntityType>
       <EntityType Name="RefGender">
         <Key>
@@ -501,7 +452,6 @@
         </Key>
         <Property Name="GenderCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="GenderDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="People" Relationship="KoloModel.fk_Person_Gender" ToRole="Person" FromRole="RefGender" />
       </EntityType>
       <EntityType Name="RefGroupType">
         <Key>
@@ -509,7 +459,6 @@
         </Key>
         <Property Name="GroupTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="GroupTypeDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="CustomerGroups" Relationship="KoloModel.fk_CustomerGroup_GroupType" ToRole="CustomerGroup" FromRole="RefGroupType" />
       </EntityType>
       <EntityType Name="RefIndustryCategory">
         <Key>
@@ -517,7 +466,6 @@
         </Key>
         <Property Name="IndustryCategoryCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="IndustryCategoryDescrption" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Businesses" Relationship="KoloModel.fk_Business_IndustryCategory" ToRole="Business" FromRole="RefIndustryCategory" />
       </EntityType>
       <EntityType Name="RefLoginStatu">
         <Key>
@@ -525,7 +473,7 @@
         </Key>
         <Property Name="LoginStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="LoginStatusDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="CustomerLogins" Relationship="KoloModel.fk_CustomerLogin_StatusCode" ToRole="CustomerLogin" FromRole="RefLoginStatus" />
+        <NavigationProperty Name="KoloUsers" Relationship="KoloModel.FK_User_RefLoginStatus1" ToRole="KoloUser" FromRole="RefLoginStatu" />
       </EntityType>
       <EntityType Name="RefMaritalStatu">
         <Key>
@@ -533,7 +481,6 @@
         </Key>
         <Property Name="MaritalStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="MaritalStatusDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="People" Relationship="KoloModel.fk_Person_MaritalStatus" ToRole="Person" FromRole="RefMaritalStatus" />
       </EntityType>
       <EntityType Name="RefOperationStatu">
         <Key>
@@ -541,8 +488,6 @@
         </Key>
         <Property Name="OperationStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="OperationStatusDescription" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="AccountOperations" Relationship="KoloModel.fk_AccountOperation" ToRole="AccountOperation" FromRole="RefOperationStatus" />
-        <NavigationProperty Name="AccountOperationRequests" Relationship="KoloModel.FK_AccountOperationRequest_RefOperationStatus" ToRole="AccountOperationRequest" FromRole="RefOperationStatus" />
       </EntityType>
       <EntityType Name="RefOperationType">
         <Key>
@@ -550,10 +495,6 @@
         </Key>
         <Property Name="OperationTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="OperationTypeName" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="AccountOperations" Relationship="KoloModel.fk_AccountOperation_3" ToRole="AccountOperation" FromRole="RefOperationType" />
-        <NavigationProperty Name="AccountOperationRequests" Relationship="KoloModel.FK_AccountOperationRequest_RefOperationType" ToRole="AccountOperationRequest" FromRole="RefOperationType" />
-        <NavigationProperty Name="CustomerBalanceHistories" Relationship="KoloModel.fk_CustomerBalanceHistory_0" ToRole="CustomerBalanceHistory" FromRole="RefOperationType" />
-        <NavigationProperty Name="TransfertE2e" Relationship="KoloModel.fk_TransfertE2e_OperationtType" ToRole="TransfertE2e" FromRole="RefOperationType" />
       </EntityType>
       <EntityType Name="RefPartnerType">
         <Key>
@@ -561,7 +502,6 @@
         </Key>
         <Property Name="PartnerTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="PartnerTypeDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Partners" Relationship="KoloModel.fk_Partner" ToRole="Partner" FromRole="RefPartnerType" />
       </EntityType>
       <EntityType Name="RefPersonRelationshipType">
         <Key>
@@ -569,7 +509,6 @@
         </Key>
         <Property Name="RelationshipTypeCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="RelationshipTypeDescription" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="PersonRelationships" Relationship="KoloModel.fk_Relationship_TypeCode" ToRole="PersonRelationship" FromRole="RefPersonRelationshipType" />
       </EntityType>
       <EntityType Name="RefProvisionStatu">
         <Key>
@@ -577,7 +516,6 @@
         </Key>
         <Property Name="ProvisionStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="ProvisionStatusDescription" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Provisions" Relationship="KoloModel.fk_Provision_StatusCode" ToRole="Provision" FromRole="RefProvisionStatus" />
       </EntityType>
       <EntityType Name="RefRegistrationStatu">
         <Key>
@@ -585,7 +523,6 @@
         </Key>
         <Property Name="RegistrationStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="RegistrationStatusDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Registrations" Relationship="KoloModel.fk_Registration" ToRole="Registration" FromRole="RefRegistrationStatus" />
       </EntityType>
       <EntityType Name="RefResult">
         <Key>
@@ -593,7 +530,6 @@
         </Key>
         <Property Name="ResultCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="ResultDescription" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="LoginAttempts" Relationship="KoloModel.fk_LoginAttempt_ResultCode" ToRole="LoginAttempt" FromRole="RefResult" />
       </EntityType>
       <EntityType Name="RefTransfertStatu">
         <Key>
@@ -601,8 +537,6 @@
         </Key>
         <Property Name="TransfertStatusCode" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
         <Property Name="TransfertStatusDescription" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="TransfertE2e" Relationship="KoloModel.fk_TransfertE2e_StatusCode" ToRole="TransfertE2e" FromRole="RefTransfertStatus" />
-        <NavigationProperty Name="TransfertGroups" Relationship="KoloModel.fk_TransfertGroup_StatusCode" ToRole="TransfertGroup" FromRole="RefTransfertStatus" />
       </EntityType>
       <EntityType Name="Registration">
         <Key>
@@ -624,7 +558,6 @@
         <Property Name="RegistrationTokenExpiryDate" Type="Edm.DateTime" Precision="3" />
         <Property Name="Pwd" Type="Edm.String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
         <Property Name="DeviceId" Type="Edm.String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="Customers" Relationship="KoloModel.fk_Customer" ToRole="Customer" FromRole="Registration" />
         <NavigationProperty Name="RefRegistrationStatu" Relationship="KoloModel.fk_Registration" ToRole="RefRegistrationStatus" FromRole="Registration" />
       </EntityType>
       <EntityType Name="Reseller">
@@ -641,7 +574,6 @@
         </Key>
         <Property Name="IdTag" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
         <Property Name="TagName" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        <NavigationProperty Name="CustomerTags" Relationship="KoloModel.fk_customertags_tag" ToRole="CustomerTags" FromRole="Tag" />
       </EntityType>
       <EntityType Name="Transfert2Cash">
         <Key>
@@ -743,6 +675,24 @@
         </Key>
         <Property Name="IdPartner" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
         <NavigationProperty Name="Partner" Relationship="KoloModel.fk_Wholesaler" ToRole="Partner" FromRole="Wholesaler" />
+      </EntityType>
+      <EntityType Name="KoloUser">
+        <Key>
+          <PropertyRef Name="IdCustomer" />
+        </Key>
+        <Property Name="IdCustomer" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UserLogin" Type="Edm.String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="NumberVerified" Type="Edm.Boolean" />
+        <Property Name="EmailAddress" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="EmailAddressVerified" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="PwdSalt" Type="Edm.String" MaxLength="256" FixedLength="false" Unicode="true" />
+        <Property Name="Pwd" Type="Edm.String" MaxLength="256" FixedLength="false" Unicode="true" />
+        <Property Name="RecoveryToken" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
+        <Property Name="RecoveryTokenExpiryDate" Type="Edm.DateTime" Precision="3" />
+        <Property Name="LoginStatusCode" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Person" Relationship="KoloModel.FK_User_Person1" ToRole="Person" FromRole="KoloUser" />
+        <NavigationProperty Name="RefLoginStatu" Relationship="KoloModel.FK_User_RefLoginStatus1" ToRole="RefLoginStatu" FromRole="KoloUser" />
       </EntityType>
       <Association Name="fk_AccountOperation">
         <End Type="KoloModel.RefOperationStatu" Role="RefOperationStatus" Multiplicity="0..1" />
@@ -852,30 +802,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_CustomerAddress">
-        <End Type="KoloModel.Adresse" Role="Adresse" Multiplicity="1" />
-        <End Type="KoloModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Adresse">
-            <PropertyRef Name="IdAddress" />
-          </Principal>
-          <Dependent Role="CustomerAddress">
-            <PropertyRef Name="IdAddress" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_PartnerAddress_Address">
-        <End Type="KoloModel.Adresse" Role="Adresse" Multiplicity="1" />
-        <End Type="KoloModel.PartnerAddress" Role="PartnerAddress" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Adresse">
-            <PropertyRef Name="IdAddress" />
-          </Principal>
-          <Dependent Role="PartnerAddress">
-            <PropertyRef Name="IdAddress" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
       <Association Name="fk_Bill">
         <End Type="KoloModel.RefBillStatu" Role="RefBillStatus" Multiplicity="0..1" />
         <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
@@ -885,18 +811,6 @@
           </Principal>
           <Dependent Role="Bill">
             <PropertyRef Name="CodeRefBillStatus" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_BillPayement_Bill">
-        <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
-        <End Type="KoloModel.BillPayment" Role="BillPayment" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Bill">
-            <PropertyRef Name="IdBill" />
-          </Principal>
-          <Dependent Role="BillPayment">
-            <PropertyRef Name="IdBill" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -933,6 +847,18 @@
           </Principal>
           <Dependent Role="Bill">
             <PropertyRef Name="IdPayingCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_BillPayement_Bill">
+        <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
+        <End Type="KoloModel.BillPayment" Role="BillPayment" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Bill">
+            <PropertyRef Name="IdBill" />
+          </Principal>
+          <Dependent Role="BillPayment">
+            <PropertyRef Name="IdBill" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1032,18 +958,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_Person">
-        <End Type="KoloModel.Country" Role="Country" Multiplicity="0..1" />
-        <End Type="KoloModel.Person" Role="Person" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Country">
-            <PropertyRef Name="CountryCode" />
-          </Principal>
-          <Dependent Role="Person">
-            <PropertyRef Name="CountryCode" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
       <Association Name="fk_Customer_Currency">
         <End Type="KoloModel.Currency" Role="Currency" Multiplicity="1" />
         <End Type="KoloModel.Customer" Role="Customer" Multiplicity="*" />
@@ -1052,18 +966,6 @@
             <PropertyRef Name="CurrencyCode" />
           </Principal>
           <Dependent Role="Customer">
-            <PropertyRef Name="CurrencyCode" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_Partner_0">
-        <End Type="KoloModel.Currency" Role="Currency" Multiplicity="1" />
-        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Currency">
-            <PropertyRef Name="CurrencyCode" />
-          </Principal>
-          <Dependent Role="Partner">
             <PropertyRef Name="CurrencyCode" />
           </Dependent>
         </ReferentialConstraint>
@@ -1108,42 +1010,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_CustomerAddress_0">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="CustomerAddress">
-            <PropertyRef Name="IdCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_CustomerBalanceHistory">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.CustomerBalanceHistory" Role="CustomerBalanceHistory" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="CustomerBalanceHistory">
-            <PropertyRef Name="IdCustomerAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_CustomerGroup_MemberAccount">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="CustomerGroup">
-            <PropertyRef Name="IdMemberCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
       <Association Name="FK_CustomerImage_Customer">
         <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
         <End Type="KoloModel.CustomerImage" Role="CustomerImage" Multiplicity="0..1" />
@@ -1166,30 +1032,6 @@
             <PropertyRef Name="IdCustomer" />
           </Principal>
           <Dependent Role="CustomerLogin">
-            <PropertyRef Name="IdCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_customertags_customeraccount">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="0..1" />
-        <End Type="KoloModel.CustomerTag" Role="CustomerTags" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="CustomerTags">
-            <PropertyRef Name="IdCustomerAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_Notification_Customer">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.ForeasNotification" Role="ForeasNotification" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="ForeasNotification">
             <PropertyRef Name="IdCustomer" />
           </Dependent>
         </ReferentialConstraint>
@@ -1220,105 +1062,41 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_RecurringContribution_TreasuererCustomer">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.RecurringContribution" Role="RecurringContribution" Multiplicity="*" />
+      <Association Name="fk_CustomerAddress">
+        <End Type="KoloModel.Adresse" Role="Adresse" Multiplicity="1" />
+        <End Type="KoloModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
         <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
+          <Principal Role="Adresse">
+            <PropertyRef Name="IdAddress" />
           </Principal>
-          <Dependent Role="RecurringContribution">
-            <PropertyRef Name="IdTreasurerCustomer" />
+          <Dependent Role="CustomerAddress">
+            <PropertyRef Name="IdAddress" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_Transfert2CashDetails">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="0..1" />
-        <End Type="KoloModel.Transfert2CashDetails" Role="Transfert2CashDetails" Multiplicity="*" />
+      <Association Name="fk_CustomerAddress_0">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
         <ReferentialConstraint>
           <Principal Role="Customer">
             <PropertyRef Name="IdCustomer" />
           </Principal>
-          <Dependent Role="Transfert2CashDetails">
+          <Dependent Role="CustomerAddress">
+            <PropertyRef Name="IdCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_CustomerBalanceHistory">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.CustomerBalanceHistory" Role="CustomerBalanceHistory" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="CustomerBalanceHistory">
             <PropertyRef Name="IdCustomerAccount" />
           </Dependent>
         </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertE2e_Customer">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="TransfertE2e">
-            <PropertyRef Name="IdCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertGroup_Sender">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.TransfertGroup" Role="TransfertGroup" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="TransfertGroup">
-            <PropertyRef Name="IdSendingCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertGroupScheduled_Sender">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.TransfertGroupScheduled" Role="TransfertGroupScheduled" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="TransfertGroupScheduled">
-            <PropertyRef Name="IdSendingCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertP2p_Receiver">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="0..1" />
-        <End Type="KoloModel.TransfertP2p" Role="TransfertP2p" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="TransfertP2p">
-            <PropertyRef Name="IdReceiverCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertScheduled_Customer">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.TransfertScheduled" Role="TransfertScheduled" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="TransfertScheduled">
-            <PropertyRef Name="IdReceiverCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertScheduled_Sending">
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-        <End Type="KoloModel.TransfertScheduled" Role="TransfertScheduled" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Customer">
-            <PropertyRef Name="IdCustomer" />
-          </Principal>
-          <Dependent Role="TransfertScheduled">
-            <PropertyRef Name="IdSendingCustomer" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="CustomerGroupAdmin">
-        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
-        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="*" />
       </Association>
       <Association Name="fk_CustomerBalanceHistory_0">
         <End Type="KoloModel.RefOperationType" Role="RefOperationType" Multiplicity="1" />
@@ -1341,6 +1119,18 @@
           </Principal>
           <Dependent Role="CustomerExternalAccount">
             <PropertyRef Name="IdExternalAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_CustomerGroup_MemberAccount">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="CustomerGroup">
+            <PropertyRef Name="IdMemberCustomer" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1368,42 +1158,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_RecurringContribution_CustomerGroup">
-        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="1" />
-        <End Type="KoloModel.RecurringContribution" Role="RecurringContribution" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="CustomerGroup">
-            <PropertyRef Name="IdCustomerGroup" />
-          </Principal>
-          <Dependent Role="RecurringContribution">
-            <PropertyRef Name="IdCustomerGroup" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertGroup_ReceiverGroup">
-        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="1" />
-        <End Type="KoloModel.TransfertGroup" Role="TransfertGroup" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="CustomerGroup">
-            <PropertyRef Name="IdCustomerGroup" />
-          </Principal>
-          <Dependent Role="TransfertGroup">
-            <PropertyRef Name="IdReceiverGroup" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertGroupScheduled_ReceiverGroup">
-        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="1" />
-        <End Type="KoloModel.TransfertGroupScheduled" Role="TransfertGroupScheduled" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="CustomerGroup">
-            <PropertyRef Name="IdCustomerGroup" />
-          </Principal>
-          <Dependent Role="TransfertGroupScheduled">
-            <PropertyRef Name="IdReceiverGroup" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
       <Association Name="fk_CustomerLogin_StatusCode">
         <End Type="KoloModel.RefLoginStatu" Role="RefLoginStatus" Multiplicity="0..1" />
         <End Type="KoloModel.CustomerLogin" Role="CustomerLogin" Multiplicity="*" />
@@ -1413,6 +1167,66 @@
           </Principal>
           <Dependent Role="CustomerLogin">
             <PropertyRef Name="LoginStatusCode" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_customertags_customeraccount">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="0..1" />
+        <End Type="KoloModel.CustomerTag" Role="CustomerTags" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="CustomerTags">
+            <PropertyRef Name="IdCustomerAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_customertags_tag">
+        <End Type="KoloModel.Tag" Role="Tag" Multiplicity="0..1" />
+        <End Type="KoloModel.CustomerTag" Role="CustomerTags" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Tag">
+            <PropertyRef Name="IdTag" />
+          </Principal>
+          <Dependent Role="CustomerTags">
+            <PropertyRef Name="IdTag" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_ExternalAccount_Type">
+        <End Type="KoloModel.RefExternalAccountType" Role="RefExternalAccountType" Multiplicity="1" />
+        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="RefExternalAccountType">
+            <PropertyRef Name="ExternalAccountTypeCode" />
+          </Principal>
+          <Dependent Role="ExternalAccount">
+            <PropertyRef Name="ExternalAccountTypeCode" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_ExternalAccount_History">
+        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
+        <End Type="KoloModel.ExternalAccountHistory" Role="ExternalAccountHistory" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="ExternalAccount">
+            <PropertyRef Name="IdExternalAccount" />
+          </Principal>
+          <Dependent Role="ExternalAccountHistory">
+            <PropertyRef Name="IdExternalAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_Notification_Customer">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.ForeasNotification" Role="ForeasNotification" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="ForeasNotification">
+            <PropertyRef Name="IdCustomer" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1430,66 +1244,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_customertags_tag">
-        <End Type="KoloModel.Tag" Role="Tag" Multiplicity="0..1" />
-        <End Type="KoloModel.CustomerTag" Role="CustomerTags" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Tag">
-            <PropertyRef Name="IdTag" />
-          </Principal>
-          <Dependent Role="CustomerTags">
-            <PropertyRef Name="IdTag" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_ExternalAccount_History">
-        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
-        <End Type="KoloModel.ExternalAccountHistory" Role="ExternalAccountHistory" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="ExternalAccount">
-            <PropertyRef Name="IdExternalAccount" />
-          </Principal>
-          <Dependent Role="ExternalAccountHistory">
-            <PropertyRef Name="IdExternalAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_ExternalAccount_Type">
-        <End Type="KoloModel.RefExternalAccountType" Role="RefExternalAccountType" Multiplicity="1" />
-        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="RefExternalAccountType">
-            <PropertyRef Name="ExternalAccountTypeCode" />
-          </Principal>
-          <Dependent Role="ExternalAccount">
-            <PropertyRef Name="ExternalAccountTypeCode" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertE2e_Receiver">
-        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
-        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="ExternalAccount">
-            <PropertyRef Name="IdExternalAccount" />
-          </Principal>
-          <Dependent Role="TransfertE2e">
-            <PropertyRef Name="IdReceiverExternalAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_TransfertE2e_Sender">
-        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
-        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="ExternalAccount">
-            <PropertyRef Name="IdExternalAccount" />
-          </Principal>
-          <Dependent Role="TransfertE2e">
-            <PropertyRef Name="IdSendingExternalAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
       <Association Name="fk_LoginAttempt_ResultCode">
         <End Type="KoloModel.RefResult" Role="RefResult" Multiplicity="1" />
         <End Type="KoloModel.LoginAttempt" Role="LoginAttempt" Multiplicity="*" />
@@ -1499,6 +1253,18 @@
           </Principal>
           <Dependent Role="LoginAttempt">
             <PropertyRef Name="ResultCode" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_Partner_0">
+        <End Type="KoloModel.Currency" Role="Currency" Multiplicity="1" />
+        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Currency">
+            <PropertyRef Name="CurrencyCode" />
+          </Principal>
+          <Dependent Role="Partner">
+            <PropertyRef Name="CurrencyCode" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1514,42 +1280,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_PartnerAddress_Partner">
-        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
-        <End Type="KoloModel.PartnerAddress" Role="PartnerAddress" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Partner">
-            <PropertyRef Name="IdPartner" />
-          </Principal>
-          <Dependent Role="PartnerAddress">
-            <PropertyRef Name="IdPartner" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_Provision_ResellerPartnerAccount">
-        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
-        <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Partner">
-            <PropertyRef Name="IdPartner" />
-          </Principal>
-          <Dependent Role="Provision">
-            <PropertyRef Name="IdResellerPartnerAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_Provision_WholesalerPartnerAccount">
-        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
-        <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Partner">
-            <PropertyRef Name="IdPartner" />
-          </Principal>
-          <Dependent Role="Provision">
-            <PropertyRef Name="IdWholesalerPartnerAccount" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
       <Association Name="fk_Reseller">
         <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
         <End Type="KoloModel.Reseller" Role="Reseller" Multiplicity="0..1" />
@@ -1559,18 +1289,6 @@
           </Principal>
           <Dependent Role="Reseller">
             <PropertyRef Name="IdPartner" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="fk_Transfert2Cash_PartnerAccount">
-        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
-        <End Type="KoloModel.Transfert2Cash" Role="Transfert2Cash" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Partner">
-            <PropertyRef Name="IdPartner" />
-          </Principal>
-          <Dependent Role="Transfert2Cash">
-            <PropertyRef Name="IdPartnerAccount" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1586,15 +1304,39 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_Provision_History">
-        <End Type="KoloModel.PartnerBalanceHistory" Role="PartnerBalanceHistory" Multiplicity="1" />
-        <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
+      <Association Name="fk_PartnerAddress_Address">
+        <End Type="KoloModel.Adresse" Role="Adresse" Multiplicity="1" />
+        <End Type="KoloModel.PartnerAddress" Role="PartnerAddress" Multiplicity="*" />
         <ReferentialConstraint>
-          <Principal Role="PartnerBalanceHistory">
-            <PropertyRef Name="IdPatnerHistory" />
+          <Principal Role="Adresse">
+            <PropertyRef Name="IdAddress" />
           </Principal>
-          <Dependent Role="Provision">
-            <PropertyRef Name="IdPatnerHistory" />
+          <Dependent Role="PartnerAddress">
+            <PropertyRef Name="IdAddress" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_PartnerAddress_Partner">
+        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
+        <End Type="KoloModel.PartnerAddress" Role="PartnerAddress" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Partner">
+            <PropertyRef Name="IdPartner" />
+          </Principal>
+          <Dependent Role="PartnerAddress">
+            <PropertyRef Name="IdPartner" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_Person">
+        <End Type="KoloModel.Country" Role="Country" Multiplicity="0..1" />
+        <End Type="KoloModel.Person" Role="Person" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Country">
+            <PropertyRef Name="CountryCode" />
+          </Principal>
+          <Dependent Role="Person">
+            <PropertyRef Name="CountryCode" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1634,6 +1376,18 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="FK_User_Person1">
+        <End Type="KoloModel.Person" Role="Person" Multiplicity="1" />
+        <End Type="KoloModel.KoloUser" Role="KoloUser" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="Person">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="KoloUser">
+            <PropertyRef Name="IdCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
       <Association Name="fk_Relationship_PersonRelation">
         <End Type="KoloModel.Person" Role="Person" Multiplicity="1" />
         <End Type="KoloModel.PersonRelationship" Role="PersonRelationship" Multiplicity="*" />
@@ -1658,6 +1412,42 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="fk_Provision_ResellerPartnerAccount">
+        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
+        <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Partner">
+            <PropertyRef Name="IdPartner" />
+          </Principal>
+          <Dependent Role="Provision">
+            <PropertyRef Name="IdResellerPartnerAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_Provision_WholesalerPartnerAccount">
+        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
+        <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Partner">
+            <PropertyRef Name="IdPartner" />
+          </Principal>
+          <Dependent Role="Provision">
+            <PropertyRef Name="IdWholesalerPartnerAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_Provision_History">
+        <End Type="KoloModel.PartnerBalanceHistory" Role="PartnerBalanceHistory" Multiplicity="1" />
+        <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="PartnerBalanceHistory">
+            <PropertyRef Name="IdPatnerHistory" />
+          </Principal>
+          <Dependent Role="Provision">
+            <PropertyRef Name="IdPatnerHistory" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
       <Association Name="fk_Provision_StatusCode">
         <End Type="KoloModel.RefProvisionStatu" Role="RefProvisionStatus" Multiplicity="0..1" />
         <End Type="KoloModel.Provision" Role="Provision" Multiplicity="*" />
@@ -1670,15 +1460,39 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="fk_TransfertE2e_OperationtType">
-        <End Type="KoloModel.RefOperationType" Role="RefOperationType" Multiplicity="1" />
-        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+      <Association Name="fk_RecurringContribution_TreasuererCustomer">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.RecurringContribution" Role="RecurringContribution" Multiplicity="*" />
         <ReferentialConstraint>
-          <Principal Role="RefOperationType">
-            <PropertyRef Name="OperationTypeCode" />
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
           </Principal>
-          <Dependent Role="TransfertE2e">
-            <PropertyRef Name="OperationTypeCode" />
+          <Dependent Role="RecurringContribution">
+            <PropertyRef Name="IdTreasurerCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_RecurringContribution_CustomerGroup">
+        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="1" />
+        <End Type="KoloModel.RecurringContribution" Role="RecurringContribution" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="CustomerGroup">
+            <PropertyRef Name="IdCustomerGroup" />
+          </Principal>
+          <Dependent Role="RecurringContribution">
+            <PropertyRef Name="IdCustomerGroup" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_User_RefLoginStatus1">
+        <End Type="KoloModel.RefLoginStatu" Role="RefLoginStatu" Multiplicity="0..1" />
+        <End Type="KoloModel.KoloUser" Role="KoloUser" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="RefLoginStatu">
+            <PropertyRef Name="LoginStatusCode" />
+          </Principal>
+          <Dependent Role="KoloUser">
+            <PropertyRef Name="LoginStatusCode" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1694,6 +1508,78 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="fk_Transfert2Cash_PartnerAccount">
+        <End Type="KoloModel.Partner" Role="Partner" Multiplicity="1" />
+        <End Type="KoloModel.Transfert2Cash" Role="Transfert2Cash" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Partner">
+            <PropertyRef Name="IdPartner" />
+          </Principal>
+          <Dependent Role="Transfert2Cash">
+            <PropertyRef Name="IdPartnerAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_Transfert2CashDetails">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="0..1" />
+        <End Type="KoloModel.Transfert2CashDetails" Role="Transfert2CashDetails" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="Transfert2CashDetails">
+            <PropertyRef Name="IdCustomerAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertE2e_Customer">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="TransfertE2e">
+            <PropertyRef Name="IdCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertE2e_Receiver">
+        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
+        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="ExternalAccount">
+            <PropertyRef Name="IdExternalAccount" />
+          </Principal>
+          <Dependent Role="TransfertE2e">
+            <PropertyRef Name="IdReceiverExternalAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertE2e_Sender">
+        <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
+        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="ExternalAccount">
+            <PropertyRef Name="IdExternalAccount" />
+          </Principal>
+          <Dependent Role="TransfertE2e">
+            <PropertyRef Name="IdSendingExternalAccount" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertE2e_OperationtType">
+        <End Type="KoloModel.RefOperationType" Role="RefOperationType" Multiplicity="1" />
+        <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="RefOperationType">
+            <PropertyRef Name="OperationTypeCode" />
+          </Principal>
+          <Dependent Role="TransfertE2e">
+            <PropertyRef Name="OperationTypeCode" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
       <Association Name="fk_TransfertE2e_StatusCode">
         <End Type="KoloModel.RefTransfertStatu" Role="RefTransfertStatus" Multiplicity="1" />
         <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
@@ -1703,6 +1589,30 @@
           </Principal>
           <Dependent Role="TransfertE2e">
             <PropertyRef Name="TransfertStatusCode" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertGroup_Sender">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.TransfertGroup" Role="TransfertGroup" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="TransfertGroup">
+            <PropertyRef Name="IdSendingCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertGroup_ReceiverGroup">
+        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="1" />
+        <End Type="KoloModel.TransfertGroup" Role="TransfertGroup" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="CustomerGroup">
+            <PropertyRef Name="IdCustomerGroup" />
+          </Principal>
+          <Dependent Role="TransfertGroup">
+            <PropertyRef Name="IdReceiverGroup" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1718,8 +1628,68 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="fk_TransfertGroupScheduled_Sender">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.TransfertGroupScheduled" Role="TransfertGroupScheduled" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="TransfertGroupScheduled">
+            <PropertyRef Name="IdSendingCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertGroupScheduled_ReceiverGroup">
+        <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="1" />
+        <End Type="KoloModel.TransfertGroupScheduled" Role="TransfertGroupScheduled" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="CustomerGroup">
+            <PropertyRef Name="IdCustomerGroup" />
+          </Principal>
+          <Dependent Role="TransfertGroupScheduled">
+            <PropertyRef Name="IdReceiverGroup" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertP2p_Receiver">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="0..1" />
+        <End Type="KoloModel.TransfertP2p" Role="TransfertP2p" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="TransfertP2p">
+            <PropertyRef Name="IdReceiverCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertScheduled_Customer">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.TransfertScheduled" Role="TransfertScheduled" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="TransfertScheduled">
+            <PropertyRef Name="IdReceiverCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="fk_TransfertScheduled_Sending">
+        <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+        <End Type="KoloModel.TransfertScheduled" Role="TransfertScheduled" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customer">
+            <PropertyRef Name="IdCustomer" />
+          </Principal>
+          <Dependent Role="TransfertScheduled">
+            <PropertyRef Name="IdSendingCustomer" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
     </Schema>
-    <Schema Namespace="KoloWin.Web" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+    <Schema Namespace="KoloWin.Poco" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
       <EntityContainer Name="KoloEntities" m:IsDefaultEntityContainer="true">
         <EntitySet Name="AccountOperations" EntityType="KoloModel.AccountOperation" />
         <EntitySet Name="AccountOperationRequests" EntityType="KoloModel.AccountOperationRequest" />
@@ -1782,6 +1752,7 @@
         <EntitySet Name="TransfertP2p" EntityType="KoloModel.TransfertP2p" />
         <EntitySet Name="TransfertScheduleds" EntityType="KoloModel.TransfertScheduled" />
         <EntitySet Name="Wholesalers" EntityType="KoloModel.Wholesaler" />
+        <EntitySet Name="KoloUsers" EntityType="KoloModel.KoloUser" />
         <AssociationSet Name="fk_AccountOperation" Association="KoloModel.fk_AccountOperation">
           <End Role="AccountOperation" EntitySet="AccountOperations" />
           <End Role="RefOperationStatus" EntitySet="RefOperationStatus" />
@@ -1818,21 +1789,9 @@
           <End Role="Adresse" EntitySet="Adresses" />
           <End Role="City" EntitySet="Cities" />
         </AssociationSet>
-        <AssociationSet Name="fk_CustomerAddress" Association="KoloModel.fk_CustomerAddress">
-          <End Role="Adresse" EntitySet="Adresses" />
-          <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-        </AssociationSet>
-        <AssociationSet Name="fk_PartnerAddress_Address" Association="KoloModel.fk_PartnerAddress_Address">
-          <End Role="Adresse" EntitySet="Adresses" />
-          <End Role="PartnerAddress" EntitySet="PartnerAddresses" />
-        </AssociationSet>
         <AssociationSet Name="fk_Bill" Association="KoloModel.fk_Bill">
           <End Role="Bill" EntitySet="Bills" />
           <End Role="RefBillStatus" EntitySet="RefBillStatus" />
-        </AssociationSet>
-        <AssociationSet Name="fk_BillPayement_Bill" Association="KoloModel.fk_BillPayement_Bill">
-          <End Role="Bill" EntitySet="Bills" />
-          <End Role="BillPayment" EntitySet="BillPayments" />
         </AssociationSet>
         <AssociationSet Name="fk_Facture" Association="KoloModel.fk_Facture">
           <End Role="Bill" EntitySet="Bills" />
@@ -1845,6 +1804,10 @@
         <AssociationSet Name="fk_Facture_PayingCustomer" Association="KoloModel.fk_Facture_PayingCustomer">
           <End Role="Bill" EntitySet="Bills" />
           <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_BillPayement_Bill" Association="KoloModel.fk_BillPayement_Bill">
+          <End Role="BillPayment" EntitySet="BillPayments" />
+          <End Role="Bill" EntitySet="Bills" />
         </AssociationSet>
         <AssociationSet Name="fk_BillPayment_IssuingCustomer" Association="KoloModel.fk_BillPayment_IssuingCustomer">
           <End Role="BillPayment" EntitySet="BillPayments" />
@@ -1863,8 +1826,8 @@
           <End Role="RefIndustryCategory" EntitySet="RefIndustryCategories" />
         </AssociationSet>
         <AssociationSet Name="fk_BusinessContact_Business" Association="KoloModel.fk_BusinessContact_Business">
-          <End Role="Business" EntitySet="Businesses" />
           <End Role="BusinessContact" EntitySet="BusinessContacts" />
+          <End Role="Business" EntitySet="Businesses" />
         </AssociationSet>
         <AssociationSet Name="fk_BusinessContact_Contact" Association="KoloModel.fk_BusinessContact_Contact">
           <End Role="BusinessContact" EntitySet="BusinessContacts" />
@@ -1878,17 +1841,9 @@
           <End Role="City" EntitySet="Cities" />
           <End Role="District" EntitySet="Districts" />
         </AssociationSet>
-        <AssociationSet Name="fk_Person" Association="KoloModel.fk_Person">
-          <End Role="Country" EntitySet="Countries" />
-          <End Role="Person" EntitySet="People" />
-        </AssociationSet>
         <AssociationSet Name="fk_Customer_Currency" Association="KoloModel.fk_Customer_Currency">
-          <End Role="Currency" EntitySet="Currencies" />
           <End Role="Customer" EntitySet="Customers" />
-        </AssociationSet>
-        <AssociationSet Name="fk_Partner_0" Association="KoloModel.fk_Partner_0">
           <End Role="Currency" EntitySet="Currencies" />
-          <End Role="Partner" EntitySet="Partners" />
         </AssociationSet>
         <AssociationSet Name="fk_Customer" Association="KoloModel.fk_Customer">
           <End Role="Customer" EntitySet="Customers" />
@@ -1902,18 +1857,6 @@
           <End Role="Customer" EntitySet="Customers" />
           <End Role="MobileDevice" EntitySet="MobileDevices" />
         </AssociationSet>
-        <AssociationSet Name="fk_CustomerAddress_0" Association="KoloModel.fk_CustomerAddress_0">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-        </AssociationSet>
-        <AssociationSet Name="fk_CustomerBalanceHistory" Association="KoloModel.fk_CustomerBalanceHistory">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="CustomerBalanceHistory" EntitySet="CustomerBalanceHistories" />
-        </AssociationSet>
-        <AssociationSet Name="fk_CustomerGroup_MemberAccount" Association="KoloModel.fk_CustomerGroup_MemberAccount">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
-        </AssociationSet>
         <AssociationSet Name="FK_CustomerImage_Customer" Association="KoloModel.FK_CustomerImage_Customer">
           <End Role="Customer" EntitySet="Customers" />
           <End Role="CustomerImage" EntitySet="CustomerImages" />
@@ -1921,14 +1864,6 @@
         <AssociationSet Name="fk_CustomerLogin" Association="KoloModel.fk_CustomerLogin">
           <End Role="Customer" EntitySet="Customers" />
           <End Role="CustomerLogin" EntitySet="CustomerLogins" />
-        </AssociationSet>
-        <AssociationSet Name="fk_customertags_customeraccount" Association="KoloModel.fk_customertags_customeraccount">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="CustomerTags" EntitySet="CustomerTags" />
-        </AssociationSet>
-        <AssociationSet Name="fk_Notification_Customer" Association="KoloModel.fk_Notification_Customer">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="ForeasNotification" EntitySet="ForeasNotifications" />
         </AssociationSet>
         <AssociationSet Name="fk_Partner_Customer" Association="KoloModel.fk_Partner_Customer">
           <End Role="Customer" EntitySet="Customers" />
@@ -1938,41 +1873,17 @@
           <End Role="Customer" EntitySet="Customers" />
           <End Role="Person" EntitySet="People" />
         </AssociationSet>
-        <AssociationSet Name="fk_RecurringContribution_TreasuererCustomer" Association="KoloModel.fk_RecurringContribution_TreasuererCustomer">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="RecurringContribution" EntitySet="RecurringContributions" />
+        <AssociationSet Name="fk_CustomerAddress" Association="KoloModel.fk_CustomerAddress">
+          <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          <End Role="Adresse" EntitySet="Adresses" />
         </AssociationSet>
-        <AssociationSet Name="fk_Transfert2CashDetails" Association="KoloModel.fk_Transfert2CashDetails">
+        <AssociationSet Name="fk_CustomerAddress_0" Association="KoloModel.fk_CustomerAddress_0">
+          <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
           <End Role="Customer" EntitySet="Customers" />
-          <End Role="Transfert2CashDetails" EntitySet="Transfert2CashDetails" />
         </AssociationSet>
-        <AssociationSet Name="fk_TransfertE2e_Customer" Association="KoloModel.fk_TransfertE2e_Customer">
+        <AssociationSet Name="fk_CustomerBalanceHistory" Association="KoloModel.fk_CustomerBalanceHistory">
+          <End Role="CustomerBalanceHistory" EntitySet="CustomerBalanceHistories" />
           <End Role="Customer" EntitySet="Customers" />
-          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertGroup_Sender" Association="KoloModel.fk_TransfertGroup_Sender">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="TransfertGroup" EntitySet="TransfertGroups" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertGroupScheduled_Sender" Association="KoloModel.fk_TransfertGroupScheduled_Sender">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="TransfertGroupScheduled" EntitySet="TransfertGroupScheduleds" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertP2p_Receiver" Association="KoloModel.fk_TransfertP2p_Receiver">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="TransfertP2p" EntitySet="TransfertP2p" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertScheduled_Customer" Association="KoloModel.fk_TransfertScheduled_Customer">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="TransfertScheduled" EntitySet="TransfertScheduleds" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertScheduled_Sending" Association="KoloModel.fk_TransfertScheduled_Sending">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="TransfertScheduled" EntitySet="TransfertScheduleds" />
-        </AssociationSet>
-        <AssociationSet Name="CustomerGroupAdmin" Association="KoloModel.CustomerGroupAdmin">
-          <End Role="Customer" EntitySet="Customers" />
-          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
         </AssociationSet>
         <AssociationSet Name="fk_CustomerBalanceHistory_0" Association="KoloModel.fk_CustomerBalanceHistory_0">
           <End Role="CustomerBalanceHistory" EntitySet="CustomerBalanceHistories" />
@@ -1982,6 +1893,10 @@
           <End Role="CustomerExternalAccount" EntitySet="CustomerExternalAccounts" />
           <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
         </AssociationSet>
+        <AssociationSet Name="fk_CustomerGroup_MemberAccount" Association="KoloModel.fk_CustomerGroup_MemberAccount">
+          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
         <AssociationSet Name="fk_CustomerGroup_GroupType" Association="KoloModel.fk_CustomerGroup_GroupType">
           <End Role="CustomerGroup" EntitySet="CustomerGroups" />
           <End Role="RefGroupType" EntitySet="RefGroupTypes" />
@@ -1990,81 +1905,65 @@
           <End Role="CustomerGroup" EntitySet="CustomerGroups" />
           <End Role="GroupImage" EntitySet="GroupImages" />
         </AssociationSet>
-        <AssociationSet Name="fk_RecurringContribution_CustomerGroup" Association="KoloModel.fk_RecurringContribution_CustomerGroup">
-          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
-          <End Role="RecurringContribution" EntitySet="RecurringContributions" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertGroup_ReceiverGroup" Association="KoloModel.fk_TransfertGroup_ReceiverGroup">
-          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
-          <End Role="TransfertGroup" EntitySet="TransfertGroups" />
-        </AssociationSet>
-        <AssociationSet Name="fk_TransfertGroupScheduled_ReceiverGroup" Association="KoloModel.fk_TransfertGroupScheduled_ReceiverGroup">
-          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
-          <End Role="TransfertGroupScheduled" EntitySet="TransfertGroupScheduleds" />
-        </AssociationSet>
         <AssociationSet Name="fk_CustomerLogin_StatusCode" Association="KoloModel.fk_CustomerLogin_StatusCode">
           <End Role="CustomerLogin" EntitySet="CustomerLogins" />
           <End Role="RefLoginStatus" EntitySet="RefLoginStatus" />
         </AssociationSet>
-        <AssociationSet Name="fk_LoginAttempt_Customer" Association="KoloModel.fk_LoginAttempt_Customer">
-          <End Role="CustomerLogin" EntitySet="CustomerLogins" />
-          <End Role="LoginAttempt" EntitySet="LoginAttempts" />
+        <AssociationSet Name="fk_customertags_customeraccount" Association="KoloModel.fk_customertags_customeraccount">
+          <End Role="CustomerTags" EntitySet="CustomerTags" />
+          <End Role="Customer" EntitySet="Customers" />
         </AssociationSet>
         <AssociationSet Name="fk_customertags_tag" Association="KoloModel.fk_customertags_tag">
           <End Role="CustomerTags" EntitySet="CustomerTags" />
           <End Role="Tag" EntitySet="Tags" />
         </AssociationSet>
-        <AssociationSet Name="fk_ExternalAccount_History" Association="KoloModel.fk_ExternalAccount_History">
-          <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-          <End Role="ExternalAccountHistory" EntitySet="ExternalAccountHistories" />
-        </AssociationSet>
         <AssociationSet Name="fk_ExternalAccount_Type" Association="KoloModel.fk_ExternalAccount_Type">
           <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
           <End Role="RefExternalAccountType" EntitySet="RefExternalAccountTypes" />
         </AssociationSet>
-        <AssociationSet Name="fk_TransfertE2e_Receiver" Association="KoloModel.fk_TransfertE2e_Receiver">
+        <AssociationSet Name="fk_ExternalAccount_History" Association="KoloModel.fk_ExternalAccount_History">
+          <End Role="ExternalAccountHistory" EntitySet="ExternalAccountHistories" />
           <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
         </AssociationSet>
-        <AssociationSet Name="fk_TransfertE2e_Sender" Association="KoloModel.fk_TransfertE2e_Sender">
-          <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+        <AssociationSet Name="fk_Notification_Customer" Association="KoloModel.fk_Notification_Customer">
+          <End Role="ForeasNotification" EntitySet="ForeasNotifications" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_LoginAttempt_Customer" Association="KoloModel.fk_LoginAttempt_Customer">
+          <End Role="LoginAttempt" EntitySet="LoginAttempts" />
+          <End Role="CustomerLogin" EntitySet="CustomerLogins" />
         </AssociationSet>
         <AssociationSet Name="fk_LoginAttempt_ResultCode" Association="KoloModel.fk_LoginAttempt_ResultCode">
           <End Role="LoginAttempt" EntitySet="LoginAttempts" />
           <End Role="RefResult" EntitySet="RefResults" />
         </AssociationSet>
+        <AssociationSet Name="fk_Partner_0" Association="KoloModel.fk_Partner_0">
+          <End Role="Partner" EntitySet="Partners" />
+          <End Role="Currency" EntitySet="Currencies" />
+        </AssociationSet>
         <AssociationSet Name="fk_Partner" Association="KoloModel.fk_Partner">
           <End Role="Partner" EntitySet="Partners" />
           <End Role="RefPartnerType" EntitySet="RefPartnerTypes" />
-        </AssociationSet>
-        <AssociationSet Name="fk_PartnerAddress_Partner" Association="KoloModel.fk_PartnerAddress_Partner">
-          <End Role="Partner" EntitySet="Partners" />
-          <End Role="PartnerAddress" EntitySet="PartnerAddresses" />
-        </AssociationSet>
-        <AssociationSet Name="fk_Provision_ResellerPartnerAccount" Association="KoloModel.fk_Provision_ResellerPartnerAccount">
-          <End Role="Partner" EntitySet="Partners" />
-          <End Role="Provision" EntitySet="Provisions" />
-        </AssociationSet>
-        <AssociationSet Name="fk_Provision_WholesalerPartnerAccount" Association="KoloModel.fk_Provision_WholesalerPartnerAccount">
-          <End Role="Partner" EntitySet="Partners" />
-          <End Role="Provision" EntitySet="Provisions" />
         </AssociationSet>
         <AssociationSet Name="fk_Reseller" Association="KoloModel.fk_Reseller">
           <End Role="Partner" EntitySet="Partners" />
           <End Role="Reseller" EntitySet="Resellers" />
         </AssociationSet>
-        <AssociationSet Name="fk_Transfert2Cash_PartnerAccount" Association="KoloModel.fk_Transfert2Cash_PartnerAccount">
-          <End Role="Partner" EntitySet="Partners" />
-          <End Role="Transfert2Cash" EntitySet="Transfert2Cash" />
-        </AssociationSet>
         <AssociationSet Name="fk_Wholesaler" Association="KoloModel.fk_Wholesaler">
           <End Role="Partner" EntitySet="Partners" />
           <End Role="Wholesaler" EntitySet="Wholesalers" />
         </AssociationSet>
-        <AssociationSet Name="fk_Provision_History" Association="KoloModel.fk_Provision_History">
-          <End Role="PartnerBalanceHistory" EntitySet="PartnerBalanceHistories" />
-          <End Role="Provision" EntitySet="Provisions" />
+        <AssociationSet Name="fk_PartnerAddress_Address" Association="KoloModel.fk_PartnerAddress_Address">
+          <End Role="PartnerAddress" EntitySet="PartnerAddresses" />
+          <End Role="Adresse" EntitySet="Adresses" />
+        </AssociationSet>
+        <AssociationSet Name="fk_PartnerAddress_Partner" Association="KoloModel.fk_PartnerAddress_Partner">
+          <End Role="PartnerAddress" EntitySet="PartnerAddresses" />
+          <End Role="Partner" EntitySet="Partners" />
+        </AssociationSet>
+        <AssociationSet Name="fk_Person" Association="KoloModel.fk_Person">
+          <End Role="Person" EntitySet="People" />
+          <End Role="Country" EntitySet="Countries" />
         </AssociationSet>
         <AssociationSet Name="fk_Person_Gender" Association="KoloModel.fk_Person_Gender">
           <End Role="Person" EntitySet="People" />
@@ -2078,33 +1977,109 @@
           <End Role="Person" EntitySet="People" />
           <End Role="PersonRelationship" EntitySet="PersonRelationships" />
         </AssociationSet>
-        <AssociationSet Name="fk_Relationship_PersonRelation" Association="KoloModel.fk_Relationship_PersonRelation">
+        <AssociationSet Name="FK_User_Person1" Association="KoloModel.FK_User_Person1">
           <End Role="Person" EntitySet="People" />
+          <End Role="KoloUser" EntitySet="KoloUsers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_Relationship_PersonRelation" Association="KoloModel.fk_Relationship_PersonRelation">
           <End Role="PersonRelationship" EntitySet="PersonRelationships" />
+          <End Role="Person" EntitySet="People" />
         </AssociationSet>
         <AssociationSet Name="fk_Relationship_TypeCode" Association="KoloModel.fk_Relationship_TypeCode">
           <End Role="PersonRelationship" EntitySet="PersonRelationships" />
           <End Role="RefPersonRelationshipType" EntitySet="RefPersonRelationshipTypes" />
         </AssociationSet>
+        <AssociationSet Name="fk_Provision_ResellerPartnerAccount" Association="KoloModel.fk_Provision_ResellerPartnerAccount">
+          <End Role="Provision" EntitySet="Provisions" />
+          <End Role="Partner" EntitySet="Partners" />
+        </AssociationSet>
+        <AssociationSet Name="fk_Provision_WholesalerPartnerAccount" Association="KoloModel.fk_Provision_WholesalerPartnerAccount">
+          <End Role="Provision" EntitySet="Provisions" />
+          <End Role="Partner" EntitySet="Partners" />
+        </AssociationSet>
+        <AssociationSet Name="fk_Provision_History" Association="KoloModel.fk_Provision_History">
+          <End Role="Provision" EntitySet="Provisions" />
+          <End Role="PartnerBalanceHistory" EntitySet="PartnerBalanceHistories" />
+        </AssociationSet>
         <AssociationSet Name="fk_Provision_StatusCode" Association="KoloModel.fk_Provision_StatusCode">
           <End Role="Provision" EntitySet="Provisions" />
           <End Role="RefProvisionStatus" EntitySet="RefProvisionStatus" />
         </AssociationSet>
-        <AssociationSet Name="fk_TransfertE2e_OperationtType" Association="KoloModel.fk_TransfertE2e_OperationtType">
-          <End Role="RefOperationType" EntitySet="RefOperationTypes" />
-          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+        <AssociationSet Name="fk_RecurringContribution_TreasuererCustomer" Association="KoloModel.fk_RecurringContribution_TreasuererCustomer">
+          <End Role="RecurringContribution" EntitySet="RecurringContributions" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_RecurringContribution_CustomerGroup" Association="KoloModel.fk_RecurringContribution_CustomerGroup">
+          <End Role="RecurringContribution" EntitySet="RecurringContributions" />
+          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+        </AssociationSet>
+        <AssociationSet Name="FK_User_RefLoginStatus1" Association="KoloModel.FK_User_RefLoginStatus1">
+          <End Role="RefLoginStatu" EntitySet="RefLoginStatus" />
+          <End Role="KoloUser" EntitySet="KoloUsers" />
         </AssociationSet>
         <AssociationSet Name="fk_Registration" Association="KoloModel.fk_Registration">
-          <End Role="RefRegistrationStatus" EntitySet="RefRegistrationStatus" />
           <End Role="Registration" EntitySet="Registrations" />
+          <End Role="RefRegistrationStatus" EntitySet="RefRegistrationStatus" />
+        </AssociationSet>
+        <AssociationSet Name="fk_Transfert2Cash_PartnerAccount" Association="KoloModel.fk_Transfert2Cash_PartnerAccount">
+          <End Role="Transfert2Cash" EntitySet="Transfert2Cash" />
+          <End Role="Partner" EntitySet="Partners" />
+        </AssociationSet>
+        <AssociationSet Name="fk_Transfert2CashDetails" Association="KoloModel.fk_Transfert2CashDetails">
+          <End Role="Transfert2CashDetails" EntitySet="Transfert2CashDetails" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertE2e_Customer" Association="KoloModel.fk_TransfertE2e_Customer">
+          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertE2e_Receiver" Association="KoloModel.fk_TransfertE2e_Receiver">
+          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+          <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertE2e_Sender" Association="KoloModel.fk_TransfertE2e_Sender">
+          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+          <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertE2e_OperationtType" Association="KoloModel.fk_TransfertE2e_OperationtType">
+          <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+          <End Role="RefOperationType" EntitySet="RefOperationTypes" />
         </AssociationSet>
         <AssociationSet Name="fk_TransfertE2e_StatusCode" Association="KoloModel.fk_TransfertE2e_StatusCode">
-          <End Role="RefTransfertStatus" EntitySet="RefTransfertStatus" />
           <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+          <End Role="RefTransfertStatus" EntitySet="RefTransfertStatus" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertGroup_Sender" Association="KoloModel.fk_TransfertGroup_Sender">
+          <End Role="TransfertGroup" EntitySet="TransfertGroups" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertGroup_ReceiverGroup" Association="KoloModel.fk_TransfertGroup_ReceiverGroup">
+          <End Role="TransfertGroup" EntitySet="TransfertGroups" />
+          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
         </AssociationSet>
         <AssociationSet Name="fk_TransfertGroup_StatusCode" Association="KoloModel.fk_TransfertGroup_StatusCode">
-          <End Role="RefTransfertStatus" EntitySet="RefTransfertStatus" />
           <End Role="TransfertGroup" EntitySet="TransfertGroups" />
+          <End Role="RefTransfertStatus" EntitySet="RefTransfertStatus" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertGroupScheduled_Sender" Association="KoloModel.fk_TransfertGroupScheduled_Sender">
+          <End Role="TransfertGroupScheduled" EntitySet="TransfertGroupScheduleds" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertGroupScheduled_ReceiverGroup" Association="KoloModel.fk_TransfertGroupScheduled_ReceiverGroup">
+          <End Role="TransfertGroupScheduled" EntitySet="TransfertGroupScheduleds" />
+          <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertP2p_Receiver" Association="KoloModel.fk_TransfertP2p_Receiver">
+          <End Role="TransfertP2p" EntitySet="TransfertP2p" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertScheduled_Customer" Association="KoloModel.fk_TransfertScheduled_Customer">
+          <End Role="TransfertScheduled" EntitySet="TransfertScheduleds" />
+          <End Role="Customer" EntitySet="Customers" />
+        </AssociationSet>
+        <AssociationSet Name="fk_TransfertScheduled_Sending" Association="KoloModel.fk_TransfertScheduled_Sending">
+          <End Role="TransfertScheduled" EntitySet="TransfertScheduleds" />
+          <End Role="Customer" EntitySet="Customers" />
         </AssociationSet>
       </EntityContainer>
     </Schema>

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 5/16/2018 6:13:07 PM
+// Generation date: 6/1/2018 4:47:40 PM
 namespace KoloWin.Desktop.KoloGateway
 {
     
@@ -1098,6 +1098,23 @@ namespace KoloWin.Desktop.KoloGateway
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private global::System.Data.Services.Client.DataServiceQuery<Wholesaler> _Wholesalers;
         /// <summary>
+        /// There are no comments for KoloUsers in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Data.Services.Client.DataServiceQuery<KoloUser> KoloUsers
+        {
+            get
+            {
+                if ((this._KoloUsers == null))
+                {
+                    this._KoloUsers = base.CreateQuery<KoloUser>("KoloUsers");
+                }
+                return this._KoloUsers;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Data.Services.Client.DataServiceQuery<KoloUser> _KoloUsers;
+        /// <summary>
         /// There are no comments for AccountOperations in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -1585,6 +1602,14 @@ namespace KoloWin.Desktop.KoloGateway
         {
             base.AddObject("Wholesalers", wholesaler);
         }
+        /// <summary>
+        /// There are no comments for KoloUsers in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public void AddToKoloUsers(KoloUser koloUser)
+        {
+            base.AddObject("KoloUsers", koloUser);
+        }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private abstract class GeneratedEdmModel
         {
@@ -1639,23 +1664,18 @@ namespace KoloWin.Desktop.KoloGateway
                 "perty Name=\"IdCity\" Type=\"Edm.Int32\" /><Property Name=\"PostCode\" Type=\"Edm.Strin" +
                 "g\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=" +
                 "\"City\" Relationship=\"KoloModel.fk_Adresse_City\" ToRole=\"City\" FromRole=\"Adresse\"" +
-                " /><NavigationProperty Name=\"CustomerAddresses\" Relationship=\"KoloModel.fk_Custo" +
-                "merAddress\" ToRole=\"CustomerAddress\" FromRole=\"Adresse\" /><NavigationProperty Na" +
-                "me=\"PartnerAddresses\" Relationship=\"KoloModel.fk_PartnerAddress_Address\" ToRole=" +
-                "\"PartnerAddress\" FromRole=\"Adresse\" /></EntityType><EntityType Name=\"Bill\"><Key>" +
-                "<PropertyRef Name=\"IdBill\" /></Key><Property Name=\"IdBill\" Type=\"Edm.Int32\" Null" +
-                "able=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.micros" +
-                "oft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdIssuingCustomer\" Type=\"E" +
-                "dm.Int32\" Nullable=\"false\" /><Property Name=\"IdPayingCustomer\" Type=\"Edm.Int32\" " +
-                "Nullable=\"false\" /><Property Name=\"CodeRefFactureType\" Type=\"Edm.String\" MaxLeng" +
-                "th=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"CodeRefBillStatus\" " +
-                "Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property " +
-                "Name=\"DateIssued\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3\" /><Property" +
-                " Name=\"TotalBillAmount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Left" +
-                "ToPay\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationProperty Name=\"RefBillStat" +
-                "u\" Relationship=\"KoloModel.fk_Bill\" ToRole=\"RefBillStatus\" FromRole=\"Bill\" /><Na" +
-                "vigationProperty Name=\"BillPayments\" Relationship=\"KoloModel.fk_BillPayement_Bil" +
-                "l\" ToRole=\"BillPayment\" FromRole=\"Bill\" /><NavigationProperty Name=\"RefBillType\"" +
+                " /></EntityType><EntityType Name=\"Bill\"><Key><PropertyRef Name=\"IdBill\" /></Key>" +
+                "<Property Name=\"IdBill\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPatte" +
+                "rn=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\"" +
+                " /><Property Name=\"IdIssuingCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Prope" +
+                "rty Name=\"IdPayingCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"" +
+                "CodeRefFactureType\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode" +
+                "=\"true\" /><Property Name=\"CodeRefBillStatus\" Type=\"Edm.String\" MaxLength=\"15\" Fi" +
+                "xedLength=\"false\" Unicode=\"true\" /><Property Name=\"DateIssued\" Type=\"Edm.DateTim" +
+                "e\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"TotalBillAmount\" Type=\"Edm.I" +
+                "nt32\" Nullable=\"false\" /><Property Name=\"LeftToPay\" Type=\"Edm.Int32\" Nullable=\"f" +
+                "alse\" /><NavigationProperty Name=\"RefBillStatu\" Relationship=\"KoloModel.fk_Bill\"" +
+                " ToRole=\"RefBillStatus\" FromRole=\"Bill\" /><NavigationProperty Name=\"RefBillType\"" +
                 " Relationship=\"KoloModel.fk_Facture\" ToRole=\"RefBillType\" FromRole=\"Bill\" /><Nav" +
                 "igationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_Facture_IssuingCustom" +
                 "er\" ToRole=\"Customer\" FromRole=\"Bill\" /><NavigationProperty Name=\"Customer1\" Rel" +
@@ -1681,1335 +1701,1246 @@ namespace KoloWin.Desktop.KoloGateway
                 "Unicode=\"true\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_" +
                 "Business\" ToRole=\"Customer\" FromRole=\"Business\" /><NavigationProperty Name=\"RefI" +
                 "ndustryCategory\" Relationship=\"KoloModel.fk_Business_IndustryCategory\" ToRole=\"R" +
-                "efIndustryCategory\" FromRole=\"Business\" /><NavigationProperty Name=\"BusinessCont" +
-                "acts\" Relationship=\"KoloModel.fk_BusinessContact_Business\" ToRole=\"BusinessConta" +
-                "ct\" FromRole=\"Business\" /></EntityType><EntityType Name=\"BusinessContact\"><Key><" +
-                "PropertyRef Name=\"IdBusiness\" /><PropertyRef Name=\"IdContac";
+                "efIndustryCategory\" FromRole=\"Business\" /></EntityType><EntityType Name=\"Busines" +
+                "sContact\"><Key><PropertyRef Name=\"IdBusiness\" /><PropertyRef Name=\"IdContact\" />" +
+                "</Key><Property Name=\"IdBusiness\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property " +
+                "Name=\"IdContact\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"JobTitle\" T" +
+                "ype=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Navigation" +
+                "Property Name=\"Business\" Relationship=\"KoloModel.fk_BusinessContact_Business\" To" +
+                "Role=\"Business\" FromRole=\"BusinessContact\" /><NavigationProperty Name=\"Person\" R" +
+                "elationship=\"KoloModel.fk_BusinessContact_Contact\" ToRole=\"Person\" FromRole=\"Bus" +
+                "inessContact\" /></EntityType><EntityType Name=\"City\"><Key><";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart1 = "t\" /></Key><Property Name=\"IdBusiness\" Type=\"Edm.Int32\" Nullable=\"false\" /><Prope" +
-                "rty Name=\"IdContact\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"JobTitl" +
-                "e\" Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Naviga" +
-                "tionProperty Name=\"Business\" Relationship=\"KoloModel.fk_BusinessContact_Business" +
-                "\" ToRole=\"Business\" FromRole=\"BusinessContact\" /><NavigationProperty Name=\"Perso" +
-                "n\" Relationship=\"KoloModel.fk_BusinessContact_Contact\" ToRole=\"Person\" FromRole=" +
-                "\"BusinessContact\" /></EntityType><EntityType Name=\"City\"><Key><PropertyRef Name=" +
-                "\"IdCity\" /></Key><Property Name=\"IdCity\" Type=\"Edm.Int32\" Nullable=\"false\" p6:St" +
-                "oreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/0" +
-                "2/edm/annotation\" /><Property Name=\"CityName\" Type=\"Edm.String\" Nullable=\"false\"" +
-                " MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"CountryCode" +
-                "\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"10\" FixedLength=\"false\" Unicode=" +
-                "\"true\" /><Property Name=\"IdDistrict\" Type=\"Edm.Int32\" /><NavigationProperty Name" +
-                "=\"Adresses\" Relationship=\"KoloModel.fk_Adresse_City\" ToRole=\"Adresse\" FromRole=\"" +
-                "City\" /><NavigationProperty Name=\"Country\" Relationship=\"KoloModel.fk_City\" ToRo" +
-                "le=\"Country\" FromRole=\"City\" /><NavigationProperty Name=\"District\" Relationship=" +
-                "\"KoloModel.fk_City_0\" ToRole=\"District\" FromRole=\"City\" /></EntityType><EntityTy" +
-                "pe Name=\"Country\"><Key><PropertyRef Name=\"CountryCode\" /></Key><Property Name=\"C" +
-                "ountryCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"10\" FixedLength=\"false" +
-                "\" Unicode=\"true\" /><Property Name=\"CountryName\" Type=\"Edm.String\" Nullable=\"fals" +
-                "e\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name" +
-                "=\"Cities\" Relationship=\"KoloModel.fk_City\" ToRole=\"City\" FromRole=\"Country\" /><N" +
-                "avigationProperty Name=\"People\" Relationship=\"KoloModel.fk_Person\" ToRole=\"Perso" +
-                "n\" FromRole=\"Country\" /></EntityType><EntityType Name=\"Currency\"><Key><PropertyR" +
-                "ef Name=\"CurrencyCode\" /></Key><Property Name=\"CurrencyCode\" Type=\"Edm.String\" N" +
-                "ullable=\"false\" MaxLength=\"3\" FixedLength=\"true\" Unicode=\"true\" /><Property Name" +
-                "=\"CurrencyName\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"f" +
-                "alse\" Unicode=\"true\" /><NavigationProperty Name=\"Customers\" Relationship=\"KoloMo" +
-                "del.fk_Customer_Currency\" ToRole=\"Customer\" FromRole=\"Currency\" /><NavigationPro" +
-                "perty Name=\"Partners\" Relationship=\"KoloModel.fk_Partner_0\" ToRole=\"Partner\" Fro" +
-                "mRole=\"Currency\" /></EntityType><EntityType Name=\"Customer\"><Key><PropertyRef Na" +
-                "me=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"f" +
+            private const string ModelPart1 = "PropertyRef Name=\"IdCity\" /></Key><Property Name=\"IdCity\" Type=\"Edm.Int32\" Nullab" +
+                "le=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsof" +
+                "t.com/ado/2009/02/edm/annotation\" /><Property Name=\"CityName\" Type=\"Edm.String\" " +
+                "Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property N" +
+                "ame=\"CountryCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"10\" FixedLength=" +
+                "\"false\" Unicode=\"true\" /><Property Name=\"IdDistrict\" Type=\"Edm.Int32\" /><Navigat" +
+                "ionProperty Name=\"Country\" Relationship=\"KoloModel.fk_City\" ToRole=\"Country\" Fro" +
+                "mRole=\"City\" /><NavigationProperty Name=\"District\" Relationship=\"KoloModel.fk_Ci" +
+                "ty_0\" ToRole=\"District\" FromRole=\"City\" /></EntityType><EntityType Name=\"Country" +
+                "\"><Key><PropertyRef Name=\"CountryCode\" /></Key><Property Name=\"CountryCode\" Type" +
+                "=\"Edm.String\" Nullable=\"false\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\"" +
+                " /><Property Name=\"CountryName\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"10" +
+                "0\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"Currency\"" +
+                "><Key><PropertyRef Name=\"CurrencyCode\" /></Key><Property Name=\"CurrencyCode\" Typ" +
+                "e=\"Edm.String\" Nullable=\"false\" MaxLength=\"3\" FixedLength=\"true\" Unicode=\"true\" " +
+                "/><Property Name=\"CurrencyName\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50" +
+                "\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"Customer\">" +
+                "<Key><PropertyRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Ed" +
+                "m.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://s" +
+                "chemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"CustomerTypeC" +
+                "ode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unico" +
+                "de=\"true\" /><Property Name=\"CurrencyCode\" Type=\"Edm.String\" Nullable=\"false\" Max" +
+                "Length=\"3\" FixedLength=\"true\" Unicode=\"true\" /><Property Name=\"Balance\" Type=\"Ed" +
+                "m.Int32\" Nullable=\"false\" /><Property Name=\"DateCreated\" Type=\"Edm.DateTime\" Nul" +
+                "lable=\"false\" Precision=\"0\" /><Property Name=\"IdRegistration\" Type=\"Edm.Int32\" /" +
+                "><NavigationProperty Name=\"Business\" Relationship=\"KoloModel.fk_Business\" ToRole" +
+                "=\"Business\" FromRole=\"Customer\" /><NavigationProperty Name=\"Currency\" Relationsh" +
+                "ip=\"KoloModel.fk_Customer_Currency\" ToRole=\"Currency\" FromRole=\"Customer\" /><Nav" +
+                "igationProperty Name=\"Registration\" Relationship=\"KoloModel.fk_Customer\" ToRole=" +
+                "\"Registration\" FromRole=\"Customer\" /><NavigationProperty Name=\"RefCustomerType\" " +
+                "Relationship=\"KoloModel.fk_Customer_CustomerType\" ToRole=\"RefCustomerType\" FromR" +
+                "ole=\"Customer\" /><NavigationProperty Name=\"MobileDevice\" Relationship=\"KoloModel" +
+                ".fk_Customer_Mobile\" ToRole=\"MobileDevice\" FromRole=\"Customer\" /><NavigationProp" +
+                "erty Name=\"CustomerImage\" Relationship=\"KoloModel.FK_CustomerImage_Customer\" ToR" +
+                "ole=\"CustomerImage\" FromRole=\"Customer\" /><NavigationProperty Name=\"CustomerLogi" +
+                "n\" Relationship=\"KoloModel.fk_CustomerLogin\" ToRole=\"CustomerLogin\" FromRole=\"Cu" +
+                "stomer\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk_Partner_" +
+                "Customer\" ToRole=\"Partner\" FromRole=\"Customer\" /><NavigationProperty Name=\"Perso" +
+                "n\" Relationship=\"KoloModel.fk_Person_Customer\" ToRole=\"Person\" FromRole=\"Custome" +
+                "r\" /></EntityType><EntityType Name=\"CustomerAddress\"><Key><PropertyRef Name=\"IdA" +
+                "ddress\" /><PropertyRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Typ" +
+                "e=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdAddress\" Type=\"Edm.Int32\" Nul" +
+                "lable=\"false\" /><Property Name=\"CodeAddresseType\" Type=\"Edm.String\" Nullable=\"fa" +
+                "lse\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Nam" +
+                "e=\"Adresse\" Relationship=\"KoloModel.fk_CustomerAddress\" ToRole=\"Adresse\" FromRol" +
+                "e=\"CustomerAddress\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloMode" +
+                "l.fk_CustomerAddress_0\" ToRole=\"Customer\" FromRole=\"CustomerAddress\" /></EntityT" +
+                "ype><EntityType Name=\"CustomerBalanceHistory\"><Key><PropertyRef Name=\"IdCustomer" +
+                "History\" /></Key><Property Name=\"IdCustomerHistory\" Type=\"Edm.Int32\" Nullable=\"f" +
                 "alse\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com" +
-                "/ado/2009/02/edm/annotation\" /><Property Name=\"CustomerTypeCode\" Type=\"Edm.Strin" +
-                "g\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Propert" +
-                "y Name=\"CurrencyCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"3\" FixedLeng" +
-                "th=\"true\" Unicode=\"true\" /><Property Name=\"Balance\" Type=\"Edm.Int32\" Nullable=\"f" +
-                "alse\" /><Property Name=\"DateCreated\" Type=\"Edm.DateTime\" Nullable=\"false\" Precis" +
-                "ion=\"0\" /><Property Name=\"IdRegistration\" Type=\"Edm.Int32\" /><NavigationProperty" +
-                " Name=\"AccountOperationRequests\" Relationship=\"KoloModel.fk_OperationRequest_Cus" +
-                "tomerAccount\" ToRole=\"AccountOperationRequest\" FromRole=\"Customer\" /><Navigation" +
-                "Property Name=\"Bills\" Relationship=\"KoloModel.fk_Facture_IssuingCustomer\" ToRole" +
-                "=\"Bill\" FromRole=\"Customer\" /><NavigationProperty Name=\"Bills1\" Relationship=\"Ko" +
-                "loModel.fk_Facture_PayingCustomer\" ToRole=\"Bill\" FromRole=\"Customer\" /><Navigati" +
-                "onProperty Name=\"BillPayments\" Relationship=\"KoloModel.fk_BillPayment_IssuingCus" +
-                "tomer\" ToRole=\"BillPayment\" FromRole=\"Customer\" /><NavigationProperty Name=\"Bill" +
-                "Payments1\" Relationship=\"KoloModel.fk_BillPayment_PayingCustomer\" ToRole=\"BillPa" +
-                "yment\" FromRole=\"Customer\" /><NavigationProperty Name=\"Business\" Relationship=\"K" +
-                "oloModel.fk_Business\" ToRole=\"Business\" FromRole=\"Customer\" /><NavigationPropert" +
-                "y Name=\"Currency\" Relationship=\"KoloModel.fk_Customer_Currency\" ToRole=\"Currency" +
-                "\" FromRole=\"Customer\" /><NavigationProperty Name=\"Registration\" Relationship=\"Ko" +
-                "loModel.fk_Customer\" ToRole=\"Registration\" FromRole=\"Customer\" /><NavigationProp" +
-                "erty Name=\"RefCustomerType\" Relationship=\"KoloModel.fk_Customer_CustomerType\" To" +
-                "Role=\"RefCustomerType\" FromRole=\"Customer\" /><NavigationProperty Name=\"MobileDev" +
-                "ice\" Relationship=\"KoloModel.fk_Customer_Mobile\" ToRole=\"MobileDevice\" FromRole=" +
-                "\"Customer\" /><NavigationProperty Name=\"CustomerAddresses\" Relationship=\"KoloMode" +
-                "l.fk_CustomerAddress_0\" ToRole=\"CustomerAddress\" FromRole=\"Customer\" /><Navigati" +
-                "onProperty Name=\"CustomerBalanceHistories\" Relationship=\"KoloModel.fk_CustomerBa" +
-                "lanceHistory\" ToRole=\"CustomerBalanceHistory\" FromRole=\"Customer\" /><NavigationP" +
-                "roperty Name=\"CustomerGroups\" Relationship=\"KoloModel.fk_CustomerGroup_MemberAcc" +
-                "ount\" ToRole=\"CustomerGroup\" FromRole=\"Customer\" /><NavigationProperty Name=\"Cus" +
-                "tomerImage\" Relationship=\"KoloModel.FK_CustomerImage_Customer\" ToRole=\"CustomerI" +
-                "mage\" FromRole=\"Customer\" /><NavigationProperty Name=\"CustomerLogin\" Relationshi" +
-                "p=\"KoloModel.fk_CustomerLogin\" ToRole=\"CustomerLogin\" FromRole=\"Customer\" /><Nav" +
-                "igationProperty Name=\"CustomerTags\" Relationship=\"KoloModel.fk_customertags_cust" +
-                "omeraccount\" ToRole=\"CustomerTags\" FromRole=\"Customer\" /><NavigationProperty Nam" +
-                "e=\"ForeasNotifications\" Relationship=\"KoloModel.fk_Notification_Customer\" ToRole" +
-                "=\"ForeasNotification\" FromRole=\"Customer\" /><NavigationProperty Name=\"Partner\" R" +
-                "elationship=\"KoloModel.fk_Partner_Customer\" ToRole=\"Partner\" FromRole=\"Customer\"" +
-                " /><NavigationProperty Name=\"Person\" Relationship=\"KoloModel.fk_Person_Customer\"" +
-                " ToRole=\"Person\" FromRole=\"Customer\" /><NavigationProperty Name=\"RecurringContri" +
-                "butions\" Relationship=\"KoloModel.fk_RecurringContribution_TreasuererCustomer\" To" +
-                "Role=\"RecurringContribution\" FromRole=\"Customer\" /><NavigationProperty Name=\"Tra" +
-                "nsfert2CashDetails\" Relationship=\"KoloModel.fk_Transfert2CashDetails\" ToRole=\"Tr" +
-                "ansfert2CashDetails\" FromRole=\"Customer\" /><NavigationProperty Name=\"TransfertE2" +
-                "e\" Relationship=\"KoloModel.fk_TransfertE2e_Customer\" ToRole=\"TransfertE2e\" FromR" +
-                "ole=\"Customer\" /><NavigationProperty Name=\"TransfertGroups\" Relationship=\"KoloMo" +
-                "del.fk_TransfertGroup_Sender\" ToRole=\"TransfertGroup\" FromRole=\"Customer\" /><Nav" +
-                "igationProperty Name=\"TransfertGroupScheduleds\" Relationship=\"KoloModel.fk_Trans" +
-                "fertGroupScheduled_Sender\" ToRole=\"TransfertGroupScheduled\" FromRole=\"Customer\" " +
-                "/><NavigationProperty Name=\"TransfertP2p\" Relationship=\"KoloModel.fk_TransfertP2" +
-                "p_Receiver\" ToRole=\"TransfertP2p\" FromRole=\"Customer\" /><NavigationProperty Name" +
-                "=\"TransfertScheduleds\" Relationship=\"KoloModel.fk_TransfertScheduled_Customer\" T" +
-                "oRole=\"TransfertScheduled\" FromRole=\"Customer\" /><NavigationProperty Name=\"Trans" +
-                "fertScheduleds1\" Relationship=\"KoloModel.fk_TransfertScheduled_Sending\" ToRole=\"" +
-                "TransfertScheduled\" FromRole=\"Customer\" /><NavigationProperty Name=\"CustomerGrou" +
-                "ps1\" Relationship=\"KoloModel.CustomerGroupAdmin\" ToRole=\"CustomerGroup\" FromRole" +
-                "=\"Customer\" /></EntityType><EntityType Name=\"CustomerAddress\"><Key><PropertyRef " +
-                "Name=\"IdAddress\" /><PropertyRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCust" +
-                "omer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdAddress\" Type=\"Edm.I" +
-                "nt32\" Nullable=\"false\" /><Property Name=\"CodeAddresseType\" Type=\"Edm.String\" Nul" +
-                "lable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><NavigationPro" +
-                "perty Name=\"Adresse\" Relationship=\"KoloModel.fk_CustomerAddress\" ToRole=\"Adresse" +
-                "\" FromRole=\"CustomerAddress\" /><NavigationProperty Name=\"Cu";
+                "/ado/2009/02/edm/annotation\" /><Property Name=\"IdCustomerAccount\" Type=\"Edm.Int3" +
+                "2\" Nullable=\"false\" /><Property Name=\"OperationTypeCode\" Type=\"Edm.String\" Nulla" +
+                "ble=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"" +
+                "HistoryDate\" Type=\"Edm.DateTime\" Precision=\"3\" /><Property Name=\"OldBalance\" Typ" +
+                "e=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"NewBalance\" Type=\"Edm.Int32\" Nu" +
+                "llable=\"false\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" /><NavigationProperty " +
+                "Name=\"Customer\" Relationship=\"KoloModel.fk_CustomerBalanceHistory\" ToRole=\"Custo" +
+                "mer\" FromRole=\"CustomerBalanceHistory\" /><NavigationProperty Name=\"RefOperationT" +
+                "ype\" Relationship=\"KoloModel.fk_CustomerBalanceHistory_0\" ToRole=\"RefOperationTy" +
+                "pe\" FromRole=\"CustomerBalanceHistory\" /></EntityType><EntityType Name=\"CustomerE" +
+                "xternalAccount\"><Key><PropertyRef Name=\"IdCustomer\" /><PropertyRef Name=\"IdExter" +
+                "nalAccount\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false" +
+                "\" /><Property Name=\"IdExternalAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Navi" +
+                "gationProperty Name=\"ExternalAccount\" Relationship=\"KoloModel.fk_Customer_Extern" +
+                "alAccount\" ToRole=\"ExternalAccount\" FromRole=\"CustomerExternalAccount\" /></Entit" +
+                "yType><EntityType Name=\"CustomerGroup\"><Key><PropertyRef Name=\"IdCustomerGroup\" " +
+                "/></Key><Property Name=\"IdCustomerGroup\" Type=\"Edm.Int32\" Nullable=\"false\" p6:St" +
+                "oreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/0" +
+                "2/edm/annotation\" /><Property Name=\"IdMemberCustomer\" Type=\"Edm.Int32\" Nullable=" +
+                "\"false\" /><Property Name=\"GroupTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxL" +
+                "ength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"GroupName\" Type=" +
+                "\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" " +
+                "/><Property Name=\"CreationDate\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"" +
+                "3\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_CustomerGrou" +
+                "p_MemberAccount\" ToRole=\"Customer\" FromRole=\"CustomerGroup\" /><NavigationPropert" +
+                "y Name=\"RefGroupType\" Relationship=\"KoloModel.fk_CustomerGroup_GroupType\" ToRole" +
+                "=\"RefGroupType\" FromRole=\"CustomerGroup\" /><NavigationProperty Name=\"GroupImage\"" +
+                " Relationship=\"KoloModel.FK_GroupImage_CustomerGroup\" ToRole=\"GroupImage\" FromRo" +
+                "le=\"CustomerGroup\" /></EntityType><EntityType Name=\"CustomerImage\"><Key><Propert" +
+                "yRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Null" +
+                "able=\"false\" /><Property Name=\"ImageBytes\" Type=\"Edm.Binary\" MaxLength=\"Max\" Fix" +
+                "edLength=\"false\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.F" +
+                "K_CustomerImage_Customer\" ToRole=\"Customer\" FromRole=\"CustomerImage\" /></EntityT" +
+                "ype><EntityType Name=\"CustomerLogin\"><Key><PropertyRef Name=\"IdCustomer\" /></Key" +
+                "><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=" +
+                "\"Number\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" FixedLength=\"false\" U" +
+                "nicode=\"true\" /><Property Name=\"NumberVerified\" Type=\"Edm.Boolean\" /><Property N" +
+                "ame=\"EmailAddress\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode" +
+                "=\"true\" /><Property Name=\"EmailAddressVerified\" Type=\"Edm.Boolean\" Nullable=\"fal" +
+                "se\" /><Property Name=\"PwdSalt\" Type=\"Edm.String\" MaxLength=\"256\" FixedLength=\"fa" +
+                "lse\" Unicode=\"true\" /><Property Name=\"Pwd\" Type=\"Edm.String\" MaxLength=\"256\" Fix" +
+                "edLength=\"false\" Unicode=\"true\" /><Property Name=\"RecoveryToken\" Type=\"Edm.Strin" +
+                "g\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"RecoveryT" +
+                "okenExpiryDate\" Type=\"Edm.DateTime\" Precision=\"3\" /><Proper";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart2 = "stomer\" Relationship=\"KoloModel.fk_CustomerAddress_0\" ToRole=\"Customer\" FromRole=" +
-                "\"CustomerAddress\" /></EntityType><EntityType Name=\"CustomerBalanceHistory\"><Key>" +
-                "<PropertyRef Name=\"IdCustomerHistory\" /></Key><Property Name=\"IdCustomerHistory\"" +
-                " Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=" +
-                "\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdCu" +
-                "stomerAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"OperationType" +
-                "Code\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unic" +
-                "ode=\"true\" /><Property Name=\"HistoryDate\" Type=\"Edm.DateTime\" Precision=\"3\" /><P" +
-                "roperty Name=\"OldBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Ne" +
-                "wBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Amount\" Type=\"Edm." +
-                "Int32\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_Customer" +
-                "BalanceHistory\" ToRole=\"Customer\" FromRole=\"CustomerBalanceHistory\" /><Navigatio" +
-                "nProperty Name=\"RefOperationType\" Relationship=\"KoloModel.fk_CustomerBalanceHist" +
-                "ory_0\" ToRole=\"RefOperationType\" FromRole=\"CustomerBalanceHistory\" /></EntityTyp" +
-                "e><EntityType Name=\"CustomerExternalAccount\"><Key><PropertyRef Name=\"IdCustomer\"" +
-                " /><PropertyRef Name=\"IdExternalAccount\" /></Key><Property Name=\"IdCustomer\" Typ" +
-                "e=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdExternalAccount\" Type=\"Edm.In" +
-                "t32\" Nullable=\"false\" /><NavigationProperty Name=\"ExternalAccount\" Relationship=" +
-                "\"KoloModel.fk_Customer_ExternalAccount\" ToRole=\"ExternalAccount\" FromRole=\"Custo" +
-                "merExternalAccount\" /></EntityType><EntityType Name=\"CustomerGroup\"><Key><Proper" +
-                "tyRef Name=\"IdCustomerGroup\" /></Key><Property Name=\"IdCustomerGroup\" Type=\"Edm." +
-                "Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://sch" +
-                "emas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdMemberCustome" +
-                "r\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"GroupTypeCode\" Type=\"Edm." +
-                "String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Pr" +
-                "operty Name=\"GroupName\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedL" +
-                "ength=\"false\" Unicode=\"true\" /><Property Name=\"CreationDate\" Type=\"Edm.DateTime\"" +
-                " Nullable=\"false\" Precision=\"3\" /><NavigationProperty Name=\"Customer\" Relationsh" +
-                "ip=\"KoloModel.fk_CustomerGroup_MemberAccount\" ToRole=\"Customer\" FromRole=\"Custom" +
-                "erGroup\" /><NavigationProperty Name=\"RefGroupType\" Relationship=\"KoloModel.fk_Cu" +
-                "stomerGroup_GroupType\" ToRole=\"RefGroupType\" FromRole=\"CustomerGroup\" /><Navigat" +
-                "ionProperty Name=\"GroupImage\" Relationship=\"KoloModel.FK_GroupImage_CustomerGrou" +
-                "p\" ToRole=\"GroupImage\" FromRole=\"CustomerGroup\" /><NavigationProperty Name=\"Recu" +
-                "rringContributions\" Relationship=\"KoloModel.fk_RecurringContribution_CustomerGro" +
-                "up\" ToRole=\"RecurringContribution\" FromRole=\"CustomerGroup\" /><NavigationPropert" +
-                "y Name=\"TransfertGroups\" Relationship=\"KoloModel.fk_TransfertGroup_ReceiverGroup" +
-                "\" ToRole=\"TransfertGroup\" FromRole=\"CustomerGroup\" /><NavigationProperty Name=\"T" +
-                "ransfertGroupScheduleds\" Relationship=\"KoloModel.fk_TransfertGroupScheduled_Rece" +
-                "iverGroup\" ToRole=\"TransfertGroupScheduled\" FromRole=\"CustomerGroup\" /><Navigati" +
-                "onProperty Name=\"Customers\" Relationship=\"KoloModel.CustomerGroupAdmin\" ToRole=\"" +
-                "Customer\" FromRole=\"CustomerGroup\" /></EntityType><EntityType Name=\"CustomerImag" +
-                "e\"><Key><PropertyRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type=" +
-                "\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"ImageBytes\" Type=\"Edm.Binary\" Max" +
-                "Length=\"Max\" FixedLength=\"false\" /><NavigationProperty Name=\"Customer\" Relations" +
-                "hip=\"KoloModel.FK_CustomerImage_Customer\" ToRole=\"Customer\" FromRole=\"CustomerIm" +
-                "age\" /></EntityType><EntityType Name=\"CustomerLogin\"><Key><PropertyRef Name=\"IdC" +
-                "ustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /" +
-                "><Property Name=\"Number\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" Fixed" +
-                "Length=\"false\" Unicode=\"true\" /><Property Name=\"NumberVerified\" Type=\"Edm.Boolea" +
-                "n\" /><Property Name=\"EmailAddress\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength" +
-                "=\"false\" Unicode=\"true\" /><Property Name=\"EmailAddressVerified\" Type=\"Edm.Boolea" +
-                "n\" Nullable=\"false\" /><Property Name=\"PwdSalt\" Type=\"Edm.String\" MaxLength=\"256\"" +
-                " FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Pwd\" Type=\"Edm.String\" Max" +
-                "Length=\"256\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"RecoveryToken\"" +
-                " Type=\"Edm.String\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property" +
-                " Name=\"RecoveryTokenExpiryDate\" Type=\"Edm.DateTime\" Precision=\"3\" /><Property Na" +
-                "me=\"LoginStatusCode\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicod" +
-                "e=\"true\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_Custom" +
-                "erLogin\" ToRole=\"Customer\" FromRole=\"CustomerLogin\" /><NavigationProperty Name=\"" +
-                "RefLoginStatu\" Relationship=\"KoloModel.fk_CustomerLogin_StatusCode\" ToRole=\"RefL" +
-                "oginStatus\" FromRole=\"CustomerLogin\" /><NavigationProperty Name=\"LoginAttempts\" " +
-                "Relationship=\"KoloModel.fk_LoginAttempt_Customer\" ToRole=\"LoginAttempt\" FromRole" +
-                "=\"CustomerLogin\" /></EntityType><EntityType Name=\"CustomerTag\"><Key><PropertyRef" +
-                " Name=\"IdCustomerTags\" /></Key><Property Name=\"IdCustomerTags\" Type=\"Edm.Int32\" " +
+            private const string ModelPart2 = "ty Name=\"LoginStatusCode\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Un" +
+                "icode=\"true\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_Cu" +
+                "stomerLogin\" ToRole=\"Customer\" FromRole=\"CustomerLogin\" /><NavigationProperty Na" +
+                "me=\"RefLoginStatu\" Relationship=\"KoloModel.fk_CustomerLogin_StatusCode\" ToRole=\"" +
+                "RefLoginStatus\" FromRole=\"CustomerLogin\" /></EntityType><EntityType Name=\"Custom" +
+                "erTag\"><Key><PropertyRef Name=\"IdCustomerTags\" /></Key><Property Name=\"IdCustome" +
+                "rTags\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xml" +
+                "ns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name" +
+                "=\"IdCustomerAccount\" Type=\"Edm.Int32\" /><Property Name=\"IdTag\" Type=\"Edm.Int32\" " +
+                "/><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_customertags_cu" +
+                "stomeraccount\" ToRole=\"Customer\" FromRole=\"CustomerTags\" /><NavigationProperty N" +
+                "ame=\"Tag\" Relationship=\"KoloModel.fk_customertags_tag\" ToRole=\"Tag\" FromRole=\"Cu" +
+                "stomerTags\" /></EntityType><EntityType Name=\"District\"><Key><PropertyRef Name=\"I" +
+                "dDistrict\" /></Key><Property Name=\"IdDistrict\" Type=\"Edm.Int32\" Nullable=\"false\"" +
+                " p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/" +
+                "2009/02/edm/annotation\" /><Property Name=\"DistrictName\" Type=\"Edm.String\" Nullab" +
+                "le=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"C" +
+                "ountryCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"10\" FixedLength=\"false" +
+                "\" Unicode=\"true\" /></EntityType><EntityType Name=\"ExternalAccount\"><Key><Propert" +
+                "yRef Name=\"IdExternalAccount\" /></Key><Property Name=\"IdExternalAccount\" Type=\"E" +
+                "dm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://" +
+                "schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"ExternalLogi" +
+                "n\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode" +
+                "=\"true\" /><Property Name=\"ExternalPwd\" Type=\"Edm.String\" Nullable=\"false\" MaxLen" +
+                "gth=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"ExternalAccountTyp" +
+                "eCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Uni" +
+                "code=\"true\" /><NavigationProperty Name=\"CustomerExternalAccounts\" Relationship=\"" +
+                "KoloModel.fk_Customer_ExternalAccount\" ToRole=\"CustomerExternalAccount\" FromRole" +
+                "=\"ExternalAccount\" /><NavigationProperty Name=\"RefExternalAccountType\" Relations" +
+                "hip=\"KoloModel.fk_ExternalAccount_Type\" ToRole=\"RefExternalAccountType\" FromRole" +
+                "=\"ExternalAccount\" /></EntityType><EntityType Name=\"ExternalAccountHistory\"><Key" +
+                "><PropertyRef Name=\"IdAccountHistory\" /></Key><Property Name=\"IdAccountHistory\" " +
+                "Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"" +
+                "http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdExt" +
+                "ernalAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"OperationTypeC" +
+                "ode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unico" +
+                "de=\"true\" /><Property Name=\"HistoryDate\" Type=\"Edm.DateTime\" Nullable=\"false\" Pr" +
+                "ecision=\"3\" /><Property Name=\"OldBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><P" +
+                "roperty Name=\"NewBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Am" +
+                "ount\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationProperty Name=\"ExternalAcco" +
+                "unt\" Relationship=\"KoloModel.fk_ExternalAccount_History\" ToRole=\"ExternalAccount" +
+                "\" FromRole=\"ExternalAccountHistory\" /></EntityType><EntityType Name=\"ForeasNotif" +
+                "ication\"><Key><PropertyRef Name=\"IdNotification\" /></Key><Property Name=\"IdNotif" +
+                "ication\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" x" +
+                "mlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Na" +
+                "me=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Title\" Type=" +
+                "\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" " +
+                "/><Property Name=\"Message\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" Fix" +
+                "edLength=\"false\" Unicode=\"true\" /><Property Name=\"CreationDate\" Type=\"Edm.DateTi" +
+                "me\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"ExpiryDate\" Type=\"Edm.DateT" +
+                "ime\" Precision=\"3\" /><Property Name=\"Readed\" Type=\"Edm.Boolean\" /><NavigationPro" +
+                "perty Name=\"Customer\" Relationship=\"KoloModel.fk_Notification_Customer\" ToRole=\"" +
+                "Customer\" FromRole=\"ForeasNotification\" /></EntityType><EntityType Name=\"GroupIm" +
+                "age\"><Key><PropertyRef Name=\"IdCustomerGroup\" /></Key><Property Name=\"IdCustomer" +
+                "Group\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"ImageBytes\" Type=\"Edm" +
+                ".Binary\" MaxLength=\"Max\" FixedLength=\"false\" /><NavigationProperty Name=\"Custome" +
+                "rGroup\" Relationship=\"KoloModel.FK_GroupImage_CustomerGroup\" ToRole=\"CustomerGro" +
+                "up\" FromRole=\"GroupImage\" /></EntityType><EntityType Name=\"LoginAttempt\"><Key><P" +
+                "ropertyRef Name=\"IdLoginAttempt\" /></Key><Property Name=\"IdLoginAttempt\" Type=\"E" +
+                "dm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://" +
+                "schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdCustomer\" " +
+                "Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"LoginTime\" Type=\"Edm.DateTim" +
+                "e\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"ResultCode\" Type=\"Edm.String" +
+                "\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property" +
+                " Name=\"DeviceId\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"" +
+                "false\" Unicode=\"true\" /><Property Name=\"SimOperator\" Type=\"Edm.String\" Nullable=" +
+                "\"false\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SimS" +
+                "erialNumber\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"20\" FixedLength=\"fals" +
+                "e\" Unicode=\"true\" /><Property Name=\"SubscriberId\" Type=\"Edm.String\" Nullable=\"fa" +
+                "lse\" MaxLength=\"20\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Pwd\" Ty" +
+                "pe=\"Edm.String\" Nullable=\"false\" MaxLength=\"256\" FixedLength=\"false\" Unicode=\"tr" +
+                "ue\" /><Property Name=\"Number\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" " +
+                "FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Latitude\" Type=\"Edm.Decimal" +
+                "\" Precision=\"9\" Scale=\"6\" /><Property Name=\"Longitude\" Type=\"Edm.Decimal\" Precis" +
+                "ion=\"9\" Scale=\"6\" /><Property Name=\"Accuracy\" Type=\"Edm.Decimal\" Precision=\"4\" S" +
+                "cale=\"2\" /><NavigationProperty Name=\"CustomerLogin\" Relationship=\"KoloModel.fk_L" +
+                "oginAttempt_Customer\" ToRole=\"CustomerLogin\" FromRole=\"LoginAttempt\" /><Navigati" +
+                "onProperty Name=\"RefResult\" Relationship=\"KoloModel.fk_LoginAttempt_ResultCode\" " +
+                "ToRole=\"RefResult\" FromRole=\"LoginAttempt\" /></EntityType><EntityType Name=\"Mobi" +
+                "leDevice\"><Key><PropertyRef Name=\"IdMobileDevice\" /></Key><Property Name=\"IdMobi" +
+                "leDevice\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"DeviceId\" Type=\"Ed" +
+                "m.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><" +
+                "Property Name=\"LineNumber\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" Fix" +
+                "edLength=\"false\" Unicode=\"true\" /><Property Name=\"NetworkCountryIso\" Type=\"Edm.S" +
+                "tring\" MaxLength=\"3\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Networ" +
+                "kOperator\" Type=\"Edm.String\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /" +
+                "><Property Name=\"NetworkOperatorName\" Type=\"Edm.String\" MaxLength=\"50\" FixedLeng" +
+                "th=\"false\" Unicode=\"true\" /><Property Name=\"NetworkType\" Type=\"Edm.String\" MaxLe" +
+                "ngth=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"PhoneType\" Type=\"" +
+                "Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"" +
+                "SimCountryIso\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"3\" FixedLength=\"fal" +
+                "se\" Unicode=\"true\" /><Property Name=\"SimOperator\" Type=\"Edm.String\" Nullable=\"fa" +
+                "lse\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SimOper" +
+                "atorName\" Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"fal";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart3 = "se\" Unicode=\"true\" /><Property Name=\"SimSerialNumber\" Type=\"Edm.String\" Nullable=" +
+                "\"false\" MaxLength=\"20\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SimS" +
+                "tate\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Pro" +
+                "perty Name=\"SubscriberId\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"20\" Fixe" +
+                "dLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Customer\" Relationshi" +
+                "p=\"KoloModel.fk_Customer_Mobile\" ToRole=\"Customer\" FromRole=\"MobileDevice\" /></E" +
+                "ntityType><EntityType Name=\"Partner\"><Key><PropertyRef Name=\"IdPartner\" /></Key>" +
+                "<Property Name=\"IdPartner\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPa" +
+                "ttern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotati" +
+                "on\" /><Property Name=\"PartnerTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLen" +
+                "gth=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"CurrencyCode\" Type" +
+                "=\"Edm.String\" Nullable=\"false\" MaxLength=\"3\" FixedLength=\"true\" Unicode=\"true\" /" +
+                "><Property Name=\"Balance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Da" +
+                "teCreated\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3\" /><NavigationPrope" +
+                "rty Name=\"Currency\" Relationship=\"KoloModel.fk_Partner_0\" ToRole=\"Currency\" From" +
+                "Role=\"Partner\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_" +
+                "Partner_Customer\" ToRole=\"Customer\" FromRole=\"Partner\" /><NavigationProperty Nam" +
+                "e=\"RefPartnerType\" Relationship=\"KoloModel.fk_Partner\" ToRole=\"RefPartnerType\" F" +
+                "romRole=\"Partner\" /><NavigationProperty Name=\"Reseller\" Relationship=\"KoloModel." +
+                "fk_Reseller\" ToRole=\"Reseller\" FromRole=\"Partner\" /><NavigationProperty Name=\"Wh" +
+                "olesaler\" Relationship=\"KoloModel.fk_Wholesaler\" ToRole=\"Wholesaler\" FromRole=\"P" +
+                "artner\" /></EntityType><EntityType Name=\"PartnerAddress\"><Key><PropertyRef Name=" +
+                "\"IdAddress\" /><PropertyRef Name=\"IdPartner\" /></Key><Property Name=\"IdPartner\" T" +
+                "ype=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdAddress\" Type=\"Edm.Int32\" N" +
+                "ullable=\"false\" /><Property Name=\"AddresseTypeCode\" Type=\"Edm.String\" MaxLength=" +
+                "\"15\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Adresse\" Rel" +
+                "ationship=\"KoloModel.fk_PartnerAddress_Address\" ToRole=\"Adresse\" FromRole=\"Partn" +
+                "erAddress\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk_Partn" +
+                "erAddress_Partner\" ToRole=\"Partner\" FromRole=\"PartnerAddress\" /></EntityType><En" +
+                "tityType Name=\"PartnerBalanceHistory\"><Key><PropertyRef Name=\"IdPatnerHistory\" /" +
+                "></Key><Property Name=\"IdPatnerHistory\" Type=\"Edm.Int32\" Nullable=\"false\" /><Pro" +
+                "perty Name=\"IdPartnerAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name" +
+                "=\"HistoryDate\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3\" /><Property Na" +
+                "me=\"OldBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"NewBalance\" " +
+                "Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Nul" +
+                "lable=\"false\" /></EntityType><EntityType Name=\"Person\"><Key><PropertyRef Name=\"I" +
+                "dCustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false\"" +
+                " /><Property Name=\"GenderCode\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"fal" +
+                "se\" Unicode=\"true\" /><Property Name=\"MaritalStatusCode\" Type=\"Edm.String\" MaxLen" +
+                "gth=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Firstname\" Type=\"E" +
+                "dm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"" +
+                "Middlename\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\"" +
+                " /><Property Name=\"Lastname\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"fals" +
+                "e\" Unicode=\"true\" /><Property Name=\"DateOfBirth\" Type=\"Edm.DateTime\" Precision=\"" +
+                "0\" /><Property Name=\"DateCreated\" Type=\"Edm.DateTime\" Precision=\"3\" /><Property " +
+                "Name=\"CountryCode\" Type=\"Edm.String\" MaxLength=\"10\" FixedLength=\"false\" Unicode=" +
+                "\"true\" /><NavigationProperty Name=\"Country\" Relationship=\"KoloModel.fk_Person\" T" +
+                "oRole=\"Country\" FromRole=\"Person\" /><NavigationProperty Name=\"Customer\" Relation" +
+                "ship=\"KoloModel.fk_Person_Customer\" ToRole=\"Customer\" FromRole=\"Person\" /><Navig" +
+                "ationProperty Name=\"RefGender\" Relationship=\"KoloModel.fk_Person_Gender\" ToRole=" +
+                "\"RefGender\" FromRole=\"Person\" /><NavigationProperty Name=\"RefMaritalStatu\" Relat" +
+                "ionship=\"KoloModel.fk_Person_MaritalStatus\" ToRole=\"RefMaritalStatus\" FromRole=\"" +
+                "Person\" /><NavigationProperty Name=\"PersonRelationship\" Relationship=\"KoloModel." +
+                "fk_Relationship_Customer\" ToRole=\"PersonRelationship\" FromRole=\"Person\" /><Navig" +
+                "ationProperty Name=\"KoloUser\" Relationship=\"KoloModel.FK_User_Person1\" ToRole=\"K" +
+                "oloUser\" FromRole=\"Person\" /></EntityType><EntityType Name=\"PersonRelationship\">" +
+                "<Key><PropertyRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Ed" +
+                "m.Int32\" Nullable=\"false\" /><Property Name=\"IdPersonRelation\" Type=\"Edm.Int32\" N" +
+                "ullable=\"false\" /><Property Name=\"RelationshipTypeCode\" Type=\"Edm.String\" Nullab" +
+                "le=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProper" +
+                "ty Name=\"Person\" Relationship=\"KoloModel.fk_Relationship_Customer\" ToRole=\"Perso" +
+                "n\" FromRole=\"PersonRelationship\" /><NavigationProperty Name=\"Person1\" Relationsh" +
+                "ip=\"KoloModel.fk_Relationship_PersonRelation\" ToRole=\"Person\" FromRole=\"PersonRe" +
+                "lationship\" /><NavigationProperty Name=\"RefPersonRelationshipType\" Relationship=" +
+                "\"KoloModel.fk_Relationship_TypeCode\" ToRole=\"RefPersonRelationshipType\" FromRole" +
+                "=\"PersonRelationship\" /></EntityType><EntityType Name=\"Provision\"><Key><Property" +
+                "Ref Name=\"IdProvision\" /></Key><Property Name=\"IdProvision\" Type=\"Edm.Int32\" Nul" +
+                "lable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.micro" +
+                "soft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdProvisionRequest\" Type=" +
+                "\"Edm.Int32\" /><Property Name=\"IdPatnerHistory\" Type=\"Edm.Int32\" Nullable=\"false\"" +
+                " /><Property Name=\"IdResellerPartnerAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /" +
+                "><Property Name=\"IdWholesalerPartnerAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /" +
+                "><Property Name=\"CodeRefProsisionStatus\" Type=\"Edm.String\" MaxLength=\"15\" FixedL" +
+                "ength=\"false\" Unicode=\"true\" /><Property Name=\"ProvisionDate\" Type=\"Edm.DateTime" +
+                "\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Null" +
+                "able=\"false\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk_Pro" +
+                "vision_ResellerPartnerAccount\" ToRole=\"Partner\" FromRole=\"Provision\" /><Navigati" +
+                "onProperty Name=\"Partner1\" Relationship=\"KoloModel.fk_Provision_WholesalerPartne" +
+                "rAccount\" ToRole=\"Partner\" FromRole=\"Provision\" /><NavigationProperty Name=\"Part" +
+                "nerBalanceHistory\" Relationship=\"KoloModel.fk_Provision_History\" ToRole=\"Partner" +
+                "BalanceHistory\" FromRole=\"Provision\" /><NavigationProperty Name=\"RefProvisionSta" +
+                "tu\" Relationship=\"KoloModel.fk_Provision_StatusCode\" ToRole=\"RefProvisionStatus\"" +
+                " FromRole=\"Provision\" /></EntityType><EntityType Name=\"RecurringContribution\"><K" +
+                "ey><PropertyRef Name=\"IdRecurringContribution\" /></Key><Property Name=\"IdRecurri" +
+                "ngContribution\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Iden" +
+                "tity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Prop" +
+                "erty Name=\"IdTreasurerCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Na" +
+                "me=\"IdCustomerGroup\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationProperty Nam" +
+                "e=\"Customer\" Relationship=\"KoloModel.fk_RecurringContribution_TreasuererCustomer" +
+                "\" ToRole=\"Customer\" FromRole=\"RecurringContribution\" /><NavigationProperty Name=" +
+                "\"CustomerGroup\" Relationship=\"KoloModel.fk_RecurringContribution_CustomerGroup\" " +
+                "ToRole=\"CustomerGroup\" FromRole=\"RecurringContribution\" /></EntityType><EntityTy" +
+                "pe Name=\"RefAddressType\"><Key><PropertyRef Name=\"AddressTypeCode\" /></Key><Prope" +
+                "rty Name=\"AddressTypeDescription\" Type=\"Edm.String\" MaxLeng";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart4 = "th=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"AddressTypeCode\" Ty" +
+                "pe=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"tru" +
+                "e\" /></EntityType><EntityType Name=\"RefBillStatu\"><Key><PropertyRef Name=\"BillSt" +
+                "atusCode\" /></Key><Property Name=\"BillStatusCode\" Type=\"Edm.String\" Nullable=\"fa" +
+                "lse\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"BillSta" +
+                "tusDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"" +
+                "false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefBillType\"><Key><Proper" +
+                "tyRef Name=\"BillTypeCode\" /></Key><Property Name=\"BillTypeCode\" Type=\"Edm.String" +
+                "\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property" +
+                " Name=\"BillTypeDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"100\" F" +
+                "ixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefCustomerTy" +
+                "pe\"><Key><PropertyRef Name=\"CustomerTypeCode\" /></Key><Property Name=\"CustomerTy" +
+                "peCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Un" +
+                "icode=\"true\" /><Property Name=\"CustomerTypeDescription\" Type=\"Edm.String\" Nullab" +
+                "le=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><Ent" +
+                "ityType Name=\"RefExternalAccountType\"><Key><PropertyRef Name=\"ExternalAccountTyp" +
+                "eCode\" /></Key><Property Name=\"ExternalAccountTypeCode\" Type=\"Edm.String\" Nullab" +
+                "le=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"E" +
+                "xternalAccountTypeDescription\" Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"fal" +
+                "se\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefGender\"><Key><PropertyRef" +
+                " Name=\"GenderCode\" /></Key><Property Name=\"GenderCode\" Type=\"Edm.String\" Nullabl" +
+                "e=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Ge" +
+                "nderDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"" +
+                "false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefGroupType\"><Key><Prope" +
+                "rtyRef Name=\"GroupTypeCode\" /></Key><Property Name=\"GroupTypeCode\" Type=\"Edm.Str" +
+                "ing\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Prope" +
+                "rty Name=\"GroupTypeDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50" +
+                "\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefIndustr" +
+                "yCategory\"><Key><PropertyRef Name=\"IndustryCategoryCode\" /></Key><Property Name=" +
+                "\"IndustryCategoryCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLe" +
+                "ngth=\"false\" Unicode=\"true\" /><Property Name=\"IndustryCategoryDescrption\" Type=\"" +
+                "Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><En" +
+                "tityType Name=\"RefLoginStatu\"><Key><PropertyRef Name=\"LoginStatusCode\" /></Key><" +
+                "Property Name=\"LoginStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15" +
+                "\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"LoginStatusDescription\" T" +
+                "ype=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"tr" +
+                "ue\" /><NavigationProperty Name=\"KoloUsers\" Relationship=\"KoloModel.FK_User_RefLo" +
+                "ginStatus1\" ToRole=\"KoloUser\" FromRole=\"RefLoginStatu\" /></EntityType><EntityTyp" +
+                "e Name=\"RefMaritalStatu\"><Key><PropertyRef Name=\"MaritalStatusCode\" /></Key><Pro" +
+                "perty Name=\"MaritalStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\"" +
+                " FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"MaritalStatusDescription\" " +
+                "Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"t" +
+                "rue\" /></EntityType><EntityType Name=\"RefOperationStatu\"><Key><PropertyRef Name=" +
+                "\"OperationStatusCode\" /></Key><Property Name=\"OperationStatusCode\" Type=\"Edm.Str" +
+                "ing\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Prope" +
+                "rty Name=\"OperationStatusDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLeng" +
+                "th=\"100\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"Ref" +
+                "OperationType\"><Key><PropertyRef Name=\"OperationTypeCode\" /></Key><Property Name" +
+                "=\"OperationTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLeng" +
+                "th=\"false\" Unicode=\"true\" /><Property Name=\"OperationTypeName\" Type=\"Edm.String\"" +
+                " Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /></EntityT" +
+                "ype><EntityType Name=\"RefPartnerType\"><Key><PropertyRef Name=\"PartnerTypeCode\" /" +
+                "></Key><Property Name=\"PartnerTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLe" +
+                "ngth=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"PartnerTypeDescri" +
+                "ption\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Uni" +
+                "code=\"true\" /></EntityType><EntityType Name=\"RefPersonRelationshipType\"><Key><Pr" +
+                "opertyRef Name=\"RelationshipTypeCode\" /></Key><Property Name=\"RelationshipTypeCo" +
+                "de\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicod" +
+                "e=\"true\" /><Property Name=\"RelationshipTypeDescription\" Type=\"Edm.String\" MaxLen" +
+                "gth=\"50\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"Ref" +
+                "ProvisionStatu\"><Key><PropertyRef Name=\"ProvisionStatusCode\" /></Key><Property N" +
+                "ame=\"ProvisionStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" Fixe" +
+                "dLength=\"false\" Unicode=\"true\" /><Property Name=\"ProvisionStatusDescription\" Typ" +
+                "e=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /></EntityType" +
+                "><EntityType Name=\"RefRegistrationStatu\"><Key><PropertyRef Name=\"RegistrationSta" +
+                "tusCode\" /></Key><Property Name=\"RegistrationStatusCode\" Type=\"Edm.String\" Nulla" +
+                "ble=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"" +
+                "RegistrationStatusDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\"" +
+                " FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefResult\">" +
+                "<Key><PropertyRef Name=\"ResultCode\" /></Key><Property Name=\"ResultCode\" Type=\"Ed" +
+                "m.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><" +
+                "Property Name=\"ResultDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"" +
+                "50\" FixedLength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefTrans" +
+                "fertStatu\"><Key><PropertyRef Name=\"TransfertStatusCode\" /></Key><Property Name=\"" +
+                "TransfertStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLeng" +
+                "th=\"false\" Unicode=\"true\" /><Property Name=\"TransfertStatusDescription\" Type=\"Ed" +
+                "m.String\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" />" +
+                "</EntityType><EntityType Name=\"Registration\"><Key><PropertyRef Name=\"IdRegistrat" +
+                "ion\" /></Key><Property Name=\"IdRegistration\" Type=\"Edm.Int32\" Nullable=\"false\" p" +
+                "6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/20" +
+                "09/02/edm/annotation\" /><Property Name=\"LastName\" Type=\"Edm.String\" MaxLength=\"1" +
+                "00\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"FirstName\" Type=\"Edm.St" +
+                "ring\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Phone" +
+                "Number\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><P" +
+                "roperty Name=\"Dob\" Type=\"Edm.DateTime\" Precision=\"0\" /><Property Name=\"Email\" Ty" +
+                "pe=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property Na" +
+                "me=\"RegistrationToken\" Type=\"Edm.String\" MaxLength=\"10\" FixedLength=\"false\" Unic" +
+                "ode=\"true\" /><Property Name=\"RegistrationStatusCode\" Type=\"Edm.String\" Nullable=" +
+                "\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Regi" +
+                "strationDate\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3\" /><Property Nam" +
+                "e=\"RegistrationConfirmDate\" Type=\"Edm.DateTime\" Precision=\"3\" /><Property Name=\"" +
+                "SimSubscriberId\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"20\" FixedLength=\"" +
+                "false\" Unicode=\"true\" /><Property Name=\"SimSerialNumber\" Type=\"Edm.String\" Nulla" +
+                "ble=\"false\" MaxLength=\"20\" FixedLength=\"false\" Unicode=\"tru";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart5 = "e\" /><Property Name=\"OperatorDeviceSim\" Type=\"Edm.String\" Nullable=\"false\" MaxLen" +
+                "gth=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"RegistrationToken" +
+                "ExpiryDate\" Type=\"Edm.DateTime\" Precision=\"3\" /><Property Name=\"Pwd\" Type=\"Edm.S" +
+                "tring\" Nullable=\"false\" MaxLength=\"256\" FixedLength=\"false\" Unicode=\"true\" /><Pr" +
+                "operty Name=\"DeviceId\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLe" +
+                "ngth=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"RefRegistrationStatu\" Re" +
+                "lationship=\"KoloModel.fk_Registration\" ToRole=\"RefRegistrationStatus\" FromRole=\"" +
+                "Registration\" /></EntityType><EntityType Name=\"Reseller\"><Key><PropertyRef Name=" +
+                "\"IdPartner\" /></Key><Property Name=\"IdPartner\" Type=\"Edm.Int32\" Nullable=\"false\"" +
+                " p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/" +
+                "2009/02/edm/annotation\" /><Property Name=\"IdWholesalerPartner\" Type=\"Edm.Int32\" " +
+                "Nullable=\"false\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk" +
+                "_Reseller\" ToRole=\"Partner\" FromRole=\"Reseller\" /></EntityType><EntityType Name=" +
+                "\"Tag\"><Key><PropertyRef Name=\"IdTag\" /></Key><Property Name=\"IdTag\" Type=\"Edm.In" +
+                "t32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schem" +
+                "as.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"TagName\" Type=\"Ed" +
+                "m.String\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" />" +
+                "</EntityType><EntityType Name=\"Transfert2Cash\"><Key><PropertyRef Name=\"IdTransfe" +
+                "rt2Cash\" /></Key><Property Name=\"IdTransfert2Cash\" Type=\"Edm.Int32\" Nullable=\"fa" +
+                "lse\" /><Property Name=\"IdPartnerAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Pr" +
+                "operty Name=\"IdSendingTransfert2CashDetails\" Type=\"Edm.Int32\" Nullable=\"false\" /" +
+                "><Property Name=\"IdReceiverTransfert2CashDetails\" Type=\"Edm.Int32\" Nullable=\"fal" +
+                "se\" /><Property Name=\"CodeTransfertStatus\" Type=\"Edm.String\" MaxLength=\"15\" Fixe" +
+                "dLength=\"false\" Unicode=\"true\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Nullab" +
+                "le=\"false\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk_Trans" +
+                "fert2Cash_PartnerAccount\" ToRole=\"Partner\" FromRole=\"Transfert2Cash\" /></EntityT" +
+                "ype><EntityType Name=\"Transfert2CashDetails\"><Key><PropertyRef Name=\"IdTransfert" +
+                "2CashDetails\" /></Key><Property Name=\"IdTransfert2CashDetails\" Type=\"Edm.Int32\" " +
                 "Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.mi" +
                 "crosoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdCustomerAccount\" Typ" +
-                "e=\"Edm.Int32\" /><Property Name=\"IdTag\" Type=\"Edm.Int32\" /><NavigationProperty Na" +
-                "me=\"Customer\" Relationship=\"KoloModel.fk_customertags_customeraccount\" ToRole=\"C" +
-                "ustomer\" FromRole=\"CustomerTags\" /><NavigationProperty Name=\"Tag\" Relationship=\"" +
-                "KoloModel.fk_customertags_tag\" ToRole=\"Tag\" FromRole=\"CustomerTags\" /></EntityTy" +
-                "pe><EntityType Name=\"District\"><Key><PropertyRef Name=\"IdDistrict\" /></Key><Prop" +
-                "erty Name=\"IdDistrict\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPatter" +
-                "n=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" " +
-                "/><Property Name=\"DistrictName\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50" +
-                "\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"CountryCode\" Type=\"Edm.St" +
-                "ring\" Nullable=\"false\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Navi" +
-                "gationProperty Name=\"Cities\" Relationship=\"KoloModel.fk_City_0\" ToRole=\"City\" Fr" +
-                "omRole=\"District\" /></EntityType><EntityType Name=\"ExternalAccount\"><Key><Proper" +
-                "tyRef Name=\"IdExternalAccount\" /></Key><Property Name=\"IdExternalAccount\" Type=\"" +
-                "Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http:/" +
-                "/schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"ExternalLog" +
-                "in\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicod" +
-                "e=\"true\" /><Property Name=\"ExternalPwd\" Type=\"Edm.String\" Nullable=\"false\" MaxLe" +
-                "ngth=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"ExternalAccountTy" +
-                "peCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Un" +
-                "icode=\"true\" /><NavigationProperty Name=\"CustomerExternalAccounts\" Relationship=" +
-                "\"KoloModel.fk_Customer_ExternalAccount\" ToRole=\"CustomerExternalAccount\" FromRol" +
-                "e=\"ExternalAccount\" /><NavigationProperty Name=\"ExternalAccountHistories\" Relati" +
-                "onship=\"KoloModel.fk_ExternalAccount_History\" ToRole=\"ExternalAccountHistory\" Fr" +
-                "omRole=\"ExternalAccount\" /><NavigationProperty Name=\"RefExternalAccountType\" Rel" +
-                "ationship=\"KoloModel.fk_ExternalAccount_Type\" ToRole=\"RefExternalAccountType\" Fr" +
-                "omRole=\"ExternalAccount\" /><NavigationProperty Name=\"TransfertE2e\" Relationship=" +
-                "\"KoloModel.fk_TransfertE2e_Receiver\" ToRole=\"TransfertE2e\" FromRole=\"ExternalAcc" +
-                "ount\" /><NavigationProperty Name=\"TransfertE2e1\" Relationsh";
+                "e=\"Edm.Int32\" /><Property Name=\"Firstname\" Type=\"Edm.String\" MaxLength=\"100\" Fix" +
+                "edLength=\"false\" Unicode=\"true\" /><Property Name=\"Middlename\" Type=\"Edm.String\" " +
+                "MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Lastname\" T" +
+                "ype=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property " +
+                "Name=\"Reference\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" FixedLength=\"" +
+                "false\" Unicode=\"true\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloMo" +
+                "del.fk_Transfert2CashDetails\" ToRole=\"Customer\" FromRole=\"Transfert2CashDetails\"" +
+                " /></EntityType><EntityType Name=\"TransfertE2e\"><Key><PropertyRef Name=\"IdTransf" +
+                "ertE2e\" /></Key><Property Name=\"IdTransfertE2e\" Type=\"Edm.Int32\" Nullable=\"false" +
+                "\" /><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Na" +
+                "me=\"IdSendingExternalAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name" +
+                "=\"IdReceiverExternalAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=" +
+                "\"TransfertStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLen" +
+                "gth=\"false\" Unicode=\"true\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Nullable=\"" +
+                "false\" /><Property Name=\"OperationTypeCode\" Type=\"Edm.String\" Nullable=\"false\" M" +
+                "axLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Reference\" Ty" +
+                "pe=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" FixedLength=\"false\" Unicode=\"tru" +
+                "e\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_TransfertE2e" +
+                "_Customer\" ToRole=\"Customer\" FromRole=\"TransfertE2e\" /><NavigationProperty Name=" +
+                "\"ExternalAccount\" Relationship=\"KoloModel.fk_TransfertE2e_Receiver\" ToRole=\"Exte" +
+                "rnalAccount\" FromRole=\"TransfertE2e\" /><NavigationProperty Name=\"ExternalAccount" +
+                "1\" Relationship=\"KoloModel.fk_TransfertE2e_Sender\" ToRole=\"ExternalAccount\" From" +
+                "Role=\"TransfertE2e\" /><NavigationProperty Name=\"RefOperationType\" Relationship=\"" +
+                "KoloModel.fk_TransfertE2e_OperationtType\" ToRole=\"RefOperationType\" FromRole=\"Tr" +
+                "ansfertE2e\" /><NavigationProperty Name=\"RefTransfertStatu\" Relationship=\"KoloMod" +
+                "el.fk_TransfertE2e_StatusCode\" ToRole=\"RefTransfertStatus\" FromRole=\"TransfertE2" +
+                "e\" /></EntityType><EntityType Name=\"TransfertGroup\"><Key><PropertyRef Name=\"IdTr" +
+                "ansfertGroup\" /></Key><Property Name=\"IdTransfertGroup\" Type=\"Edm.Int32\" Nullabl" +
+                "e=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft" +
+                ".com/ado/2009/02/edm/annotation\" /><Property Name=\"IdReceiverGroup\" Type=\"Edm.In" +
+                "t32\" Nullable=\"false\" /><Property Name=\"IdSendingCustomer\" Type=\"Edm.Int32\" Null" +
+                "able=\"false\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Prop" +
+                "erty Name=\"CodeTransfertStatus\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15" +
+                "\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Reference\" Type=\"Edm.Stri" +
+                "ng\" Nullable=\"false\" MaxLength=\"30\" FixedLength=\"false\" Unicode=\"true\" /><Naviga" +
+                "tionProperty Name=\"Customer\" Relationship=\"KoloModel.fk_TransfertGroup_Sender\" T" +
+                "oRole=\"Customer\" FromRole=\"TransfertGroup\" /><NavigationProperty Name=\"CustomerG" +
+                "roup\" Relationship=\"KoloModel.fk_TransfertGroup_ReceiverGroup\" ToRole=\"CustomerG" +
+                "roup\" FromRole=\"TransfertGroup\" /><NavigationProperty Name=\"RefTransfertStatu\" R" +
+                "elationship=\"KoloModel.fk_TransfertGroup_StatusCode\" ToRole=\"RefTransfertStatus\"" +
+                " FromRole=\"TransfertGroup\" /></EntityType><EntityType Name=\"TransfertGroupSchedu" +
+                "led\"><Key><PropertyRef Name=\"IdTransfertGroupScheduled\" /></Key><Property Name=\"" +
+                "IdTransfertGroupScheduled\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"I" +
+                "dReceiverGroup\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdSendingCus" +
+                "tomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationProperty Name=\"Customer\" R" +
+                "elationship=\"KoloModel.fk_TransfertGroupScheduled_Sender\" ToRole=\"Customer\" From" +
+                "Role=\"TransfertGroupScheduled\" /><NavigationProperty Name=\"CustomerGroup\" Relati" +
+                "onship=\"KoloModel.fk_TransfertGroupScheduled_ReceiverGroup\" ToRole=\"CustomerGrou" +
+                "p\" FromRole=\"TransfertGroupScheduled\" /></EntityType><EntityType Name=\"Transfert" +
+                "P2p\"><Key><PropertyRef Name=\"IdTransfertP2p\" /></Key><Property Name=\"IdTransfert" +
+                "P2p\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns" +
+                ":p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"" +
+                "IdSendingCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdReceive" +
+                "rCustomer\" Type=\"Edm.Int32\" /><Property Name=\"IdTransfertScheduled\" Type=\"Edm.In" +
+                "t32\" /><Property Name=\"TransfertStatusCode\" Type=\"Edm.String\" Nullable=\"false\" M" +
+                "axLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Amount\" Type=" +
+                "\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"NeedsConfirmation\" Type=\"Edm.Bool" +
+                "ean\" Nullable=\"false\" /><Property Name=\"Secret\" Type=\"Edm.String\" MaxLength=\"4\" " +
+                "FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"TransfertDate\" Type=\"Edm.Da" +
+                "teTime\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"Reference\" Type=\"Edm.St" +
+                "ring\" Nullable=\"false\" MaxLength=\"30\" FixedLength=\"false\" Unicode=\"true\" /><Prop" +
+                "erty Name=\"Transfert2Cash\" Type=\"Edm.Boolean\" Nullable=\"false\" /><NavigationProp" +
+                "erty Name=\"Customer\" Relationship=\"KoloModel.fk_TransfertP2p_Receiver\" ToRole=\"C" +
+                "ustomer\" FromRole=\"TransfertP2p\" /></EntityType><EntityType";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart3 = "ip=\"KoloModel.fk_TransfertE2e_Sender\" ToRole=\"TransfertE2e\" FromRole=\"ExternalAcc" +
-                "ount\" /></EntityType><EntityType Name=\"ExternalAccountHistory\"><Key><PropertyRef" +
-                " Name=\"IdAccountHistory\" /></Key><Property Name=\"IdAccountHistory\" Type=\"Edm.Int" +
-                "32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schema" +
-                "s.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdExternalAccount\"" +
-                " Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"OperationTypeCode\" Type=\"Ed" +
-                "m.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><" +
-                "Property Name=\"HistoryDate\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3\" /" +
-                "><Property Name=\"OldBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=" +
-                "\"NewBalance\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Amount\" Type=\"E" +
-                "dm.Int32\" Nullable=\"false\" /><NavigationProperty Name=\"ExternalAccount\" Relation" +
-                "ship=\"KoloModel.fk_ExternalAccount_History\" ToRole=\"ExternalAccount\" FromRole=\"E" +
-                "xternalAccountHistory\" /></EntityType><EntityType Name=\"ForeasNotification\"><Key" +
-                "><PropertyRef Name=\"IdNotification\" /></Key><Property Name=\"IdNotification\" Type" +
-                "=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http" +
-                "://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdCustome" +
-                "r\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Title\" Type=\"Edm.String\" " +
-                "Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property N" +
-                "ame=\"Message\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"fal" +
-                "se\" Unicode=\"true\" /><Property Name=\"CreationDate\" Type=\"Edm.DateTime\" Nullable=" +
-                "\"false\" Precision=\"3\" /><Property Name=\"ExpiryDate\" Type=\"Edm.DateTime\" Precisio" +
-                "n=\"3\" /><Property Name=\"Readed\" Type=\"Edm.Boolean\" /><NavigationProperty Name=\"C" +
-                "ustomer\" Relationship=\"KoloModel.fk_Notification_Customer\" ToRole=\"Customer\" Fro" +
-                "mRole=\"ForeasNotification\" /></EntityType><EntityType Name=\"GroupImage\"><Key><Pr" +
-                "opertyRef Name=\"IdCustomerGroup\" /></Key><Property Name=\"IdCustomerGroup\" Type=\"" +
-                "Edm.Int32\" Nullable=\"false\" /><Property Name=\"ImageBytes\" Type=\"Edm.Binary\" MaxL" +
-                "ength=\"Max\" FixedLength=\"false\" /><NavigationProperty Name=\"CustomerGroup\" Relat" +
-                "ionship=\"KoloModel.FK_GroupImage_CustomerGroup\" ToRole=\"CustomerGroup\" FromRole=" +
-                "\"GroupImage\" /></EntityType><EntityType Name=\"LoginAttempt\"><Key><PropertyRef Na" +
-                "me=\"IdLoginAttempt\" /></Key><Property Name=\"IdLoginAttempt\" Type=\"Edm.Int32\" Nul" +
-                "lable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.micro" +
-                "soft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdCustomer\" Type=\"Edm.Int" +
-                "32\" Nullable=\"false\" /><Property Name=\"LoginTime\" Type=\"Edm.DateTime\" Nullable=\"" +
-                "false\" Precision=\"3\" /><Property Name=\"ResultCode\" Type=\"Edm.String\" Nullable=\"f" +
-                "alse\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Device" +
-                "Id\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicod" +
-                "e=\"true\" /><Property Name=\"SimOperator\" Type=\"Edm.String\" Nullable=\"false\" MaxLe" +
-                "ngth=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SimSerialNumber\" " +
-                "Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"20\" FixedLength=\"false\" Unicode=\"t" +
-                "rue\" /><Property Name=\"SubscriberId\" Type=\"Edm.String\" Nullable=\"false\" MaxLengt" +
-                "h=\"20\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Pwd\" Type=\"Edm.Strin" +
-                "g\" Nullable=\"false\" MaxLength=\"256\" FixedLength=\"false\" Unicode=\"true\" /><Proper" +
-                "ty Name=\"Number\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" FixedLength=\"" +
-                "false\" Unicode=\"true\" /><Property Name=\"Latitude\" Type=\"Edm.Decimal\" Precision=\"" +
-                "9\" Scale=\"6\" /><Property Name=\"Longitude\" Type=\"Edm.Decimal\" Precision=\"9\" Scale" +
-                "=\"6\" /><Property Name=\"Accuracy\" Type=\"Edm.Decimal\" Precision=\"4\" Scale=\"2\" /><N" +
-                "avigationProperty Name=\"CustomerLogin\" Relationship=\"KoloModel.fk_LoginAttempt_C" +
-                "ustomer\" ToRole=\"CustomerLogin\" FromRole=\"LoginAttempt\" /><NavigationProperty Na" +
-                "me=\"RefResult\" Relationship=\"KoloModel.fk_LoginAttempt_ResultCode\" ToRole=\"RefRe" +
-                "sult\" FromRole=\"LoginAttempt\" /></EntityType><EntityType Name=\"MobileDevice\"><Ke" +
-                "y><PropertyRef Name=\"IdMobileDevice\" /></Key><Property Name=\"IdMobileDevice\" Typ" +
-                "e=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"DeviceId\" Type=\"Edm.String\" Nul" +
-                "lable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name" +
-                "=\"LineNumber\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"fal" +
-                "se\" Unicode=\"true\" /><Property Name=\"NetworkCountryIso\" Type=\"Edm.String\" MaxLen" +
-                "gth=\"3\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"NetworkOperator\" Ty" +
-                "pe=\"Edm.String\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Na" +
-                "me=\"NetworkOperatorName\" Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Un" +
-                "icode=\"true\" /><Property Name=\"NetworkType\" Type=\"Edm.String\" MaxLength=\"15\" Fix" +
-                "edLength=\"false\" Unicode=\"true\" /><Property Name=\"PhoneType\" Type=\"Edm.String\" M" +
-                "axLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SimCountryIso" +
-                "\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"3\" FixedLength=\"false\" Unicode=\"" +
-                "true\" /><Property Name=\"SimOperator\" Type=\"Edm.String\" Nullable=\"false\" MaxLengt" +
-                "h=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SimOperatorName\" Typ" +
-                "e=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Property Nam" +
-                "e=\"SimSerialNumber\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"20\" FixedLengt" +
-                "h=\"false\" Unicode=\"true\" /><Property Name=\"SimState\" Type=\"Edm.String\" MaxLength" +
-                "=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"SubscriberId\" Type=\"E" +
-                "dm.String\" Nullable=\"false\" MaxLength=\"20\" FixedLength=\"false\" Unicode=\"true\" />" +
-                "<NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_Customer_Mobile\" " +
-                "ToRole=\"Customer\" FromRole=\"MobileDevice\" /></EntityType><EntityType Name=\"Partn" +
-                "er\"><Key><PropertyRef Name=\"IdPartner\" /></Key><Property Name=\"IdPartner\" Type=\"" +
-                "Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http:/" +
-                "/schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"PartnerType" +
-                "Code\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unic" +
-                "ode=\"true\" /><Property Name=\"CurrencyCode\" Type=\"Edm.String\" Nullable=\"false\" Ma" +
-                "xLength=\"3\" FixedLength=\"true\" Unicode=\"true\" /><Property Name=\"Balance\" Type=\"E" +
-                "dm.Int32\" Nullable=\"false\" /><Property Name=\"DateCreated\" Type=\"Edm.DateTime\" Nu" +
-                "llable=\"false\" Precision=\"3\" /><NavigationProperty Name=\"AccountOperations\" Rela" +
-                "tionship=\"KoloModel.fk_AccountOperation_2\" ToRole=\"AccountOperation\" FromRole=\"P" +
-                "artner\" /><NavigationProperty Name=\"Currency\" Relationship=\"KoloModel.fk_Partner" +
-                "_0\" ToRole=\"Currency\" FromRole=\"Partner\" /><NavigationProperty Name=\"Customer\" R" +
-                "elationship=\"KoloModel.fk_Partner_Customer\" ToRole=\"Customer\" FromRole=\"Partner\"" +
-                " /><NavigationProperty Name=\"RefPartnerType\" Relationship=\"KoloModel.fk_Partner\"" +
-                " ToRole=\"RefPartnerType\" FromRole=\"Partner\" /><NavigationProperty Name=\"PartnerA" +
-                "ddresses\" Relationship=\"KoloModel.fk_PartnerAddress_Partner\" ToRole=\"PartnerAddr" +
-                "ess\" FromRole=\"Partner\" /><NavigationProperty Name=\"Provisions\" Relationship=\"Ko" +
-                "loModel.fk_Provision_ResellerPartnerAccount\" ToRole=\"Provision\" FromRole=\"Partne" +
-                "r\" /><NavigationProperty Name=\"Provisions1\" Relationship=\"KoloModel.fk_Provision" +
-                "_WholesalerPartnerAccount\" ToRole=\"Provision\" FromRole=\"Partner\" /><NavigationPr" +
-                "operty Name=\"Reseller\" Relationship=\"KoloModel.fk_Reseller\" ToRole=\"Reseller\" Fr" +
-                "omRole=\"Partner\" /><NavigationProperty Name=\"Transfert2Cash\" Relationship=\"KoloM" +
-                "odel.fk_Transfert2Cash_PartnerAccount\" ToRole=\"Transfert2Cash\" FromRole=\"Partner" +
-                "\" /><NavigationProperty Name=\"Wholesaler\" Relationship=\"Kol";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart4 = "oModel.fk_Wholesaler\" ToRole=\"Wholesaler\" FromRole=\"Partner\" /></EntityType><Enti" +
-                "tyType Name=\"PartnerAddress\"><Key><PropertyRef Name=\"IdAddress\" /><PropertyRef N" +
-                "ame=\"IdPartner\" /></Key><Property Name=\"IdPartner\" Type=\"Edm.Int32\" Nullable=\"fa" +
-                "lse\" /><Property Name=\"IdAddress\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property " +
-                "Name=\"AddresseTypeCode\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Uni" +
-                "code=\"true\" /><NavigationProperty Name=\"Adresse\" Relationship=\"KoloModel.fk_Part" +
-                "nerAddress_Address\" ToRole=\"Adresse\" FromRole=\"PartnerAddress\" /><NavigationProp" +
-                "erty Name=\"Partner\" Relationship=\"KoloModel.fk_PartnerAddress_Partner\" ToRole=\"P" +
-                "artner\" FromRole=\"PartnerAddress\" /></EntityType><EntityType Name=\"PartnerBalanc" +
-                "eHistory\"><Key><PropertyRef Name=\"IdPatnerHistory\" /></Key><Property Name=\"IdPat" +
-                "nerHistory\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdPartnerAccount" +
-                "\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"HistoryDate\" Type=\"Edm.Dat" +
-                "eTime\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"OldBalance\" Type=\"Edm.In" +
-                "t32\" Nullable=\"false\" /><Property Name=\"NewBalance\" Type=\"Edm.Int32\" Nullable=\"f" +
-                "alse\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationP" +
-                "roperty Name=\"AccountOperations\" Relationship=\"KoloModel.fk_AccountOperation_His" +
-                "tory\" ToRole=\"AccountOperation\" FromRole=\"PartnerBalanceHistory\" /><NavigationPr" +
-                "operty Name=\"Provisions\" Relationship=\"KoloModel.fk_Provision_History\" ToRole=\"P" +
-                "rovision\" FromRole=\"PartnerBalanceHistory\" /></EntityType><EntityType Name=\"Pers" +
-                "on\"><Key><PropertyRef Name=\"IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type" +
-                "=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"GenderCode\" Type=\"Edm.String\" Ma" +
-                "xLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"MaritalStatusC" +
-                "ode\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Prop" +
-                "erty Name=\"Firstname\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unic" +
-                "ode=\"true\" /><Property Name=\"Middlename\" Type=\"Edm.String\" MaxLength=\"100\" Fixed" +
-                "Length=\"false\" Unicode=\"true\" /><Property Name=\"Lastname\" Type=\"Edm.String\" MaxL" +
-                "ength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"DateOfBirth\" Ty" +
-                "pe=\"Edm.DateTime\" Precision=\"0\" /><Property Name=\"DateCreated\" Type=\"Edm.DateTim" +
-                "e\" Precision=\"3\" /><Property Name=\"CountryCode\" Type=\"Edm.String\" MaxLength=\"10\"" +
-                " FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"BusinessContacts" +
-                "\" Relationship=\"KoloModel.fk_BusinessContact_Contact\" ToRole=\"BusinessContact\" F" +
-                "romRole=\"Person\" /><NavigationProperty Name=\"Country\" Relationship=\"KoloModel.fk" +
-                "_Person\" ToRole=\"Country\" FromRole=\"Person\" /><NavigationProperty Name=\"Customer" +
-                "\" Relationship=\"KoloModel.fk_Person_Customer\" ToRole=\"Customer\" FromRole=\"Person" +
-                "\" /><NavigationProperty Name=\"RefGender\" Relationship=\"KoloModel.fk_Person_Gende" +
-                "r\" ToRole=\"RefGender\" FromRole=\"Person\" /><NavigationProperty Name=\"RefMaritalSt" +
-                "atu\" Relationship=\"KoloModel.fk_Person_MaritalStatus\" ToRole=\"RefMaritalStatus\" " +
-                "FromRole=\"Person\" /><NavigationProperty Name=\"PersonRelationship\" Relationship=\"" +
-                "KoloModel.fk_Relationship_Customer\" ToRole=\"PersonRelationship\" FromRole=\"Person" +
-                "\" /><NavigationProperty Name=\"PersonRelationships\" Relationship=\"KoloModel.fk_Re" +
-                "lationship_PersonRelation\" ToRole=\"PersonRelationship\" FromRole=\"Person\" /></Ent" +
-                "ityType><EntityType Name=\"PersonRelationship\"><Key><PropertyRef Name=\"IdCustomer" +
-                "\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Prope" +
-                "rty Name=\"IdPersonRelation\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"" +
-                "RelationshipTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLen" +
-                "gth=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Person\" Relationship=\"Kol" +
-                "oModel.fk_Relationship_Customer\" ToRole=\"Person\" FromRole=\"PersonRelationship\" /" +
-                "><NavigationProperty Name=\"Person1\" Relationship=\"KoloModel.fk_Relationship_Pers" +
-                "onRelation\" ToRole=\"Person\" FromRole=\"PersonRelationship\" /><NavigationProperty " +
-                "Name=\"RefPersonRelationshipType\" Relationship=\"KoloModel.fk_Relationship_TypeCod" +
-                "e\" ToRole=\"RefPersonRelationshipType\" FromRole=\"PersonRelationship\" /></EntityTy" +
-                "pe><EntityType Name=\"Provision\"><Key><PropertyRef Name=\"IdProvision\" /></Key><Pr" +
-                "operty Name=\"IdProvision\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPat" +
-                "tern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotatio" +
-                "n\" /><Property Name=\"IdProvisionRequest\" Type=\"Edm.Int32\" /><Property Name=\"IdPa" +
-                "tnerHistory\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdResellerPartn" +
-                "erAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdWholesalerPartn" +
-                "erAccount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"CodeRefProsisionS" +
-                "tatus\" Type=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Pr" +
-                "operty Name=\"ProvisionDate\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3\" /" +
-                "><Property Name=\"Amount\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationProperty" +
-                " Name=\"Partner\" Relationship=\"KoloModel.fk_Provision_ResellerPartnerAccount\" ToR" +
-                "ole=\"Partner\" FromRole=\"Provision\" /><NavigationProperty Name=\"Partner1\" Relatio" +
-                "nship=\"KoloModel.fk_Provision_WholesalerPartnerAccount\" ToRole=\"Partner\" FromRol" +
-                "e=\"Provision\" /><NavigationProperty Name=\"PartnerBalanceHistory\" Relationship=\"K" +
-                "oloModel.fk_Provision_History\" ToRole=\"PartnerBalanceHistory\" FromRole=\"Provisio" +
-                "n\" /><NavigationProperty Name=\"RefProvisionStatu\" Relationship=\"KoloModel.fk_Pro" +
-                "vision_StatusCode\" ToRole=\"RefProvisionStatus\" FromRole=\"Provision\" /></EntityTy" +
-                "pe><EntityType Name=\"RecurringContribution\"><Key><PropertyRef Name=\"IdRecurringC" +
-                "ontribution\" /></Key><Property Name=\"IdRecurringContribution\" Type=\"Edm.Int32\" N" +
-                "ullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.mic" +
-                "rosoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdTreasurerCustomer\" Ty" +
-                "pe=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdCustomerGroup\" Type=\"Edm.Int" +
-                "32\" Nullable=\"false\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloMod" +
-                "el.fk_RecurringContribution_TreasuererCustomer\" ToRole=\"Customer\" FromRole=\"Recu" +
-                "rringContribution\" /><NavigationProperty Name=\"CustomerGroup\" Relationship=\"Kolo" +
-                "Model.fk_RecurringContribution_CustomerGroup\" ToRole=\"CustomerGroup\" FromRole=\"R" +
-                "ecurringContribution\" /></EntityType><EntityType Name=\"RefAddressType\"><Key><Pro" +
-                "pertyRef Name=\"AddressTypeCode\" /></Key><Property Name=\"AddressTypeDescription\" " +
-                "Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property" +
-                " Name=\"AddressTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedL" +
-                "ength=\"false\" Unicode=\"true\" /></EntityType><EntityType Name=\"RefBillStatu\"><Key" +
-                "><PropertyRef Name=\"BillStatusCode\" /></Key><Property Name=\"BillStatusCode\" Type" +
-                "=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\"" +
-                " /><Property Name=\"BillStatusDescription\" Type=\"Edm.String\" Nullable=\"false\" Max" +
-                "Length=\"100\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Bill" +
-                "s\" Relationship=\"KoloModel.fk_Bill\" ToRole=\"Bill\" FromRole=\"RefBillStatus\" /></E" +
-                "ntityType><EntityType Name=\"RefBillType\"><Key><PropertyRef Name=\"BillTypeCode\" /" +
-                "></Key><Property Name=\"BillTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLengt" +
-                "h=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"BillTypeDescription\"" +
-                " Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=" +
-                "\"true\" /><NavigationProperty Name=\"Bills\" Relationship=\"KoloModel.fk_Facture\" To" +
-                "Role=\"Bill\" FromRole=\"RefBillType\" /></EntityType><EntityType Name=\"RefCustomerT" +
-                "ype\"><Key><PropertyRef Name=\"CustomerTypeCode\" /></Key><Pro";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart5 = "perty Name=\"CustomerTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" F" +
-                "ixedLength=\"false\" Unicode=\"true\" /><Property Name=\"CustomerTypeDescription\" Typ" +
-                "e=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true" +
-                "\" /><NavigationProperty Name=\"Customers\" Relationship=\"KoloModel.fk_Customer_Cus" +
-                "tomerType\" ToRole=\"Customer\" FromRole=\"RefCustomerType\" /></EntityType><EntityTy" +
-                "pe Name=\"RefExternalAccountType\"><Key><PropertyRef Name=\"ExternalAccountTypeCode" +
-                "\" /></Key><Property Name=\"ExternalAccountTypeCode\" Type=\"Edm.String\" Nullable=\"f" +
-                "alse\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Extern" +
-                "alAccountTypeDescription\" Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" U" +
-                "nicode=\"true\" /><NavigationProperty Name=\"ExternalAccounts\" Relationship=\"KoloMo" +
-                "del.fk_ExternalAccount_Type\" ToRole=\"ExternalAccount\" FromRole=\"RefExternalAccou" +
-                "ntType\" /></EntityType><EntityType Name=\"RefGender\"><Key><PropertyRef Name=\"Gend" +
-                "erCode\" /></Key><Property Name=\"GenderCode\" Type=\"Edm.String\" Nullable=\"false\" M" +
-                "axLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"GenderDescrip" +
-                "tion\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unic" +
-                "ode=\"true\" /><NavigationProperty Name=\"People\" Relationship=\"KoloModel.fk_Person" +
-                "_Gender\" ToRole=\"Person\" FromRole=\"RefGender\" /></EntityType><EntityType Name=\"R" +
-                "efGroupType\"><Key><PropertyRef Name=\"GroupTypeCode\" /></Key><Property Name=\"Grou" +
-                "pTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\"" +
-                " Unicode=\"true\" /><Property Name=\"GroupTypeDescription\" Type=\"Edm.String\" Nullab" +
-                "le=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProper" +
-                "ty Name=\"CustomerGroups\" Relationship=\"KoloModel.fk_CustomerGroup_GroupType\" ToR" +
-                "ole=\"CustomerGroup\" FromRole=\"RefGroupType\" /></EntityType><EntityType Name=\"Ref" +
-                "IndustryCategory\"><Key><PropertyRef Name=\"IndustryCategoryCode\" /></Key><Propert" +
-                "y Name=\"IndustryCategoryCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" " +
-                "FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"IndustryCategoryDescrption\"" +
-                " Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Navigati" +
-                "onProperty Name=\"Businesses\" Relationship=\"KoloModel.fk_Business_IndustryCategor" +
-                "y\" ToRole=\"Business\" FromRole=\"RefIndustryCategory\" /></EntityType><EntityType N" +
-                "ame=\"RefLoginStatu\"><Key><PropertyRef Name=\"LoginStatusCode\" /></Key><Property N" +
-                "ame=\"LoginStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLen" +
-                "gth=\"false\" Unicode=\"true\" /><Property Name=\"LoginStatusDescription\" Type=\"Edm.S" +
-                "tring\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><Nav" +
-                "igationProperty Name=\"CustomerLogins\" Relationship=\"KoloModel.fk_CustomerLogin_S" +
-                "tatusCode\" ToRole=\"CustomerLogin\" FromRole=\"RefLoginStatus\" /></EntityType><Enti" +
-                "tyType Name=\"RefMaritalStatu\"><Key><PropertyRef Name=\"MaritalStatusCode\" /></Key" +
-                "><Property Name=\"MaritalStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength" +
-                "=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"MaritalStatusDescript" +
-                "ion\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unico" +
-                "de=\"true\" /><NavigationProperty Name=\"People\" Relationship=\"KoloModel.fk_Person_" +
-                "MaritalStatus\" ToRole=\"Person\" FromRole=\"RefMaritalStatus\" /></EntityType><Entit" +
-                "yType Name=\"RefOperationStatu\"><Key><PropertyRef Name=\"OperationStatusCode\" /></" +
-                "Key><Property Name=\"OperationStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxL" +
-                "ength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"OperationStatusD" +
-                "escription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"fals" +
-                "e\" Unicode=\"true\" /><NavigationProperty Name=\"AccountOperations\" Relationship=\"K" +
-                "oloModel.fk_AccountOperation\" ToRole=\"AccountOperation\" FromRole=\"RefOperationSt" +
-                "atus\" /><NavigationProperty Name=\"AccountOperationRequests\" Relationship=\"KoloMo" +
-                "del.FK_AccountOperationRequest_RefOperationStatus\" ToRole=\"AccountOperationReque" +
-                "st\" FromRole=\"RefOperationStatus\" /></EntityType><EntityType Name=\"RefOperationT" +
-                "ype\"><Key><PropertyRef Name=\"OperationTypeCode\" /></Key><Property Name=\"Operatio" +
-                "nTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\"" +
-                " Unicode=\"true\" /><Property Name=\"OperationTypeName\" Type=\"Edm.String\" Nullable=" +
-                "\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty" +
-                " Name=\"AccountOperations\" Relationship=\"KoloModel.fk_AccountOperation_3\" ToRole=" +
-                "\"AccountOperation\" FromRole=\"RefOperationType\" /><NavigationProperty Name=\"Accou" +
-                "ntOperationRequests\" Relationship=\"KoloModel.FK_AccountOperationRequest_RefOpera" +
-                "tionType\" ToRole=\"AccountOperationRequest\" FromRole=\"RefOperationType\" /><Naviga" +
-                "tionProperty Name=\"CustomerBalanceHistories\" Relationship=\"KoloModel.fk_Customer" +
-                "BalanceHistory_0\" ToRole=\"CustomerBalanceHistory\" FromRole=\"RefOperationType\" />" +
-                "<NavigationProperty Name=\"TransfertE2e\" Relationship=\"KoloModel.fk_TransfertE2e_" +
-                "OperationtType\" ToRole=\"TransfertE2e\" FromRole=\"RefOperationType\" /></EntityType" +
-                "><EntityType Name=\"RefPartnerType\"><Key><PropertyRef Name=\"PartnerTypeCode\" /></" +
-                "Key><Property Name=\"PartnerTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLengt" +
-                "h=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"PartnerTypeDescripti" +
-                "on\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" FixedLength=\"false\" Unicod" +
-                "e=\"true\" /><NavigationProperty Name=\"Partners\" Relationship=\"KoloModel.fk_Partne" +
-                "r\" ToRole=\"Partner\" FromRole=\"RefPartnerType\" /></EntityType><EntityType Name=\"R" +
-                "efPersonRelationshipType\"><Key><PropertyRef Name=\"RelationshipTypeCode\" /></Key>" +
-                "<Property Name=\"RelationshipTypeCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLeng" +
-                "th=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"RelationshipTypeDes" +
-                "cription\" Type=\"Edm.String\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" />" +
-                "<NavigationProperty Name=\"PersonRelationships\" Relationship=\"KoloModel.fk_Relati" +
-                "onship_TypeCode\" ToRole=\"PersonRelationship\" FromRole=\"RefPersonRelationshipType" +
-                "\" /></EntityType><EntityType Name=\"RefProvisionStatu\"><Key><PropertyRef Name=\"Pr" +
-                "ovisionStatusCode\" /></Key><Property Name=\"ProvisionStatusCode\" Type=\"Edm.String" +
-                "\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property" +
-                " Name=\"ProvisionStatusDescription\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength" +
-                "=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Provisions\" Relationship=\"Ko" +
-                "loModel.fk_Provision_StatusCode\" ToRole=\"Provision\" FromRole=\"RefProvisionStatus" +
-                "\" /></EntityType><EntityType Name=\"RefRegistrationStatu\"><Key><PropertyRef Name=" +
-                "\"RegistrationStatusCode\" /></Key><Property Name=\"RegistrationStatusCode\" Type=\"E" +
-                "dm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" />" +
-                "<Property Name=\"RegistrationStatusDescription\" Type=\"Edm.String\" Nullable=\"false" +
-                "\" MaxLength=\"50\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"" +
-                "Registrations\" Relationship=\"KoloModel.fk_Registration\" ToRole=\"Registration\" Fr" +
-                "omRole=\"RefRegistrationStatus\" /></EntityType><EntityType Name=\"RefResult\"><Key>" +
-                "<PropertyRef Name=\"ResultCode\" /></Key><Property Name=\"ResultCode\" Type=\"Edm.Str" +
-                "ing\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Prope" +
-                "rty Name=\"ResultDescription\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"50\" F" +
-                "ixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"LoginAttempts\" Rel" +
-                "ationship=\"KoloModel.fk_LoginAttempt_ResultCode\" ToRole=\"LoginAttempt\" FromRole=" +
-                "\"RefResult\" /></EntityType><EntityType Name=\"RefTransfertStatu\"><Key><PropertyRe" +
-                "f Name=\"TransfertStatusCode\" /></Key><Property Name=\"Transf";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart6 = "ertStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"fal" +
-                "se\" Unicode=\"true\" /><Property Name=\"TransfertStatusDescription\" Type=\"Edm.Strin" +
-                "g\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Naviga" +
-                "tionProperty Name=\"TransfertE2e\" Relationship=\"KoloModel.fk_TransfertE2e_StatusC" +
-                "ode\" ToRole=\"TransfertE2e\" FromRole=\"RefTransfertStatus\" /><NavigationProperty N" +
-                "ame=\"TransfertGroups\" Relationship=\"KoloModel.fk_TransfertGroup_StatusCode\" ToRo" +
-                "le=\"TransfertGroup\" FromRole=\"RefTransfertStatus\" /></EntityType><EntityType Nam" +
-                "e=\"Registration\"><Key><PropertyRef Name=\"IdRegistration\" /></Key><Property Name=" +
-                "\"IdRegistration\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Ide" +
-                "ntity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Pro" +
-                "perty Name=\"LastName\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unic" +
-                "ode=\"true\" /><Property Name=\"FirstName\" Type=\"Edm.String\" MaxLength=\"100\" FixedL" +
-                "ength=\"false\" Unicode=\"true\" /><Property Name=\"PhoneNumber\" Type=\"Edm.String\" Ma" +
-                "xLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Dob\" Type=\"Edm" +
-                ".DateTime\" Precision=\"0\" /><Property Name=\"Email\" Type=\"Edm.String\" MaxLength=\"5" +
-                "0\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"RegistrationToken\" Type=" +
-                "\"Edm.String\" MaxLength=\"10\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=" +
-                "\"RegistrationStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" Fixed" +
-                "Length=\"false\" Unicode=\"true\" /><Property Name=\"RegistrationDate\" Type=\"Edm.Date" +
-                "Time\" Nullable=\"false\" Precision=\"3\" /><Property Name=\"RegistrationConfirmDate\" " +
-                "Type=\"Edm.DateTime\" Precision=\"3\" /><Property Name=\"SimSubscriberId\" Type=\"Edm.S" +
-                "tring\" Nullable=\"false\" MaxLength=\"20\" FixedLength=\"false\" Unicode=\"true\" /><Pro" +
-                "perty Name=\"SimSerialNumber\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"20\" F" +
-                "ixedLength=\"false\" Unicode=\"true\" /><Property Name=\"OperatorDeviceSim\" Type=\"Edm" +
-                ".String\" Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><" +
-                "Property Name=\"RegistrationTokenExpiryDate\" Type=\"Edm.DateTime\" Precision=\"3\" />" +
-                "<Property Name=\"Pwd\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"256\" FixedLen" +
-                "gth=\"false\" Unicode=\"true\" /><Property Name=\"DeviceId\" Type=\"Edm.String\" Nullabl" +
-                "e=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><NavigationPropert" +
-                "y Name=\"Customers\" Relationship=\"KoloModel.fk_Customer\" ToRole=\"Customer\" FromRo" +
-                "le=\"Registration\" /><NavigationProperty Name=\"RefRegistrationStatu\" Relationship" +
-                "=\"KoloModel.fk_Registration\" ToRole=\"RefRegistrationStatus\" FromRole=\"Registrati" +
-                "on\" /></EntityType><EntityType Name=\"Reseller\"><Key><PropertyRef Name=\"IdPartner" +
-                "\" /></Key><Property Name=\"IdPartner\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreG" +
-                "eneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/ed" +
-                "m/annotation\" /><Property Name=\"IdWholesalerPartner\" Type=\"Edm.Int32\" Nullable=\"" +
-                "false\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk_Reseller\"" +
-                " ToRole=\"Partner\" FromRole=\"Reseller\" /></EntityType><EntityType Name=\"Tag\"><Key" +
-                "><PropertyRef Name=\"IdTag\" /></Key><Property Name=\"IdTag\" Type=\"Edm.Int32\" Nulla" +
-                "ble=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microso" +
-                "ft.com/ado/2009/02/edm/annotation\" /><Property Name=\"TagName\" Type=\"Edm.String\" " +
-                "Nullable=\"false\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Navigatio" +
-                "nProperty Name=\"CustomerTags\" Relationship=\"KoloModel.fk_customertags_tag\" ToRol" +
-                "e=\"CustomerTags\" FromRole=\"Tag\" /></EntityType><EntityType Name=\"Transfert2Cash\"" +
-                "><Key><PropertyRef Name=\"IdTransfert2Cash\" /></Key><Property Name=\"IdTransfert2C" +
-                "ash\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdPartnerAccount\" Type=" +
-                "\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdSendingTransfert2CashDetails\" T" +
-                "ype=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdReceiverTransfert2CashDetai" +
-                "ls\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"CodeTransfertStatus\" Typ" +
-                "e=\"Edm.String\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Nam" +
-                "e=\"Amount\" Type=\"Edm.Int32\" Nullable=\"false\" /><NavigationProperty Name=\"Partner" +
-                "\" Relationship=\"KoloModel.fk_Transfert2Cash_PartnerAccount\" ToRole=\"Partner\" Fro" +
-                "mRole=\"Transfert2Cash\" /></EntityType><EntityType Name=\"Transfert2CashDetails\"><" +
-                "Key><PropertyRef Name=\"IdTransfert2CashDetails\" /></Key><Property Name=\"IdTransf" +
-                "ert2CashDetails\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Ide" +
-                "ntity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Pro" +
-                "perty Name=\"IdCustomerAccount\" Type=\"Edm.Int32\" /><Property Name=\"Firstname\" Typ" +
-                "e=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Na" +
-                "me=\"Middlename\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"t" +
-                "rue\" /><Property Name=\"Lastname\" Type=\"Edm.String\" MaxLength=\"100\" FixedLength=\"" +
-                "false\" Unicode=\"true\" /><Property Name=\"Reference\" Type=\"Edm.String\" Nullable=\"f" +
-                "alse\" MaxLength=\"30\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Na" +
-                "me=\"Customer\" Relationship=\"KoloModel.fk_Transfert2CashDetails\" ToRole=\"Customer" +
-                "\" FromRole=\"Transfert2CashDetails\" /></EntityType><EntityType Name=\"TransfertE2e" +
-                "\"><Key><PropertyRef Name=\"IdTransfertE2e\" /></Key><Property Name=\"IdTransfertE2e" +
-                "\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdCustomer\" Type=\"Edm.Int3" +
-                "2\" Nullable=\"false\" /><Property Name=\"IdSendingExternalAccount\" Type=\"Edm.Int32\"" +
-                " Nullable=\"false\" /><Property Name=\"IdReceiverExternalAccount\" Type=\"Edm.Int32\" " +
-                "Nullable=\"false\" /><Property Name=\"TransfertStatusCode\" Type=\"Edm.String\" Nullab" +
-                "le=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"A" +
-                "mount\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"OperationTypeCode\" Ty" +
-                "pe=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"tru" +
-                "e\" /><Property Name=\"Reference\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30" +
-                "\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Customer\" Relat" +
-                "ionship=\"KoloModel.fk_TransfertE2e_Customer\" ToRole=\"Customer\" FromRole=\"Transfe" +
-                "rtE2e\" /><NavigationProperty Name=\"ExternalAccount\" Relationship=\"KoloModel.fk_T" +
-                "ransfertE2e_Receiver\" ToRole=\"ExternalAccount\" FromRole=\"TransfertE2e\" /><Naviga" +
-                "tionProperty Name=\"ExternalAccount1\" Relationship=\"KoloModel.fk_TransfertE2e_Sen" +
-                "der\" ToRole=\"ExternalAccount\" FromRole=\"TransfertE2e\" /><NavigationProperty Name" +
-                "=\"RefOperationType\" Relationship=\"KoloModel.fk_TransfertE2e_OperationtType\" ToRo" +
-                "le=\"RefOperationType\" FromRole=\"TransfertE2e\" /><NavigationProperty Name=\"RefTra" +
-                "nsfertStatu\" Relationship=\"KoloModel.fk_TransfertE2e_StatusCode\" ToRole=\"RefTran" +
-                "sfertStatus\" FromRole=\"TransfertE2e\" /></EntityType><EntityType Name=\"TransfertG" +
-                "roup\"><Key><PropertyRef Name=\"IdTransfertGroup\" /></Key><Property Name=\"IdTransf" +
-                "ertGroup\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" " +
-                "xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property N" +
-                "ame=\"IdReceiverGroup\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdSend" +
-                "ingCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"Amount\" Type=\"E" +
-                "dm.Int32\" Nullable=\"false\" /><Property Name=\"CodeTransfertStatus\" Type=\"Edm.Stri" +
-                "ng\" Nullable=\"false\" MaxLength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><Proper" +
-                "ty Name=\"Reference\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\" FixedLengt" +
-                "h=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Customer\" Relationship=\"Kol" +
-                "oModel.fk_TransfertGroup_Sender\" ToRole=\"Customer\" FromRole=\"TransfertGroup\" /><" +
-                "NavigationProperty Name=\"CustomerGroup\" Relationship=\"KoloM";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart7 = "odel.fk_TransfertGroup_ReceiverGroup\" ToRole=\"CustomerGroup\" FromRole=\"TransfertG" +
-                "roup\" /><NavigationProperty Name=\"RefTransfertStatu\" Relationship=\"KoloModel.fk_" +
-                "TransfertGroup_StatusCode\" ToRole=\"RefTransfertStatus\" FromRole=\"TransfertGroup\"" +
-                " /></EntityType><EntityType Name=\"TransfertGroupScheduled\"><Key><PropertyRef Nam" +
-                "e=\"IdTransfertGroupScheduled\" /></Key><Property Name=\"IdTransfertGroupScheduled\"" +
-                " Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdReceiverGroup\" Type=\"Edm." +
-                "Int32\" Nullable=\"false\" /><Property Name=\"IdSendingCustomer\" Type=\"Edm.Int32\" Nu" +
-                "llable=\"false\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_" +
-                "TransfertGroupScheduled_Sender\" ToRole=\"Customer\" FromRole=\"TransfertGroupSchedu" +
-                "led\" /><NavigationProperty Name=\"CustomerGroup\" Relationship=\"KoloModel.fk_Trans" +
-                "fertGroupScheduled_ReceiverGroup\" ToRole=\"CustomerGroup\" FromRole=\"TransfertGrou" +
-                "pScheduled\" /></EntityType><EntityType Name=\"TransfertP2p\"><Key><PropertyRef Nam" +
-                "e=\"IdTransfertP2p\" /></Key><Property Name=\"IdTransfertP2p\" Type=\"Edm.Int32\" Null" +
-                "able=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.micros" +
-                "oft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdSendingCustomer\" Type=\"E" +
-                "dm.Int32\" Nullable=\"false\" /><Property Name=\"IdReceiverCustomer\" Type=\"Edm.Int32" +
-                "\" /><Property Name=\"IdTransfertScheduled\" Type=\"Edm.Int32\" /><Property Name=\"Tra" +
-                "nsfertStatusCode\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"15\" FixedLength=" +
-                "\"false\" Unicode=\"true\" /><Property Name=\"Amount\" Type=\"Edm.Int32\" Nullable=\"fals" +
-                "e\" /><Property Name=\"NeedsConfirmation\" Type=\"Edm.Boolean\" Nullable=\"false\" /><P" +
-                "roperty Name=\"Secret\" Type=\"Edm.String\" MaxLength=\"4\" FixedLength=\"false\" Unicod" +
-                "e=\"true\" /><Property Name=\"TransfertDate\" Type=\"Edm.DateTime\" Nullable=\"false\" P" +
-                "recision=\"3\" /><Property Name=\"Reference\" Type=\"Edm.String\" Nullable=\"false\" Max" +
-                "Length=\"30\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Transfert2Cash\"" +
-                " Type=\"Edm.Boolean\" Nullable=\"false\" /><NavigationProperty Name=\"Customer\" Relat" +
-                "ionship=\"KoloModel.fk_TransfertP2p_Receiver\" ToRole=\"Customer\" FromRole=\"Transfe" +
-                "rtP2p\" /></EntityType><EntityType Name=\"TransfertScheduled\"><Key><PropertyRef Na" +
-                "me=\"IdTransfertScheduled\" /></Key><Property Name=\"IdTransfertScheduled\" Type=\"Ed" +
-                "m.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://s" +
-                "chemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"IdSendingCust" +
-                "omer\" Type=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"IdReceiverCustomer\" Ty" +
-                "pe=\"Edm.Int32\" Nullable=\"false\" /><Property Name=\"DateScheduled\" Type=\"Edm.DateT" +
-                "ime\" Nullable=\"false\" Precision=\"3\" /><NavigationProperty Name=\"Customer\" Relati" +
-                "onship=\"KoloModel.fk_TransfertScheduled_Customer\" ToRole=\"Customer\" FromRole=\"Tr" +
-                "ansfertScheduled\" /><NavigationProperty Name=\"Customer1\" Relationship=\"KoloModel" +
-                ".fk_TransfertScheduled_Sending\" ToRole=\"Customer\" FromRole=\"TransfertScheduled\" " +
-                "/></EntityType><EntityType Name=\"Wholesaler\"><Key><PropertyRef Name=\"IdPartner\" " +
-                "/></Key><Property Name=\"IdPartner\" Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGen" +
-                "eratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/edm/" +
-                "annotation\" /><NavigationProperty Name=\"Partner\" Relationship=\"KoloModel.fk_Whol" +
-                "esaler\" ToRole=\"Partner\" FromRole=\"Wholesaler\" /></EntityType><Association Name=" +
-                "\"fk_AccountOperation\"><End Type=\"KoloModel.RefOperationStatu\" Role=\"RefOperation" +
-                "Status\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.AccountOperation\" Role=\"Accou" +
-                "ntOperation\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefOpera" +
-                "tionStatus\"><PropertyRef Name=\"OperationStatusCode\" /></Principal><Dependent Rol" +
-                "e=\"AccountOperation\"><PropertyRef Name=\"OperationStatusCode\" /></Dependent></Ref" +
-                "erentialConstraint></Association><Association Name=\"fk_AccountOperation_2\"><End " +
-                "Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><End Type=\"KoloModel." +
-                "AccountOperation\" Role=\"AccountOperation\" Multiplicity=\"*\" /><ReferentialConstra" +
-                "int><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Principal><Depen" +
-                "dent Role=\"AccountOperation\"><PropertyRef Name=\"IdPartnerAccount\" /></Dependent>" +
-                "</ReferentialConstraint></Association><Association Name=\"fk_AccountOperation_3\">" +
-                "<End Type=\"KoloModel.RefOperationType\" Role=\"RefOperationType\" Multiplicity=\"1\" " +
-                "/><End Type=\"KoloModel.AccountOperation\" Role=\"AccountOperation\" Multiplicity=\"*" +
+            private const string ModelPart6 = " Name=\"TransfertScheduled\"><Key><PropertyRef Name=\"IdTransfertScheduled\" /></Key>" +
+                "<Property Name=\"IdTransfertScheduled\" Type=\"Edm.Int32\" Nullable=\"false\" p6:Store" +
+                "GeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft.com/ado/2009/02/e" +
+                "dm/annotation\" /><Property Name=\"IdSendingCustomer\" Type=\"Edm.Int32\" Nullable=\"f" +
+                "alse\" /><Property Name=\"IdReceiverCustomer\" Type=\"Edm.Int32\" Nullable=\"false\" />" +
+                "<Property Name=\"DateScheduled\" Type=\"Edm.DateTime\" Nullable=\"false\" Precision=\"3" +
+                "\" /><NavigationProperty Name=\"Customer\" Relationship=\"KoloModel.fk_TransfertSche" +
+                "duled_Customer\" ToRole=\"Customer\" FromRole=\"TransfertScheduled\" /><NavigationPro" +
+                "perty Name=\"Customer1\" Relationship=\"KoloModel.fk_TransfertScheduled_Sending\" To" +
+                "Role=\"Customer\" FromRole=\"TransfertScheduled\" /></EntityType><EntityType Name=\"W" +
+                "holesaler\"><Key><PropertyRef Name=\"IdPartner\" /></Key><Property Name=\"IdPartner\"" +
+                " Type=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=" +
+                "\"http://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><NavigationProperty " +
+                "Name=\"Partner\" Relationship=\"KoloModel.fk_Wholesaler\" ToRole=\"Partner\" FromRole=" +
+                "\"Wholesaler\" /></EntityType><EntityType Name=\"KoloUser\"><Key><PropertyRef Name=\"" +
+                "IdCustomer\" /></Key><Property Name=\"IdCustomer\" Type=\"Edm.Int32\" Nullable=\"false" +
+                "\" /><Property Name=\"UserLogin\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"30\"" +
+                " FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"Number\" Type=\"Edm.String\" " +
+                "Nullable=\"false\" MaxLength=\"30\" FixedLength=\"false\" Unicode=\"true\" /><Property N" +
+                "ame=\"NumberVerified\" Type=\"Edm.Boolean\" /><Property Name=\"EmailAddress\" Type=\"Ed" +
+                "m.String\" MaxLength=\"100\" FixedLength=\"false\" Unicode=\"true\" /><Property Name=\"E" +
+                "mailAddressVerified\" Type=\"Edm.Boolean\" Nullable=\"false\" /><Property Name=\"PwdSa" +
+                "lt\" Type=\"Edm.String\" MaxLength=\"256\" FixedLength=\"false\" Unicode=\"true\" /><Prop" +
+                "erty Name=\"Pwd\" Type=\"Edm.String\" MaxLength=\"256\" FixedLength=\"false\" Unicode=\"t" +
+                "rue\" /><Property Name=\"RecoveryToken\" Type=\"Edm.String\" MaxLength=\"10\" FixedLeng" +
+                "th=\"false\" Unicode=\"true\" /><Property Name=\"RecoveryTokenExpiryDate\" Type=\"Edm.D" +
+                "ateTime\" Precision=\"3\" /><Property Name=\"LoginStatusCode\" Type=\"Edm.String\" MaxL" +
+                "ength=\"15\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"Person" +
+                "\" Relationship=\"KoloModel.FK_User_Person1\" ToRole=\"Person\" FromRole=\"KoloUser\" /" +
+                "><NavigationProperty Name=\"RefLoginStatu\" Relationship=\"KoloModel.FK_User_RefLog" +
+                "inStatus1\" ToRole=\"RefLoginStatu\" FromRole=\"KoloUser\" /></EntityType><Associatio" +
+                "n Name=\"fk_AccountOperation\"><End Type=\"KoloModel.RefOperationStatu\" Role=\"RefOp" +
+                "erationStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.AccountOperation\" Role" +
+                "=\"AccountOperation\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"R" +
+                "efOperationStatus\"><PropertyRef Name=\"OperationStatusCode\" /></Principal><Depend" +
+                "ent Role=\"AccountOperation\"><PropertyRef Name=\"OperationStatusCode\" /></Dependen" +
+                "t></ReferentialConstraint></Association><Association Name=\"fk_AccountOperation_2" +
+                "\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><End Type=\"Kol" +
+                "oModel.AccountOperation\" Role=\"AccountOperation\" Multiplicity=\"*\" /><Referential" +
+                "Constraint><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Principal" +
+                "><Dependent Role=\"AccountOperation\"><PropertyRef Name=\"IdPartnerAccount\" /></Dep" +
+                "endent></ReferentialConstraint></Association><Association Name=\"fk_AccountOperat" +
+                "ion_3\"><End Type=\"KoloModel.RefOperationType\" Role=\"RefOperationType\" Multiplici" +
+                "ty=\"1\" /><End Type=\"KoloModel.AccountOperation\" Role=\"AccountOperation\" Multipli" +
+                "city=\"*\" /><ReferentialConstraint><Principal Role=\"RefOperationType\"><PropertyRe" +
+                "f Name=\"OperationTypeCode\" /></Principal><Dependent Role=\"AccountOperation\"><Pro" +
+                "pertyRef Name=\"OperationTypeCode\" /></Dependent></ReferentialConstraint></Associ" +
+                "ation><Association Name=\"fk_AccountOperation_History\"><End Type=\"KoloModel.Partn" +
+                "erBalanceHistory\" Role=\"PartnerBalanceHistory\" Multiplicity=\"1\" /><End Type=\"Kol" +
+                "oModel.AccountOperation\" Role=\"AccountOperation\" Multiplicity=\"*\" /><Referential" +
+                "Constraint><Principal Role=\"PartnerBalanceHistory\"><PropertyRef Name=\"IdPatnerHi" +
+                "story\" /></Principal><Dependent Role=\"AccountOperation\"><PropertyRef Name=\"IdPat" +
+                "nerHistory\" /></Dependent></ReferentialConstraint></Association><Association Nam" +
+                "e=\"FK_AccountOperation_Request\"><End Type=\"KoloModel.AccountOperationRequest\" Ro" +
+                "le=\"AccountOperationRequest\" Multiplicity=\"1\" /><End Type=\"KoloModel.AccountOper" +
+                "ation\" Role=\"AccountOperation\" Multiplicity=\"0..1\" /><ReferentialConstraint><Pri" +
+                "ncipal Role=\"AccountOperationRequest\"><PropertyRef Name=\"IdAccountOperationReque" +
+                "st\" /></Principal><Dependent Role=\"AccountOperation\"><PropertyRef Name=\"IdAccoun" +
+                "tOperation\" /></Dependent></ReferentialConstraint></Association><Association Nam" +
+                "e=\"FK_AccountOperationRequest_RefOperationStatus\"><End Type=\"KoloModel.RefOperat" +
+                "ionStatu\" Role=\"RefOperationStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.A" +
+                "ccountOperationRequest\" Role=\"AccountOperationRequest\" Multiplicity=\"*\" /><Refer" +
+                "entialConstraint><Principal Role=\"RefOperationStatus\"><PropertyRef Name=\"Operati" +
+                "onStatusCode\" /></Principal><Dependent Role=\"AccountOperationRequest\"><PropertyR" +
+                "ef Name=\"OperationStatusCode\" /></Dependent></ReferentialConstraint></Associatio" +
+                "n><Association Name=\"FK_AccountOperationRequest_RefOperationType\"><End Type=\"Kol" +
+                "oModel.RefOperationType\" Role=\"RefOperationType\" Multiplicity=\"1\" /><End Type=\"K" +
+                "oloModel.AccountOperationRequest\" Role=\"AccountOperationRequest\" Multiplicity=\"*" +
                 "\" /><ReferentialConstraint><Principal Role=\"RefOperationType\"><PropertyRef Name=" +
-                "\"OperationTypeCode\" /></Principal><Dependent Role=\"AccountOperation\"><PropertyRe" +
-                "f Name=\"OperationTypeCode\" /></Dependent></ReferentialConstraint></Association><" +
-                "Association Name=\"fk_AccountOperation_History\"><End Type=\"KoloModel.PartnerBalan" +
-                "ceHistory\" Role=\"PartnerBalanceHistory\" Multiplicity=\"1\" /><End Type=\"KoloModel." +
-                "AccountOperation\" Role=\"AccountOperation\" Multiplicity=\"*\" /><ReferentialConstra" +
-                "int><Principal Role=\"PartnerBalanceHistory\"><PropertyRef Name=\"IdPatnerHistory\" " +
-                "/></Principal><Dependent Role=\"AccountOperation\"><PropertyRef Name=\"IdPatnerHist" +
-                "ory\" /></Dependent></ReferentialConstraint></Association><Association Name=\"FK_A" +
-                "ccountOperation_Request\"><End Type=\"KoloModel.AccountOperationRequest\" Role=\"Acc" +
-                "ountOperationRequest\" Multiplicity=\"1\" /><End Type=\"KoloModel.AccountOperation\" " +
-                "Role=\"AccountOperation\" Multiplicity=\"0..1\" /><ReferentialConstraint><Principal " +
-                "Role=\"AccountOperationRequest\"><PropertyRef Name=\"IdAccountOperationRequest\" /><" +
-                "/Principal><Dependent Role=\"AccountOperation\"><PropertyRef Name=\"IdAccountOperat" +
-                "ion\" /></Dependent></ReferentialConstraint></Association><Association Name=\"FK_A" +
-                "ccountOperationRequest_RefOperationStatus\"><End Type=\"KoloModel.RefOperationStat" +
-                "u\" Role=\"RefOperationStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.AccountO" +
-                "perationRequest\" Role=\"AccountOperationRequest\" Multiplicity=\"*\" /><ReferentialC" +
-                "onstraint><Principal Role=\"RefOperationStatus\"><PropertyRef Name=\"OperationStatu" +
-                "sCode\" /></Principal><Dependent Role=\"AccountOperationRequest\"><PropertyRef Name" +
-                "=\"OperationStatusCode\" /></Dependent></ReferentialConstraint></Association><Asso" +
-                "ciation Name=\"FK_AccountOperationRequest_RefOperationType\"><End Type=\"KoloModel." +
-                "RefOperationType\" Role=\"RefOperationType\" Multiplicity=\"1\" /><End Type=\"KoloMode" +
-                "l.AccountOperationRequest\" Role=\"AccountOperationRequest\" Multiplicity=\"*\" /><Re" +
-                "ferentialConstraint><Principal Role=\"RefOperationType\"><PropertyRef Name=\"Operat" +
-                "ionTypeCode\" /></Principal><Dependent Role=\"AccountOperationRequest\"><PropertyRe" +
-                "f Name=\"OperationTypeCode\" /></Dependent></ReferentialConstraint></Association><" +
-                "Association Name=\"fk_OperationRequest_CustomerAccount\"><End Type=\"KoloModel.Cust" +
-                "omer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.AccountOperationRe" +
-                "quest\" Role=\"AccountOperationRequest\" Multiplicity=\"*\" /><ReferentialConstraint>" +
-                "<Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Depende" +
-                "nt Role=\"AccountOperationRequest\"><PropertyRef Name=\"IdCustomerAccount\" /></Depe" +
-                "ndent></ReferentialConstraint></Association><Association Name=\"fk_Adresse_City\">" +
-                "<End Type=\"KoloModel.City\" Role=\"City\" Multiplicity=\"0..1\" /><End Type=\"KoloMode" +
-                "l.Adresse\" Role=\"Adresse\" Multiplicity=\"*\" /><ReferentialConstraint><Principal R" +
-                "ole=\"City\"><PropertyRef Name=\"IdCity\" /></Principal><Dependent Role=\"Adresse\"><P" +
-                "ropertyRef Name=\"IdCity\" /></Dependent></ReferentialConstraint></Association><As" +
-                "sociation Name=\"fk_CustomerAddress\"><End Type=\"KoloModel.Adresse\" Role=\"Adresse\"" +
-                " Multiplicity=\"1\" /><End Type=\"KoloModel.CustomerAddress\" Role=\"CustomerAddress\"" +
-                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=";
+                "\"OperationTypeCode\" /></Principal><Dependent Role=\"AccountOperationRequest\"><Pro" +
+                "pertyRef Name=\"OperationTypeCode\" /></Dependent></ReferentialConstraint></Associ" +
+                "ation><Association Name=\"fk_OperationRequest_CustomerAccount\"><End Type=\"KoloMod" +
+                "el.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.AccountOper" +
+                "ationRequest\" Role=\"AccountOperationRequest\" Multiplicity=\"*\" /><ReferentialCons" +
+                "traint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><" +
+                "Dependent Role=\"AccountOperationRequest\"><PropertyRef Name=\"IdCustomerAccount\" /" +
+                "></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Adresse" +
+                "_City\"><End Type=\"KoloModel.City\" Role=\"City\" Multiplicity=\"0..1\" /><End Type=\"K" +
+                "oloModel.Adresse\" Role=\"Adresse\" Multiplicity=\"*\" /><ReferentialConstraint><Prin" +
+                "cipal Role=\"City\"><PropertyRef Name=\"IdCity\" /></Principal><Dependent Role=\"Adre" +
+                "sse\"><PropertyRef Name=\"IdCity\" /></Dependent></ReferentialConstraint></Associat" +
+                "ion><Association Name=\"fk_Bill\"><End Type=\"KoloModel.RefBillStatu\" Role=\"RefBill" +
+                "Status\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Bill\" Role=\"Bill\" Multiplicit" +
+                "y=\"*\" /><ReferentialConstraint><Principal Role=\"RefBillStatus\"><PropertyRef Name" +
+                "=\"BillStatusCode\" /></Principal><Dependent Role=\"Bill\"><PropertyRef Name=\"CodeRe" +
+                "fBillStatus\" /></Dependent></ReferentialConstraint></Association><Association Na" +
+                "me=\"fk_Facture\"><End Type=\"KoloModel.RefBillType\" Role=\"RefBillType\" Multiplicit" +
+                "y=\"0..1\" /><End Type=\"KoloModel.Bill\" Role=\"Bill\" Multiplicity=\"*\" /><Referentia" +
+                "lConstraint><Principal Role=\"RefBillType\"><PropertyRef Name=\"BillTypeCode\" /></P" +
+                "rincipal><Dependent Role=\"Bill\"><PropertyRef Name=\"CodeRefFactureType\" /></Depen" +
+                "dent></ReferentialConstraint></Association><Association Name=\"fk_Facture_Issuing" +
+                "Customer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End" +
+                " Type=\"KoloModel.Bill\" Role=\"Bill\" Multiplicity=\"*\" /><ReferentialConstraint><Pr" +
+                "incipal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart8 = "\"Adresse\"><PropertyRef Name=\"IdAddress\" /></Principal><Dependent Role=\"CustomerAd" +
-                "dress\"><PropertyRef Name=\"IdAddress\" /></Dependent></ReferentialConstraint></Ass" +
-                "ociation><Association Name=\"fk_PartnerAddress_Address\"><End Type=\"KoloModel.Adre" +
-                "sse\" Role=\"Adresse\" Multiplicity=\"1\" /><End Type=\"KoloModel.PartnerAddress\" Role" +
-                "=\"PartnerAddress\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Adr" +
-                "esse\"><PropertyRef Name=\"IdAddress\" /></Principal><Dependent Role=\"PartnerAddres" +
-                "s\"><PropertyRef Name=\"IdAddress\" /></Dependent></ReferentialConstraint></Associa" +
-                "tion><Association Name=\"fk_Bill\"><End Type=\"KoloModel.RefBillStatu\" Role=\"RefBil" +
-                "lStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Bill\" Role=\"Bill\" Multiplici" +
-                "ty=\"*\" /><ReferentialConstraint><Principal Role=\"RefBillStatus\"><PropertyRef Nam" +
-                "e=\"BillStatusCode\" /></Principal><Dependent Role=\"Bill\"><PropertyRef Name=\"CodeR" +
-                "efBillStatus\" /></Dependent></ReferentialConstraint></Association><Association N" +
-                "ame=\"fk_BillPayement_Bill\"><End Type=\"KoloModel.Bill\" Role=\"Bill\" Multiplicity=\"" +
-                "1\" /><End Type=\"KoloModel.BillPayment\" Role=\"BillPayment\" Multiplicity=\"*\" /><Re" +
-                "ferentialConstraint><Principal Role=\"Bill\"><PropertyRef Name=\"IdBill\" /></Princi" +
-                "pal><Dependent Role=\"BillPayment\"><PropertyRef Name=\"IdBill\" /></Dependent></Ref" +
-                "erentialConstraint></Association><Association Name=\"fk_Facture\"><End Type=\"KoloM" +
-                "odel.RefBillType\" Role=\"RefBillType\" Multiplicity=\"0..1\" /><End Type=\"KoloModel." +
-                "Bill\" Role=\"Bill\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Ref" +
-                "BillType\"><PropertyRef Name=\"BillTypeCode\" /></Principal><Dependent Role=\"Bill\">" +
-                "<PropertyRef Name=\"CodeRefFactureType\" /></Dependent></ReferentialConstraint></A" +
-                "ssociation><Association Name=\"fk_Facture_IssuingCustomer\"><End Type=\"KoloModel.C" +
-                "ustomer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.Bill\" Role=\"Bil" +
-                "l\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><Propert" +
-                "yRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"Bill\"><PropertyRef Name=\"I" +
+            private const string ModelPart7 = "Principal><Dependent Role=\"Bill\"><PropertyRef Name=\"IdIssuingCustomer\" /></Depend" +
+                "ent></ReferentialConstraint></Association><Association Name=\"fk_Facture_PayingCu" +
+                "stomer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End T" +
+                "ype=\"KoloModel.Bill\" Role=\"Bill\" Multiplicity=\"*\" /><ReferentialConstraint><Prin" +
+                "cipal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Ro" +
+                "le=\"Bill\"><PropertyRef Name=\"IdPayingCustomer\" /></Dependent></ReferentialConstr" +
+                "aint></Association><Association Name=\"fk_BillPayement_Bill\"><End Type=\"KoloModel" +
+                ".Bill\" Role=\"Bill\" Multiplicity=\"1\" /><End Type=\"KoloModel.BillPayment\" Role=\"Bi" +
+                "llPayment\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Bill\"><Pro" +
+                "pertyRef Name=\"IdBill\" /></Principal><Dependent Role=\"BillPayment\"><PropertyRef " +
+                "Name=\"IdBill\" /></Dependent></ReferentialConstraint></Association><Association N" +
+                "ame=\"fk_BillPayment_IssuingCustomer\"><End Type=\"KoloModel.Customer\" Role=\"Custom" +
+                "er\" Multiplicity=\"1\" /><End Type=\"KoloModel.BillPayment\" Role=\"BillPayment\" Mult" +
+                "iplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Na" +
+                "me=\"IdCustomer\" /></Principal><Dependent Role=\"BillPayment\"><PropertyRef Name=\"I" +
                 "dIssuingCustomer\" /></Dependent></ReferentialConstraint></Association><Associati" +
-                "on Name=\"fk_Facture_PayingCustomer\"><End Type=\"KoloModel.Customer\" Role=\"Custome" +
-                "r\" Multiplicity=\"1\" /><End Type=\"KoloModel.Bill\" Role=\"Bill\" Multiplicity=\"*\" />" +
-                "<ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\"" +
-                " /></Principal><Dependent Role=\"Bill\"><PropertyRef Name=\"IdPayingCustomer\" /></D" +
-                "ependent></ReferentialConstraint></Association><Association Name=\"fk_BillPayment" +
-                "_IssuingCustomer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1" +
-                "\" /><End Type=\"KoloModel.BillPayment\" Role=\"BillPayment\" Multiplicity=\"*\" /><Ref" +
-                "erentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /><" +
-                "/Principal><Dependent Role=\"BillPayment\"><PropertyRef Name=\"IdIssuingCustomer\" /" +
-                "></Dependent></ReferentialConstraint></Association><Association Name=\"fk_BillPay" +
-                "ment_PayingCustomer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity" +
-                "=\"1\" /><End Type=\"KoloModel.BillPayment\" Role=\"BillPayment\" Multiplicity=\"*\" /><" +
-                "ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" " +
-                "/></Principal><Dependent Role=\"BillPayment\"><PropertyRef Name=\"IdPayingCustomer\"" +
-                " /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Busin" +
-                "ess\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type" +
-                "=\"KoloModel.Business\" Role=\"Business\" Multiplicity=\"0..1\" /><ReferentialConstrai" +
-                "nt><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Depe" +
-                "ndent Role=\"Business\"><PropertyRef Name=\"IdCustomer\" /></Dependent></Referential" +
-                "Constraint></Association><Association Name=\"fk_Business_IndustryCategory\"><End T" +
-                "ype=\"KoloModel.RefIndustryCategory\" Role=\"RefIndustryCategory\" Multiplicity=\"0.." +
-                "1\" /><End Type=\"KoloModel.Business\" Role=\"Business\" Multiplicity=\"*\" /><Referent" +
-                "ialConstraint><Principal Role=\"RefIndustryCategory\"><PropertyRef Name=\"IndustryC" +
-                "ategoryCode\" /></Principal><Dependent Role=\"Business\"><PropertyRef Name=\"Industr" +
-                "yCategoryCode\" /></Dependent></ReferentialConstraint></Association><Association " +
-                "Name=\"fk_BusinessContact_Business\"><End Type=\"KoloModel.Business\" Role=\"Business" +
-                "\" Multiplicity=\"1\" /><End Type=\"KoloModel.BusinessContact\" Role=\"BusinessContact" +
-                "\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Business\"><Property" +
-                "Ref Name=\"IdCustomer\" /></Principal><Dependent Role=\"BusinessContact\"><PropertyR" +
-                "ef Name=\"IdBusiness\" /></Dependent></ReferentialConstraint></Association><Associ" +
-                "ation Name=\"fk_BusinessContact_Contact\"><End Type=\"KoloModel.Person\" Role=\"Perso" +
-                "n\" Multiplicity=\"1\" /><End Type=\"KoloModel.BusinessContact\" Role=\"BusinessContac" +
-                "t\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Person\"><PropertyR" +
-                "ef Name=\"IdCustomer\" /></Principal><Dependent Role=\"BusinessContact\"><PropertyRe" +
-                "f Name=\"IdContact\" /></Dependent></ReferentialConstraint></Association><Associat" +
-                "ion Name=\"fk_City\"><End Type=\"KoloModel.Country\" Role=\"Country\" Multiplicity=\"1\"" +
-                " /><End Type=\"KoloModel.City\" Role=\"City\" Multiplicity=\"*\" /><ReferentialConstra" +
-                "int><Principal Role=\"Country\"><PropertyRef Name=\"CountryCode\" /></Principal><Dep" +
-                "endent Role=\"City\"><PropertyRef Name=\"CountryCode\" /></Dependent></ReferentialCo" +
-                "nstraint></Association><Association Name=\"fk_City_0\"><End Type=\"KoloModel.Distri" +
-                "ct\" Role=\"District\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.City\" Role=\"City\"" +
-                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"District\"><PropertyR" +
-                "ef Name=\"IdDistrict\" /></Principal><Dependent Role=\"City\"><PropertyRef Name=\"IdD" +
-                "istrict\" /></Dependent></ReferentialConstraint></Association><Association Name=\"" +
-                "fk_Person\"><End Type=\"KoloModel.Country\" Role=\"Country\" Multiplicity=\"0..1\" /><E" +
-                "nd Type=\"KoloModel.Person\" Role=\"Person\" Multiplicity=\"*\" /><ReferentialConstrai" +
-                "nt><Principal Role=\"Country\"><PropertyRef Name=\"CountryCode\" /></Principal><Depe" +
-                "ndent Role=\"Person\"><PropertyRef Name=\"CountryCode\" /></Dependent></ReferentialC" +
-                "onstraint></Association><Association Name=\"fk_Customer_Currency\"><End Type=\"Kolo" +
-                "Model.Currency\" Role=\"Currency\" Multiplicity=\"1\" /><End Type=\"KoloModel.Customer" +
-                "\" Role=\"Customer\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Cur" +
-                "rency\"><PropertyRef Name=\"CurrencyCode\" /></Principal><Dependent Role=\"Customer\"" +
-                "><PropertyRef Name=\"CurrencyCode\" /></Dependent></ReferentialConstraint></Associ" +
-                "ation><Association Name=\"fk_Partner_0\"><End Type=\"KoloModel.Currency\" Role=\"Curr" +
-                "ency\" Multiplicity=\"1\" /><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplici" +
-                "ty=\"*\" /><ReferentialConstraint><Principal Role=\"Currency\"><PropertyRef Name=\"Cu" +
-                "rrencyCode\" /></Principal><Dependent Role=\"Partner\"><PropertyRef Name=\"CurrencyC" +
-                "ode\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_C" +
-                "ustomer\"><End Type=\"KoloModel.Registration\" Role=\"Registration\" Multiplicity=\"0." +
-                ".1\"><OnDelete Action=\"Cascade\" /></End><End Type=\"KoloModel.Customer\" Role=\"Cust" +
-                "omer\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Registration\"><" +
-                "PropertyRef Name=\"IdRegistration\" /></Principal><Dependent Role=\"Customer\"><Prop" +
-                "ertyRef Name=\"IdRegistration\" /></Dependent></ReferentialConstraint></Associatio" +
-                "n><Association Name=\"fk_Customer_CustomerType\"><End Type=\"KoloModel.RefCustomerT" +
-                "ype\" Role=\"RefCustomerType\" Multiplicity=\"1\" /><End Type=\"KoloModel.Customer\" Ro" +
-                "le=\"Customer\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefCust" +
-                "omerType\"><PropertyRef Name=\"CustomerTypeCode\" /></Principal><Dependent Role=\"Cu" +
-                "stomer\"><PropertyRef Name=\"CustomerTypeCode\" /></Dependent>";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart9 = "</ReferentialConstraint></Association><Association Name=\"fk_Customer_Mobile\"><End" +
-                " Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\"><OnDelete Action=\"Ca" +
-                "scade\" /></End><End Type=\"KoloModel.MobileDevice\" Role=\"MobileDevice\" Multiplici" +
-                "ty=\"0..1\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=" +
-                "\"IdCustomer\" /></Principal><Dependent Role=\"MobileDevice\"><PropertyRef Name=\"IdM" +
-                "obileDevice\" /></Dependent></ReferentialConstraint></Association><Association Na" +
-                "me=\"fk_CustomerAddress_0\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multipl" +
-                "icity=\"1\" /><End Type=\"KoloModel.CustomerAddress\" Role=\"CustomerAddress\" Multipl" +
-                "icity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=" +
-                "\"IdCustomer\" /></Principal><Dependent Role=\"CustomerAddress\"><PropertyRef Name=\"" +
-                "IdCustomer\" /></Dependent></ReferentialConstraint></Association><Association Nam" +
-                "e=\"fk_CustomerBalanceHistory\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Mul" +
-                "tiplicity=\"1\" /><End Type=\"KoloModel.CustomerBalanceHistory\" Role=\"CustomerBalan" +
-                "ceHistory\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\">" +
-                "<PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"CustomerBalanceHis" +
-                "tory\"><PropertyRef Name=\"IdCustomerAccount\" /></Dependent></ReferentialConstrain" +
-                "t></Association><Association Name=\"fk_CustomerGroup_MemberAccount\"><End Type=\"Ko" +
-                "loModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.Custom" +
-                "erGroup\" Role=\"CustomerGroup\" Multiplicity=\"*\" /><ReferentialConstraint><Princip" +
-                "al Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=" +
-                "\"CustomerGroup\"><PropertyRef Name=\"IdMemberCustomer\" /></Dependent></Referential" +
-                "Constraint></Association><Association Name=\"FK_CustomerImage_Customer\"><End Type" +
-                "=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.Cu" +
-                "stomerImage\" Role=\"CustomerImage\" Multiplicity=\"0..1\" /><ReferentialConstraint><" +
-                "Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependen" +
-                "t Role=\"CustomerImage\"><PropertyRef Name=\"IdCustomer\" /></Dependent></Referentia" +
-                "lConstraint></Association><Association Name=\"fk_CustomerLogin\"><End Type=\"KoloMo" +
-                "del.Customer\" Role=\"Customer\" Multiplicity=\"1\"><OnDelete Action=\"Cascade\" /></En" +
-                "d><End Type=\"KoloModel.CustomerLogin\" Role=\"CustomerLogin\" Multiplicity=\"0..1\" /" +
-                "><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer" +
-                "\" /></Principal><Dependent Role=\"CustomerLogin\"><PropertyRef Name=\"IdCustomer\" /" +
-                "></Dependent></ReferentialConstraint></Association><Association Name=\"fk_custome" +
-                "rtags_customeraccount\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplici" +
-                "ty=\"0..1\" /><End Type=\"KoloModel.CustomerTag\" Role=\"CustomerTags\" Multiplicity=\"" +
-                "*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCust" +
-                "omer\" /></Principal><Dependent Role=\"CustomerTags\"><PropertyRef Name=\"IdCustomer" +
-                "Account\" /></Dependent></ReferentialConstraint></Association><Association Name=\"" +
-                "fk_Notification_Customer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multipl" +
-                "icity=\"1\" /><End Type=\"KoloModel.ForeasNotification\" Role=\"ForeasNotification\" M" +
+                "on Name=\"fk_BillPayment_PayingCustomer\"><End Type=\"KoloModel.Customer\" Role=\"Cus" +
+                "tomer\" Multiplicity=\"1\" /><End Type=\"KoloModel.BillPayment\" Role=\"BillPayment\" M" +
                 "ultiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef" +
-                " Name=\"IdCustomer\" /></Principal><Dependent Role=\"ForeasNotification\"><PropertyR" +
-                "ef Name=\"IdCustomer\" /></Dependent></ReferentialConstraint></Association><Associ" +
-                "ation Name=\"fk_Partner_Customer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" " +
-                "Multiplicity=\"1\" /><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"0." +
-                ".1\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCus" +
-                "tomer\" /></Principal><Dependent Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /><" +
-                "/Dependent></ReferentialConstraint></Association><Association Name=\"fk_Person_Cu" +
-                "stomer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\"><OnDelet" +
-                "e Action=\"Cascade\" /></End><End Type=\"KoloModel.Person\" Role=\"Person\" Multiplici" +
-                "ty=\"0..1\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=" +
-                "\"IdCustomer\" /></Principal><Dependent Role=\"Person\"><PropertyRef Name=\"IdCustome" +
-                "r\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Rec" +
-                "urringContribution_TreasuererCustomer\"><End Type=\"KoloModel.Customer\" Role=\"Cust" +
-                "omer\" Multiplicity=\"1\" /><End Type=\"KoloModel.RecurringContribution\" Role=\"Recur" +
-                "ringContribution\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Cus" +
-                "tomer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"RecurringCo" +
-                "ntribution\"><PropertyRef Name=\"IdTreasurerCustomer\" /></Dependent></ReferentialC" +
-                "onstraint></Association><Association Name=\"fk_Transfert2CashDetails\"><End Type=\"" +
-                "KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.T" +
-                "ransfert2CashDetails\" Role=\"Transfert2CashDetails\" Multiplicity=\"*\" /><Referenti" +
-                "alConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Princ" +
-                "ipal><Dependent Role=\"Transfert2CashDetails\"><PropertyRef Name=\"IdCustomerAccoun" +
-                "t\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Tra" +
-                "nsfertE2e_Customer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=" +
-                "\"1\" /><End Type=\"KoloModel.TransfertE2e\" Role=\"TransfertE2e\" Multiplicity=\"*\" />" +
+                " Name=\"IdCustomer\" /></Principal><Dependent Role=\"BillPayment\"><PropertyRef Name" +
+                "=\"IdPayingCustomer\" /></Dependent></ReferentialConstraint></Association><Associa" +
+                "tion Name=\"fk_Business\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplic" +
+                "ity=\"1\" /><End Type=\"KoloModel.Business\" Role=\"Business\" Multiplicity=\"0..1\" /><" +
+                "ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" " +
+                "/></Principal><Dependent Role=\"Business\"><PropertyRef Name=\"IdCustomer\" /></Depe" +
+                "ndent></ReferentialConstraint></Association><Association Name=\"fk_Business_Indus" +
+                "tryCategory\"><End Type=\"KoloModel.RefIndustryCategory\" Role=\"RefIndustryCategory" +
+                "\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Business\" Role=\"Business\" Multiplic" +
+                "ity=\"*\" /><ReferentialConstraint><Principal Role=\"RefIndustryCategory\"><Property" +
+                "Ref Name=\"IndustryCategoryCode\" /></Principal><Dependent Role=\"Business\"><Proper" +
+                "tyRef Name=\"IndustryCategoryCode\" /></Dependent></ReferentialConstraint></Associ" +
+                "ation><Association Name=\"fk_BusinessContact_Business\"><End Type=\"KoloModel.Busin" +
+                "ess\" Role=\"Business\" Multiplicity=\"1\" /><End Type=\"KoloModel.BusinessContact\" Ro" +
+                "le=\"BusinessContact\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"" +
+                "Business\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"Business" +
+                "Contact\"><PropertyRef Name=\"IdBusiness\" /></Dependent></ReferentialConstraint></" +
+                "Association><Association Name=\"fk_BusinessContact_Contact\"><End Type=\"KoloModel." +
+                "Person\" Role=\"Person\" Multiplicity=\"1\" /><End Type=\"KoloModel.BusinessContact\" R" +
+                "ole=\"BusinessContact\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=" +
+                "\"Person\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"BusinessC" +
+                "ontact\"><PropertyRef Name=\"IdContact\" /></Dependent></ReferentialConstraint></As" +
+                "sociation><Association Name=\"fk_City\"><End Type=\"KoloModel.Country\" Role=\"Countr" +
+                "y\" Multiplicity=\"1\" /><End Type=\"KoloModel.City\" Role=\"City\" Multiplicity=\"*\" />" +
+                "<ReferentialConstraint><Principal Role=\"Country\"><PropertyRef Name=\"CountryCode\"" +
+                " /></Principal><Dependent Role=\"City\"><PropertyRef Name=\"CountryCode\" /></Depend" +
+                "ent></ReferentialConstraint></Association><Association Name=\"fk_City_0\"><End Typ" +
+                "e=\"KoloModel.District\" Role=\"District\" Multiplicity=\"0..1\" /><End Type=\"KoloMode" +
+                "l.City\" Role=\"City\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"D" +
+                "istrict\"><PropertyRef Name=\"IdDistrict\" /></Principal><Dependent Role=\"City\"><Pr" +
+                "opertyRef Name=\"IdDistrict\" /></Dependent></ReferentialConstraint></Association>" +
+                "<Association Name=\"fk_Customer_Currency\"><End Type=\"KoloModel.Currency\" Role=\"Cu" +
+                "rrency\" Multiplicity=\"1\" /><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multip" +
+                "licity=\"*\" /><ReferentialConstraint><Principal Role=\"Currency\"><PropertyRef Name" +
+                "=\"CurrencyCode\" /></Principal><Dependent Role=\"Customer\"><PropertyRef Name=\"Curr" +
+                "encyCode\" /></Dependent></ReferentialConstraint></Association><Association Name=" +
+                "\"fk_Customer\"><End Type=\"KoloModel.Registration\" Role=\"Registration\" Multiplicit" +
+                "y=\"0..1\"><OnDelete Action=\"Cascade\" /></End><End Type=\"KoloModel.Customer\" Role=" +
+                "\"Customer\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Registrati" +
+                "on\"><PropertyRef Name=\"IdRegistration\" /></Principal><Dependent Role=\"Customer\">" +
+                "<PropertyRef Name=\"IdRegistration\" /></Dependent></ReferentialConstraint></Assoc" +
+                "iation><Association Name=\"fk_Customer_CustomerType\"><End Type=\"KoloModel.RefCust" +
+                "omerType\" Role=\"RefCustomerType\" Multiplicity=\"1\" /><End Type=\"KoloModel.Custome" +
+                "r\" Role=\"Customer\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Re" +
+                "fCustomerType\"><PropertyRef Name=\"CustomerTypeCode\" /></Principal><Dependent Rol" +
+                "e=\"Customer\"><PropertyRef Name=\"CustomerTypeCode\" /></Dependent></ReferentialCon" +
+                "straint></Association><Association Name=\"fk_Customer_Mobile\"><End Type=\"KoloMode" +
+                "l.Customer\" Role=\"Customer\" Multiplicity=\"1\"><OnDelete Action=\"Cascade\" /></End>" +
+                "<End Type=\"KoloModel.MobileDevice\" Role=\"MobileDevice\" Multiplicity=\"0..1\" /><Re" +
+                "ferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" />" +
+                "</Principal><Dependent Role=\"MobileDevice\"><PropertyRef Name=\"IdMobileDevice\" />" +
+                "</Dependent></ReferentialConstraint></Association><Association Name=\"FK_Customer" +
+                "Image_Customer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" " +
+                "/><End Type=\"KoloModel.CustomerImage\" Role=\"CustomerImage\" Multiplicity=\"0..1\" /" +
+                "><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer" +
+                "\" /></Principal><Dependent Role=\"CustomerImage\"><PropertyRef Name=\"IdCustomer\" /" +
+                "></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Custome" +
+                "rLogin\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\"><OnDelet" +
+                "e Action=\"Cascade\" /></End><End Type=\"KoloModel.CustomerLogin\" Role=\"CustomerLog" +
+                "in\" Multiplicity=\"0..1\" /><ReferentialConstraint><Principal Role=\"Customer\"><Pro" +
+                "pertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"CustomerLogin\"><Proper" +
+                "tyRef Name=\"IdCustomer\" /></Dependent></ReferentialConstraint></Association><Ass" +
+                "ociation Name=\"fk_Partner_Customer\"><End Type=\"KoloModel.Customer\" Role=\"Custome" +
+                "r\" Multiplicity=\"1\" /><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=" +
+                "\"0..1\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"Id" +
+                "Customer\" /></Principal><Dependent Role=\"Partner\"><PropertyRef Name=\"IdPartner\" " +
+                "/></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Person" +
+                "_Customer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\"><OnDe" +
+                "lete Action=\"Cascade\" /></End><End Type=\"KoloModel.Person\" Role=\"Person\" Multipl" +
+                "icity=\"0..1\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Na" +
+                "me=\"IdCustomer\" /></Principal><Dependent Role=\"Person\"><PropertyRef Name=\"IdCust" +
+                "omer\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_" +
+                "CustomerAddress\"><End Type=\"KoloModel.Adresse\" Role=\"Adresse\" Multiplicity=\"1\" /" +
+                "><End Type=\"KoloModel.CustomerAddress\" Role=\"CustomerAddress\" Multiplicity=\"*\" /" +
+                "><ReferentialConstraint><Principal Role=\"Adresse\"><Property";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart8 = "Ref Name=\"IdAddress\" /></Principal><Dependent Role=\"CustomerAddress\"><PropertyRef" +
+                " Name=\"IdAddress\" /></Dependent></ReferentialConstraint></Association><Associati" +
+                "on Name=\"fk_CustomerAddress_0\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Mu" +
+                "ltiplicity=\"1\" /><End Type=\"KoloModel.CustomerAddress\" Role=\"CustomerAddress\" Mu" +
+                "ltiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef " +
+                "Name=\"IdCustomer\" /></Principal><Dependent Role=\"CustomerAddress\"><PropertyRef N" +
+                "ame=\"IdCustomer\" /></Dependent></ReferentialConstraint></Association><Associatio" +
+                "n Name=\"fk_CustomerBalanceHistory\"><End Type=\"KoloModel.Customer\" Role=\"Customer" +
+                "\" Multiplicity=\"1\" /><End Type=\"KoloModel.CustomerBalanceHistory\" Role=\"Customer" +
+                "BalanceHistory\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Custo" +
+                "mer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"CustomerBalan" +
+                "ceHistory\"><PropertyRef Name=\"IdCustomerAccount\" /></Dependent></ReferentialCons" +
+                "traint></Association><Association Name=\"fk_CustomerBalanceHistory_0\"><End Type=\"" +
+                "KoloModel.RefOperationType\" Role=\"RefOperationType\" Multiplicity=\"1\" /><End Type" +
+                "=\"KoloModel.CustomerBalanceHistory\" Role=\"CustomerBalanceHistory\" Multiplicity=\"" +
+                "*\" /><ReferentialConstraint><Principal Role=\"RefOperationType\"><PropertyRef Name" +
+                "=\"OperationTypeCode\" /></Principal><Dependent Role=\"CustomerBalanceHistory\"><Pro" +
+                "pertyRef Name=\"OperationTypeCode\" /></Dependent></ReferentialConstraint></Associ" +
+                "ation><Association Name=\"fk_Customer_ExternalAccount\"><End Type=\"KoloModel.Exter" +
+                "nalAccount\" Role=\"ExternalAccount\" Multiplicity=\"1\" /><End Type=\"KoloModel.Custo" +
+                "merExternalAccount\" Role=\"CustomerExternalAccount\" Multiplicity=\"*\" /><Referenti" +
+                "alConstraint><Principal Role=\"ExternalAccount\"><PropertyRef Name=\"IdExternalAcco" +
+                "unt\" /></Principal><Dependent Role=\"CustomerExternalAccount\"><PropertyRef Name=\"" +
+                "IdExternalAccount\" /></Dependent></ReferentialConstraint></Association><Associat" +
+                "ion Name=\"fk_CustomerGroup_MemberAccount\"><End Type=\"KoloModel.Customer\" Role=\"C" +
+                "ustomer\" Multiplicity=\"1\" /><End Type=\"KoloModel.CustomerGroup\" Role=\"CustomerGr" +
+                "oup\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><Prope" +
+                "rtyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"CustomerGroup\"><Property" +
+                "Ref Name=\"IdMemberCustomer\" /></Dependent></ReferentialConstraint></Association>" +
+                "<Association Name=\"fk_CustomerGroup_GroupType\"><End Type=\"KoloModel.RefGroupType" +
+                "\" Role=\"RefGroupType\" Multiplicity=\"1\" /><End Type=\"KoloModel.CustomerGroup\" Rol" +
+                "e=\"CustomerGroup\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Ref" +
+                "GroupType\"><PropertyRef Name=\"GroupTypeCode\" /></Principal><Dependent Role=\"Cust" +
+                "omerGroup\"><PropertyRef Name=\"GroupTypeCode\" /></Dependent></ReferentialConstrai" +
+                "nt></Association><Association Name=\"FK_GroupImage_CustomerGroup\"><End Type=\"Kolo" +
+                "Model.CustomerGroup\" Role=\"CustomerGroup\" Multiplicity=\"1\" /><End Type=\"KoloMode" +
+                "l.GroupImage\" Role=\"GroupImage\" Multiplicity=\"0..1\" /><ReferentialConstraint><Pr" +
+                "incipal Role=\"CustomerGroup\"><PropertyRef Name=\"IdCustomerGroup\" /></Principal><" +
+                "Dependent Role=\"GroupImage\"><PropertyRef Name=\"IdCustomerGroup\" /></Dependent></" +
+                "ReferentialConstraint></Association><Association Name=\"fk_CustomerLogin_StatusCo" +
+                "de\"><End Type=\"KoloModel.RefLoginStatu\" Role=\"RefLoginStatus\" Multiplicity=\"0..1" +
+                "\" /><End Type=\"KoloModel.CustomerLogin\" Role=\"CustomerLogin\" Multiplicity=\"*\" />" +
+                "<ReferentialConstraint><Principal Role=\"RefLoginStatus\"><PropertyRef Name=\"Login" +
+                "StatusCode\" /></Principal><Dependent Role=\"CustomerLogin\"><PropertyRef Name=\"Log" +
+                "inStatusCode\" /></Dependent></ReferentialConstraint></Association><Association N" +
+                "ame=\"fk_customertags_customeraccount\"><End Type=\"KoloModel.Customer\" Role=\"Custo" +
+                "mer\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.CustomerTag\" Role=\"CustomerTags\"" +
+                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyR" +
+                "ef Name=\"IdCustomer\" /></Principal><Dependent Role=\"CustomerTags\"><PropertyRef N" +
+                "ame=\"IdCustomerAccount\" /></Dependent></ReferentialConstraint></Association><Ass" +
+                "ociation Name=\"fk_customertags_tag\"><End Type=\"KoloModel.Tag\" Role=\"Tag\" Multipl" +
+                "icity=\"0..1\" /><End Type=\"KoloModel.CustomerTag\" Role=\"CustomerTags\" Multiplicit" +
+                "y=\"*\" /><ReferentialConstraint><Principal Role=\"Tag\"><PropertyRef Name=\"IdTag\" /" +
+                "></Principal><Dependent Role=\"CustomerTags\"><PropertyRef Name=\"IdTag\" /></Depend" +
+                "ent></ReferentialConstraint></Association><Association Name=\"fk_ExternalAccount_" +
+                "Type\"><End Type=\"KoloModel.RefExternalAccountType\" Role=\"RefExternalAccountType\"" +
+                " Multiplicity=\"1\" /><End Type=\"KoloModel.ExternalAccount\" Role=\"ExternalAccount\"" +
+                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefExternalAccountTy" +
+                "pe\"><PropertyRef Name=\"ExternalAccountTypeCode\" /></Principal><Dependent Role=\"E" +
+                "xternalAccount\"><PropertyRef Name=\"ExternalAccountTypeCode\" /></Dependent></Refe" +
+                "rentialConstraint></Association><Association Name=\"fk_ExternalAccount_History\"><" +
+                "End Type=\"KoloModel.ExternalAccount\" Role=\"ExternalAccount\" Multiplicity=\"1\" /><" +
+                "End Type=\"KoloModel.ExternalAccountHistory\" Role=\"ExternalAccountHistory\" Multip" +
+                "licity=\"*\" /><ReferentialConstraint><Principal Role=\"ExternalAccount\"><PropertyR" +
+                "ef Name=\"IdExternalAccount\" /></Principal><Dependent Role=\"ExternalAccountHistor" +
+                "y\"><PropertyRef Name=\"IdExternalAccount\" /></Dependent></ReferentialConstraint><" +
+                "/Association><Association Name=\"fk_Notification_Customer\"><End Type=\"KoloModel.C" +
+                "ustomer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.ForeasNotificat" +
+                "ion\" Role=\"ForeasNotification\" Multiplicity=\"*\" /><ReferentialConstraint><Princi" +
+                "pal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role" +
+                "=\"ForeasNotification\"><PropertyRef Name=\"IdCustomer\" /></Dependent></Referential" +
+                "Constraint></Association><Association Name=\"fk_LoginAttempt_Customer\"><End Type=" +
+                "\"KoloModel.CustomerLogin\" Role=\"CustomerLogin\" Multiplicity=\"1\"><OnDelete Action" +
+                "=\"Cascade\" /></End><End Type=\"KoloModel.LoginAttempt\" Role=\"LoginAttempt\" Multip" +
+                "licity=\"*\" /><ReferentialConstraint><Principal Role=\"CustomerLogin\"><PropertyRef" +
+                " Name=\"IdCustomer\" /></Principal><Dependent Role=\"LoginAttempt\"><PropertyRef Nam" +
+                "e=\"IdCustomer\" /></Dependent></ReferentialConstraint></Association><Association " +
+                "Name=\"fk_LoginAttempt_ResultCode\"><End Type=\"KoloModel.RefResult\" Role=\"RefResul" +
+                "t\" Multiplicity=\"1\" /><End Type=\"KoloModel.LoginAttempt\" Role=\"LoginAttempt\" Mul" +
+                "tiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefResult\"><PropertyRef " +
+                "Name=\"ResultCode\" /></Principal><Dependent Role=\"LoginAttempt\"><PropertyRef Name" +
+                "=\"ResultCode\" /></Dependent></ReferentialConstraint></Association><Association N" +
+                "ame=\"fk_Partner_0\"><End Type=\"KoloModel.Currency\" Role=\"Currency\" Multiplicity=\"" +
+                "1\" /><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"*\" /><Referentia" +
+                "lConstraint><Principal Role=\"Currency\"><PropertyRef Name=\"CurrencyCode\" /></Prin" +
+                "cipal><Dependent Role=\"Partner\"><PropertyRef Name=\"CurrencyCode\" /></Dependent><" +
+                "/ReferentialConstraint></Association><Association Name=\"fk_Partner\"><End Type=\"K" +
+                "oloModel.RefPartnerType\" Role=\"RefPartnerType\" Multiplicity=\"1\" /><End Type=\"Kol" +
+                "oModel.Partner\" Role=\"Partner\" Multiplicity=\"*\" /><ReferentialConstraint><Princi" +
+                "pal Role=\"RefPartnerType\"><PropertyRef Name=\"PartnerTypeCode\" /></Principal><Dep" +
+                "endent Role=\"Partner\"><PropertyRef Name=\"PartnerTypeCode\" /></Dependent></Refere" +
+                "ntialConstraint></Association><Association Name=\"fk_Reseller\"><End Type=\"KoloMod" +
+                "el.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><End Type=\"KoloModel.Reseller\" Rol" +
+                "e=\"Reseller\" Multiplicity=\"0..1\" /><ReferentialConstraint><";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart9 = "Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Principal><Dependent R" +
+                "ole=\"Reseller\"><PropertyRef Name=\"IdPartner\" /></Dependent></ReferentialConstrai" +
+                "nt></Association><Association Name=\"fk_Wholesaler\"><End Type=\"KoloModel.Partner\"" +
+                " Role=\"Partner\" Multiplicity=\"1\" /><End Type=\"KoloModel.Wholesaler\" Role=\"Wholes" +
+                "aler\" Multiplicity=\"0..1\" /><ReferentialConstraint><Principal Role=\"Partner\"><Pr" +
+                "opertyRef Name=\"IdPartner\" /></Principal><Dependent Role=\"Wholesaler\"><PropertyR" +
+                "ef Name=\"IdPartner\" /></Dependent></ReferentialConstraint></Association><Associa" +
+                "tion Name=\"fk_PartnerAddress_Address\"><End Type=\"KoloModel.Adresse\" Role=\"Adress" +
+                "e\" Multiplicity=\"1\" /><End Type=\"KoloModel.PartnerAddress\" Role=\"PartnerAddress\"" +
+                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Adresse\"><PropertyRe" +
+                "f Name=\"IdAddress\" /></Principal><Dependent Role=\"PartnerAddress\"><PropertyRef N" +
+                "ame=\"IdAddress\" /></Dependent></ReferentialConstraint></Association><Association" +
+                " Name=\"fk_PartnerAddress_Partner\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" M" +
+                "ultiplicity=\"1\" /><End Type=\"KoloModel.PartnerAddress\" Role=\"PartnerAddress\" Mul" +
+                "tiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Partner\"><PropertyRef Na" +
+                "me=\"IdPartner\" /></Principal><Dependent Role=\"PartnerAddress\"><PropertyRef Name=" +
+                "\"IdPartner\" /></Dependent></ReferentialConstraint></Association><Association Nam" +
+                "e=\"fk_Person\"><End Type=\"KoloModel.Country\" Role=\"Country\" Multiplicity=\"0..1\" /" +
+                "><End Type=\"KoloModel.Person\" Role=\"Person\" Multiplicity=\"*\" /><ReferentialConst" +
+                "raint><Principal Role=\"Country\"><PropertyRef Name=\"CountryCode\" /></Principal><D" +
+                "ependent Role=\"Person\"><PropertyRef Name=\"CountryCode\" /></Dependent></Referenti" +
+                "alConstraint></Association><Association Name=\"fk_Person_Gender\"><End Type=\"KoloM" +
+                "odel.RefGender\" Role=\"RefGender\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Pers" +
+                "on\" Role=\"Person\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Ref" +
+                "Gender\"><PropertyRef Name=\"GenderCode\" /></Principal><Dependent Role=\"Person\"><P" +
+                "ropertyRef Name=\"GenderCode\" /></Dependent></ReferentialConstraint></Association" +
+                "><Association Name=\"fk_Person_MaritalStatus\"><End Type=\"KoloModel.RefMaritalStat" +
+                "u\" Role=\"RefMaritalStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Person\" Ro" +
+                "le=\"Person\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefMarita" +
+                "lStatus\"><PropertyRef Name=\"MaritalStatusCode\" /></Principal><Dependent Role=\"Pe" +
+                "rson\"><PropertyRef Name=\"MaritalStatusCode\" /></Dependent></ReferentialConstrain" +
+                "t></Association><Association Name=\"fk_Relationship_Customer\"><End Type=\"KoloMode" +
+                "l.Person\" Role=\"Person\" Multiplicity=\"1\" /><End Type=\"KoloModel.PersonRelationsh" +
+                "ip\" Role=\"PersonRelationship\" Multiplicity=\"0..1\" /><ReferentialConstraint><Prin" +
+                "cipal Role=\"Person\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role" +
+                "=\"PersonRelationship\"><PropertyRef Name=\"IdCustomer\" /></Dependent></Referential" +
+                "Constraint></Association><Association Name=\"FK_User_Person1\"><End Type=\"KoloMode" +
+                "l.Person\" Role=\"Person\" Multiplicity=\"1\" /><End Type=\"KoloModel.KoloUser\" Role=\"" +
+                "KoloUser\" Multiplicity=\"0..1\" /><ReferentialConstraint><Principal Role=\"Person\">" +
+                "<PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"KoloUser\"><Propert" +
+                "yRef Name=\"IdCustomer\" /></Dependent></ReferentialConstraint></Association><Asso" +
+                "ciation Name=\"fk_Relationship_PersonRelation\"><End Type=\"KoloModel.Person\" Role=" +
+                "\"Person\" Multiplicity=\"1\" /><End Type=\"KoloModel.PersonRelationship\" Role=\"Perso" +
+                "nRelationship\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Person" +
+                "\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"PersonRelationsh" +
+                "ip\"><PropertyRef Name=\"IdPersonRelation\" /></Dependent></ReferentialConstraint><" +
+                "/Association><Association Name=\"fk_Relationship_TypeCode\"><End Type=\"KoloModel.R" +
+                "efPersonRelationshipType\" Role=\"RefPersonRelationshipType\" Multiplicity=\"1\" /><E" +
+                "nd Type=\"KoloModel.PersonRelationship\" Role=\"PersonRelationship\" Multiplicity=\"*" +
+                "\" /><ReferentialConstraint><Principal Role=\"RefPersonRelationshipType\"><Property" +
+                "Ref Name=\"RelationshipTypeCode\" /></Principal><Dependent Role=\"PersonRelationshi" +
+                "p\"><PropertyRef Name=\"RelationshipTypeCode\" /></Dependent></ReferentialConstrain" +
+                "t></Association><Association Name=\"fk_Provision_ResellerPartnerAccount\"><End Typ" +
+                "e=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><End Type=\"KoloModel.Pro" +
+                "vision\" Role=\"Provision\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Ro" +
+                "le=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Principal><Dependent Role=\"Provis" +
+                "ion\"><PropertyRef Name=\"IdResellerPartnerAccount\" /></Dependent></ReferentialCon" +
+                "straint></Association><Association Name=\"fk_Provision_WholesalerPartnerAccount\">" +
+                "<End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><End Type=\"KoloM" +
+                "odel.Provision\" Role=\"Provision\" Multiplicity=\"*\" /><ReferentialConstraint><Prin" +
+                "cipal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Principal><Dependent Role" +
+                "=\"Provision\"><PropertyRef Name=\"IdWholesalerPartnerAccount\" /></Dependent></Refe" +
+                "rentialConstraint></Association><Association Name=\"fk_Provision_History\"><End Ty" +
+                "pe=\"KoloModel.PartnerBalanceHistory\" Role=\"PartnerBalanceHistory\" Multiplicity=\"" +
+                "1\" /><End Type=\"KoloModel.Provision\" Role=\"Provision\" Multiplicity=\"*\" /><Refere" +
+                "ntialConstraint><Principal Role=\"PartnerBalanceHistory\"><PropertyRef Name=\"IdPat" +
+                "nerHistory\" /></Principal><Dependent Role=\"Provision\"><PropertyRef Name=\"IdPatne" +
+                "rHistory\" /></Dependent></ReferentialConstraint></Association><Association Name=" +
+                "\"fk_Provision_StatusCode\"><End Type=\"KoloModel.RefProvisionStatu\" Role=\"RefProvi" +
+                "sionStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Provision\" Role=\"Provisio" +
+                "n\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefProvisionStatus" +
+                "\"><PropertyRef Name=\"ProvisionStatusCode\" /></Principal><Dependent Role=\"Provisi" +
+                "on\"><PropertyRef Name=\"CodeRefProsisionStatus\" /></Dependent></ReferentialConstr" +
+                "aint></Association><Association Name=\"fk_RecurringContribution_TreasuererCustome" +
+                "r\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"" +
+                "KoloModel.RecurringContribution\" Role=\"RecurringContribution\" Multiplicity=\"*\" /" +
+                "><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer" +
+                "\" /></Principal><Dependent Role=\"RecurringContribution\"><PropertyRef Name=\"IdTre" +
+                "asurerCustomer\" /></Dependent></ReferentialConstraint></Association><Association" +
+                " Name=\"fk_RecurringContribution_CustomerGroup\"><End Type=\"KoloModel.CustomerGrou" +
+                "p\" Role=\"CustomerGroup\" Multiplicity=\"1\" /><End Type=\"KoloModel.RecurringContrib" +
+                "ution\" Role=\"RecurringContribution\" Multiplicity=\"*\" /><ReferentialConstraint><P" +
+                "rincipal Role=\"CustomerGroup\"><PropertyRef Name=\"IdCustomerGroup\" /></Principal>" +
+                "<Dependent Role=\"RecurringContribution\"><PropertyRef Name=\"IdCustomerGroup\" /></" +
+                "Dependent></ReferentialConstraint></Association><Association Name=\"FK_User_RefLo" +
+                "ginStatus1\"><End Type=\"KoloModel.RefLoginStatu\" Role=\"RefLoginStatu\" Multiplicit" +
+                "y=\"0..1\" /><End Type=\"KoloModel.KoloUser\" Role=\"KoloUser\" Multiplicity=\"*\" /><Re" +
+                "ferentialConstraint><Principal Role=\"RefLoginStatu\"><PropertyRef Name=\"LoginStat" +
+                "usCode\" /></Principal><Dependent Role=\"KoloUser\"><PropertyRef Name=\"LoginStatusC" +
+                "ode\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_R" +
+                "egistration\"><End Type=\"KoloModel.RefRegistrationStatu\" Role=\"RefRegistrationSta" +
+                "tus\" Multiplicity=\"1\" /><End Type=\"KoloModel.Registration\" Role=\"Registration\" M" +
+                "ultiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefRegistrationStatus\"" +
+                "><PropertyRef Name=\"RegistrationStatusCode\" /></Principal><";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart10 = "Dependent Role=\"Registration\"><PropertyRef Name=\"RegistrationStatusCode\" /></Depe" +
+                "ndent></ReferentialConstraint></Association><Association Name=\"fk_Transfert2Cash" +
+                "_PartnerAccount\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /" +
+                "><End Type=\"KoloModel.Transfert2Cash\" Role=\"Transfert2Cash\" Multiplicity=\"*\" /><" +
+                "ReferentialConstraint><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" />" +
+                "</Principal><Dependent Role=\"Transfert2Cash\"><PropertyRef Name=\"IdPartnerAccount" +
+                "\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Tran" +
+                "sfert2CashDetails\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"" +
+                "0..1\" /><End Type=\"KoloModel.Transfert2CashDetails\" Role=\"Transfert2CashDetails\"" +
+                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyR" +
+                "ef Name=\"IdCustomer\" /></Principal><Dependent Role=\"Transfert2CashDetails\"><Prop" +
+                "ertyRef Name=\"IdCustomerAccount\" /></Dependent></ReferentialConstraint></Associa" +
+                "tion><Association Name=\"fk_TransfertE2e_Customer\"><End Type=\"KoloModel.Customer\"" +
+                " Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertE2e\" Role=\"Tra" +
+                "nsfertE2e\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\">" +
+                "<PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"TransfertE2e\"><Pro" +
+                "pertyRef Name=\"IdCustomer\" /></Dependent></ReferentialConstraint></Association><" +
+                "Association Name=\"fk_TransfertE2e_Receiver\"><End Type=\"KoloModel.ExternalAccount" +
+                "\" Role=\"ExternalAccount\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertE2e\" R" +
+                "ole=\"TransfertE2e\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Ex" +
+                "ternalAccount\"><PropertyRef Name=\"IdExternalAccount\" /></Principal><Dependent Ro" +
+                "le=\"TransfertE2e\"><PropertyRef Name=\"IdReceiverExternalAccount\" /></Dependent></" +
+                "ReferentialConstraint></Association><Association Name=\"fk_TransfertE2e_Sender\"><" +
+                "End Type=\"KoloModel.ExternalAccount\" Role=\"ExternalAccount\" Multiplicity=\"1\" /><" +
+                "End Type=\"KoloModel.TransfertE2e\" Role=\"TransfertE2e\" Multiplicity=\"*\" /><Refere" +
+                "ntialConstraint><Principal Role=\"ExternalAccount\"><PropertyRef Name=\"IdExternalA" +
+                "ccount\" /></Principal><Dependent Role=\"TransfertE2e\"><PropertyRef Name=\"IdSendin" +
+                "gExternalAccount\" /></Dependent></ReferentialConstraint></Association><Associati" +
+                "on Name=\"fk_TransfertE2e_OperationtType\"><End Type=\"KoloModel.RefOperationType\" " +
+                "Role=\"RefOperationType\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertE2e\" Ro" +
+                "le=\"TransfertE2e\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Ref" +
+                "OperationType\"><PropertyRef Name=\"OperationTypeCode\" /></Principal><Dependent Ro" +
+                "le=\"TransfertE2e\"><PropertyRef Name=\"OperationTypeCode\" /></Dependent></Referent" +
+                "ialConstraint></Association><Association Name=\"fk_TransfertE2e_StatusCode\"><End " +
+                "Type=\"KoloModel.RefTransfertStatu\" Role=\"RefTransfertStatus\" Multiplicity=\"1\" />" +
+                "<End Type=\"KoloModel.TransfertE2e\" Role=\"TransfertE2e\" Multiplicity=\"*\" /><Refer" +
+                "entialConstraint><Principal Role=\"RefTransfertStatus\"><PropertyRef Name=\"Transfe" +
+                "rtStatusCode\" /></Principal><Dependent Role=\"TransfertE2e\"><PropertyRef Name=\"Tr" +
+                "ansfertStatusCode\" /></Dependent></ReferentialConstraint></Association><Associat" +
+                "ion Name=\"fk_TransfertGroup_Sender\"><End Type=\"KoloModel.Customer\" Role=\"Custome" +
+                "r\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertGroup\" Role=\"TransfertGroup\"" +
+                " Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyR" +
+                "ef Name=\"IdCustomer\" /></Principal><Dependent Role=\"TransfertGroup\"><PropertyRef" +
+                " Name=\"IdSendingCustomer\" /></Dependent></ReferentialConstraint></Association><A" +
+                "ssociation Name=\"fk_TransfertGroup_ReceiverGroup\"><End Type=\"KoloModel.CustomerG" +
+                "roup\" Role=\"CustomerGroup\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertGrou" +
+                "p\" Role=\"TransfertGroup\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Ro" +
+                "le=\"CustomerGroup\"><PropertyRef Name=\"IdCustomerGroup\" /></Principal><Dependent " +
+                "Role=\"TransfertGroup\"><PropertyRef Name=\"IdReceiverGroup\" /></Dependent></Refere" +
+                "ntialConstraint></Association><Association Name=\"fk_TransfertGroup_StatusCode\"><" +
+                "End Type=\"KoloModel.RefTransfertStatu\" Role=\"RefTransfertStatus\" Multiplicity=\"1" +
+                "\" /><End Type=\"KoloModel.TransfertGroup\" Role=\"TransfertGroup\" Multiplicity=\"*\" " +
+                "/><ReferentialConstraint><Principal Role=\"RefTransfertStatus\"><PropertyRef Name=" +
+                "\"TransfertStatusCode\" /></Principal><Dependent Role=\"TransfertGroup\"><PropertyRe" +
+                "f Name=\"CodeTransfertStatus\" /></Dependent></ReferentialConstraint></Association" +
+                "><Association Name=\"fk_TransfertGroupScheduled_Sender\"><End Type=\"KoloModel.Cust" +
+                "omer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertGroupSche" +
+                "duled\" Role=\"TransfertGroupScheduled\" Multiplicity=\"*\" /><ReferentialConstraint>" +
+                "<Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Depende" +
+                "nt Role=\"TransfertGroupScheduled\"><PropertyRef Name=\"IdSendingCustomer\" /></Depe" +
+                "ndent></ReferentialConstraint></Association><Association Name=\"fk_TransfertGroup" +
+                "Scheduled_ReceiverGroup\"><End Type=\"KoloModel.CustomerGroup\" Role=\"CustomerGroup" +
+                "\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertGroupScheduled\" Role=\"Transfe" +
+                "rtGroupScheduled\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Cus" +
+                "tomerGroup\"><PropertyRef Name=\"IdCustomerGroup\" /></Principal><Dependent Role=\"T" +
+                "ransfertGroupScheduled\"><PropertyRef Name=\"IdReceiverGroup\" /></Dependent></Refe" +
+                "rentialConstraint></Association><Association Name=\"fk_TransfertP2p_Receiver\"><En" +
+                "d Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"0..1\" /><End Type=\"Kol" +
+                "oModel.TransfertP2p\" Role=\"TransfertP2p\" Multiplicity=\"*\" /><ReferentialConstrai" +
+                "nt><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Depe" +
+                "ndent Role=\"TransfertP2p\"><PropertyRef Name=\"IdReceiverCustomer\" /></Dependent><" +
+                "/ReferentialConstraint></Association><Association Name=\"fk_TransfertScheduled_Cu" +
+                "stomer\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End T" +
+                "ype=\"KoloModel.TransfertScheduled\" Role=\"TransfertScheduled\" Multiplicity=\"*\" />" +
                 "<ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\"" +
-                " /></Principal><Dependent Role=\"TransfertE2e\"><PropertyRef Name=\"IdCustomer\" /><" +
-                "/Dependent></ReferentialConstraint></Association><Association Name=\"fk_Transfert" +
-                "Group_Sender\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" />" +
-                "<End Type=\"KoloModel.TransfertGroup\" Role=\"TransfertGroup\" Multiplicity=\"*\" /><R" +
-                "eferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /" +
-                "></Principal><Dependent Role=\"TransfertGroup\"><PropertyRef Name=\"IdSendingCustom" +
-                "er\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Tr" +
-                "ansfertGroupScheduled_Sender\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Mul" +
-                "tiplicity=\"1\" /><End Type=\"KoloModel.TransfertGroupScheduled\" Role=\"TransfertGro" +
-                "upScheduled\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer" +
-                "\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"TransfertGroupSc" +
-                "heduled\"><PropertyRef Name=\"IdSendingCustomer\" /></Dependent></ReferentialConstr" +
-                "aint></Association><Association Name=\"fk_TransfertP2p_Receiver\"><End Type=\"KoloM" +
-                "odel.Customer\" Role=\"Customer\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Transf" +
-                "ertP2p\" Role=\"TransfertP2p\" Multiplicity=\"*\" /><ReferentialConstraint><Principal" +
-                " Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"T" +
-                "ransfertP2p\"><PropertyRef Name=\"IdReceiverCustomer\" /></Dependent></ReferentialC" +
-                "onstraint></Association><Association Name=\"fk_TransfertScheduled_Customer\"><End " +
-                "Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=\"1\" /><End Type=\"KoloMode" +
-                "l.TransfertScheduled\" Role=\"TransfertScheduled\" Multiplicity=\"*\" /><ReferentialC" +
-                "onstraint><Principal Role=\"Customer\"><PropertyRef Name=\"IdCustomer\" /></Principa" +
-                "l><Dependent Role=\"TransfertScheduled\"><PropertyRef Name=\"IdReceiverCustomer\" />" +
-                "</Dependent></ReferentialConstraint></Association><Association Name=\"fk_Transfer" +
-                "tScheduled_Sending\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" Multiplicity=" +
-                "\"1\" /><End Type=\"KoloModel.TransfertScheduled\" Role=\"TransfertScheduled\" Multipl" +
-                "icity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><PropertyRef Name=" +
-                "\"IdCustomer\" /></Principal><Dependent Role=\"TransfertScheduled\"><PropertyRef Nam" +
-                "e=\"IdSendingCustomer\" /></Dependent></ReferentialConstraint";
+                " /></Principal><Dependent Role=\"TransfertScheduled\"><PropertyRef Name=\"IdReceive" +
+                "rCustomer\" /></Dependent></ReferentialConstraint></Association><Association Name" +
+                "=\"fk_TransfertScheduled_Sending\"><End Type=\"KoloModel.Customer\" Role=\"Customer\" " +
+                "Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertScheduled\" Role=\"TransfertSched" +
+                "uled\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Customer\"><Prop" +
+                "ertyRef Name=\"IdCustomer\" /></Principal><Dependent Role=\"TransfertScheduled\"><Pr" +
+                "opertyRef Name=\"IdSendingCustomer\" /></Dependent></ReferentialConstraint></Assoc" +
+                "iation></Schema><Schema Namespace=\"KoloWin.Poco\" xmlns=\"http://schemas.microsoft" +
+                ".com/ado/2009/11/edm\"><EntityContainer Name=\"KoloEntities\" m:IsDefaultEntityCont" +
+                "ainer=\"true\"><EntitySet Name=\"AccountOperations\" EntityType=\"KoloModel.AccountOp" +
+                "eration\" /><EntitySet Name=\"AccountOperationRequests\" EntityType=\"KoloModel.Acco" +
+                "untOperationRequest\" /><EntitySet Name=\"Adresses\" EntityType=\"KoloModel.Adresse\"" +
+                " /><EntitySet Name=\"Bills\" EntityType=\"KoloModel.Bill\" /><EntitySet Name=\"BillPa" +
+                "yments\" EntityType=\"KoloModel.BillPayment\" /><EntitySet Name=\"Businesses\" Entity" +
+                "Type=\"KoloModel.Business\" /><EntitySet Name=\"BusinessContacts\" EntityType=\"KoloM" +
+                "odel.BusinessContact\" /><EntitySet Name=\"Cities\" EntityType=\"KoloModel.City\" /><" +
+                "EntitySet Name=\"Countries\" EntityType=\"KoloModel.Country\" /><EntitySet Name=\"Cur" +
+                "rencies\" EntityType=\"KoloModel.Currency\" /><EntitySet Name=\"Customers\" EntityTyp" +
+                "e=\"KoloModel.Customer\" /><EntitySet Name=\"CustomerAddresses";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart10 = "></Association><Association Name=\"CustomerGroupAdmin\"><End Type=\"KoloModel.Custom" +
-                "erGroup\" Role=\"CustomerGroup\" Multiplicity=\"*\" /><End Type=\"KoloModel.Customer\" " +
-                "Role=\"Customer\" Multiplicity=\"*\" /></Association><Association Name=\"fk_CustomerB" +
-                "alanceHistory_0\"><End Type=\"KoloModel.RefOperationType\" Role=\"RefOperationType\" " +
-                "Multiplicity=\"1\" /><End Type=\"KoloModel.CustomerBalanceHistory\" Role=\"CustomerBa" +
-                "lanceHistory\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefOper" +
-                "ationType\"><PropertyRef Name=\"OperationTypeCode\" /></Principal><Dependent Role=\"" +
-                "CustomerBalanceHistory\"><PropertyRef Name=\"OperationTypeCode\" /></Dependent></Re" +
-                "ferentialConstraint></Association><Association Name=\"fk_Customer_ExternalAccount" +
-                "\"><End Type=\"KoloModel.ExternalAccount\" Role=\"ExternalAccount\" Multiplicity=\"1\" " +
-                "/><End Type=\"KoloModel.CustomerExternalAccount\" Role=\"CustomerExternalAccount\" M" +
-                "ultiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"ExternalAccount\"><Prop" +
-                "ertyRef Name=\"IdExternalAccount\" /></Principal><Dependent Role=\"CustomerExternal" +
-                "Account\"><PropertyRef Name=\"IdExternalAccount\" /></Dependent></ReferentialConstr" +
-                "aint></Association><Association Name=\"fk_CustomerGroup_GroupType\"><End Type=\"Kol" +
-                "oModel.RefGroupType\" Role=\"RefGroupType\" Multiplicity=\"1\" /><End Type=\"KoloModel" +
-                ".CustomerGroup\" Role=\"CustomerGroup\" Multiplicity=\"*\" /><ReferentialConstraint><" +
-                "Principal Role=\"RefGroupType\"><PropertyRef Name=\"GroupTypeCode\" /></Principal><D" +
-                "ependent Role=\"CustomerGroup\"><PropertyRef Name=\"GroupTypeCode\" /></Dependent></" +
-                "ReferentialConstraint></Association><Association Name=\"FK_GroupImage_CustomerGro" +
-                "up\"><End Type=\"KoloModel.CustomerGroup\" Role=\"CustomerGroup\" Multiplicity=\"1\" />" +
-                "<End Type=\"KoloModel.GroupImage\" Role=\"GroupImage\" Multiplicity=\"0..1\" /><Refere" +
-                "ntialConstraint><Principal Role=\"CustomerGroup\"><PropertyRef Name=\"IdCustomerGro" +
-                "up\" /></Principal><Dependent Role=\"GroupImage\"><PropertyRef Name=\"IdCustomerGrou" +
-                "p\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Rec" +
-                "urringContribution_CustomerGroup\"><End Type=\"KoloModel.CustomerGroup\" Role=\"Cust" +
-                "omerGroup\" Multiplicity=\"1\" /><End Type=\"KoloModel.RecurringContribution\" Role=\"" +
-                "RecurringContribution\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role" +
-                "=\"CustomerGroup\"><PropertyRef Name=\"IdCustomerGroup\" /></Principal><Dependent Ro" +
-                "le=\"RecurringContribution\"><PropertyRef Name=\"IdCustomerGroup\" /></Dependent></R" +
-                "eferentialConstraint></Association><Association Name=\"fk_TransfertGroup_Receiver" +
-                "Group\"><End Type=\"KoloModel.CustomerGroup\" Role=\"CustomerGroup\" Multiplicity=\"1\"" +
-                " /><End Type=\"KoloModel.TransfertGroup\" Role=\"TransfertGroup\" Multiplicity=\"*\" /" +
-                "><ReferentialConstraint><Principal Role=\"CustomerGroup\"><PropertyRef Name=\"IdCus" +
-                "tomerGroup\" /></Principal><Dependent Role=\"TransfertGroup\"><PropertyRef Name=\"Id" +
-                "ReceiverGroup\" /></Dependent></ReferentialConstraint></Association><Association " +
-                "Name=\"fk_TransfertGroupScheduled_ReceiverGroup\"><End Type=\"KoloModel.CustomerGro" +
-                "up\" Role=\"CustomerGroup\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertGroupS" +
-                "cheduled\" Role=\"TransfertGroupScheduled\" Multiplicity=\"*\" /><ReferentialConstrai" +
-                "nt><Principal Role=\"CustomerGroup\"><PropertyRef Name=\"IdCustomerGroup\" /></Princ" +
-                "ipal><Dependent Role=\"TransfertGroupScheduled\"><PropertyRef Name=\"IdReceiverGrou" +
-                "p\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Cus" +
-                "tomerLogin_StatusCode\"><End Type=\"KoloModel.RefLoginStatu\" Role=\"RefLoginStatus\"" +
-                " Multiplicity=\"0..1\" /><End Type=\"KoloModel.CustomerLogin\" Role=\"CustomerLogin\" " +
-                "Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefLoginStatus\"><Prop" +
-                "ertyRef Name=\"LoginStatusCode\" /></Principal><Dependent Role=\"CustomerLogin\"><Pr" +
-                "opertyRef Name=\"LoginStatusCode\" /></Dependent></ReferentialConstraint></Associa" +
-                "tion><Association Name=\"fk_LoginAttempt_Customer\"><End Type=\"KoloModel.CustomerL" +
-                "ogin\" Role=\"CustomerLogin\" Multiplicity=\"1\"><OnDelete Action=\"Cascade\" /></End><" +
-                "End Type=\"KoloModel.LoginAttempt\" Role=\"LoginAttempt\" Multiplicity=\"*\" /><Refere" +
-                "ntialConstraint><Principal Role=\"CustomerLogin\"><PropertyRef Name=\"IdCustomer\" /" +
-                "></Principal><Dependent Role=\"LoginAttempt\"><PropertyRef Name=\"IdCustomer\" /></D" +
-                "ependent></ReferentialConstraint></Association><Association Name=\"fk_customertag" +
-                "s_tag\"><End Type=\"KoloModel.Tag\" Role=\"Tag\" Multiplicity=\"0..1\" /><End Type=\"Kol" +
-                "oModel.CustomerTag\" Role=\"CustomerTags\" Multiplicity=\"*\" /><ReferentialConstrain" +
-                "t><Principal Role=\"Tag\"><PropertyRef Name=\"IdTag\" /></Principal><Dependent Role=" +
-                "\"CustomerTags\"><PropertyRef Name=\"IdTag\" /></Dependent></ReferentialConstraint><" +
-                "/Association><Association Name=\"fk_ExternalAccount_History\"><End Type=\"KoloModel" +
-                ".ExternalAccount\" Role=\"ExternalAccount\" Multiplicity=\"1\" /><End Type=\"KoloModel" +
-                ".ExternalAccountHistory\" Role=\"ExternalAccountHistory\" Multiplicity=\"*\" /><Refer" +
-                "entialConstraint><Principal Role=\"ExternalAccount\"><PropertyRef Name=\"IdExternal" +
-                "Account\" /></Principal><Dependent Role=\"ExternalAccountHistory\"><PropertyRef Nam" +
-                "e=\"IdExternalAccount\" /></Dependent></ReferentialConstraint></Association><Assoc" +
-                "iation Name=\"fk_ExternalAccount_Type\"><End Type=\"KoloModel.RefExternalAccountTyp" +
-                "e\" Role=\"RefExternalAccountType\" Multiplicity=\"1\" /><End Type=\"KoloModel.Externa" +
-                "lAccount\" Role=\"ExternalAccount\" Multiplicity=\"*\" /><ReferentialConstraint><Prin" +
-                "cipal Role=\"RefExternalAccountType\"><PropertyRef Name=\"ExternalAccountTypeCode\" " +
-                "/></Principal><Dependent Role=\"ExternalAccount\"><PropertyRef Name=\"ExternalAccou" +
-                "ntTypeCode\" /></Dependent></ReferentialConstraint></Association><Association Nam" +
-                "e=\"fk_TransfertE2e_Receiver\"><End Type=\"KoloModel.ExternalAccount\" Role=\"Externa" +
-                "lAccount\" Multiplicity=\"1\" /><End Type=\"KoloModel.TransfertE2e\" Role=\"TransfertE" +
-                "2e\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"ExternalAccount\">" +
-                "<PropertyRef Name=\"IdExternalAccount\" /></Principal><Dependent Role=\"TransfertE2" +
-                "e\"><PropertyRef Name=\"IdReceiverExternalAccount\" /></Dependent></ReferentialCons" +
-                "traint></Association><Association Name=\"fk_TransfertE2e_Sender\"><End Type=\"KoloM" +
-                "odel.ExternalAccount\" Role=\"ExternalAccount\" Multiplicity=\"1\" /><End Type=\"KoloM" +
-                "odel.TransfertE2e\" Role=\"TransfertE2e\" Multiplicity=\"*\" /><ReferentialConstraint" +
-                "><Principal Role=\"ExternalAccount\"><PropertyRef Name=\"IdExternalAccount\" /></Pri" +
-                "ncipal><Dependent Role=\"TransfertE2e\"><PropertyRef Name=\"IdSendingExternalAccoun" +
-                "t\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Log" +
-                "inAttempt_ResultCode\"><End Type=\"KoloModel.RefResult\" Role=\"RefResult\" Multiplic" +
-                "ity=\"1\" /><End Type=\"KoloModel.LoginAttempt\" Role=\"LoginAttempt\" Multiplicity=\"*" +
-                "\" /><ReferentialConstraint><Principal Role=\"RefResult\"><PropertyRef Name=\"Result" +
-                "Code\" /></Principal><Dependent Role=\"LoginAttempt\"><PropertyRef Name=\"ResultCode" +
-                "\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Part" +
-                "ner\"><End Type=\"KoloModel.RefPartnerType\" Role=\"RefPartnerType\" Multiplicity=\"1\"" +
-                " /><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"*\" /><ReferentialC" +
-                "onstraint><Principal Role=\"RefPartnerType\"><PropertyRef Name=\"PartnerTypeCode\" /" +
-                "></Principal><Dependent Role=\"Partner\"><PropertyRef Name=\"PartnerTypeCode\" /></D" +
-                "ependent></ReferentialConstraint></Association><Association Name=\"fk_PartnerAddr" +
-                "ess_Partner\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><En" +
-                "d Type=\"KoloModel.PartnerAddress\" Role=\"PartnerAddress\" Multiplicity=\"*\" /><Refe" +
-                "rentialConstraint><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Pr" +
-                "incipal><Dependent Role=\"PartnerAddress\"><PropertyRef Name=";
+            private const string ModelPart11 = "\" EntityType=\"KoloModel.CustomerAddress\" /><EntitySet Name=\"CustomerBalanceHistor" +
+                "ies\" EntityType=\"KoloModel.CustomerBalanceHistory\" /><EntitySet Name=\"CustomerEx" +
+                "ternalAccounts\" EntityType=\"KoloModel.CustomerExternalAccount\" /><EntitySet Name" +
+                "=\"CustomerGroups\" EntityType=\"KoloModel.CustomerGroup\" /><EntitySet Name=\"Custom" +
+                "erImages\" EntityType=\"KoloModel.CustomerImage\" /><EntitySet Name=\"CustomerLogins" +
+                "\" EntityType=\"KoloModel.CustomerLogin\" /><EntitySet Name=\"CustomerTags\" EntityTy" +
+                "pe=\"KoloModel.CustomerTag\" /><EntitySet Name=\"Districts\" EntityType=\"KoloModel.D" +
+                "istrict\" /><EntitySet Name=\"ExternalAccounts\" EntityType=\"KoloModel.ExternalAcco" +
+                "unt\" /><EntitySet Name=\"ExternalAccountHistories\" EntityType=\"KoloModel.External" +
+                "AccountHistory\" /><EntitySet Name=\"ForeasNotifications\" EntityType=\"KoloModel.Fo" +
+                "reasNotification\" /><EntitySet Name=\"GroupImages\" EntityType=\"KoloModel.GroupIma" +
+                "ge\" /><EntitySet Name=\"LoginAttempts\" EntityType=\"KoloModel.LoginAttempt\" /><Ent" +
+                "itySet Name=\"MobileDevices\" EntityType=\"KoloModel.MobileDevice\" /><EntitySet Nam" +
+                "e=\"Partners\" EntityType=\"KoloModel.Partner\" /><EntitySet Name=\"PartnerAddresses\"" +
+                " EntityType=\"KoloModel.PartnerAddress\" /><EntitySet Name=\"PartnerBalanceHistorie" +
+                "s\" EntityType=\"KoloModel.PartnerBalanceHistory\" /><EntitySet Name=\"People\" Entit" +
+                "yType=\"KoloModel.Person\" /><EntitySet Name=\"PersonRelationships\" EntityType=\"Kol" +
+                "oModel.PersonRelationship\" /><EntitySet Name=\"Provisions\" EntityType=\"KoloModel." +
+                "Provision\" /><EntitySet Name=\"RecurringContributions\" EntityType=\"KoloModel.Recu" +
+                "rringContribution\" /><EntitySet Name=\"RefAddressTypes\" EntityType=\"KoloModel.Ref" +
+                "AddressType\" /><EntitySet Name=\"RefBillStatus\" EntityType=\"KoloModel.RefBillStat" +
+                "u\" /><EntitySet Name=\"RefBillTypes\" EntityType=\"KoloModel.RefBillType\" /><Entity" +
+                "Set Name=\"RefCustomerTypes\" EntityType=\"KoloModel.RefCustomerType\" /><EntitySet " +
+                "Name=\"RefExternalAccountTypes\" EntityType=\"KoloModel.RefExternalAccountType\" /><" +
+                "EntitySet Name=\"RefGenders\" EntityType=\"KoloModel.RefGender\" /><EntitySet Name=\"" +
+                "RefGroupTypes\" EntityType=\"KoloModel.RefGroupType\" /><EntitySet Name=\"RefIndustr" +
+                "yCategories\" EntityType=\"KoloModel.RefIndustryCategory\" /><EntitySet Name=\"RefLo" +
+                "ginStatus\" EntityType=\"KoloModel.RefLoginStatu\" /><EntitySet Name=\"RefMaritalSta" +
+                "tus\" EntityType=\"KoloModel.RefMaritalStatu\" /><EntitySet Name=\"RefOperationStatu" +
+                "s\" EntityType=\"KoloModel.RefOperationStatu\" /><EntitySet Name=\"RefOperationTypes" +
+                "\" EntityType=\"KoloModel.RefOperationType\" /><EntitySet Name=\"RefPartnerTypes\" En" +
+                "tityType=\"KoloModel.RefPartnerType\" /><EntitySet Name=\"RefPersonRelationshipType" +
+                "s\" EntityType=\"KoloModel.RefPersonRelationshipType\" /><EntitySet Name=\"RefProvis" +
+                "ionStatus\" EntityType=\"KoloModel.RefProvisionStatu\" /><EntitySet Name=\"RefRegist" +
+                "rationStatus\" EntityType=\"KoloModel.RefRegistrationStatu\" /><EntitySet Name=\"Ref" +
+                "Results\" EntityType=\"KoloModel.RefResult\" /><EntitySet Name=\"RefTransfertStatus\"" +
+                " EntityType=\"KoloModel.RefTransfertStatu\" /><EntitySet Name=\"Registrations\" Enti" +
+                "tyType=\"KoloModel.Registration\" /><EntitySet Name=\"Resellers\" EntityType=\"KoloMo" +
+                "del.Reseller\" /><EntitySet Name=\"Tags\" EntityType=\"KoloModel.Tag\" /><EntitySet N" +
+                "ame=\"Transfert2Cash\" EntityType=\"KoloModel.Transfert2Cash\" /><EntitySet Name=\"Tr" +
+                "ansfert2CashDetails\" EntityType=\"KoloModel.Transfert2CashDetails\" /><EntitySet N" +
+                "ame=\"TransfertE2e\" EntityType=\"KoloModel.TransfertE2e\" /><EntitySet Name=\"Transf" +
+                "ertGroups\" EntityType=\"KoloModel.TransfertGroup\" /><EntitySet Name=\"TransfertGro" +
+                "upScheduleds\" EntityType=\"KoloModel.TransfertGroupScheduled\" /><EntitySet Name=\"" +
+                "TransfertP2p\" EntityType=\"KoloModel.TransfertP2p\" /><EntitySet Name=\"TransfertSc" +
+                "heduleds\" EntityType=\"KoloModel.TransfertScheduled\" /><EntitySet Name=\"Wholesale" +
+                "rs\" EntityType=\"KoloModel.Wholesaler\" /><EntitySet Name=\"KoloUsers\" EntityType=\"" +
+                "KoloModel.KoloUser\" /><AssociationSet Name=\"fk_AccountOperation\" Association=\"Ko" +
+                "loModel.fk_AccountOperation\"><End Role=\"AccountOperation\" EntitySet=\"AccountOper" +
+                "ations\" /><End Role=\"RefOperationStatus\" EntitySet=\"RefOperationStatus\" /></Asso" +
+                "ciationSet><AssociationSet Name=\"fk_AccountOperation_2\" Association=\"KoloModel.f" +
+                "k_AccountOperation_2\"><End Role=\"AccountOperation\" EntitySet=\"AccountOperations\"" +
+                " /><End Role=\"Partner\" EntitySet=\"Partners\" /></AssociationSet><AssociationSet N" +
+                "ame=\"fk_AccountOperation_3\" Association=\"KoloModel.fk_AccountOperation_3\"><End R" +
+                "ole=\"AccountOperation\" EntitySet=\"AccountOperations\" /><End Role=\"RefOperationTy" +
+                "pe\" EntitySet=\"RefOperationTypes\" /></AssociationSet><AssociationSet Name=\"fk_Ac" +
+                "countOperation_History\" Association=\"KoloModel.fk_AccountOperation_History\"><End" +
+                " Role=\"AccountOperation\" EntitySet=\"AccountOperations\" /><End Role=\"PartnerBalan" +
+                "ceHistory\" EntitySet=\"PartnerBalanceHistories\" /></AssociationSet><AssociationSe" +
+                "t Name=\"FK_AccountOperation_Request\" Association=\"KoloModel.FK_AccountOperation_" +
+                "Request\"><End Role=\"AccountOperation\" EntitySet=\"AccountOperations\" /><End Role=" +
+                "\"AccountOperationRequest\" EntitySet=\"AccountOperationRequests\" /></AssociationSe" +
+                "t><AssociationSet Name=\"FK_AccountOperationRequest_RefOperationStatus\" Associati" +
+                "on=\"KoloModel.FK_AccountOperationRequest_RefOperationStatus\"><End Role=\"AccountO" +
+                "perationRequest\" EntitySet=\"AccountOperationRequests\" /><End Role=\"RefOperationS" +
+                "tatus\" EntitySet=\"RefOperationStatus\" /></AssociationSet><AssociationSet Name=\"F" +
+                "K_AccountOperationRequest_RefOperationType\" Association=\"KoloModel.FK_AccountOpe" +
+                "rationRequest_RefOperationType\"><End Role=\"AccountOperationRequest\" EntitySet=\"A" +
+                "ccountOperationRequests\" /><End Role=\"RefOperationType\" EntitySet=\"RefOperationT" +
+                "ypes\" /></AssociationSet><AssociationSet Name=\"fk_OperationRequest_CustomerAccou" +
+                "nt\" Association=\"KoloModel.fk_OperationRequest_CustomerAccount\"><End Role=\"Accou" +
+                "ntOperationRequest\" EntitySet=\"AccountOperationRequests\" /><End Role=\"Customer\" " +
+                "EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_Adresse_City\" " +
+                "Association=\"KoloModel.fk_Adresse_City\"><End Role=\"Adresse\" EntitySet=\"Adresses\"" +
+                " /><End Role=\"City\" EntitySet=\"Cities\" /></AssociationSet><AssociationSet Name=\"" +
+                "fk_Bill\" Association=\"KoloModel.fk_Bill\"><End Role=\"Bill\" EntitySet=\"Bills\" /><E" +
+                "nd Role=\"RefBillStatus\" EntitySet=\"RefBillStatus\" /></AssociationSet><Associatio" +
+                "nSet Name=\"fk_Facture\" Association=\"KoloModel.fk_Facture\"><End Role=\"Bill\" Entit" +
+                "ySet=\"Bills\" /><End Role=\"RefBillType\" EntitySet=\"RefBillTypes\" /></AssociationS" +
+                "et><AssociationSet Name=\"fk_Facture_IssuingCustomer\" Association=\"KoloModel.fk_F" +
+                "acture_IssuingCustomer\"><End Role=\"Bill\" EntitySet=\"Bills\" /><End Role=\"Customer" +
+                "\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_Facture_Payi" +
+                "ngCustomer\" Association=\"KoloModel.fk_Facture_PayingCustomer\"><End Role=\"Bill\" E" +
+                "ntitySet=\"Bills\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></AssociationSet" +
+                "><AssociationSet Name=\"fk_BillPayement_Bill\" Association=\"KoloModel.fk_BillPayem" +
+                "ent_Bill\"><End Role=\"BillPayment\" EntitySet=\"BillPayments\" /><End Role=\"Bill\" En" +
+                "titySet=\"Bills\" /></AssociationSet><AssociationSet Name=\"fk_BillPayment_IssuingC" +
+                "ustomer\" Association=\"KoloModel.fk_BillPayment_IssuingCustomer\"><End Role=\"BillP" +
+                "ayment\" EntitySet=\"BillPayments\" /><End Role=\"Customer\" EntitySet=\"Customers\" />" +
+                "</AssociationSet><AssociationSet Name=\"fk_BillPayment_PayingCustomer\" Associatio" +
+                "n=\"KoloModel.fk_BillPayment_PayingCustomer\"><End Role=\"BillPayment\" EntitySet=\"B" +
+                "illPayments\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></AssociationSet><As" +
+                "sociationSet Name=\"fk_Business\" Association=\"KoloModel.fk_Business\"><End Role=\"B" +
+                "usiness\" EntitySet=\"Businesses\" /><End Role=\"Customer\" Enti";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart11 = "\"IdPartner\" /></Dependent></ReferentialConstraint></Association><Association Name" +
-                "=\"fk_Provision_ResellerPartnerAccount\"><End Type=\"KoloModel.Partner\" Role=\"Partn" +
-                "er\" Multiplicity=\"1\" /><End Type=\"KoloModel.Provision\" Role=\"Provision\" Multipli" +
-                "city=\"*\" /><ReferentialConstraint><Principal Role=\"Partner\"><PropertyRef Name=\"I" +
-                "dPartner\" /></Principal><Dependent Role=\"Provision\"><PropertyRef Name=\"IdReselle" +
-                "rPartnerAccount\" /></Dependent></ReferentialConstraint></Association><Associatio" +
-                "n Name=\"fk_Provision_WholesalerPartnerAccount\"><End Type=\"KoloModel.Partner\" Rol" +
-                "e=\"Partner\" Multiplicity=\"1\" /><End Type=\"KoloModel.Provision\" Role=\"Provision\" " +
-                "Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Partner\"><PropertyRef" +
-                " Name=\"IdPartner\" /></Principal><Dependent Role=\"Provision\"><PropertyRef Name=\"I" +
-                "dWholesalerPartnerAccount\" /></Dependent></ReferentialConstraint></Association><" +
-                "Association Name=\"fk_Reseller\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" Mult" +
-                "iplicity=\"1\" /><End Type=\"KoloModel.Reseller\" Role=\"Reseller\" Multiplicity=\"0..1" +
-                "\" /><ReferentialConstraint><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartne" +
-                "r\" /></Principal><Dependent Role=\"Reseller\"><PropertyRef Name=\"IdPartner\" /></De" +
-                "pendent></ReferentialConstraint></Association><Association Name=\"fk_Transfert2Ca" +
-                "sh_PartnerAccount\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\"" +
-                " /><End Type=\"KoloModel.Transfert2Cash\" Role=\"Transfert2Cash\" Multiplicity=\"*\" /" +
-                "><ReferentialConstraint><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" " +
-                "/></Principal><Dependent Role=\"Transfert2Cash\"><PropertyRef Name=\"IdPartnerAccou" +
-                "nt\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk_Wh" +
-                "olesaler\"><End Type=\"KoloModel.Partner\" Role=\"Partner\" Multiplicity=\"1\" /><End T" +
-                "ype=\"KoloModel.Wholesaler\" Role=\"Wholesaler\" Multiplicity=\"0..1\" /><ReferentialC" +
-                "onstraint><Principal Role=\"Partner\"><PropertyRef Name=\"IdPartner\" /></Principal>" +
-                "<Dependent Role=\"Wholesaler\"><PropertyRef Name=\"IdPartner\" /></Dependent></Refer" +
-                "entialConstraint></Association><Association Name=\"fk_Provision_History\"><End Typ" +
-                "e=\"KoloModel.PartnerBalanceHistory\" Role=\"PartnerBalanceHistory\" Multiplicity=\"1" +
-                "\" /><End Type=\"KoloModel.Provision\" Role=\"Provision\" Multiplicity=\"*\" /><Referen" +
-                "tialConstraint><Principal Role=\"PartnerBalanceHistory\"><PropertyRef Name=\"IdPatn" +
-                "erHistory\" /></Principal><Dependent Role=\"Provision\"><PropertyRef Name=\"IdPatner" +
-                "History\" /></Dependent></ReferentialConstraint></Association><Association Name=\"" +
-                "fk_Person_Gender\"><End Type=\"KoloModel.RefGender\" Role=\"RefGender\" Multiplicity=" +
-                "\"0..1\" /><End Type=\"KoloModel.Person\" Role=\"Person\" Multiplicity=\"*\" /><Referent" +
-                "ialConstraint><Principal Role=\"RefGender\"><PropertyRef Name=\"GenderCode\" /></Pri" +
-                "ncipal><Dependent Role=\"Person\"><PropertyRef Name=\"GenderCode\" /></Dependent></R" +
-                "eferentialConstraint></Association><Association Name=\"fk_Person_MaritalStatus\"><" +
-                "End Type=\"KoloModel.RefMaritalStatu\" Role=\"RefMaritalStatus\" Multiplicity=\"0..1\"" +
-                " /><End Type=\"KoloModel.Person\" Role=\"Person\" Multiplicity=\"*\" /><ReferentialCon" +
-                "straint><Principal Role=\"RefMaritalStatus\"><PropertyRef Name=\"MaritalStatusCode\"" +
-                " /></Principal><Dependent Role=\"Person\"><PropertyRef Name=\"MaritalStatusCode\" />" +
-                "</Dependent></ReferentialConstraint></Association><Association Name=\"fk_Relation" +
-                "ship_Customer\"><End Type=\"KoloModel.Person\" Role=\"Person\" Multiplicity=\"1\" /><En" +
-                "d Type=\"KoloModel.PersonRelationship\" Role=\"PersonRelationship\" Multiplicity=\"0." +
-                ".1\" /><ReferentialConstraint><Principal Role=\"Person\"><PropertyRef Name=\"IdCusto" +
-                "mer\" /></Principal><Dependent Role=\"PersonRelationship\"><PropertyRef Name=\"IdCus" +
-                "tomer\" /></Dependent></ReferentialConstraint></Association><Association Name=\"fk" +
-                "_Relationship_PersonRelation\"><End Type=\"KoloModel.Person\" Role=\"Person\" Multipl" +
-                "icity=\"1\" /><End Type=\"KoloModel.PersonRelationship\" Role=\"PersonRelationship\" M" +
-                "ultiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"Person\"><PropertyRef N" +
-                "ame=\"IdCustomer\" /></Principal><Dependent Role=\"PersonRelationship\"><PropertyRef" +
-                " Name=\"IdPersonRelation\" /></Dependent></ReferentialConstraint></Association><As" +
-                "sociation Name=\"fk_Relationship_TypeCode\"><End Type=\"KoloModel.RefPersonRelation" +
-                "shipType\" Role=\"RefPersonRelationshipType\" Multiplicity=\"1\" /><End Type=\"KoloMod" +
-                "el.PersonRelationship\" Role=\"PersonRelationship\" Multiplicity=\"*\" /><Referential" +
-                "Constraint><Principal Role=\"RefPersonRelationshipType\"><PropertyRef Name=\"Relati" +
-                "onshipTypeCode\" /></Principal><Dependent Role=\"PersonRelationship\"><PropertyRef " +
-                "Name=\"RelationshipTypeCode\" /></Dependent></ReferentialConstraint></Association>" +
-                "<Association Name=\"fk_Provision_StatusCode\"><End Type=\"KoloModel.RefProvisionSta" +
-                "tu\" Role=\"RefProvisionStatus\" Multiplicity=\"0..1\" /><End Type=\"KoloModel.Provisi" +
-                "on\" Role=\"Provision\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"" +
-                "RefProvisionStatus\"><PropertyRef Name=\"ProvisionStatusCode\" /></Principal><Depen" +
-                "dent Role=\"Provision\"><PropertyRef Name=\"CodeRefProsisionStatus\" /></Dependent><" +
-                "/ReferentialConstraint></Association><Association Name=\"fk_TransfertE2e_Operatio" +
-                "ntType\"><End Type=\"KoloModel.RefOperationType\" Role=\"RefOperationType\" Multiplic" +
-                "ity=\"1\" /><End Type=\"KoloModel.TransfertE2e\" Role=\"TransfertE2e\" Multiplicity=\"*" +
-                "\" /><ReferentialConstraint><Principal Role=\"RefOperationType\"><PropertyRef Name=" +
-                "\"OperationTypeCode\" /></Principal><Dependent Role=\"TransfertE2e\"><PropertyRef Na" +
-                "me=\"OperationTypeCode\" /></Dependent></ReferentialConstraint></Association><Asso" +
-                "ciation Name=\"fk_Registration\"><End Type=\"KoloModel.RefRegistrationStatu\" Role=\"" +
-                "RefRegistrationStatus\" Multiplicity=\"1\" /><End Type=\"KoloModel.Registration\" Rol" +
-                "e=\"Registration\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"RefR" +
-                "egistrationStatus\"><PropertyRef Name=\"RegistrationStatusCode\" /></Principal><Dep" +
-                "endent Role=\"Registration\"><PropertyRef Name=\"RegistrationStatusCode\" /></Depend" +
-                "ent></ReferentialConstraint></Association><Association Name=\"fk_TransfertE2e_Sta" +
-                "tusCode\"><End Type=\"KoloModel.RefTransfertStatu\" Role=\"RefTransfertStatus\" Multi" +
-                "plicity=\"1\" /><End Type=\"KoloModel.TransfertE2e\" Role=\"TransfertE2e\" Multiplicit" +
-                "y=\"*\" /><ReferentialConstraint><Principal Role=\"RefTransfertStatus\"><PropertyRef" +
-                " Name=\"TransfertStatusCode\" /></Principal><Dependent Role=\"TransfertE2e\"><Proper" +
-                "tyRef Name=\"TransfertStatusCode\" /></Dependent></ReferentialConstraint></Associa" +
-                "tion><Association Name=\"fk_TransfertGroup_StatusCode\"><End Type=\"KoloModel.RefTr" +
-                "ansfertStatu\" Role=\"RefTransfertStatus\" Multiplicity=\"1\" /><End Type=\"KoloModel." +
-                "TransfertGroup\" Role=\"TransfertGroup\" Multiplicity=\"*\" /><ReferentialConstraint>" +
-                "<Principal Role=\"RefTransfertStatus\"><PropertyRef Name=\"TransfertStatusCode\" /><" +
-                "/Principal><Dependent Role=\"TransfertGroup\"><PropertyRef Name=\"CodeTransfertStat" +
-                "us\" /></Dependent></ReferentialConstraint></Association></Schema><Schema Namespa" +
-                "ce=\"KoloWin.Web\" xmlns=\"http://schemas.microsoft.com/ado/2009/11/edm\"><EntityCon" +
-                "tainer Name=\"KoloEntities\" m:IsDefaultEntityContainer=\"true\"><EntitySet Name=\"Ac" +
-                "countOperations\" EntityType=\"KoloModel.AccountOperation\" /><EntitySet Name=\"Acco" +
-                "untOperationRequests\" EntityType=\"KoloModel.AccountOperationRequest\" /><EntitySe" +
-                "t Name=\"Adresses\" EntityType=\"KoloModel.Adresse\" /><EntitySet Name=\"Bills\" Entit" +
-                "yType=\"KoloModel.Bill\" /><EntitySet Name=\"BillPayments\" EntityType=\"KoloModel.Bi" +
-                "llPayment\" /><EntitySet Name=\"Businesses\" EntityType=\"KoloModel.Business\" /><Ent" +
-                "itySet Name=\"BusinessContacts\" EntityType=\"KoloModel.BusinessContact\" /><EntityS" +
-                "et Name=\"Cities\" EntityType=\"KoloModel.City\" /><EntitySet N";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart12 = "ame=\"Countries\" EntityType=\"KoloModel.Country\" /><EntitySet Name=\"Currencies\" Ent" +
-                "ityType=\"KoloModel.Currency\" /><EntitySet Name=\"Customers\" EntityType=\"KoloModel" +
-                ".Customer\" /><EntitySet Name=\"CustomerAddresses\" EntityType=\"KoloModel.CustomerA" +
-                "ddress\" /><EntitySet Name=\"CustomerBalanceHistories\" EntityType=\"KoloModel.Custo" +
-                "merBalanceHistory\" /><EntitySet Name=\"CustomerExternalAccounts\" EntityType=\"Kolo" +
-                "Model.CustomerExternalAccount\" /><EntitySet Name=\"CustomerGroups\" EntityType=\"Ko" +
-                "loModel.CustomerGroup\" /><EntitySet Name=\"CustomerImages\" EntityType=\"KoloModel." +
-                "CustomerImage\" /><EntitySet Name=\"CustomerLogins\" EntityType=\"KoloModel.Customer" +
-                "Login\" /><EntitySet Name=\"CustomerTags\" EntityType=\"KoloModel.CustomerTag\" /><En" +
-                "titySet Name=\"Districts\" EntityType=\"KoloModel.District\" /><EntitySet Name=\"Exte" +
-                "rnalAccounts\" EntityType=\"KoloModel.ExternalAccount\" /><EntitySet Name=\"External" +
-                "AccountHistories\" EntityType=\"KoloModel.ExternalAccountHistory\" /><EntitySet Nam" +
-                "e=\"ForeasNotifications\" EntityType=\"KoloModel.ForeasNotification\" /><EntitySet N" +
-                "ame=\"GroupImages\" EntityType=\"KoloModel.GroupImage\" /><EntitySet Name=\"LoginAtte" +
-                "mpts\" EntityType=\"KoloModel.LoginAttempt\" /><EntitySet Name=\"MobileDevices\" Enti" +
-                "tyType=\"KoloModel.MobileDevice\" /><EntitySet Name=\"Partners\" EntityType=\"KoloMod" +
-                "el.Partner\" /><EntitySet Name=\"PartnerAddresses\" EntityType=\"KoloModel.PartnerAd" +
-                "dress\" /><EntitySet Name=\"PartnerBalanceHistories\" EntityType=\"KoloModel.Partner" +
-                "BalanceHistory\" /><EntitySet Name=\"People\" EntityType=\"KoloModel.Person\" /><Enti" +
-                "tySet Name=\"PersonRelationships\" EntityType=\"KoloModel.PersonRelationship\" /><En" +
-                "titySet Name=\"Provisions\" EntityType=\"KoloModel.Provision\" /><EntitySet Name=\"Re" +
-                "curringContributions\" EntityType=\"KoloModel.RecurringContribution\" /><EntitySet " +
-                "Name=\"RefAddressTypes\" EntityType=\"KoloModel.RefAddressType\" /><EntitySet Name=\"" +
-                "RefBillStatus\" EntityType=\"KoloModel.RefBillStatu\" /><EntitySet Name=\"RefBillTyp" +
-                "es\" EntityType=\"KoloModel.RefBillType\" /><EntitySet Name=\"RefCustomerTypes\" Enti" +
-                "tyType=\"KoloModel.RefCustomerType\" /><EntitySet Name=\"RefExternalAccountTypes\" E" +
-                "ntityType=\"KoloModel.RefExternalAccountType\" /><EntitySet Name=\"RefGenders\" Enti" +
-                "tyType=\"KoloModel.RefGender\" /><EntitySet Name=\"RefGroupTypes\" EntityType=\"KoloM" +
-                "odel.RefGroupType\" /><EntitySet Name=\"RefIndustryCategories\" EntityType=\"KoloMod" +
-                "el.RefIndustryCategory\" /><EntitySet Name=\"RefLoginStatus\" EntityType=\"KoloModel" +
-                ".RefLoginStatu\" /><EntitySet Name=\"RefMaritalStatus\" EntityType=\"KoloModel.RefMa" +
-                "ritalStatu\" /><EntitySet Name=\"RefOperationStatus\" EntityType=\"KoloModel.RefOper" +
-                "ationStatu\" /><EntitySet Name=\"RefOperationTypes\" EntityType=\"KoloModel.RefOpera" +
-                "tionType\" /><EntitySet Name=\"RefPartnerTypes\" EntityType=\"KoloModel.RefPartnerTy" +
-                "pe\" /><EntitySet Name=\"RefPersonRelationshipTypes\" EntityType=\"KoloModel.RefPers" +
-                "onRelationshipType\" /><EntitySet Name=\"RefProvisionStatus\" EntityType=\"KoloModel" +
-                ".RefProvisionStatu\" /><EntitySet Name=\"RefRegistrationStatus\" EntityType=\"KoloMo" +
-                "del.RefRegistrationStatu\" /><EntitySet Name=\"RefResults\" EntityType=\"KoloModel.R" +
-                "efResult\" /><EntitySet Name=\"RefTransfertStatus\" EntityType=\"KoloModel.RefTransf" +
-                "ertStatu\" /><EntitySet Name=\"Registrations\" EntityType=\"KoloModel.Registration\" " +
-                "/><EntitySet Name=\"Resellers\" EntityType=\"KoloModel.Reseller\" /><EntitySet Name=" +
-                "\"Tags\" EntityType=\"KoloModel.Tag\" /><EntitySet Name=\"Transfert2Cash\" EntityType=" +
-                "\"KoloModel.Transfert2Cash\" /><EntitySet Name=\"Transfert2CashDetails\" EntityType=" +
-                "\"KoloModel.Transfert2CashDetails\" /><EntitySet Name=\"TransfertE2e\" EntityType=\"K" +
-                "oloModel.TransfertE2e\" /><EntitySet Name=\"TransfertGroups\" EntityType=\"KoloModel" +
-                ".TransfertGroup\" /><EntitySet Name=\"TransfertGroupScheduleds\" EntityType=\"KoloMo" +
-                "del.TransfertGroupScheduled\" /><EntitySet Name=\"TransfertP2p\" EntityType=\"KoloMo" +
-                "del.TransfertP2p\" /><EntitySet Name=\"TransfertScheduleds\" EntityType=\"KoloModel." +
-                "TransfertScheduled\" /><EntitySet Name=\"Wholesalers\" EntityType=\"KoloModel.Wholes" +
-                "aler\" /><AssociationSet Name=\"fk_AccountOperation\" Association=\"KoloModel.fk_Acc" +
-                "ountOperation\"><End Role=\"AccountOperation\" EntitySet=\"AccountOperations\" /><End" +
-                " Role=\"RefOperationStatus\" EntitySet=\"RefOperationStatus\" /></AssociationSet><As" +
-                "sociationSet Name=\"fk_AccountOperation_2\" Association=\"KoloModel.fk_AccountOpera" +
-                "tion_2\"><End Role=\"AccountOperation\" EntitySet=\"AccountOperations\" /><End Role=\"" +
-                "Partner\" EntitySet=\"Partners\" /></AssociationSet><AssociationSet Name=\"fk_Accoun" +
-                "tOperation_3\" Association=\"KoloModel.fk_AccountOperation_3\"><End Role=\"AccountOp" +
-                "eration\" EntitySet=\"AccountOperations\" /><End Role=\"RefOperationType\" EntitySet=" +
-                "\"RefOperationTypes\" /></AssociationSet><AssociationSet Name=\"fk_AccountOperation" +
-                "_History\" Association=\"KoloModel.fk_AccountOperation_History\"><End Role=\"Account" +
-                "Operation\" EntitySet=\"AccountOperations\" /><End Role=\"PartnerBalanceHistory\" Ent" +
-                "itySet=\"PartnerBalanceHistories\" /></AssociationSet><AssociationSet Name=\"FK_Acc" +
-                "ountOperation_Request\" Association=\"KoloModel.FK_AccountOperation_Request\"><End " +
-                "Role=\"AccountOperation\" EntitySet=\"AccountOperations\" /><End Role=\"AccountOperat" +
-                "ionRequest\" EntitySet=\"AccountOperationRequests\" /></AssociationSet><Association" +
-                "Set Name=\"FK_AccountOperationRequest_RefOperationStatus\" Association=\"KoloModel." +
-                "FK_AccountOperationRequest_RefOperationStatus\"><End Role=\"AccountOperationReques" +
-                "t\" EntitySet=\"AccountOperationRequests\" /><End Role=\"RefOperationStatus\" EntityS" +
-                "et=\"RefOperationStatus\" /></AssociationSet><AssociationSet Name=\"FK_AccountOpera" +
-                "tionRequest_RefOperationType\" Association=\"KoloModel.FK_AccountOperationRequest_" +
-                "RefOperationType\"><End Role=\"AccountOperationRequest\" EntitySet=\"AccountOperatio" +
-                "nRequests\" /><End Role=\"RefOperationType\" EntitySet=\"RefOperationTypes\" /></Asso" +
-                "ciationSet><AssociationSet Name=\"fk_OperationRequest_CustomerAccount\" Associatio" +
-                "n=\"KoloModel.fk_OperationRequest_CustomerAccount\"><End Role=\"AccountOperationReq" +
-                "uest\" EntitySet=\"AccountOperationRequests\" /><End Role=\"Customer\" EntitySet=\"Cus" +
-                "tomers\" /></AssociationSet><AssociationSet Name=\"fk_Adresse_City\" Association=\"K" +
-                "oloModel.fk_Adresse_City\"><End Role=\"Adresse\" EntitySet=\"Adresses\" /><End Role=\"" +
-                "City\" EntitySet=\"Cities\" /></AssociationSet><AssociationSet Name=\"fk_CustomerAdd" +
-                "ress\" Association=\"KoloModel.fk_CustomerAddress\"><End Role=\"Adresse\" EntitySet=\"" +
-                "Adresses\" /><End Role=\"CustomerAddress\" EntitySet=\"CustomerAddresses\" /></Associ" +
-                "ationSet><AssociationSet Name=\"fk_PartnerAddress_Address\" Association=\"KoloModel" +
-                ".fk_PartnerAddress_Address\"><End Role=\"Adresse\" EntitySet=\"Adresses\" /><End Role" +
-                "=\"PartnerAddress\" EntitySet=\"PartnerAddresses\" /></AssociationSet><AssociationSe" +
-                "t Name=\"fk_Bill\" Association=\"KoloModel.fk_Bill\"><End Role=\"Bill\" EntitySet=\"Bil" +
-                "ls\" /><End Role=\"RefBillStatus\" EntitySet=\"RefBillStatus\" /></AssociationSet><As" +
-                "sociationSet Name=\"fk_BillPayement_Bill\" Association=\"KoloModel.fk_BillPayement_" +
-                "Bill\"><End Role=\"Bill\" EntitySet=\"Bills\" /><End Role=\"BillPayment\" EntitySet=\"Bi" +
-                "llPayments\" /></AssociationSet><AssociationSet Name=\"fk_Facture\" Association=\"Ko" +
-                "loModel.fk_Facture\"><End Role=\"Bill\" EntitySet=\"Bills\" /><End Role=\"RefBillType\"" +
-                " EntitySet=\"RefBillTypes\" /></AssociationSet><AssociationSet Name=\"fk_Facture_Is" +
-                "suingCustomer\" Association=\"KoloModel.fk_Facture_IssuingCustomer\"><End Role=\"Bil" +
-                "l\" EntitySet=\"Bills\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></Associatio" +
-                "nSet><AssociationSet Name=\"fk_Facture_PayingCustomer\" Association=\"KoloModel.fk_" +
-                "Facture_PayingCustomer\"><End Role=\"Bill\" EntitySet=\"Bills\" /><End Role=\"Customer" +
-                "\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet ";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart13 = "Name=\"fk_BillPayment_IssuingCustomer\" Association=\"KoloModel.fk_BillPayment_Issui" +
-                "ngCustomer\"><End Role=\"BillPayment\" EntitySet=\"BillPayments\" /><End Role=\"Custom" +
-                "er\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_BillPaymen" +
-                "t_PayingCustomer\" Association=\"KoloModel.fk_BillPayment_PayingCustomer\"><End Rol" +
-                "e=\"BillPayment\" EntitySet=\"BillPayments\" /><End Role=\"Customer\" EntitySet=\"Custo" +
-                "mers\" /></AssociationSet><AssociationSet Name=\"fk_Business\" Association=\"KoloMod" +
-                "el.fk_Business\"><End Role=\"Business\" EntitySet=\"Businesses\" /><End Role=\"Custome" +
-                "r\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_Business_In" +
-                "dustryCategory\" Association=\"KoloModel.fk_Business_IndustryCategory\"><End Role=\"" +
-                "Business\" EntitySet=\"Businesses\" /><End Role=\"RefIndustryCategory\" EntitySet=\"Re" +
-                "fIndustryCategories\" /></AssociationSet><AssociationSet Name=\"fk_BusinessContact" +
-                "_Business\" Association=\"KoloModel.fk_BusinessContact_Business\"><End Role=\"Busine" +
-                "ss\" EntitySet=\"Businesses\" /><End Role=\"BusinessContact\" EntitySet=\"BusinessCont" +
-                "acts\" /></AssociationSet><AssociationSet Name=\"fk_BusinessContact_Contact\" Assoc" +
-                "iation=\"KoloModel.fk_BusinessContact_Contact\"><End Role=\"BusinessContact\" Entity" +
-                "Set=\"BusinessContacts\" /><End Role=\"Person\" EntitySet=\"People\" /></AssociationSe" +
-                "t><AssociationSet Name=\"fk_City\" Association=\"KoloModel.fk_City\"><End Role=\"City" +
-                "\" EntitySet=\"Cities\" /><End Role=\"Country\" EntitySet=\"Countries\" /></Association" +
-                "Set><AssociationSet Name=\"fk_City_0\" Association=\"KoloModel.fk_City_0\"><End Role" +
-                "=\"City\" EntitySet=\"Cities\" /><End Role=\"District\" EntitySet=\"Districts\" /></Asso" +
-                "ciationSet><AssociationSet Name=\"fk_Person\" Association=\"KoloModel.fk_Person\"><E" +
-                "nd Role=\"Country\" EntitySet=\"Countries\" /><End Role=\"Person\" EntitySet=\"People\" " +
-                "/></AssociationSet><AssociationSet Name=\"fk_Customer_Currency\" Association=\"Kolo" +
-                "Model.fk_Customer_Currency\"><End Role=\"Currency\" EntitySet=\"Currencies\" /><End R" +
-                "ole=\"Customer\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk" +
-                "_Partner_0\" Association=\"KoloModel.fk_Partner_0\"><End Role=\"Currency\" EntitySet=" +
-                "\"Currencies\" /><End Role=\"Partner\" EntitySet=\"Partners\" /></AssociationSet><Asso" +
-                "ciationSet Name=\"fk_Customer\" Association=\"KoloModel.fk_Customer\"><End Role=\"Cus" +
-                "tomer\" EntitySet=\"Customers\" /><End Role=\"Registration\" EntitySet=\"Registrations" +
-                "\" /></AssociationSet><AssociationSet Name=\"fk_Customer_CustomerType\" Association" +
-                "=\"KoloModel.fk_Customer_CustomerType\"><End Role=\"Customer\" EntitySet=\"Customers\"" +
-                " /><End Role=\"RefCustomerType\" EntitySet=\"RefCustomerTypes\" /></AssociationSet><" +
-                "AssociationSet Name=\"fk_Customer_Mobile\" Association=\"KoloModel.fk_Customer_Mobi" +
-                "le\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"MobileDevice\" Entity" +
-                "Set=\"MobileDevices\" /></AssociationSet><AssociationSet Name=\"fk_CustomerAddress_" +
-                "0\" Association=\"KoloModel.fk_CustomerAddress_0\"><End Role=\"Customer\" EntitySet=\"" +
-                "Customers\" /><End Role=\"CustomerAddress\" EntitySet=\"CustomerAddresses\" /></Assoc" +
-                "iationSet><AssociationSet Name=\"fk_CustomerBalanceHistory\" Association=\"KoloMode" +
-                "l.fk_CustomerBalanceHistory\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End R" +
-                "ole=\"CustomerBalanceHistory\" EntitySet=\"CustomerBalanceHistories\" /></Associatio" +
-                "nSet><AssociationSet Name=\"fk_CustomerGroup_MemberAccount\" Association=\"KoloMode" +
-                "l.fk_CustomerGroup_MemberAccount\"><End Role=\"Customer\" EntitySet=\"Customers\" /><" +
-                "End Role=\"CustomerGroup\" EntitySet=\"CustomerGroups\" /></AssociationSet><Associat" +
-                "ionSet Name=\"FK_CustomerImage_Customer\" Association=\"KoloModel.FK_CustomerImage_" +
-                "Customer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"CustomerImage\"" +
-                " EntitySet=\"CustomerImages\" /></AssociationSet><AssociationSet Name=\"fk_Customer" +
-                "Login\" Association=\"KoloModel.fk_CustomerLogin\"><End Role=\"Customer\" EntitySet=\"" +
-                "Customers\" /><End Role=\"CustomerLogin\" EntitySet=\"CustomerLogins\" /></Associatio" +
-                "nSet><AssociationSet Name=\"fk_customertags_customeraccount\" Association=\"KoloMod" +
-                "el.fk_customertags_customeraccount\"><End Role=\"Customer\" EntitySet=\"Customers\" /" +
-                "><End Role=\"CustomerTags\" EntitySet=\"CustomerTags\" /></AssociationSet><Associati" +
-                "onSet Name=\"fk_Notification_Customer\" Association=\"KoloModel.fk_Notification_Cus" +
-                "tomer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"ForeasNotificatio" +
-                "n\" EntitySet=\"ForeasNotifications\" /></AssociationSet><AssociationSet Name=\"fk_P" +
-                "artner_Customer\" Association=\"KoloModel.fk_Partner_Customer\"><End Role=\"Customer" +
-                "\" EntitySet=\"Customers\" /><End Role=\"Partner\" EntitySet=\"Partners\" /></Associati" +
-                "onSet><AssociationSet Name=\"fk_Person_Customer\" Association=\"KoloModel.fk_Person" +
-                "_Customer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"Person\" Entit" +
-                "ySet=\"People\" /></AssociationSet><AssociationSet Name=\"fk_RecurringContribution_" +
-                "TreasuererCustomer\" Association=\"KoloModel.fk_RecurringContribution_TreasuererCu" +
-                "stomer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"RecurringContrib" +
-                "ution\" EntitySet=\"RecurringContributions\" /></AssociationSet><AssociationSet Nam" +
-                "e=\"fk_Transfert2CashDetails\" Association=\"KoloModel.fk_Transfert2CashDetails\"><E" +
-                "nd Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"Transfert2CashDetails\" Ent" +
-                "itySet=\"Transfert2CashDetails\" /></AssociationSet><AssociationSet Name=\"fk_Trans" +
-                "fertE2e_Customer\" Association=\"KoloModel.fk_TransfertE2e_Customer\"><End Role=\"Cu" +
-                "stomer\" EntitySet=\"Customers\" /><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e" +
-                "\" /></AssociationSet><AssociationSet Name=\"fk_TransfertGroup_Sender\" Association" +
-                "=\"KoloModel.fk_TransfertGroup_Sender\"><End Role=\"Customer\" EntitySet=\"Customers\"" +
-                " /><End Role=\"TransfertGroup\" EntitySet=\"TransfertGroups\" /></AssociationSet><As" +
-                "sociationSet Name=\"fk_TransfertGroupScheduled_Sender\" Association=\"KoloModel.fk_" +
-                "TransfertGroupScheduled_Sender\"><End Role=\"Customer\" EntitySet=\"Customers\" /><En" +
-                "d Role=\"TransfertGroupScheduled\" EntitySet=\"TransfertGroupScheduleds\" /></Associ" +
-                "ationSet><AssociationSet Name=\"fk_TransfertP2p_Receiver\" Association=\"KoloModel." +
-                "fk_TransfertP2p_Receiver\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role" +
-                "=\"TransfertP2p\" EntitySet=\"TransfertP2p\" /></AssociationSet><AssociationSet Name" +
-                "=\"fk_TransfertScheduled_Customer\" Association=\"KoloModel.fk_TransfertScheduled_C" +
-                "ustomer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"TransfertSchedu" +
-                "led\" EntitySet=\"TransfertScheduleds\" /></AssociationSet><AssociationSet Name=\"fk" +
-                "_TransfertScheduled_Sending\" Association=\"KoloModel.fk_TransfertScheduled_Sendin" +
-                "g\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"TransfertScheduled\" E" +
-                "ntitySet=\"TransfertScheduleds\" /></AssociationSet><AssociationSet Name=\"Customer" +
-                "GroupAdmin\" Association=\"KoloModel.CustomerGroupAdmin\"><End Role=\"Customer\" Enti" +
-                "tySet=\"Customers\" /><End Role=\"CustomerGroup\" EntitySet=\"CustomerGroups\" /></Ass" +
-                "ociationSet><AssociationSet Name=\"fk_CustomerBalanceHistory_0\" Association=\"Kolo" +
-                "Model.fk_CustomerBalanceHistory_0\"><End Role=\"CustomerBalanceHistory\" EntitySet=" +
-                "\"CustomerBalanceHistories\" /><End Role=\"RefOperationType\" EntitySet=\"RefOperatio" +
-                "nTypes\" /></AssociationSet><AssociationSet Name=\"fk_Customer_ExternalAccount\" As" +
-                "sociation=\"KoloModel.fk_Customer_ExternalAccount\"><End Role=\"CustomerExternalAcc" +
-                "ount\" EntitySet=\"CustomerExternalAccounts\" /><End Role=\"ExternalAccount\" EntityS" +
-                "et=\"ExternalAccounts\" /></AssociationSet><AssociationSet Name=\"fk_CustomerGroup_" +
-                "GroupType\" Association=\"KoloModel.fk_CustomerGroup_GroupType\"><End Role=\"Custome" +
-                "rGroup\" EntitySet=\"CustomerGroups\" /><End Role=\"RefGroupType\" EntitySet=\"RefGrou" +
-                "pTypes\" /></AssociationSet><AssociationSet Name=\"FK_GroupIm";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-            private const string ModelPart14 = "age_CustomerGroup\" Association=\"KoloModel.FK_GroupImage_CustomerGroup\"><End Role=" +
-                "\"CustomerGroup\" EntitySet=\"CustomerGroups\" /><End Role=\"GroupImage\" EntitySet=\"G" +
-                "roupImages\" /></AssociationSet><AssociationSet Name=\"fk_RecurringContribution_Cu" +
-                "stomerGroup\" Association=\"KoloModel.fk_RecurringContribution_CustomerGroup\"><End" +
-                " Role=\"CustomerGroup\" EntitySet=\"CustomerGroups\" /><End Role=\"RecurringContribut" +
-                "ion\" EntitySet=\"RecurringContributions\" /></AssociationSet><AssociationSet Name=" +
-                "\"fk_TransfertGroup_ReceiverGroup\" Association=\"KoloModel.fk_TransfertGroup_Recei" +
-                "verGroup\"><End Role=\"CustomerGroup\" EntitySet=\"CustomerGroups\" /><End Role=\"Tran" +
-                "sfertGroup\" EntitySet=\"TransfertGroups\" /></AssociationSet><AssociationSet Name=" +
-                "\"fk_TransfertGroupScheduled_ReceiverGroup\" Association=\"KoloModel.fk_TransfertGr" +
-                "oupScheduled_ReceiverGroup\"><End Role=\"CustomerGroup\" EntitySet=\"CustomerGroups\"" +
-                " /><End Role=\"TransfertGroupScheduled\" EntitySet=\"TransfertGroupScheduleds\" /></" +
-                "AssociationSet><AssociationSet Name=\"fk_CustomerLogin_StatusCode\" Association=\"K" +
-                "oloModel.fk_CustomerLogin_StatusCode\"><End Role=\"CustomerLogin\" EntitySet=\"Custo" +
-                "merLogins\" /><End Role=\"RefLoginStatus\" EntitySet=\"RefLoginStatus\" /></Associati" +
-                "onSet><AssociationSet Name=\"fk_LoginAttempt_Customer\" Association=\"KoloModel.fk_" +
-                "LoginAttempt_Customer\"><End Role=\"CustomerLogin\" EntitySet=\"CustomerLogins\" /><E" +
-                "nd Role=\"LoginAttempt\" EntitySet=\"LoginAttempts\" /></AssociationSet><Association" +
-                "Set Name=\"fk_customertags_tag\" Association=\"KoloModel.fk_customertags_tag\"><End " +
-                "Role=\"CustomerTags\" EntitySet=\"CustomerTags\" /><End Role=\"Tag\" EntitySet=\"Tags\" " +
-                "/></AssociationSet><AssociationSet Name=\"fk_ExternalAccount_History\" Association" +
-                "=\"KoloModel.fk_ExternalAccount_History\"><End Role=\"ExternalAccount\" EntitySet=\"E" +
-                "xternalAccounts\" /><End Role=\"ExternalAccountHistory\" EntitySet=\"ExternalAccount" +
-                "Histories\" /></AssociationSet><AssociationSet Name=\"fk_ExternalAccount_Type\" Ass" +
-                "ociation=\"KoloModel.fk_ExternalAccount_Type\"><End Role=\"ExternalAccount\" EntityS" +
-                "et=\"ExternalAccounts\" /><End Role=\"RefExternalAccountType\" EntitySet=\"RefExterna" +
-                "lAccountTypes\" /></AssociationSet><AssociationSet Name=\"fk_TransfertE2e_Receiver" +
-                "\" Association=\"KoloModel.fk_TransfertE2e_Receiver\"><End Role=\"ExternalAccount\" E" +
-                "ntitySet=\"ExternalAccounts\" /><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" " +
-                "/></AssociationSet><AssociationSet Name=\"fk_TransfertE2e_Sender\" Association=\"Ko" +
-                "loModel.fk_TransfertE2e_Sender\"><End Role=\"ExternalAccount\" EntitySet=\"ExternalA" +
-                "ccounts\" /><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /></AssociationSet>" +
-                "<AssociationSet Name=\"fk_LoginAttempt_ResultCode\" Association=\"KoloModel.fk_Logi" +
-                "nAttempt_ResultCode\"><End Role=\"LoginAttempt\" EntitySet=\"LoginAttempts\" /><End R" +
-                "ole=\"RefResult\" EntitySet=\"RefResults\" /></AssociationSet><AssociationSet Name=\"" +
+            private const string ModelPart12 = "tySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_Business_IndustryCa" +
+                "tegory\" Association=\"KoloModel.fk_Business_IndustryCategory\"><End Role=\"Business" +
+                "\" EntitySet=\"Businesses\" /><End Role=\"RefIndustryCategory\" EntitySet=\"RefIndustr" +
+                "yCategories\" /></AssociationSet><AssociationSet Name=\"fk_BusinessContact_Busines" +
+                "s\" Association=\"KoloModel.fk_BusinessContact_Business\"><End Role=\"BusinessContac" +
+                "t\" EntitySet=\"BusinessContacts\" /><End Role=\"Business\" EntitySet=\"Businesses\" />" +
+                "</AssociationSet><AssociationSet Name=\"fk_BusinessContact_Contact\" Association=\"" +
+                "KoloModel.fk_BusinessContact_Contact\"><End Role=\"BusinessContact\" EntitySet=\"Bus" +
+                "inessContacts\" /><End Role=\"Person\" EntitySet=\"People\" /></AssociationSet><Assoc" +
+                "iationSet Name=\"fk_City\" Association=\"KoloModel.fk_City\"><End Role=\"City\" Entity" +
+                "Set=\"Cities\" /><End Role=\"Country\" EntitySet=\"Countries\" /></AssociationSet><Ass" +
+                "ociationSet Name=\"fk_City_0\" Association=\"KoloModel.fk_City_0\"><End Role=\"City\" " +
+                "EntitySet=\"Cities\" /><End Role=\"District\" EntitySet=\"Districts\" /></AssociationS" +
+                "et><AssociationSet Name=\"fk_Customer_Currency\" Association=\"KoloModel.fk_Custome" +
+                "r_Currency\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"Currency\" En" +
+                "titySet=\"Currencies\" /></AssociationSet><AssociationSet Name=\"fk_Customer\" Assoc" +
+                "iation=\"KoloModel.fk_Customer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End" +
+                " Role=\"Registration\" EntitySet=\"Registrations\" /></AssociationSet><AssociationSe" +
+                "t Name=\"fk_Customer_CustomerType\" Association=\"KoloModel.fk_Customer_CustomerTyp" +
+                "e\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"RefCustomerType\" Enti" +
+                "tySet=\"RefCustomerTypes\" /></AssociationSet><AssociationSet Name=\"fk_Customer_Mo" +
+                "bile\" Association=\"KoloModel.fk_Customer_Mobile\"><End Role=\"Customer\" EntitySet=" +
+                "\"Customers\" /><End Role=\"MobileDevice\" EntitySet=\"MobileDevices\" /></Association" +
+                "Set><AssociationSet Name=\"FK_CustomerImage_Customer\" Association=\"KoloModel.FK_C" +
+                "ustomerImage_Customer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=\"C" +
+                "ustomerImage\" EntitySet=\"CustomerImages\" /></AssociationSet><AssociationSet Name" +
+                "=\"fk_CustomerLogin\" Association=\"KoloModel.fk_CustomerLogin\"><End Role=\"Customer" +
+                "\" EntitySet=\"Customers\" /><End Role=\"CustomerLogin\" EntitySet=\"CustomerLogins\" /" +
+                "></AssociationSet><AssociationSet Name=\"fk_Partner_Customer\" Association=\"KoloMo" +
+                "del.fk_Partner_Customer\"><End Role=\"Customer\" EntitySet=\"Customers\" /><End Role=" +
+                "\"Partner\" EntitySet=\"Partners\" /></AssociationSet><AssociationSet Name=\"fk_Perso" +
+                "n_Customer\" Association=\"KoloModel.fk_Person_Customer\"><End Role=\"Customer\" Enti" +
+                "tySet=\"Customers\" /><End Role=\"Person\" EntitySet=\"People\" /></AssociationSet><As" +
+                "sociationSet Name=\"fk_CustomerAddress\" Association=\"KoloModel.fk_CustomerAddress" +
+                "\"><End Role=\"CustomerAddress\" EntitySet=\"CustomerAddresses\" /><End Role=\"Adresse" +
+                "\" EntitySet=\"Adresses\" /></AssociationSet><AssociationSet Name=\"fk_CustomerAddre" +
+                "ss_0\" Association=\"KoloModel.fk_CustomerAddress_0\"><End Role=\"CustomerAddress\" E" +
+                "ntitySet=\"CustomerAddresses\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></As" +
+                "sociationSet><AssociationSet Name=\"fk_CustomerBalanceHistory\" Association=\"KoloM" +
+                "odel.fk_CustomerBalanceHistory\"><End Role=\"CustomerBalanceHistory\" EntitySet=\"Cu" +
+                "stomerBalanceHistories\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></Associa" +
+                "tionSet><AssociationSet Name=\"fk_CustomerBalanceHistory_0\" Association=\"KoloMode" +
+                "l.fk_CustomerBalanceHistory_0\"><End Role=\"CustomerBalanceHistory\" EntitySet=\"Cus" +
+                "tomerBalanceHistories\" /><End Role=\"RefOperationType\" EntitySet=\"RefOperationTyp" +
+                "es\" /></AssociationSet><AssociationSet Name=\"fk_Customer_ExternalAccount\" Associ" +
+                "ation=\"KoloModel.fk_Customer_ExternalAccount\"><End Role=\"CustomerExternalAccount" +
+                "\" EntitySet=\"CustomerExternalAccounts\" /><End Role=\"ExternalAccount\" EntitySet=\"" +
+                "ExternalAccounts\" /></AssociationSet><AssociationSet Name=\"fk_CustomerGroup_Memb" +
+                "erAccount\" Association=\"KoloModel.fk_CustomerGroup_MemberAccount\"><End Role=\"Cus" +
+                "tomerGroup\" EntitySet=\"CustomerGroups\" /><End Role=\"Customer\" EntitySet=\"Custome" +
+                "rs\" /></AssociationSet><AssociationSet Name=\"fk_CustomerGroup_GroupType\" Associa" +
+                "tion=\"KoloModel.fk_CustomerGroup_GroupType\"><End Role=\"CustomerGroup\" EntitySet=" +
+                "\"CustomerGroups\" /><End Role=\"RefGroupType\" EntitySet=\"RefGroupTypes\" /></Associ" +
+                "ationSet><AssociationSet Name=\"FK_GroupImage_CustomerGroup\" Association=\"KoloMod" +
+                "el.FK_GroupImage_CustomerGroup\"><End Role=\"CustomerGroup\" EntitySet=\"CustomerGro" +
+                "ups\" /><End Role=\"GroupImage\" EntitySet=\"GroupImages\" /></AssociationSet><Associ" +
+                "ationSet Name=\"fk_CustomerLogin_StatusCode\" Association=\"KoloModel.fk_CustomerLo" +
+                "gin_StatusCode\"><End Role=\"CustomerLogin\" EntitySet=\"CustomerLogins\" /><End Role" +
+                "=\"RefLoginStatus\" EntitySet=\"RefLoginStatus\" /></AssociationSet><AssociationSet " +
+                "Name=\"fk_customertags_customeraccount\" Association=\"KoloModel.fk_customertags_cu" +
+                "stomeraccount\"><End Role=\"CustomerTags\" EntitySet=\"CustomerTags\" /><End Role=\"Cu" +
+                "stomer\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_custom" +
+                "ertags_tag\" Association=\"KoloModel.fk_customertags_tag\"><End Role=\"CustomerTags\"" +
+                " EntitySet=\"CustomerTags\" /><End Role=\"Tag\" EntitySet=\"Tags\" /></AssociationSet>" +
+                "<AssociationSet Name=\"fk_ExternalAccount_Type\" Association=\"KoloModel.fk_Externa" +
+                "lAccount_Type\"><End Role=\"ExternalAccount\" EntitySet=\"ExternalAccounts\" /><End R" +
+                "ole=\"RefExternalAccountType\" EntitySet=\"RefExternalAccountTypes\" /></Association" +
+                "Set><AssociationSet Name=\"fk_ExternalAccount_History\" Association=\"KoloModel.fk_" +
+                "ExternalAccount_History\"><End Role=\"ExternalAccountHistory\" EntitySet=\"ExternalA" +
+                "ccountHistories\" /><End Role=\"ExternalAccount\" EntitySet=\"ExternalAccounts\" /></" +
+                "AssociationSet><AssociationSet Name=\"fk_Notification_Customer\" Association=\"Kolo" +
+                "Model.fk_Notification_Customer\"><End Role=\"ForeasNotification\" EntitySet=\"Foreas" +
+                "Notifications\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></AssociationSet><" +
+                "AssociationSet Name=\"fk_LoginAttempt_Customer\" Association=\"KoloModel.fk_LoginAt" +
+                "tempt_Customer\"><End Role=\"LoginAttempt\" EntitySet=\"LoginAttempts\" /><End Role=\"" +
+                "CustomerLogin\" EntitySet=\"CustomerLogins\" /></AssociationSet><AssociationSet Nam" +
+                "e=\"fk_LoginAttempt_ResultCode\" Association=\"KoloModel.fk_LoginAttempt_ResultCode" +
+                "\"><End Role=\"LoginAttempt\" EntitySet=\"LoginAttempts\" /><End Role=\"RefResult\" Ent" +
+                "itySet=\"RefResults\" /></AssociationSet><AssociationSet Name=\"fk_Partner_0\" Assoc" +
+                "iation=\"KoloModel.fk_Partner_0\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End " +
+                "Role=\"Currency\" EntitySet=\"Currencies\" /></AssociationSet><AssociationSet Name=\"" +
                 "fk_Partner\" Association=\"KoloModel.fk_Partner\"><End Role=\"Partner\" EntitySet=\"Pa" +
                 "rtners\" /><End Role=\"RefPartnerType\" EntitySet=\"RefPartnerTypes\" /></Association" +
-                "Set><AssociationSet Name=\"fk_PartnerAddress_Partner\" Association=\"KoloModel.fk_P" +
-                "artnerAddress_Partner\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End Role=\"Par" +
-                "tnerAddress\" EntitySet=\"PartnerAddresses\" /></AssociationSet><AssociationSet Nam" +
-                "e=\"fk_Provision_ResellerPartnerAccount\" Association=\"KoloModel.fk_Provision_Rese" +
-                "llerPartnerAccount\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End Role=\"Provis" +
-                "ion\" EntitySet=\"Provisions\" /></AssociationSet><AssociationSet Name=\"fk_Provisio" +
-                "n_WholesalerPartnerAccount\" Association=\"KoloModel.fk_Provision_WholesalerPartne" +
-                "rAccount\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End Role=\"Provision\" Entit" +
-                "ySet=\"Provisions\" /></AssociationSet><AssociationSet Name=\"fk_Reseller\" Associat" +
-                "ion=\"KoloModel.fk_Reseller\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End Role" +
-                "=\"Reseller\" EntitySet=\"Resellers\" /></AssociationSet><AssociationSet Name=\"fk_Tr" +
-                "ansfert2Cash_PartnerAccount\" Association=\"KoloModel.fk_Transfert2Cash_PartnerAcc" +
-                "ount\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End Role=\"Transfert2Cash\" Enti" +
-                "tySet=\"Transfert2Cash\" /></AssociationSet><AssociationSet Name=\"fk_Wholesaler\" A" +
-                "ssociation=\"KoloModel.fk_Wholesaler\"><End Role=\"Partner\" EntitySet=\"Partners\" />" +
-                "<End Role=\"Wholesaler\" EntitySet=\"Wholesalers\" /></AssociationSet><AssociationSe" +
-                "t Name=\"fk_Provision_History\" Association=\"KoloModel.fk_Provision_History\"><End " +
-                "Role=\"PartnerBalanceHistory\" EntitySet=\"PartnerBalanceHistories\" /><End Role=\"Pr" +
-                "ovision\" EntitySet=\"Provisions\" /></AssociationSet><AssociationSet Name=\"fk_Pers" +
-                "on_Gender\" Association=\"KoloModel.fk_Person_Gender\"><End Role=\"Person\" EntitySet" +
-                "=\"People\" /><End Role=\"RefGender\" EntitySet=\"RefGenders\" /></AssociationSet><Ass" +
-                "ociationSet Name=\"fk_Person_MaritalStatus\" Association=\"KoloModel.fk_Person_Mari" +
-                "talStatus\"><End Role=\"Person\" EntitySet=\"People\" /><End Role=\"RefMaritalStatus\" " +
-                "EntitySet=\"RefMaritalStatus\" /></AssociationSet><AssociationSet Name=\"fk_Relatio" +
-                "nship_Customer\" Association=\"KoloModel.fk_Relationship_Customer\"><End Role=\"Pers" +
-                "on\" EntitySet=\"People\" /><End Role=\"PersonRelationship\" EntitySet=\"PersonRelatio" +
-                "nships\" /></AssociationSet><AssociationSet Name=\"fk_Relationship_PersonRelation\"" +
-                " Association=\"KoloModel.fk_Relationship_PersonRelation\"><End Role=\"Person\" Entit" +
-                "ySet=\"People\" /><End Role=\"PersonRelationship\" EntitySet=\"PersonRelationships\" /" +
-                "></AssociationSet><AssociationSet Name=\"fk_Relationship_TypeCode\" Association=\"K" +
-                "oloModel.fk_Relationship_TypeCode\"><End Role=\"PersonRelationship\" EntitySet=\"Per" +
-                "sonRelationships\" /><End Role=\"RefPersonRelationshipType\" EntitySet=\"RefPersonRe" +
-                "lationshipTypes\" /></AssociationSet><AssociationSet Name=\"fk_Provision_StatusCod" +
-                "e\" Association=\"KoloModel.fk_Provision_StatusCode\"><End Role=\"Provision\" EntityS" +
-                "et=\"Provisions\" /><End Role=\"RefProvisionStatus\" EntitySet=\"RefProvisionStatus\" " +
-                "/></AssociationSet><AssociationSet Name=\"fk_TransfertE2e_OperationtType\" Associa" +
-                "tion=\"KoloModel.fk_TransfertE2e_OperationtType\"><End Role=\"RefOperationType\" Ent" +
-                "itySet=\"RefOperationTypes\" /><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /" +
-                "></AssociationSet><AssociationSet Name=\"fk_Registration\" Association=\"KoloModel." +
-                "fk_Registration\"><End Role=\"RefRegistrationStatus\" EntitySet=\"RefRegistrationSta" +
-                "tus\" /><End Role=\"Registration\" EntitySet=\"Registrations\" /></AssociationSet><As" +
-                "sociationSet Name=\"fk_TransfertE2e_StatusCode\" Association=\"KoloModel.fk_Transfe" +
-                "rtE2e_StatusCode\"><End Role=\"RefTransfertStatus\" EntitySet=\"RefTransfertStatus\" " +
-                "/><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /></AssociationSet><Associat" +
-                "ionSet Name=\"fk_TransfertGroup_StatusCode\" Association=\"KoloModel.fk_TransfertGr" +
-                "oup_StatusCode\"><End Role=\"RefTransfertStatus\" EntitySet=\"RefTransfertStatus\" />" +
-                "<End Role=\"TransfertGroup\" EntitySet=\"TransfertGroups\" /></AssociationSet></Enti" +
-                "tyContainer></Schema></edmx:DataServices></edmx:Edmx>";
+                "Set><AssociationSet Name=\"fk_Reseller\" Association=\"KoloModel.fk_Reseller\"><End " +
+                "Role=\"Partner\" EntitySet=\"Partners\" /><End Role=\"Reseller\" EntitySet=\"Resellers\"" +
+                " /></AssociationSet><AssociationSet Name=\"fk_Wholesaler\" Association=\"KoloModel." +
+                "fk_Wholesaler\"><End Role=\"Partner\" EntitySet=\"Partners\" /><End Role=\"Wholesaler\"" +
+                " EntitySet=\"Wholesalers\" /></AssociationSet><AssociationSet Name=\"fk_PartnerAddr" +
+                "ess_Address\" Association=\"KoloModel.fk_PartnerAddress_Address\"><End Role=\"Partne" +
+                "rAddress\" EntitySet=\"PartnerAddresses\" /><End Role=\"Adresse\" EntitySet=\"Adresses" +
+                "\" /></AssociationSet><AssociationSet Name=\"fk_PartnerAddress_Partner\" Associatio" +
+                "n=\"KoloModel.fk_PartnerAddress_Partner\"><End Role=\"PartnerAddress\" EntitySet=\"Pa" +
+                "rtnerAddresses\" /><End Role=\"Partner\" EntitySet=\"Partners\" /></AssociationSet><A" +
+                "ssociationSet Name=\"fk_Person\" Association=\"KoloModel.fk_Pe";
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+            private const string ModelPart13 = "rson\"><End Role=\"Person\" EntitySet=\"People\" /><End Role=\"Country\" EntitySet=\"Coun" +
+                "tries\" /></AssociationSet><AssociationSet Name=\"fk_Person_Gender\" Association=\"K" +
+                "oloModel.fk_Person_Gender\"><End Role=\"Person\" EntitySet=\"People\" /><End Role=\"Re" +
+                "fGender\" EntitySet=\"RefGenders\" /></AssociationSet><AssociationSet Name=\"fk_Pers" +
+                "on_MaritalStatus\" Association=\"KoloModel.fk_Person_MaritalStatus\"><End Role=\"Per" +
+                "son\" EntitySet=\"People\" /><End Role=\"RefMaritalStatus\" EntitySet=\"RefMaritalStat" +
+                "us\" /></AssociationSet><AssociationSet Name=\"fk_Relationship_Customer\" Associati" +
+                "on=\"KoloModel.fk_Relationship_Customer\"><End Role=\"Person\" EntitySet=\"People\" />" +
+                "<End Role=\"PersonRelationship\" EntitySet=\"PersonRelationships\" /></AssociationSe" +
+                "t><AssociationSet Name=\"FK_User_Person1\" Association=\"KoloModel.FK_User_Person1\"" +
+                "><End Role=\"Person\" EntitySet=\"People\" /><End Role=\"KoloUser\" EntitySet=\"KoloUse" +
+                "rs\" /></AssociationSet><AssociationSet Name=\"fk_Relationship_PersonRelation\" Ass" +
+                "ociation=\"KoloModel.fk_Relationship_PersonRelation\"><End Role=\"PersonRelationshi" +
+                "p\" EntitySet=\"PersonRelationships\" /><End Role=\"Person\" EntitySet=\"People\" /></A" +
+                "ssociationSet><AssociationSet Name=\"fk_Relationship_TypeCode\" Association=\"KoloM" +
+                "odel.fk_Relationship_TypeCode\"><End Role=\"PersonRelationship\" EntitySet=\"PersonR" +
+                "elationships\" /><End Role=\"RefPersonRelationshipType\" EntitySet=\"RefPersonRelati" +
+                "onshipTypes\" /></AssociationSet><AssociationSet Name=\"fk_Provision_ResellerPartn" +
+                "erAccount\" Association=\"KoloModel.fk_Provision_ResellerPartnerAccount\"><End Role" +
+                "=\"Provision\" EntitySet=\"Provisions\" /><End Role=\"Partner\" EntitySet=\"Partners\" /" +
+                "></AssociationSet><AssociationSet Name=\"fk_Provision_WholesalerPartnerAccount\" A" +
+                "ssociation=\"KoloModel.fk_Provision_WholesalerPartnerAccount\"><End Role=\"Provisio" +
+                "n\" EntitySet=\"Provisions\" /><End Role=\"Partner\" EntitySet=\"Partners\" /></Associa" +
+                "tionSet><AssociationSet Name=\"fk_Provision_History\" Association=\"KoloModel.fk_Pr" +
+                "ovision_History\"><End Role=\"Provision\" EntitySet=\"Provisions\" /><End Role=\"Partn" +
+                "erBalanceHistory\" EntitySet=\"PartnerBalanceHistories\" /></AssociationSet><Associ" +
+                "ationSet Name=\"fk_Provision_StatusCode\" Association=\"KoloModel.fk_Provision_Stat" +
+                "usCode\"><End Role=\"Provision\" EntitySet=\"Provisions\" /><End Role=\"RefProvisionSt" +
+                "atus\" EntitySet=\"RefProvisionStatus\" /></AssociationSet><AssociationSet Name=\"fk" +
+                "_RecurringContribution_TreasuererCustomer\" Association=\"KoloModel.fk_RecurringCo" +
+                "ntribution_TreasuererCustomer\"><End Role=\"RecurringContribution\" EntitySet=\"Recu" +
+                "rringContributions\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></Association" +
+                "Set><AssociationSet Name=\"fk_RecurringContribution_CustomerGroup\" Association=\"K" +
+                "oloModel.fk_RecurringContribution_CustomerGroup\"><End Role=\"RecurringContributio" +
+                "n\" EntitySet=\"RecurringContributions\" /><End Role=\"CustomerGroup\" EntitySet=\"Cus" +
+                "tomerGroups\" /></AssociationSet><AssociationSet Name=\"FK_User_RefLoginStatus1\" A" +
+                "ssociation=\"KoloModel.FK_User_RefLoginStatus1\"><End Role=\"RefLoginStatu\" EntityS" +
+                "et=\"RefLoginStatus\" /><End Role=\"KoloUser\" EntitySet=\"KoloUsers\" /></Association" +
+                "Set><AssociationSet Name=\"fk_Registration\" Association=\"KoloModel.fk_Registratio" +
+                "n\"><End Role=\"Registration\" EntitySet=\"Registrations\" /><End Role=\"RefRegistrati" +
+                "onStatus\" EntitySet=\"RefRegistrationStatus\" /></AssociationSet><AssociationSet N" +
+                "ame=\"fk_Transfert2Cash_PartnerAccount\" Association=\"KoloModel.fk_Transfert2Cash_" +
+                "PartnerAccount\"><End Role=\"Transfert2Cash\" EntitySet=\"Transfert2Cash\" /><End Rol" +
+                "e=\"Partner\" EntitySet=\"Partners\" /></AssociationSet><AssociationSet Name=\"fk_Tra" +
+                "nsfert2CashDetails\" Association=\"KoloModel.fk_Transfert2CashDetails\"><End Role=\"" +
+                "Transfert2CashDetails\" EntitySet=\"Transfert2CashDetails\" /><End Role=\"Customer\" " +
+                "EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_TransfertE2e_C" +
+                "ustomer\" Association=\"KoloModel.fk_TransfertE2e_Customer\"><End Role=\"TransfertE2" +
+                "e\" EntitySet=\"TransfertE2e\" /><End Role=\"Customer\" EntitySet=\"Customers\" /></Ass" +
+                "ociationSet><AssociationSet Name=\"fk_TransfertE2e_Receiver\" Association=\"KoloMod" +
+                "el.fk_TransfertE2e_Receiver\"><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /" +
+                "><End Role=\"ExternalAccount\" EntitySet=\"ExternalAccounts\" /></AssociationSet><As" +
+                "sociationSet Name=\"fk_TransfertE2e_Sender\" Association=\"KoloModel.fk_TransfertE2" +
+                "e_Sender\"><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /><End Role=\"Externa" +
+                "lAccount\" EntitySet=\"ExternalAccounts\" /></AssociationSet><AssociationSet Name=\"" +
+                "fk_TransfertE2e_OperationtType\" Association=\"KoloModel.fk_TransfertE2e_Operation" +
+                "tType\"><End Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /><End Role=\"RefOperati" +
+                "onType\" EntitySet=\"RefOperationTypes\" /></AssociationSet><AssociationSet Name=\"f" +
+                "k_TransfertE2e_StatusCode\" Association=\"KoloModel.fk_TransfertE2e_StatusCode\"><E" +
+                "nd Role=\"TransfertE2e\" EntitySet=\"TransfertE2e\" /><End Role=\"RefTransfertStatus\"" +
+                " EntitySet=\"RefTransfertStatus\" /></AssociationSet><AssociationSet Name=\"fk_Tran" +
+                "sfertGroup_Sender\" Association=\"KoloModel.fk_TransfertGroup_Sender\"><End Role=\"T" +
+                "ransfertGroup\" EntitySet=\"TransfertGroups\" /><End Role=\"Customer\" EntitySet=\"Cus" +
+                "tomers\" /></AssociationSet><AssociationSet Name=\"fk_TransfertGroup_ReceiverGroup" +
+                "\" Association=\"KoloModel.fk_TransfertGroup_ReceiverGroup\"><End Role=\"TransfertGr" +
+                "oup\" EntitySet=\"TransfertGroups\" /><End Role=\"CustomerGroup\" EntitySet=\"Customer" +
+                "Groups\" /></AssociationSet><AssociationSet Name=\"fk_TransfertGroup_StatusCode\" A" +
+                "ssociation=\"KoloModel.fk_TransfertGroup_StatusCode\"><End Role=\"TransfertGroup\" E" +
+                "ntitySet=\"TransfertGroups\" /><End Role=\"RefTransfertStatus\" EntitySet=\"RefTransf" +
+                "ertStatus\" /></AssociationSet><AssociationSet Name=\"fk_TransfertGroupScheduled_S" +
+                "ender\" Association=\"KoloModel.fk_TransfertGroupScheduled_Sender\"><End Role=\"Tran" +
+                "sfertGroupScheduled\" EntitySet=\"TransfertGroupScheduleds\" /><End Role=\"Customer\"" +
+                " EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_TransfertGrou" +
+                "pScheduled_ReceiverGroup\" Association=\"KoloModel.fk_TransfertGroupScheduled_Rece" +
+                "iverGroup\"><End Role=\"TransfertGroupScheduled\" EntitySet=\"TransfertGroupSchedule" +
+                "ds\" /><End Role=\"CustomerGroup\" EntitySet=\"CustomerGroups\" /></AssociationSet><A" +
+                "ssociationSet Name=\"fk_TransfertP2p_Receiver\" Association=\"KoloModel.fk_Transfer" +
+                "tP2p_Receiver\"><End Role=\"TransfertP2p\" EntitySet=\"TransfertP2p\" /><End Role=\"Cu" +
+                "stomer\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_Transf" +
+                "ertScheduled_Customer\" Association=\"KoloModel.fk_TransfertScheduled_Customer\"><E" +
+                "nd Role=\"TransfertScheduled\" EntitySet=\"TransfertScheduleds\" /><End Role=\"Custom" +
+                "er\" EntitySet=\"Customers\" /></AssociationSet><AssociationSet Name=\"fk_TransfertS" +
+                "cheduled_Sending\" Association=\"KoloModel.fk_TransfertScheduled_Sending\"><End Rol" +
+                "e=\"TransfertScheduled\" EntitySet=\"TransfertScheduleds\" /><End Role=\"Customer\" En" +
+                "titySet=\"Customers\" /></AssociationSet></EntityContainer></Schema></edmx:DataSer" +
+                "vices></edmx:Edmx>";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
             private static string GetConcatenatedEdmxString()
             {
-                return string.Concat(ModelPart0, ModelPart1, ModelPart2, ModelPart3, ModelPart4, ModelPart5, ModelPart6, ModelPart7, ModelPart8, ModelPart9, ModelPart10, ModelPart11, ModelPart12, ModelPart13, ModelPart14);
+                return string.Concat(ModelPart0, ModelPart1, ModelPart2, ModelPart3, ModelPart4, ModelPart5, ModelPart6, ModelPart7, ModelPart8, ModelPart9, ModelPart10, ModelPart11, ModelPart12, ModelPart13);
             }
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
             public static global::Microsoft.Data.Edm.IEdmModel GetInstance()
@@ -3714,42 +3645,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private City _City;
-        /// <summary>
-        /// There are no comments for CustomerAddresses in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerAddress> CustomerAddresses
-        {
-            get
-            {
-                return this._CustomerAddresses;
-            }
-            set
-            {
-                this._CustomerAddresses = value;
-                this.OnPropertyChanged("CustomerAddresses");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerAddress> _CustomerAddresses = new global::System.Data.Services.Client.DataServiceCollection<CustomerAddress>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for PartnerAddresses in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<PartnerAddress> PartnerAddresses
-        {
-            get
-            {
-                return this._PartnerAddresses;
-            }
-            set
-            {
-                this._PartnerAddresses = value;
-                this.OnPropertyChanged("PartnerAddresses");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<PartnerAddress> _PartnerAddresses = new global::System.Data.Services.Client.DataServiceCollection<PartnerAddress>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -3986,24 +3881,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private RefBillStatu _RefBillStatu;
-        /// <summary>
-        /// There are no comments for BillPayments in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<BillPayment> BillPayments
-        {
-            get
-            {
-                return this._BillPayments;
-            }
-            set
-            {
-                this._BillPayments = value;
-                this.OnPropertyChanged("BillPayments");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<BillPayment> _BillPayments = new global::System.Data.Services.Client.DataServiceCollection<BillPayment>(null, global::System.Data.Services.Client.TrackingMode.None);
         /// <summary>
         /// There are no comments for RefBillType in the schema.
         /// </summary>
@@ -4420,24 +4297,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private RefIndustryCategory _RefIndustryCategory;
-        /// <summary>
-        /// There are no comments for BusinessContacts in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<BusinessContact> BusinessContacts
-        {
-            get
-            {
-                return this._BusinessContacts;
-            }
-            set
-            {
-                this._BusinessContacts = value;
-                this.OnPropertyChanged("BusinessContacts");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<BusinessContact> _BusinessContacts = new global::System.Data.Services.Client.DataServiceCollection<BusinessContact>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -4700,24 +4559,6 @@ namespace KoloWin.Desktop.KoloGateway
         partial void OnIdDistrictChanging(global::System.Nullable<int> value);
         partial void OnIdDistrictChanged();
         /// <summary>
-        /// There are no comments for Adresses in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Adresse> Adresses
-        {
-            get
-            {
-                return this._Adresses;
-            }
-            set
-            {
-                this._Adresses = value;
-                this.OnPropertyChanged("Adresses");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Adresse> _Adresses = new global::System.Data.Services.Client.DataServiceCollection<Adresse>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for Country in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -4831,42 +4672,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _CountryName;
         partial void OnCountryNameChanging(string value);
         partial void OnCountryNameChanged();
-        /// <summary>
-        /// There are no comments for Cities in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<City> Cities
-        {
-            get
-            {
-                return this._Cities;
-            }
-            set
-            {
-                this._Cities = value;
-                this.OnPropertyChanged("Cities");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<City> _Cities = new global::System.Data.Services.Client.DataServiceCollection<City>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for People in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Person> People
-        {
-            get
-            {
-                return this._People;
-            }
-            set
-            {
-                this._People = value;
-                this.OnPropertyChanged("People");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Person> _People = new global::System.Data.Services.Client.DataServiceCollection<Person>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -4945,42 +4750,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _CurrencyName;
         partial void OnCurrencyNameChanging(string value);
         partial void OnCurrencyNameChanged();
-        /// <summary>
-        /// There are no comments for Customers in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Customer> Customers
-        {
-            get
-            {
-                return this._Customers;
-            }
-            set
-            {
-                this._Customers = value;
-                this.OnPropertyChanged("Customers");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Customer> _Customers = new global::System.Data.Services.Client.DataServiceCollection<Customer>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Partners in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Partner> Partners
-        {
-            get
-            {
-                return this._Partners;
-            }
-            set
-            {
-                this._Partners = value;
-                this.OnPropertyChanged("Partners");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Partner> _Partners = new global::System.Data.Services.Client.DataServiceCollection<Partner>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -5154,96 +4923,6 @@ namespace KoloWin.Desktop.KoloGateway
         partial void OnIdRegistrationChanging(global::System.Nullable<int> value);
         partial void OnIdRegistrationChanged();
         /// <summary>
-        /// There are no comments for AccountOperationRequests in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest> AccountOperationRequests
-        {
-            get
-            {
-                return this._AccountOperationRequests;
-            }
-            set
-            {
-                this._AccountOperationRequests = value;
-                this.OnPropertyChanged("AccountOperationRequests");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest> _AccountOperationRequests = new global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Bills in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Bill> Bills
-        {
-            get
-            {
-                return this._Bills;
-            }
-            set
-            {
-                this._Bills = value;
-                this.OnPropertyChanged("Bills");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Bill> _Bills = new global::System.Data.Services.Client.DataServiceCollection<Bill>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Bills1 in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Bill> Bills1
-        {
-            get
-            {
-                return this._Bills1;
-            }
-            set
-            {
-                this._Bills1 = value;
-                this.OnPropertyChanged("Bills1");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Bill> _Bills1 = new global::System.Data.Services.Client.DataServiceCollection<Bill>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for BillPayments in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<BillPayment> BillPayments
-        {
-            get
-            {
-                return this._BillPayments;
-            }
-            set
-            {
-                this._BillPayments = value;
-                this.OnPropertyChanged("BillPayments");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<BillPayment> _BillPayments = new global::System.Data.Services.Client.DataServiceCollection<BillPayment>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for BillPayments1 in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<BillPayment> BillPayments1
-        {
-            get
-            {
-                return this._BillPayments1;
-            }
-            set
-            {
-                this._BillPayments1 = value;
-                this.OnPropertyChanged("BillPayments1");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<BillPayment> _BillPayments1 = new global::System.Data.Services.Client.DataServiceCollection<BillPayment>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for Business in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -5334,60 +5013,6 @@ namespace KoloWin.Desktop.KoloGateway
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private MobileDevice _MobileDevice;
         /// <summary>
-        /// There are no comments for CustomerAddresses in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerAddress> CustomerAddresses
-        {
-            get
-            {
-                return this._CustomerAddresses;
-            }
-            set
-            {
-                this._CustomerAddresses = value;
-                this.OnPropertyChanged("CustomerAddresses");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerAddress> _CustomerAddresses = new global::System.Data.Services.Client.DataServiceCollection<CustomerAddress>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for CustomerBalanceHistories in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerBalanceHistory> CustomerBalanceHistories
-        {
-            get
-            {
-                return this._CustomerBalanceHistories;
-            }
-            set
-            {
-                this._CustomerBalanceHistories = value;
-                this.OnPropertyChanged("CustomerBalanceHistories");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerBalanceHistory> _CustomerBalanceHistories = new global::System.Data.Services.Client.DataServiceCollection<CustomerBalanceHistory>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for CustomerGroups in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerGroup> CustomerGroups
-        {
-            get
-            {
-                return this._CustomerGroups;
-            }
-            set
-            {
-                this._CustomerGroups = value;
-                this.OnPropertyChanged("CustomerGroups");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerGroup> _CustomerGroups = new global::System.Data.Services.Client.DataServiceCollection<CustomerGroup>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for CustomerImage in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -5424,42 +5049,6 @@ namespace KoloWin.Desktop.KoloGateway
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private CustomerLogin _CustomerLogin;
         /// <summary>
-        /// There are no comments for CustomerTags in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerTag> CustomerTags
-        {
-            get
-            {
-                return this._CustomerTags;
-            }
-            set
-            {
-                this._CustomerTags = value;
-                this.OnPropertyChanged("CustomerTags");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerTag> _CustomerTags = new global::System.Data.Services.Client.DataServiceCollection<CustomerTag>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for ForeasNotifications in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<ForeasNotification> ForeasNotifications
-        {
-            get
-            {
-                return this._ForeasNotifications;
-            }
-            set
-            {
-                this._ForeasNotifications = value;
-                this.OnPropertyChanged("ForeasNotifications");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<ForeasNotification> _ForeasNotifications = new global::System.Data.Services.Client.DataServiceCollection<ForeasNotification>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for Partner in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -5495,168 +5084,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private Person _Person;
-        /// <summary>
-        /// There are no comments for RecurringContributions in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<RecurringContribution> RecurringContributions
-        {
-            get
-            {
-                return this._RecurringContributions;
-            }
-            set
-            {
-                this._RecurringContributions = value;
-                this.OnPropertyChanged("RecurringContributions");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<RecurringContribution> _RecurringContributions = new global::System.Data.Services.Client.DataServiceCollection<RecurringContribution>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Transfert2CashDetails in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Transfert2CashDetails> Transfert2CashDetails
-        {
-            get
-            {
-                return this._Transfert2CashDetails;
-            }
-            set
-            {
-                this._Transfert2CashDetails = value;
-                this.OnPropertyChanged("Transfert2CashDetails");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Transfert2CashDetails> _Transfert2CashDetails = new global::System.Data.Services.Client.DataServiceCollection<Transfert2CashDetails>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertE2e in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> TransfertE2e
-        {
-            get
-            {
-                return this._TransfertE2e;
-            }
-            set
-            {
-                this._TransfertE2e = value;
-                this.OnPropertyChanged("TransfertE2e");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> _TransfertE2e = new global::System.Data.Services.Client.DataServiceCollection<TransfertE2e>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertGroups in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertGroup> TransfertGroups
-        {
-            get
-            {
-                return this._TransfertGroups;
-            }
-            set
-            {
-                this._TransfertGroups = value;
-                this.OnPropertyChanged("TransfertGroups");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertGroup> _TransfertGroups = new global::System.Data.Services.Client.DataServiceCollection<TransfertGroup>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertGroupScheduleds in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertGroupScheduled> TransfertGroupScheduleds
-        {
-            get
-            {
-                return this._TransfertGroupScheduleds;
-            }
-            set
-            {
-                this._TransfertGroupScheduleds = value;
-                this.OnPropertyChanged("TransfertGroupScheduleds");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertGroupScheduled> _TransfertGroupScheduleds = new global::System.Data.Services.Client.DataServiceCollection<TransfertGroupScheduled>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertP2p in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertP2p> TransfertP2p
-        {
-            get
-            {
-                return this._TransfertP2p;
-            }
-            set
-            {
-                this._TransfertP2p = value;
-                this.OnPropertyChanged("TransfertP2p");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertP2p> _TransfertP2p = new global::System.Data.Services.Client.DataServiceCollection<TransfertP2p>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertScheduleds in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertScheduled> TransfertScheduleds
-        {
-            get
-            {
-                return this._TransfertScheduleds;
-            }
-            set
-            {
-                this._TransfertScheduleds = value;
-                this.OnPropertyChanged("TransfertScheduleds");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertScheduled> _TransfertScheduleds = new global::System.Data.Services.Client.DataServiceCollection<TransfertScheduled>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertScheduleds1 in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertScheduled> TransfertScheduleds1
-        {
-            get
-            {
-                return this._TransfertScheduleds1;
-            }
-            set
-            {
-                this._TransfertScheduleds1 = value;
-                this.OnPropertyChanged("TransfertScheduleds1");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertScheduled> _TransfertScheduleds1 = new global::System.Data.Services.Client.DataServiceCollection<TransfertScheduled>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for CustomerGroups1 in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerGroup> CustomerGroups1
-        {
-            get
-            {
-                return this._CustomerGroups1;
-            }
-            set
-            {
-                this._CustomerGroups1 = value;
-                this.OnPropertyChanged("CustomerGroups1");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerGroup> _CustomerGroups1 = new global::System.Data.Services.Client.DataServiceCollection<CustomerGroup>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -6327,78 +5754,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private GroupImage _GroupImage;
-        /// <summary>
-        /// There are no comments for RecurringContributions in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<RecurringContribution> RecurringContributions
-        {
-            get
-            {
-                return this._RecurringContributions;
-            }
-            set
-            {
-                this._RecurringContributions = value;
-                this.OnPropertyChanged("RecurringContributions");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<RecurringContribution> _RecurringContributions = new global::System.Data.Services.Client.DataServiceCollection<RecurringContribution>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertGroups in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertGroup> TransfertGroups
-        {
-            get
-            {
-                return this._TransfertGroups;
-            }
-            set
-            {
-                this._TransfertGroups = value;
-                this.OnPropertyChanged("TransfertGroups");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertGroup> _TransfertGroups = new global::System.Data.Services.Client.DataServiceCollection<TransfertGroup>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertGroupScheduleds in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertGroupScheduled> TransfertGroupScheduleds
-        {
-            get
-            {
-                return this._TransfertGroupScheduleds;
-            }
-            set
-            {
-                this._TransfertGroupScheduleds = value;
-                this.OnPropertyChanged("TransfertGroupScheduleds");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertGroupScheduled> _TransfertGroupScheduleds = new global::System.Data.Services.Client.DataServiceCollection<TransfertGroupScheduled>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Customers in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Customer> Customers
-        {
-            get
-            {
-                return this._Customers;
-            }
-            set
-            {
-                this._Customers = value;
-                this.OnPropertyChanged("Customers");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Customer> _Customers = new global::System.Data.Services.Client.DataServiceCollection<Customer>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -6792,24 +6147,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private RefLoginStatu _RefLoginStatu;
-        /// <summary>
-        /// There are no comments for LoginAttempts in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<LoginAttempt> LoginAttempts
-        {
-            get
-            {
-                return this._LoginAttempts;
-            }
-            set
-            {
-                this._LoginAttempts = value;
-                this.OnPropertyChanged("LoginAttempts");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<LoginAttempt> _LoginAttempts = new global::System.Data.Services.Client.DataServiceCollection<LoginAttempt>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -7046,24 +6383,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _CountryCode;
         partial void OnCountryCodeChanging(string value);
         partial void OnCountryCodeChanged();
-        /// <summary>
-        /// There are no comments for Cities in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<City> Cities
-        {
-            get
-            {
-                return this._Cities;
-            }
-            set
-            {
-                this._Cities = value;
-                this.OnPropertyChanged("Cities");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<City> _Cities = new global::System.Data.Services.Client.DataServiceCollection<City>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -7209,24 +6528,6 @@ namespace KoloWin.Desktop.KoloGateway
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private global::System.Data.Services.Client.DataServiceCollection<CustomerExternalAccount> _CustomerExternalAccounts = new global::System.Data.Services.Client.DataServiceCollection<CustomerExternalAccount>(null, global::System.Data.Services.Client.TrackingMode.None);
         /// <summary>
-        /// There are no comments for ExternalAccountHistories in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<ExternalAccountHistory> ExternalAccountHistories
-        {
-            get
-            {
-                return this._ExternalAccountHistories;
-            }
-            set
-            {
-                this._ExternalAccountHistories = value;
-                this.OnPropertyChanged("ExternalAccountHistories");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<ExternalAccountHistory> _ExternalAccountHistories = new global::System.Data.Services.Client.DataServiceCollection<ExternalAccountHistory>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for RefExternalAccountType in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -7244,42 +6545,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private RefExternalAccountType _RefExternalAccountType;
-        /// <summary>
-        /// There are no comments for TransfertE2e in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> TransfertE2e
-        {
-            get
-            {
-                return this._TransfertE2e;
-            }
-            set
-            {
-                this._TransfertE2e = value;
-                this.OnPropertyChanged("TransfertE2e");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> _TransfertE2e = new global::System.Data.Services.Client.DataServiceCollection<TransfertE2e>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertE2e1 in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> TransfertE2e1
-        {
-            get
-            {
-                return this._TransfertE2e1;
-            }
-            set
-            {
-                this._TransfertE2e1 = value;
-                this.OnPropertyChanged("TransfertE2e1");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> _TransfertE2e1 = new global::System.Data.Services.Client.DataServiceCollection<TransfertE2e>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -8702,24 +7967,6 @@ namespace KoloWin.Desktop.KoloGateway
         partial void OnDateCreatedChanging(global::System.DateTime value);
         partial void OnDateCreatedChanged();
         /// <summary>
-        /// There are no comments for AccountOperations in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperation> AccountOperations
-        {
-            get
-            {
-                return this._AccountOperations;
-            }
-            set
-            {
-                this._AccountOperations = value;
-                this.OnPropertyChanged("AccountOperations");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperation> _AccountOperations = new global::System.Data.Services.Client.DataServiceCollection<AccountOperation>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for Currency in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -8774,60 +8021,6 @@ namespace KoloWin.Desktop.KoloGateway
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private RefPartnerType _RefPartnerType;
         /// <summary>
-        /// There are no comments for PartnerAddresses in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<PartnerAddress> PartnerAddresses
-        {
-            get
-            {
-                return this._PartnerAddresses;
-            }
-            set
-            {
-                this._PartnerAddresses = value;
-                this.OnPropertyChanged("PartnerAddresses");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<PartnerAddress> _PartnerAddresses = new global::System.Data.Services.Client.DataServiceCollection<PartnerAddress>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Provisions in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Provision> Provisions
-        {
-            get
-            {
-                return this._Provisions;
-            }
-            set
-            {
-                this._Provisions = value;
-                this.OnPropertyChanged("Provisions");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Provision> _Provisions = new global::System.Data.Services.Client.DataServiceCollection<Provision>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Provisions1 in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Provision> Provisions1
-        {
-            get
-            {
-                return this._Provisions1;
-            }
-            set
-            {
-                this._Provisions1 = value;
-                this.OnPropertyChanged("Provisions1");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Provision> _Provisions1 = new global::System.Data.Services.Client.DataServiceCollection<Provision>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for Reseller in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -8845,24 +8038,6 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private Reseller _Reseller;
-        /// <summary>
-        /// There are no comments for Transfert2Cash in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Transfert2Cash> Transfert2Cash
-        {
-            get
-            {
-                return this._Transfert2Cash;
-            }
-            set
-            {
-                this._Transfert2Cash = value;
-                this.OnPropertyChanged("Transfert2Cash");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Transfert2Cash> _Transfert2Cash = new global::System.Data.Services.Client.DataServiceCollection<Transfert2Cash>(null, global::System.Data.Services.Client.TrackingMode.None);
         /// <summary>
         /// There are no comments for Wholesaler in the schema.
         /// </summary>
@@ -9192,42 +8367,6 @@ namespace KoloWin.Desktop.KoloGateway
         private int _Amount;
         partial void OnAmountChanging(int value);
         partial void OnAmountChanged();
-        /// <summary>
-        /// There are no comments for AccountOperations in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperation> AccountOperations
-        {
-            get
-            {
-                return this._AccountOperations;
-            }
-            set
-            {
-                this._AccountOperations = value;
-                this.OnPropertyChanged("AccountOperations");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperation> _AccountOperations = new global::System.Data.Services.Client.DataServiceCollection<AccountOperation>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for Provisions in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Provision> Provisions
-        {
-            get
-            {
-                return this._Provisions;
-            }
-            set
-            {
-                this._Provisions = value;
-                this.OnPropertyChanged("Provisions");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Provision> _Provisions = new global::System.Data.Services.Client.DataServiceCollection<Provision>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -9459,24 +8598,6 @@ namespace KoloWin.Desktop.KoloGateway
         partial void OnCountryCodeChanging(string value);
         partial void OnCountryCodeChanged();
         /// <summary>
-        /// There are no comments for BusinessContacts in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<BusinessContact> BusinessContacts
-        {
-            get
-            {
-                return this._BusinessContacts;
-            }
-            set
-            {
-                this._BusinessContacts = value;
-                this.OnPropertyChanged("BusinessContacts");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<BusinessContact> _BusinessContacts = new global::System.Data.Services.Client.DataServiceCollection<BusinessContact>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for Country in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -9567,23 +8688,23 @@ namespace KoloWin.Desktop.KoloGateway
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private PersonRelationship _PersonRelationship;
         /// <summary>
-        /// There are no comments for PersonRelationships in the schema.
+        /// There are no comments for KoloUser in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<PersonRelationship> PersonRelationships
+        public KoloUser KoloUser
         {
             get
             {
-                return this._PersonRelationships;
+                return this._KoloUser;
             }
             set
             {
-                this._PersonRelationships = value;
-                this.OnPropertyChanged("PersonRelationships");
+                this._KoloUser = value;
+                this.OnPropertyChanged("KoloUser");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<PersonRelationship> _PersonRelationships = new global::System.Data.Services.Client.DataServiceCollection<PersonRelationship>(null, global::System.Data.Services.Client.TrackingMode.None);
+        private KoloUser _KoloUser;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10322,24 +9443,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _BillStatusDescription;
         partial void OnBillStatusDescriptionChanging(string value);
         partial void OnBillStatusDescriptionChanged();
-        /// <summary>
-        /// There are no comments for Bills in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Bill> Bills
-        {
-            get
-            {
-                return this._Bills;
-            }
-            set
-            {
-                this._Bills = value;
-                this.OnPropertyChanged("Bills");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Bill> _Bills = new global::System.Data.Services.Client.DataServiceCollection<Bill>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10418,24 +9521,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _BillTypeDescription;
         partial void OnBillTypeDescriptionChanging(string value);
         partial void OnBillTypeDescriptionChanged();
-        /// <summary>
-        /// There are no comments for Bills in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Bill> Bills
-        {
-            get
-            {
-                return this._Bills;
-            }
-            set
-            {
-                this._Bills = value;
-                this.OnPropertyChanged("Bills");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Bill> _Bills = new global::System.Data.Services.Client.DataServiceCollection<Bill>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10514,24 +9599,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _CustomerTypeDescription;
         partial void OnCustomerTypeDescriptionChanging(string value);
         partial void OnCustomerTypeDescriptionChanged();
-        /// <summary>
-        /// There are no comments for Customers in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Customer> Customers
-        {
-            get
-            {
-                return this._Customers;
-            }
-            set
-            {
-                this._Customers = value;
-                this.OnPropertyChanged("Customers");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Customer> _Customers = new global::System.Data.Services.Client.DataServiceCollection<Customer>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10608,24 +9675,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _ExternalAccountTypeDescription;
         partial void OnExternalAccountTypeDescriptionChanging(string value);
         partial void OnExternalAccountTypeDescriptionChanged();
-        /// <summary>
-        /// There are no comments for ExternalAccounts in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<ExternalAccount> ExternalAccounts
-        {
-            get
-            {
-                return this._ExternalAccounts;
-            }
-            set
-            {
-                this._ExternalAccounts = value;
-                this.OnPropertyChanged("ExternalAccounts");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<ExternalAccount> _ExternalAccounts = new global::System.Data.Services.Client.DataServiceCollection<ExternalAccount>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10704,24 +9753,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _GenderDescription;
         partial void OnGenderDescriptionChanging(string value);
         partial void OnGenderDescriptionChanged();
-        /// <summary>
-        /// There are no comments for People in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Person> People
-        {
-            get
-            {
-                return this._People;
-            }
-            set
-            {
-                this._People = value;
-                this.OnPropertyChanged("People");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Person> _People = new global::System.Data.Services.Client.DataServiceCollection<Person>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10800,24 +9831,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _GroupTypeDescription;
         partial void OnGroupTypeDescriptionChanging(string value);
         partial void OnGroupTypeDescriptionChanged();
-        /// <summary>
-        /// There are no comments for CustomerGroups in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerGroup> CustomerGroups
-        {
-            get
-            {
-                return this._CustomerGroups;
-            }
-            set
-            {
-                this._CustomerGroups = value;
-                this.OnPropertyChanged("CustomerGroups");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerGroup> _CustomerGroups = new global::System.Data.Services.Client.DataServiceCollection<CustomerGroup>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10894,24 +9907,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _IndustryCategoryDescrption;
         partial void OnIndustryCategoryDescrptionChanging(string value);
         partial void OnIndustryCategoryDescrptionChanged();
-        /// <summary>
-        /// There are no comments for Businesses in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Business> Businesses
-        {
-            get
-            {
-                return this._Businesses;
-            }
-            set
-            {
-                this._Businesses = value;
-                this.OnPropertyChanged("Businesses");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Business> _Businesses = new global::System.Data.Services.Client.DataServiceCollection<Business>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -10991,23 +9986,23 @@ namespace KoloWin.Desktop.KoloGateway
         partial void OnLoginStatusDescriptionChanging(string value);
         partial void OnLoginStatusDescriptionChanged();
         /// <summary>
-        /// There are no comments for CustomerLogins in the schema.
+        /// There are no comments for KoloUsers in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerLogin> CustomerLogins
+        public global::System.Data.Services.Client.DataServiceCollection<KoloUser> KoloUsers
         {
             get
             {
-                return this._CustomerLogins;
+                return this._KoloUsers;
             }
             set
             {
-                this._CustomerLogins = value;
-                this.OnPropertyChanged("CustomerLogins");
+                this._KoloUsers = value;
+                this.OnPropertyChanged("KoloUsers");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerLogin> _CustomerLogins = new global::System.Data.Services.Client.DataServiceCollection<CustomerLogin>(null, global::System.Data.Services.Client.TrackingMode.None);
+        private global::System.Data.Services.Client.DataServiceCollection<KoloUser> _KoloUsers = new global::System.Data.Services.Client.DataServiceCollection<KoloUser>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11086,24 +10081,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _MaritalStatusDescription;
         partial void OnMaritalStatusDescriptionChanging(string value);
         partial void OnMaritalStatusDescriptionChanged();
-        /// <summary>
-        /// There are no comments for People in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Person> People
-        {
-            get
-            {
-                return this._People;
-            }
-            set
-            {
-                this._People = value;
-                this.OnPropertyChanged("People");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Person> _People = new global::System.Data.Services.Client.DataServiceCollection<Person>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11182,42 +10159,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _OperationStatusDescription;
         partial void OnOperationStatusDescriptionChanging(string value);
         partial void OnOperationStatusDescriptionChanged();
-        /// <summary>
-        /// There are no comments for AccountOperations in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperation> AccountOperations
-        {
-            get
-            {
-                return this._AccountOperations;
-            }
-            set
-            {
-                this._AccountOperations = value;
-                this.OnPropertyChanged("AccountOperations");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperation> _AccountOperations = new global::System.Data.Services.Client.DataServiceCollection<AccountOperation>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for AccountOperationRequests in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest> AccountOperationRequests
-        {
-            get
-            {
-                return this._AccountOperationRequests;
-            }
-            set
-            {
-                this._AccountOperationRequests = value;
-                this.OnPropertyChanged("AccountOperationRequests");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest> _AccountOperationRequests = new global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11296,78 +10237,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _OperationTypeName;
         partial void OnOperationTypeNameChanging(string value);
         partial void OnOperationTypeNameChanged();
-        /// <summary>
-        /// There are no comments for AccountOperations in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperation> AccountOperations
-        {
-            get
-            {
-                return this._AccountOperations;
-            }
-            set
-            {
-                this._AccountOperations = value;
-                this.OnPropertyChanged("AccountOperations");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperation> _AccountOperations = new global::System.Data.Services.Client.DataServiceCollection<AccountOperation>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for AccountOperationRequests in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest> AccountOperationRequests
-        {
-            get
-            {
-                return this._AccountOperationRequests;
-            }
-            set
-            {
-                this._AccountOperationRequests = value;
-                this.OnPropertyChanged("AccountOperationRequests");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest> _AccountOperationRequests = new global::System.Data.Services.Client.DataServiceCollection<AccountOperationRequest>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for CustomerBalanceHistories in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerBalanceHistory> CustomerBalanceHistories
-        {
-            get
-            {
-                return this._CustomerBalanceHistories;
-            }
-            set
-            {
-                this._CustomerBalanceHistories = value;
-                this.OnPropertyChanged("CustomerBalanceHistories");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerBalanceHistory> _CustomerBalanceHistories = new global::System.Data.Services.Client.DataServiceCollection<CustomerBalanceHistory>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertE2e in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> TransfertE2e
-        {
-            get
-            {
-                return this._TransfertE2e;
-            }
-            set
-            {
-                this._TransfertE2e = value;
-                this.OnPropertyChanged("TransfertE2e");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> _TransfertE2e = new global::System.Data.Services.Client.DataServiceCollection<TransfertE2e>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11446,24 +10315,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _PartnerTypeDescription;
         partial void OnPartnerTypeDescriptionChanging(string value);
         partial void OnPartnerTypeDescriptionChanged();
-        /// <summary>
-        /// There are no comments for Partners in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Partner> Partners
-        {
-            get
-            {
-                return this._Partners;
-            }
-            set
-            {
-                this._Partners = value;
-                this.OnPropertyChanged("Partners");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Partner> _Partners = new global::System.Data.Services.Client.DataServiceCollection<Partner>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11540,24 +10391,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _RelationshipTypeDescription;
         partial void OnRelationshipTypeDescriptionChanging(string value);
         partial void OnRelationshipTypeDescriptionChanged();
-        /// <summary>
-        /// There are no comments for PersonRelationships in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<PersonRelationship> PersonRelationships
-        {
-            get
-            {
-                return this._PersonRelationships;
-            }
-            set
-            {
-                this._PersonRelationships = value;
-                this.OnPropertyChanged("PersonRelationships");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<PersonRelationship> _PersonRelationships = new global::System.Data.Services.Client.DataServiceCollection<PersonRelationship>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11634,24 +10467,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _ProvisionStatusDescription;
         partial void OnProvisionStatusDescriptionChanging(string value);
         partial void OnProvisionStatusDescriptionChanged();
-        /// <summary>
-        /// There are no comments for Provisions in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Provision> Provisions
-        {
-            get
-            {
-                return this._Provisions;
-            }
-            set
-            {
-                this._Provisions = value;
-                this.OnPropertyChanged("Provisions");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Provision> _Provisions = new global::System.Data.Services.Client.DataServiceCollection<Provision>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11730,24 +10545,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _RegistrationStatusDescription;
         partial void OnRegistrationStatusDescriptionChanging(string value);
         partial void OnRegistrationStatusDescriptionChanged();
-        /// <summary>
-        /// There are no comments for Registrations in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Registration> Registrations
-        {
-            get
-            {
-                return this._Registrations;
-            }
-            set
-            {
-                this._Registrations = value;
-                this.OnPropertyChanged("Registrations");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Registration> _Registrations = new global::System.Data.Services.Client.DataServiceCollection<Registration>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11826,24 +10623,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _ResultDescription;
         partial void OnResultDescriptionChanging(string value);
         partial void OnResultDescriptionChanged();
-        /// <summary>
-        /// There are no comments for LoginAttempts in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<LoginAttempt> LoginAttempts
-        {
-            get
-            {
-                return this._LoginAttempts;
-            }
-            set
-            {
-                this._LoginAttempts = value;
-                this.OnPropertyChanged("LoginAttempts");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<LoginAttempt> _LoginAttempts = new global::System.Data.Services.Client.DataServiceCollection<LoginAttempt>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -11922,42 +10701,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _TransfertStatusDescription;
         partial void OnTransfertStatusDescriptionChanging(string value);
         partial void OnTransfertStatusDescriptionChanged();
-        /// <summary>
-        /// There are no comments for TransfertE2e in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> TransfertE2e
-        {
-            get
-            {
-                return this._TransfertE2e;
-            }
-            set
-            {
-                this._TransfertE2e = value;
-                this.OnPropertyChanged("TransfertE2e");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertE2e> _TransfertE2e = new global::System.Data.Services.Client.DataServiceCollection<TransfertE2e>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for TransfertGroups in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<TransfertGroup> TransfertGroups
-        {
-            get
-            {
-                return this._TransfertGroups;
-            }
-            set
-            {
-                this._TransfertGroups = value;
-                this.OnPropertyChanged("TransfertGroups");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<TransfertGroup> _TransfertGroups = new global::System.Data.Services.Client.DataServiceCollection<TransfertGroup>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -12357,24 +11100,6 @@ namespace KoloWin.Desktop.KoloGateway
         partial void OnDeviceIdChanging(string value);
         partial void OnDeviceIdChanged();
         /// <summary>
-        /// There are no comments for Customers in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Customer> Customers
-        {
-            get
-            {
-                return this._Customers;
-            }
-            set
-            {
-                this._Customers = value;
-                this.OnPropertyChanged("Customers");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Customer> _Customers = new global::System.Data.Services.Client.DataServiceCollection<Customer>(null, global::System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
         /// There are no comments for RefRegistrationStatu in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -12566,24 +11291,6 @@ namespace KoloWin.Desktop.KoloGateway
         private string _TagName;
         partial void OnTagNameChanging(string value);
         partial void OnTagNameChanged();
-        /// <summary>
-        /// There are no comments for CustomerTags in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<CustomerTag> CustomerTags
-        {
-            get
-            {
-                return this._CustomerTags;
-            }
-            set
-            {
-                this._CustomerTags = value;
-                this.OnPropertyChanged("CustomerTags");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<CustomerTag> _CustomerTags = new global::System.Data.Services.Client.DataServiceCollection<CustomerTag>(null, global::System.Data.Services.Client.TrackingMode.None);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -14176,6 +12883,322 @@ namespace KoloWin.Desktop.KoloGateway
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private Partner _Partner;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        protected virtual void OnPropertyChanged(string property)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
+            }
+        }
+    }
+    /// <summary>
+    /// There are no comments for KoloModel.KoloUser in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// IdCustomer
+    /// </KeyProperties>
+    [global::System.Data.Services.Common.EntitySetAttribute("KoloUsers")]
+    [global::System.Data.Services.Common.DataServiceKeyAttribute("IdCustomer")]
+    public partial class KoloUser : global::System.ComponentModel.INotifyPropertyChanged
+    {
+        /// <summary>
+        /// Create a new KoloUser object.
+        /// </summary>
+        /// <param name="idCustomer">Initial value of IdCustomer.</param>
+        /// <param name="userLogin">Initial value of UserLogin.</param>
+        /// <param name="number">Initial value of Number.</param>
+        /// <param name="emailAddressVerified">Initial value of EmailAddressVerified.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public static KoloUser CreateKoloUser(int idCustomer, string userLogin, string number, bool emailAddressVerified)
+        {
+            KoloUser koloUser = new KoloUser();
+            koloUser.IdCustomer = idCustomer;
+            koloUser.UserLogin = userLogin;
+            koloUser.Number = number;
+            koloUser.EmailAddressVerified = emailAddressVerified;
+            return koloUser;
+        }
+        /// <summary>
+        /// There are no comments for Property IdCustomer in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public int IdCustomer
+        {
+            get
+            {
+                return this._IdCustomer;
+            }
+            set
+            {
+                this.OnIdCustomerChanging(value);
+                this._IdCustomer = value;
+                this.OnIdCustomerChanged();
+                this.OnPropertyChanged("IdCustomer");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private int _IdCustomer;
+        partial void OnIdCustomerChanging(int value);
+        partial void OnIdCustomerChanged();
+        /// <summary>
+        /// There are no comments for Property UserLogin in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string UserLogin
+        {
+            get
+            {
+                return this._UserLogin;
+            }
+            set
+            {
+                this.OnUserLoginChanging(value);
+                this._UserLogin = value;
+                this.OnUserLoginChanged();
+                this.OnPropertyChanged("UserLogin");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _UserLogin;
+        partial void OnUserLoginChanging(string value);
+        partial void OnUserLoginChanged();
+        /// <summary>
+        /// There are no comments for Property Number in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                this.OnNumberChanging(value);
+                this._Number = value;
+                this.OnNumberChanged();
+                this.OnPropertyChanged("Number");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _Number;
+        partial void OnNumberChanging(string value);
+        partial void OnNumberChanged();
+        /// <summary>
+        /// There are no comments for Property NumberVerified in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<bool> NumberVerified
+        {
+            get
+            {
+                return this._NumberVerified;
+            }
+            set
+            {
+                this.OnNumberVerifiedChanging(value);
+                this._NumberVerified = value;
+                this.OnNumberVerifiedChanged();
+                this.OnPropertyChanged("NumberVerified");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<bool> _NumberVerified;
+        partial void OnNumberVerifiedChanging(global::System.Nullable<bool> value);
+        partial void OnNumberVerifiedChanged();
+        /// <summary>
+        /// There are no comments for Property EmailAddress in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string EmailAddress
+        {
+            get
+            {
+                return this._EmailAddress;
+            }
+            set
+            {
+                this.OnEmailAddressChanging(value);
+                this._EmailAddress = value;
+                this.OnEmailAddressChanged();
+                this.OnPropertyChanged("EmailAddress");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _EmailAddress;
+        partial void OnEmailAddressChanging(string value);
+        partial void OnEmailAddressChanged();
+        /// <summary>
+        /// There are no comments for Property EmailAddressVerified in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public bool EmailAddressVerified
+        {
+            get
+            {
+                return this._EmailAddressVerified;
+            }
+            set
+            {
+                this.OnEmailAddressVerifiedChanging(value);
+                this._EmailAddressVerified = value;
+                this.OnEmailAddressVerifiedChanged();
+                this.OnPropertyChanged("EmailAddressVerified");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private bool _EmailAddressVerified;
+        partial void OnEmailAddressVerifiedChanging(bool value);
+        partial void OnEmailAddressVerifiedChanged();
+        /// <summary>
+        /// There are no comments for Property PwdSalt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string PwdSalt
+        {
+            get
+            {
+                return this._PwdSalt;
+            }
+            set
+            {
+                this.OnPwdSaltChanging(value);
+                this._PwdSalt = value;
+                this.OnPwdSaltChanged();
+                this.OnPropertyChanged("PwdSalt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _PwdSalt;
+        partial void OnPwdSaltChanging(string value);
+        partial void OnPwdSaltChanged();
+        /// <summary>
+        /// There are no comments for Property Pwd in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string Pwd
+        {
+            get
+            {
+                return this._Pwd;
+            }
+            set
+            {
+                this.OnPwdChanging(value);
+                this._Pwd = value;
+                this.OnPwdChanged();
+                this.OnPropertyChanged("Pwd");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _Pwd;
+        partial void OnPwdChanging(string value);
+        partial void OnPwdChanged();
+        /// <summary>
+        /// There are no comments for Property RecoveryToken in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string RecoveryToken
+        {
+            get
+            {
+                return this._RecoveryToken;
+            }
+            set
+            {
+                this.OnRecoveryTokenChanging(value);
+                this._RecoveryToken = value;
+                this.OnRecoveryTokenChanged();
+                this.OnPropertyChanged("RecoveryToken");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _RecoveryToken;
+        partial void OnRecoveryTokenChanging(string value);
+        partial void OnRecoveryTokenChanged();
+        /// <summary>
+        /// There are no comments for Property RecoveryTokenExpiryDate in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<global::System.DateTime> RecoveryTokenExpiryDate
+        {
+            get
+            {
+                return this._RecoveryTokenExpiryDate;
+            }
+            set
+            {
+                this.OnRecoveryTokenExpiryDateChanging(value);
+                this._RecoveryTokenExpiryDate = value;
+                this.OnRecoveryTokenExpiryDateChanged();
+                this.OnPropertyChanged("RecoveryTokenExpiryDate");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<global::System.DateTime> _RecoveryTokenExpiryDate;
+        partial void OnRecoveryTokenExpiryDateChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void OnRecoveryTokenExpiryDateChanged();
+        /// <summary>
+        /// There are no comments for Property LoginStatusCode in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string LoginStatusCode
+        {
+            get
+            {
+                return this._LoginStatusCode;
+            }
+            set
+            {
+                this.OnLoginStatusCodeChanging(value);
+                this._LoginStatusCode = value;
+                this.OnLoginStatusCodeChanged();
+                this.OnPropertyChanged("LoginStatusCode");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _LoginStatusCode;
+        partial void OnLoginStatusCodeChanging(string value);
+        partial void OnLoginStatusCodeChanged();
+        /// <summary>
+        /// There are no comments for Person in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public Person Person
+        {
+            get
+            {
+                return this._Person;
+            }
+            set
+            {
+                this._Person = value;
+                this.OnPropertyChanged("Person");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private Person _Person;
+        /// <summary>
+        /// There are no comments for RefLoginStatu in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public RefLoginStatu RefLoginStatu
+        {
+            get
+            {
+                return this._RefLoginStatu;
+            }
+            set
+            {
+                this._RefLoginStatu = value;
+                this.OnPropertyChanged("RefLoginStatu");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private RefLoginStatu _RefLoginStatu;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
