@@ -19,7 +19,7 @@ namespace KoloWin.Poco
         public string RelationshipTypeCode { get; set; }
     
         public virtual Person Person { get; set; }
-        public virtual Person Person1 { get; set; }
+        public virtual Person PersonRelatedTo { get; set; }
         public virtual RefPersonRelationshipType RefPersonRelationshipType { get; set; }
     }
 }

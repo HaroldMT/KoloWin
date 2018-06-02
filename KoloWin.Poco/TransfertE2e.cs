@@ -24,8 +24,8 @@ namespace KoloWin.Poco
         public string Reference { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual ExternalAccount ExternalAccount { get; set; }
-        public virtual ExternalAccount ExternalAccount1 { get; set; }
+        public virtual ExternalAccount ReceiverExternalAccount { get; set; }
+        public virtual ExternalAccount SenderExternalAccount { get; set; }
         public virtual RefOperationType RefOperationType { get; set; }
         public virtual RefTransfertStatu RefTransfertStatu { get; set; }
     }
