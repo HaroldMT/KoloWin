@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="964d9460ecf1437eaa16cab258d5a1f9" Name="Diagram1" ZoomLevel="61">
+        <EntityTypeShape EntityType="KoloModel.AccountOperation" Width="1.5" PointX="13.5" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.AccountOperationRequest" Width="1.5" PointX="5.25" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Adresse" Width="1.5" PointX="3" PointY="59.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Bill" Width="1.5" PointX="8.25" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.BillPayment" Width="1.5" PointX="13.5" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Business" Width="1.5" PointX="5.25" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.BusinessContact" Width="1.5" PointX="10.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.City" Width="1.5" PointX="0.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Country" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Currency" Width="1.5" PointX="0.75" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Customer" Width="1.5" PointX="3" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerAddress" Width="1.5" PointX="5.25" PointY="49.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerBalanceHistory" Width="1.5" PointX="8.25" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerExternalAccount" Width="1.5" PointX="5.25" PointY="77.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerGroup" Width="1.5" PointX="8.25" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerImage" Width="1.5" PointX="5.25" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerLogin" Width="1.5" PointX="11.25" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.CustomerTag" Width="1.5" PointX="11.25" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.District" Width="1.5" PointX="1.5" PointY="64" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.ExternalAccount" Width="1.5" PointX="3" PointY="69.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.ExternalAccountHistory" Width="1.5" PointX="5.25" PointY="80" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.GroupImage" Width="1.5" PointX="10.5" PointY="54.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.KoloNotification" Width="1.5" PointX="5.25" PointY="66.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.KoloSystemAction" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.KoloUser" Width="1.5" PointX="7.5" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.LoginAttempt" Width="1.5" PointX="16.5" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.MobileDevice" Width="1.5" PointX="5.25" PointY="70.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Partner" Width="1.5" PointX="11.25" PointY="49.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.PartnerAddress" Width="1.5" PointX="16.5" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.PartnerBalanceHistory" Width="1.5" PointX="11.25" PointY="57.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Person" Width="1.5" PointX="5.25" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.PersonRelationship" Width="1.5" PointX="10.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Provision" Width="1.5" PointX="19.5" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RecurringContribution" Width="1.5" PointX="13.5" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefAddressType" Width="1.5" PointX="0.75" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefBillStatu" Width="1.5" PointX="6" PointY="60.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefBillType" Width="1.5" PointX="6" PointY="62.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefCustomerType" Width="1.5" PointX="0.75" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefExternalAccountType" Width="1.5" PointX="0.75" PointY="70.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefGender" Width="1.5" PointX="3" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefGroupType" Width="1.5" PointX="6" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefIndustryCategory" Width="1.5" PointX="3" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefLoginStatu" Width="1.5" PointX="5.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefMaritalStatu" Width="1.5" PointX="3" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefOperationStatu" Width="1.5" PointX="3" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefOperationType" Width="1.5" PointX="6" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefPartnerType" Width="1.5" PointX="9" PointY="60.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefPersonRelationshipType" Width="1.5" PointX="8.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefProvisionStatu" Width="1.5" PointX="17.25" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefRegistrationStatu" Width="1.5" PointX="1.5" PointY="53.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefResult" Width="1.5" PointX="14.25" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.RefTransfertStatu" Width="1.5" PointX="11.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Registration" Width="1.5" PointX="0.75" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Reseller" Width="1.5" PointX="13.5" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Tag" Width="1.5" PointX="9" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Transfert2Cash" Width="1.5" PointX="13.5" PointY="56.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Transfert2CashDetails" Width="1.5" PointX="5.25" PointY="87.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.TransfertE2e" Width="1.5" PointX="5.25" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.TransfertGroup" Width="1.5" PointX="13.5" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.TransfertGroupScheduled" Width="1.5" PointX="16.5" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.TransfertP2p" Width="1.5" PointX="5.25" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.TransfertScheduled" Width="1.5" PointX="5.25" PointY="98.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Wholesaler" Width="1.5" PointX="13.5" PointY="59.875" IsExpanded="true" />
+        <AssociationConnector Association="KoloModel.fk_AccountOperation" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_AccountOperation_2" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_AccountOperation_3" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_AccountOperation_History" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_AccountOperation_Request" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_AccountOperationRequest_RefOperationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_AccountOperationRequest_RefOperationType" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_OperationRequest_CustomerAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Adresse_City" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_Adresse_RefAddressType" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_PartnerAddress_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Bill" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_BillPayement_Bill" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Facture" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Facture_IssuingCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Facture_PayingCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_BillPayment_IssuingCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_BillPayment_PayingCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Business" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Business_IndustryCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_BusinessContact_Business" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_BusinessContact_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_City" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_City_0" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Customer_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Partner_0" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Customer_CustomerType" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Customer_Mobile" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerAddress_0" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerBalanceHistory" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerGroup_MemberAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_CustomerImage_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerLogin" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_customertags_customeraccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Notification_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Partner_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Person_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_RecurringContribution_TreasuererCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Transfert2CashDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertGroup_Sender" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertGroupScheduled_Sender" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertP2p_Receiver" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertScheduled_Receiver" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertScheduled_Sender" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerBalanceHistory_0" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Customer_ExternalAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerGroup_GroupType" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_GroupImage_CustomerGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_RecurringContribution_CustomerGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertGroup_ReceiverGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertGroupScheduled_ReceiverGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_CustomerLogin_StatusCode" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_LoginAttempt_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_customertags_tag" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_ExternalAccount_History" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_ExternalAccount_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalReceiver" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalSender" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_User_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_User_RefLoginStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_LoginAttempt_ResultCode" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Partner" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_PartnerAddress_Partner" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Provision_ResellerPartnerAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Provision_WholesalerPartnerAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Reseller" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Transfert2Cash_PartnerAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Wholesaler" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Provision_History" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Person_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Person_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Relationship_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Relationship_PersonRelation" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Relationship_TypeCode" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Provision_StatusCode" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_OperationtType" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_Registration" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_StatusCode" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.fk_TransfertGroup_StatusCode" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.CustomerGroupAdmin" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

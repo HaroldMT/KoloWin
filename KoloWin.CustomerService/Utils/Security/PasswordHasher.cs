@@ -29,7 +29,7 @@ namespace KoloWin.CustomerService.Util
             return result;
         }
 
-        public static bool VerifyPassword(Poco.LoginAttempt loginAttempt, Poco.CustomerLogin customerLogin)
+        public static bool VerifyPassword(LoginAttempt loginAttempt, CustomerLogin customerLogin)
         {
             var pwdOk = VerifyHashedPassword(customerLogin.Pwd, loginAttempt.Pwd, customerLogin.PwdSalt);
             return pwdOk;

@@ -1,5 +1,4 @@
 ﻿using KoloWin.CustomerService.Util.Entities;
-using KoloWin.Poco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ namespace KoloWin.CustomerService.Util
 {
     public static class LoginHelper
     {
-        public static int DoLogin(LoginAttempt loginAttempt, KoloEntities db, out string error)
+        public static int DoLogin(ref LoginAttempt loginAttempt, KoloAndroidEntities db, out string error)
         {
             error = "";
             var refResult = new RefResult() { ResultCode = "FAIL" };
@@ -49,7 +48,7 @@ namespace KoloWin.CustomerService.Util
         }
 
 
-        public static bool DeleteLoginAttempt(int id, KoloEntities db)
+        public static bool DeleteLoginAttempt(int id, KoloAndroidEntities db)
         {
             var loginAttempt = db.LoginAttempts.Find(id);
             if (loginAttempt == null)
@@ -61,12 +60,12 @@ namespace KoloWin.CustomerService.Util
             return true;
         }
 
-        public static bool LoginAttemptExists(int id, KoloEntities db)
+        public static bool LoginAttemptExists(int id, KoloAndroidEntities db)
         {
             return db.LoginAttempts.Count(e => e.IdLoginAttempt == id) > 0;
         }
 
-        public static bool CustomerLoginExists(int id, KoloEntities db)
+        public static bool CustomerLoginExists(int id, KoloAndroidEntities db)
         {
             return db.CustomerLogins.Count(e => e.IdCustomer == id) > 0;
         }

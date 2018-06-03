@@ -4,9 +4,9 @@ namespace KoloWin.CustomerService.Utils.Transfert
 {
     public static class CustomerHistoryHelper
     {
-        public static Poco.CustomerBalanceHistory UpdateCustomerHistory(Poco.Customer customer, int amount, string transfertType)
+        public static CustomerBalanceHistory UpdateCustomerHistory(Customer customer, int amount, string transfertType)
         {
-            var cBH = new Poco.CustomerBalanceHistory();
+            var cBH = new CustomerBalanceHistory();
             if (transfertType.Contains("SEND"))
             {
                 cBH.Amount = amount;

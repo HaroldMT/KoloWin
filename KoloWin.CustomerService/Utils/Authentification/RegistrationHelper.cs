@@ -1,5 +1,4 @@
-﻿using KoloWin.Poco;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -19,14 +18,14 @@ namespace KoloWin.CustomerService.Util
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        public static bool RegistrationExists(string telephone , KoloEntities db)
+        public static bool RegistrationExists(string telephone , KoloAndroidEntities db)
         {
-            return db.Registrations.Count(r => r.PhoneNumber == telephone) > 0;
+            return db.Registrations.Any(r => r.PhoneNumber == telephone);
         }
 
-        public static bool RegistrationExists(int id, KoloEntities db)
+        public static bool RegistrationExists(int id, KoloAndroidEntities db)
         {
-            return db.Registrations.Count(e => e.IdRegistration == id) > 0;
+            return db.Registrations.Any(e => e.IdRegistration == id);
         }
 
         public static Customer CreateCustomer(Registration registration)
@@ -76,7 +75,7 @@ namespace KoloWin.CustomerService.Util
 
 
 
-        public static Registration DoRegistration(Registration registration, KoloEntities db,out string error)
+        public static Registration DoRegistration(Registration registration, KoloAndroidEntities db,out string error)
         {
             error = "";
             try
@@ -94,16 +93,20 @@ namespace KoloWin.CustomerService.Util
                     db.SaveChanges();
                     return registration;
                 }
+                else
+                {
+                    return new Registration() { IdRegistration = -10, RegistrationStatusCode = "Account arlready exists" };
+                }
             }
             catch(Exception e)
             {
                 error = ExceptionHelper.GetExceptionMessage(e);
             }
-            var reg = new Registration() { IdRegistration = -10, RegistrationStatusCode = "Account already exists" };
+            var reg = new Registration() { IdRegistration = -100, RegistrationStatusCode = error };
             return reg;
         }
 
-        public static Customer DoRegistrationConfirmation(Registration registration, KoloEntities db, out string error)
+        public static Customer DoRegistrationConfirmation(Registration registration, KoloAndroidEntities db, out string error)
         {
             var confirmationTime = DateTime.Now;
             error = "";

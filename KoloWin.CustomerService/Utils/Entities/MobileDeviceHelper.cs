@@ -6,7 +6,7 @@ namespace KoloWin.CustomerService.Util.Entities
 {
     public static class MobileDeviceHelper
     {
-        public static bool SameMobileIds(this Poco.MobileDevice myMobile, Poco.LoginAttempt loginAttempt)
+        public static bool SameMobileIds(this MobileDevice myMobile, LoginAttempt loginAttempt)
         {
             if (myMobile == null | loginAttempt == null)
             {

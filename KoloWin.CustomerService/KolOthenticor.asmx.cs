@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Script.Services;
-using System.Web.Services;
+﻿using System.Web.Services;
 using KoloWin.CustomerService.Util;
 using KoloWin.Utilities;
 
@@ -13,43 +10,69 @@ namespace KoloWin.CustomerService
     [WebService(Namespace = "http://kolo.cyberix.fr/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-
-
     public class KolOthenticor : System.Web.Services.WebService
     {
-       
         [WebMethod]
-        public Poco.Registration DoRegistration(string jsonReg)
+        public Customer DoConfirmRegistration(string jsonReg)
         {
             string error = "";
-            var inReg = SerializationHelper.DeserializeFromJsonString<Poco.Registration>(jsonReg);
-            var context = new Poco.KoloEntities();
-            var outReg = RegistrationHelper.DoRegistration(inReg, context,out error);
-            return outReg;
-        }
-
-
-
-        [WebMethod]
-        public Poco.Customer DoConfirmRegistration(string jsonReg)
-        {
-            string error = "";
-            var registration = SerializationHelper.DeserializeFromJsonString<Poco.Registration>(jsonReg);
-            var context = new KoloEntities4Serialization();
-            var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context,out error);
+            var registration = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
+            var context = new KoloAndroidEntities4Serialization();
+            var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
+            context.Dispose();
             return customer;
         }
 
-
         [WebMethod]
-        public Poco.LoginAttempt DoLogin(string jsonLogAttempt)
+        public LoginAttempt DoLogin(string jsonLogAttempt)
         {
             string error = "";
-            var logAttempt = SerializationHelper.DeserializeFromJsonString<Poco.LoginAttempt>(jsonLogAttempt);
-            var context = new Poco.KoloEntities();
-            var context4Serialization = new KoloEntities4Serialization();
-            logAttempt = context4Serialization.LoginAttempts.Find(LoginHelper.DoLogin(logAttempt, context,out error));
+            var logAttempt = SerializationHelper.DeserializeFromJsonString<LoginAttempt>(jsonLogAttempt);
+            var context = new KoloAndroidEntities4Serialization();
+            LoginHelper.DoLogin(ref logAttempt, context, out error);
+            context.Dispose();
             return logAttempt;
+        }
+
+        [WebMethod]
+        public Registration DoRegistration(string jsonReg)
+        {
+            string error = "";
+            var inReg = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
+            var context = new KoloAndroidEntities4Serialization();
+            var outReg = RegistrationHelper.DoRegistration(inReg, context, out error);
+            context.Dispose();
+            return outReg;
+        }
+
+        [WebMethod]
+        public LoginAttempt SignIn(LoginAttempt loginAttempt)
+        {
+            string error = "";
+            var context = new KoloAndroidEntities4Serialization();
+            LoginHelper.DoLogin(ref loginAttempt, context, out error);
+            context.Dispose();
+            return loginAttempt;
+        }
+
+        [WebMethod]
+        public Registration SignUp(Registration registration)
+        {
+            string error = "";
+            var context = new KoloAndroidEntities4Serialization();
+            var outReg = RegistrationHelper.DoRegistration(registration, context, out error);
+            context.Dispose();
+            return outReg;
+        }
+
+        [WebMethod]
+        public Customer SignUpVerification(Registration registration)
+        {
+            string error = "";
+            var context = new KoloAndroidEntities4Serialization();
+            var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
+            context.Dispose();
+            return customer;
         }
     }
 }
