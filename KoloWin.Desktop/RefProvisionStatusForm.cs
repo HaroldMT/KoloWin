@@ -44,8 +44,7 @@ namespace KoloWin.Desktop
             {
                 //var ProvisionStatusToCreate = refProvisionStatusBindingSource.Current as RefProvisionStatu;
                 var ProvisionStatusToCreate = new RefProvisionStatu();
-                ProvisionStatusToCreate.ProvisionStatusCode = txtprovisionStatusCodeTextEdit1.Text;
-                ProvisionStatusToCreate.ProvisionStatusDescription = txtprovisionStatusDescriptionTextEdit1.Text;
+                
                 if (ProvisionStatusToCreate == null)
                 {
                     MessageBox.Show("Status Invalide.Veuillez recommencer");
@@ -109,8 +108,7 @@ namespace KoloWin.Desktop
             try
             {
                 var ProvisionStatusToUpdate = refProvisionStatusBindingSource.Current as RefProvisionStatu;
-                ProvisionStatusToUpdate.ProvisionStatusCode = txt1provisionStatusCodeTextEdit.Text;
-                ProvisionStatusToUpdate.ProvisionStatusDescription = txt1provisionStatusDescriptionTextEdit.Text;
+                
               
                 if (ProvisionStatusToUpdate == null)
                 {

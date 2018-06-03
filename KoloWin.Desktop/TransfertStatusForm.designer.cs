@@ -28,71 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.refTransfertStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.txttransfertStatusCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.refCreateTransfertStatusBindingSource = new System.Windows.Forms.BindingSource();
+            this.txttransfertStatusDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.transfertStatusCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.refTransfertStatusBindingSource = new System.Windows.Forms.BindingSource();
+            this.transfertStatusDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refTransfertStatusGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTransfertStatusCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTransfertStatusDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.transfertStatusCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.transfertStatusDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txttransfertStatusCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.txttransfertStatusDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.refCreateTransfertStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
+            this.dataLayoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusCodeTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refCreateTransfertStatusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusDescriptionTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusCodeTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refTransfertStatusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusDescriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refTransfertStatusGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusCodeTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusDescriptionTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
-            this.dataLayoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusCodeTextEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusDescriptionTextEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refCreateTransfertStatusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -112,19 +111,119 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // layoutControlGroup1
+            // dataLayoutControl2
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.tabbedControlGroup1});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(468, 335);
-            this.layoutControlGroup1.TextVisible = false;
+            this.dataLayoutControl2.Controls.Add(this.txttransfertStatusCodeTextEdit1);
+            this.dataLayoutControl2.Controls.Add(this.txttransfertStatusDescriptionTextEdit1);
+            this.dataLayoutControl2.Controls.Add(this.btnCreate);
+            this.dataLayoutControl2.Location = new System.Drawing.Point(24, 46);
+            this.dataLayoutControl2.Name = "dataLayoutControl2";
+            this.dataLayoutControl2.Root = this.Root;
+            this.dataLayoutControl2.Size = new System.Drawing.Size(420, 265);
+            this.dataLayoutControl2.TabIndex = 9;
+            this.dataLayoutControl2.Text = "dataLayoutControl2";
+            // 
+            // txttransfertStatusCodeTextEdit1
+            // 
+            this.txttransfertStatusCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreateTransfertStatusBindingSource, "TransfertStatusCode", true));
+            this.txttransfertStatusCodeTextEdit1.Location = new System.Drawing.Point(72, 12);
+            this.txttransfertStatusCodeTextEdit1.Name = "txttransfertStatusCodeTextEdit1";
+            this.txttransfertStatusCodeTextEdit1.Size = new System.Drawing.Size(136, 20);
+            this.txttransfertStatusCodeTextEdit1.StyleController = this.dataLayoutControl2;
+            this.txttransfertStatusCodeTextEdit1.TabIndex = 5;
+            // 
+            // refCreateTransfertStatusBindingSource
+            // 
+            this.refCreateTransfertStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefTransfertStatu);
+            // 
+            // txttransfertStatusDescriptionTextEdit1
+            // 
+            this.txttransfertStatusDescriptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreateTransfertStatusBindingSource, "TransfertStatusDescription", true));
+            this.txttransfertStatusDescriptionTextEdit1.Location = new System.Drawing.Point(272, 12);
+            this.txttransfertStatusDescriptionTextEdit1.Name = "txttransfertStatusDescriptionTextEdit1";
+            this.txttransfertStatusDescriptionTextEdit1.Size = new System.Drawing.Size(136, 20);
+            this.txttransfertStatusDescriptionTextEdit1.StyleController = this.dataLayoutControl2;
+            this.txttransfertStatusDescriptionTextEdit1.TabIndex = 7;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(312, 36);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(96, 22);
+            this.btnCreate.StyleController = this.dataLayoutControl2;
+            this.btnCreate.TabIndex = 8;
+            this.btnCreate.Text = "Enregistrer";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem6,
+            this.layoutControlItem8,
+            this.layoutControlItem4,
+            this.emptySpaceItem1});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(420, 265);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.txttransfertStatusCodeTextEdit1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(200, 245);
+            this.layoutControlItem6.Text = "Code:";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.txttransfertStatusDescriptionTextEdit1;
+            this.layoutControlItem8.Location = new System.Drawing.Point(200, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(200, 24);
+            this.layoutControlItem8.Text = "Description:";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnCreate;
+            this.layoutControlItem4.Location = new System.Drawing.Point(300, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(100, 221);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(200, 24);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(100, 221);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // transfertStatusCodeTextEdit
+            // 
+            this.transfertStatusCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refTransfertStatusBindingSource, "TransfertStatusCode", true));
+            this.transfertStatusCodeTextEdit.Location = new System.Drawing.Point(96, 253);
+            this.transfertStatusCodeTextEdit.Name = "transfertStatusCodeTextEdit";
+            this.transfertStatusCodeTextEdit.Size = new System.Drawing.Size(110, 20);
+            this.transfertStatusCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.transfertStatusCodeTextEdit.TabIndex = 6;
             // 
             // refTransfertStatusBindingSource
             // 
             this.refTransfertStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefTransfertStatu);
+            // 
+            // transfertStatusDescriptionTextEdit
+            // 
+            this.transfertStatusDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refTransfertStatusBindingSource, "TransfertStatusDescription", true));
+            this.transfertStatusDescriptionTextEdit.Location = new System.Drawing.Point(270, 253);
+            this.transfertStatusDescriptionTextEdit.Name = "transfertStatusDescriptionTextEdit";
+            this.transfertStatusDescriptionTextEdit.Size = new System.Drawing.Size(162, 20);
+            this.transfertStatusDescriptionTextEdit.StyleController = this.dataLayoutControl1;
+            this.transfertStatusDescriptionTextEdit.TabIndex = 8;
             // 
             // refTransfertStatusGridControl
             // 
@@ -159,62 +258,52 @@
             this.colTransfertStatusDescription.Visible = true;
             this.colTransfertStatusDescription.VisibleIndex = 1;
             // 
-            // transfertStatusCodeTextEdit
+            // btnRefresh
             // 
-            this.transfertStatusCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refTransfertStatusBindingSource, "TransfertStatusCode", true));
-            this.transfertStatusCodeTextEdit.Location = new System.Drawing.Point(97, 253);
-            this.transfertStatusCodeTextEdit.Name = "transfertStatusCodeTextEdit";
-            this.transfertStatusCodeTextEdit.Size = new System.Drawing.Size(109, 20);
-            this.transfertStatusCodeTextEdit.StyleController = this.dataLayoutControl1;
-            this.transfertStatusCodeTextEdit.TabIndex = 6;
+            this.btnRefresh.Location = new System.Drawing.Point(210, 277);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(83, 22);
+            this.btnRefresh.StyleController = this.dataLayoutControl1;
+            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.Text = "Actualiser";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // transfertStatusDescriptionTextEdit
+            // btnDelete
             // 
-            this.transfertStatusDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refTransfertStatusBindingSource, "TransfertStatusDescription", true));
-            this.transfertStatusDescriptionTextEdit.Location = new System.Drawing.Point(271, 253);
-            this.transfertStatusDescriptionTextEdit.Name = "transfertStatusDescriptionTextEdit";
-            this.transfertStatusDescriptionTextEdit.Size = new System.Drawing.Size(161, 20);
-            this.transfertStatusDescriptionTextEdit.StyleController = this.dataLayoutControl1;
-            this.transfertStatusDescriptionTextEdit.TabIndex = 8;
+            this.btnDelete.Location = new System.Drawing.Point(297, 277);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(66, 22);
+            this.btnDelete.StyleController = this.dataLayoutControl1;
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Supprimer";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // layoutControlItem3
+            // btnSave
             // 
-            this.layoutControlItem3.Control = this.transfertStatusCodeTextEdit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(174, 24);
-            this.layoutControlItem3.Text = "Code:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(57, 13);
+            this.btnSave.Location = new System.Drawing.Point(367, 277);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(65, 22);
+            this.btnSave.StyleController = this.dataLayoutControl1;
+            this.btnSave.TabIndex = 12;
+            this.btnSave.Text = "Enregistrer";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // layoutControlItem5
+            // layoutControlGroup1
             // 
-            this.layoutControlItem5.Control = this.transfertStatusDescriptionTextEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(174, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(226, 24);
-            this.layoutControlItem5.Text = "Description:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem5,
-            this.emptySpaceItem2,
-            this.layoutControlItem7,
-            this.layoutControlItem9,
-            this.layoutControlItem10});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 177);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(424, 92);
-            this.layoutControlGroup2.Text = "Details";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.tabbedControlGroup1});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(468, 335);
+            this.layoutControlGroup1.TextVisible = false;
             // 
             // tabbedControlGroup1
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup4;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(448, 315);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup3,
@@ -239,111 +328,37 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlGroup4
+            // layoutControlGroup2
             // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(424, 269);
-            this.layoutControlGroup4.Text = "Creer Nouveau Status Transfert";
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem5,
+            this.emptySpaceItem2,
+            this.layoutControlItem7,
+            this.layoutControlItem9,
+            this.layoutControlItem10});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 177);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(424, 92);
+            this.layoutControlGroup2.Text = "Details";
             // 
-            // dataLayoutControl2
+            // layoutControlItem3
             // 
-            this.dataLayoutControl2.Controls.Add(this.txttransfertStatusCodeTextEdit1);
-            this.dataLayoutControl2.Controls.Add(this.txttransfertStatusDescriptionTextEdit1);
-            this.dataLayoutControl2.Controls.Add(this.btnCreate);
-            this.dataLayoutControl2.Location = new System.Drawing.Point(24, 46);
-            this.dataLayoutControl2.Name = "dataLayoutControl2";
-            this.dataLayoutControl2.Root = this.Root;
-            this.dataLayoutControl2.Size = new System.Drawing.Size(420, 265);
-            this.dataLayoutControl2.TabIndex = 9;
-            this.dataLayoutControl2.Text = "dataLayoutControl2";
+            this.layoutControlItem3.Control = this.transfertStatusCodeTextEdit;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(174, 24);
+            this.layoutControlItem3.Text = "Code:";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(57, 13);
             // 
-            // layoutControlItem2
+            // layoutControlItem5
             // 
-            this.layoutControlItem2.Control = this.dataLayoutControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(424, 269);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem6,
-            this.layoutControlItem8,
-            this.layoutControlItem4,
-            this.emptySpaceItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(420, 265);
-            this.Root.TextVisible = false;
-            // 
-            // txttransfertStatusCodeTextEdit1
-            // 
-            this.txttransfertStatusCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreateTransfertStatusBindingSource, "TransfertStatusCode", true));
-            this.txttransfertStatusCodeTextEdit1.Location = new System.Drawing.Point(73, 12);
-            this.txttransfertStatusCodeTextEdit1.Name = "txttransfertStatusCodeTextEdit1";
-            this.txttransfertStatusCodeTextEdit1.Size = new System.Drawing.Size(135, 20);
-            this.txttransfertStatusCodeTextEdit1.StyleController = this.dataLayoutControl2;
-            this.txttransfertStatusCodeTextEdit1.TabIndex = 5;
-            // 
-            // txttransfertStatusDescriptionTextEdit1
-            // 
-            this.txttransfertStatusDescriptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreateTransfertStatusBindingSource, "TransfertStatusDescription", true));
-            this.txttransfertStatusDescriptionTextEdit1.Location = new System.Drawing.Point(273, 12);
-            this.txttransfertStatusDescriptionTextEdit1.Name = "txttransfertStatusDescriptionTextEdit1";
-            this.txttransfertStatusDescriptionTextEdit1.Size = new System.Drawing.Size(135, 20);
-            this.txttransfertStatusDescriptionTextEdit1.StyleController = this.dataLayoutControl2;
-            this.txttransfertStatusDescriptionTextEdit1.TabIndex = 7;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.txttransfertStatusCodeTextEdit1;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(200, 245);
-            this.layoutControlItem6.Text = "Code:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.txttransfertStatusDescriptionTextEdit1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(200, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(200, 24);
-            this.layoutControlItem8.Text = "Description:";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(200, 24);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(100, 221);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(312, 36);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(96, 22);
-            this.btnCreate.StyleController = this.dataLayoutControl2;
-            this.btnCreate.TabIndex = 8;
-            this.btnCreate.Text = "Enregistrer";
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnCreate;
-            this.layoutControlItem4.Location = new System.Drawing.Point(300, 24);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(100, 221);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.layoutControlItem5.Control = this.transfertStatusDescriptionTextEdit;
+            this.layoutControlItem5.Location = new System.Drawing.Point(174, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(226, 24);
+            this.layoutControlItem5.Text = "Description:";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(57, 13);
             // 
             // emptySpaceItem2
             // 
@@ -352,16 +367,6 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(174, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(210, 277);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(83, 22);
-            this.btnRefresh.StyleController = this.dataLayoutControl1;
-            this.btnRefresh.TabIndex = 10;
-            this.btnRefresh.Text = "Actualiser";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // layoutControlItem7
             // 
@@ -372,16 +377,6 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(297, 277);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(66, 22);
-            this.btnDelete.StyleController = this.dataLayoutControl1;
-            this.btnDelete.TabIndex = 11;
-            this.btnDelete.Text = "Supprimer";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btnDelete;
@@ -390,16 +385,6 @@
             this.layoutControlItem9.Size = new System.Drawing.Size(70, 26);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(367, 277);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 22);
-            this.btnSave.StyleController = this.dataLayoutControl1;
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Enregistrer";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // layoutControlItem10
             // 
@@ -410,9 +395,23 @@
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
-            // refCreateTransfertStatusBindingSource
+            // layoutControlGroup4
             // 
-            this.refCreateTransfertStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefTransfertStatu);
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(424, 269);
+            this.layoutControlGroup4.Text = "Creer Nouveau Status Transfert";
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.dataLayoutControl2;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(424, 269);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // TransfertStatusForm
             // 
@@ -425,34 +424,34 @@
             this.Load += new System.EventHandler(this.TransfertStatusForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
+            this.dataLayoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusCodeTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refCreateTransfertStatusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusDescriptionTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusCodeTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refTransfertStatusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusDescriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refTransfertStatusGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusCodeTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transfertStatusDescriptionTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
-            this.dataLayoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusCodeTextEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txttransfertStatusDescriptionTextEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refCreateTransfertStatusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }

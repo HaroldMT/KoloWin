@@ -42,10 +42,8 @@ namespace KoloWin.Desktop
         {
             try
             {
-                var OperationStatusToCreate = new RefOperationStatu();
-                OperationStatusToCreate.OperationStatusCode = txt2operationStatusCodeTextEdit1.Text;
-                OperationStatusToCreate.OperationStatusDescription = txt2operationStatusDescriptionTextEdit1.Text;
-
+                var OperationStatusToCreate = refCreateOperationStatusBindingSource.Current as RefOperationStatu;
+               
                 if (OperationStatusToCreate == null)
                 {
                     MessageBox.Show("Status D'Operation Invalide.Veuillez recommencer");
@@ -110,8 +108,7 @@ namespace KoloWin.Desktop
             try
             {
                 var OperationStatusToUpdate = refOperationStatusBindingSource.Current as RefOperationStatu;
-                OperationStatusToUpdate.OperationStatusCode = txtoperationStatusCodeTextEdit.Text;
-                OperationStatusToUpdate.OperationStatusDescription = txtoperationStatusDescriptionTextEdit.Text;
+                
                 if (OperationStatusToUpdate == null)
                 {
                     MessageBox.Show("Aucun statut sélectionnée, l'opération ne peut continuer");

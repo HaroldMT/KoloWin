@@ -146,6 +146,12 @@
       <DependentUpon>CustomerLoginForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="KoloContextHelper.cs" />
+    <Compile Include="KoloUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KoloUserForm.Designer.cs">
+      <DependentUpon>KoloUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="KoloWinbackOffriceForm3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerLoginForm2.resx">
       <DependentUpon>CustomerLoginForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KoloUserForm.resx">
+      <DependentUpon>KoloUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KoloWinbackOffriceForm3.resx">
       <DependentUpon>KoloWinbackOffriceForm3.cs</DependentUpon>

@@ -31,24 +31,21 @@ namespace KoloWin.Desktop
                 public RefGendersForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
         private void RefGendersForm_Load(object sender, EventArgs e)
         {
-
+            btnActualiser_Click(null, null);
         }
 
-        private void refGendersGridControl_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         //Lorsqu'on clique sur le bouton actualiser
         private void btnActualiser_Click(object sender, EventArgs e)
         {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refGendersBindingSource.DataSource = new RefGender();
-            refGendersBindingSource.ResetBindings(false);
+            RefGenderCreerbindingSource.DataSource = new RefGender();
+            RefGenderCreerbindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);
@@ -123,6 +120,7 @@ namespace KoloWin.Desktop
                 {
                     Context.AddToRefGenders(genderToCreate);
                     Context.SaveChanges();
+                    RefGenderCreerbindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)

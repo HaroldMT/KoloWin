@@ -40,9 +40,8 @@ namespace KoloWin.Desktop
         {
             try
             {
-                var OperationTypeToCreate = new RefOperationType();
-                OperationTypeToCreate.OperationTypeCode = txt2operationTypeCodeTextEdit1.Text;
-                OperationTypeToCreate.OperationTypeName = txt2operationTypeNameTextEdit1.Text;
+                var OperationTypeToCreate = refCreateOperationTypesBindingSource.Current as RefOperationType;
+                
 
                 if (OperationTypeToCreate == null)
                 {
@@ -96,9 +95,9 @@ namespace KoloWin.Desktop
 
             var refOperationType = KoloContextHelper.Context.RefOperationTypes.ToList();
 
-            refCreateOperationTypesBindingSource.DataSource = refOperationType;
+            refOperationTypesBindingSource.DataSource = refOperationType;
 
-            refCreateOperationTypesBindingSource.ResetBindings(false);
+            refOperationTypesBindingSource.ResetBindings(false);
 
             var nb = refOperationType.Count;
             MessageBox.Show(nb.ToString() + " operation(s) téléchargées");

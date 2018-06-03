@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txt2maritalStatusCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.refMaritalStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refCreateMaritalStatusBindingSource = new System.Windows.Forms.BindingSource();
             this.txt2maritalStatusDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.txtmaritalStatusCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.refMaritalStatusBindingSource = new System.Windows.Forms.BindingSource();
             this.txtmaritalStatusDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refMaritalStatusGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -59,13 +59,13 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.refCreateMaritalStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt2maritalStatusCodeTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refCreateMaritalStatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt2maritalStatusDescriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmaritalStatusCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmaritalStatusDescriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -85,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refCreateMaritalStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -112,20 +111,20 @@
             this.txt2maritalStatusCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreateMaritalStatusBindingSource, "MaritalStatusCode", true));
             this.txt2maritalStatusCodeTextEdit.Location = new System.Drawing.Point(153, 46);
             this.txt2maritalStatusCodeTextEdit.Name = "txt2maritalStatusCodeTextEdit";
-            this.txt2maritalStatusCodeTextEdit.Size = new System.Drawing.Size(163, 20);
+            this.txt2maritalStatusCodeTextEdit.Size = new System.Drawing.Size(181, 20);
             this.txt2maritalStatusCodeTextEdit.StyleController = this.dataLayoutControl1;
             this.txt2maritalStatusCodeTextEdit.TabIndex = 13;
             // 
-            // refMaritalStatusBindingSource
+            // refCreateMaritalStatusBindingSource
             // 
-            this.refMaritalStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefMaritalStatu);
+            this.refCreateMaritalStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefMaritalStatu);
             // 
             // txt2maritalStatusDescriptionTextEdit
             // 
             this.txt2maritalStatusDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreateMaritalStatusBindingSource, "MaritalStatusDescription", true));
-            this.txt2maritalStatusDescriptionTextEdit.Location = new System.Drawing.Point(449, 46);
+            this.txt2maritalStatusDescriptionTextEdit.Location = new System.Drawing.Point(467, 46);
             this.txt2maritalStatusDescriptionTextEdit.Name = "txt2maritalStatusDescriptionTextEdit";
-            this.txt2maritalStatusDescriptionTextEdit.Size = new System.Drawing.Size(164, 20);
+            this.txt2maritalStatusDescriptionTextEdit.Size = new System.Drawing.Size(146, 20);
             this.txt2maritalStatusDescriptionTextEdit.StyleController = this.dataLayoutControl1;
             this.txt2maritalStatusDescriptionTextEdit.TabIndex = 15;
             // 
@@ -139,6 +138,10 @@
             this.txtmaritalStatusCodeTextEdit.Size = new System.Drawing.Size(133, 20);
             this.txtmaritalStatusCodeTextEdit.StyleController = this.dataLayoutControl1;
             this.txtmaritalStatusCodeTextEdit.TabIndex = 6;
+            // 
+            // refMaritalStatusBindingSource
+            // 
+            this.refMaritalStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefMaritalStatu);
             // 
             // txtmaritalStatusDescriptionTextEdit
             // 
@@ -214,9 +217,9 @@
             // 
             // BtnCreer
             // 
-            this.BtnCreer.Location = new System.Drawing.Point(468, 70);
+            this.BtnCreer.Location = new System.Drawing.Point(470, 70);
             this.BtnCreer.Name = "BtnCreer";
-            this.BtnCreer.Size = new System.Drawing.Size(145, 22);
+            this.BtnCreer.Size = new System.Drawing.Size(143, 22);
             this.BtnCreer.StyleController = this.dataLayoutControl1;
             this.BtnCreer.TabIndex = 16;
             this.BtnCreer.Text = "Enregistrer";
@@ -236,8 +239,8 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup1.SelectedTabPage = this.GridStatMatri;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(617, 389);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.GridStatMatri,
@@ -260,33 +263,33 @@
             this.layoutControlItem8.Control = this.txt2maritalStatusCodeTextEdit;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(296, 343);
+            this.layoutControlItem8.Size = new System.Drawing.Size(314, 343);
             this.layoutControlItem8.Text = "Marital Status Code:";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(126, 13);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txt2maritalStatusDescriptionTextEdit;
-            this.layoutControlItem10.Location = new System.Drawing.Point(296, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(314, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(297, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(279, 24);
             this.layoutControlItem10.Text = "Marital Status Description:";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(126, 13);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(296, 24);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(314, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(148, 319);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(132, 319);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.BtnCreer;
-            this.layoutControlItem7.Location = new System.Drawing.Point(444, 24);
+            this.layoutControlItem7.Location = new System.Drawing.Point(446, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(149, 319);
+            this.layoutControlItem7.Size = new System.Drawing.Size(147, 319);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -376,10 +379,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // refCreateMaritalStatusBindingSource
-            // 
-            this.refCreateMaritalStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefMaritalStatu);
-            // 
             // RefMaritalStatusTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,9 +391,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txt2maritalStatusCodeTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refCreateMaritalStatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt2maritalStatusDescriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmaritalStatusCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmaritalStatusDescriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -414,7 +414,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refCreateMaritalStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -6,5 +6,133 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="KoloEntities" Identifier="KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ProviderType="Microsoft.VisualStudio.DataDesign.DataSourceProviders.Astoria.AstoriaDataSourceProvider" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <Children>
+      <GenericObjectDataSource DisplayName="KoloUser" Identifier="KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ProviderType="Microsoft.VisualStudio.DataDesign.DataSourceProviders.Astoria.AstoriaDataSourceProvider" Version="1.0">
+         <TypeInfo>KoloWin.Desktop.KoloGateway.KoloUser, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="EmailAddressVerified">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="LoginStatusCode">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="NumberVerified">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="PwdSalt">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="RecoveryToken">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="RecoveryTokenExpiryDate">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="UserLogin">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="Person" Identifier="KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ProviderType="Microsoft.VisualStudio.DataDesign.DataSourceProviders.Astoria.AstoriaDataSourceProvider" Version="1.0">
+         <TypeInfo>KoloWin.Desktop.KoloGateway.Person, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="DateCreated">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="IdCustomer">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="KoloEntities.KoloUsers.Person">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="GridLookUpEdit" Type="DevExpress.XtraEditors.GridLookUpEdit" AssemblyName="DevExpress.XtraGrid.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Frameworks=".NETFramework,Version=v4.0;.NETFramework,Version=v4.6.2" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="RefGender" Identifier="KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ProviderType="Microsoft.VisualStudio.DataDesign.DataSourceProviders.Astoria.AstoriaDataSourceProvider" Version="1.0">
+         <TypeInfo>KoloWin.Desktop.KoloGateway.RefGender, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="KoloEntities.KoloUsers.Person.RefGender">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="LookUpEdit" Type="DevExpress.XtraEditors.LookUpEdit" AssemblyName="DevExpress.XtraEditors.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Frameworks=".NETFramework,Version=v4.0;.NETFramework,Version=v4.6.2" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="RefLoginStatu" Identifier="KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ProviderType="Microsoft.VisualStudio.DataDesign.DataSourceProviders.Astoria.AstoriaDataSourceProvider" Version="1.0">
+         <TypeInfo>KoloWin.Desktop.KoloGateway.RefLoginStatu, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="KoloEntities.KoloUsers.RefLoginStatu">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="RefMaritalStatu" Identifier="KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ProviderType="Microsoft.VisualStudio.DataDesign.DataSourceProviders.Astoria.AstoriaDataSourceProvider" Version="1.0">
+         <TypeInfo>KoloWin.Desktop.KoloGateway.RefMaritalStatu, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="KoloEntities.KoloUsers.Person.RefMaritalStatu">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="LookUpEdit" Type="DevExpress.XtraEditors.LookUpEdit" AssemblyName="DevExpress.XtraEditors.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Frameworks=".NETFramework,Version=v4.0;.NETFramework,Version=v4.6.2" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+   </Children>
    <TypeInfo>KoloWin.Desktop.KoloGateway.KoloEntities, Service References.KoloGateway.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

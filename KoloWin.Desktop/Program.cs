@@ -16,7 +16,7 @@ namespace KoloWin.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RecoveryCustomerLoginForm());
+            Application.Run(new KoloUserForm());
         }
     }
 }

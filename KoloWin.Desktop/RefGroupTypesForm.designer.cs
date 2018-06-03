@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.groupTypeCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.refCreerGroupTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refCreerGroupTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.groupTypeDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -41,7 +40,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.refGroupTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refGroupTypesBindingSource = new System.Windows.Forms.BindingSource();
             this.groupTypeDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refGroupTypesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,8 +51,6 @@
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -63,6 +60,8 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
@@ -82,8 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -93,6 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -129,7 +128,7 @@
             this.groupTypeCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerGroupTypesBindingSource, "GroupTypeCode", true));
             this.groupTypeCodeTextEdit1.Location = new System.Drawing.Point(68, 12);
             this.groupTypeCodeTextEdit1.Name = "groupTypeCodeTextEdit1";
-            this.groupTypeCodeTextEdit1.Size = new System.Drawing.Size(221, 20);
+            this.groupTypeCodeTextEdit1.Size = new System.Drawing.Size(191, 20);
             this.groupTypeCodeTextEdit1.StyleController = this.dataLayoutControl2;
             this.groupTypeCodeTextEdit1.TabIndex = 5;
             // 
@@ -140,17 +139,17 @@
             // groupTypeDescriptionTextEdit1
             // 
             this.groupTypeDescriptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerGroupTypesBindingSource, "GroupTypeDescription", true));
-            this.groupTypeDescriptionTextEdit1.Location = new System.Drawing.Point(349, 12);
+            this.groupTypeDescriptionTextEdit1.Location = new System.Drawing.Point(319, 12);
             this.groupTypeDescriptionTextEdit1.Name = "groupTypeDescriptionTextEdit1";
-            this.groupTypeDescriptionTextEdit1.Size = new System.Drawing.Size(222, 20);
+            this.groupTypeDescriptionTextEdit1.Size = new System.Drawing.Size(252, 20);
             this.groupTypeDescriptionTextEdit1.StyleController = this.dataLayoutControl2;
             this.groupTypeDescriptionTextEdit1.TabIndex = 7;
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(355, 36);
+            this.simpleButton4.Location = new System.Drawing.Point(479, 36);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(216, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(92, 22);
             this.simpleButton4.StyleController = this.dataLayoutControl2;
             this.simpleButton4.TabIndex = 8;
             this.simpleButton4.Text = "Creer";
@@ -174,7 +173,7 @@
             this.layoutControlItem9.Control = this.groupTypeCodeTextEdit1;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(281, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(251, 24);
             this.layoutControlItem9.Text = "Code";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(53, 13);
             // 
@@ -183,15 +182,15 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(343, 323);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(467, 323);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.simpleButton4;
-            this.layoutControlItem7.Location = new System.Drawing.Point(343, 24);
+            this.layoutControlItem7.Location = new System.Drawing.Point(467, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(220, 323);
+            this.layoutControlItem7.Size = new System.Drawing.Size(96, 323);
             this.layoutControlItem7.Text = "Creer";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
@@ -199,9 +198,9 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.groupTypeDescriptionTextEdit1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(281, 0);
+            this.layoutControlItem11.Location = new System.Drawing.Point(251, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(282, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(312, 24);
             this.layoutControlItem11.Text = "Description";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(53, 13);
             // 
@@ -210,7 +209,7 @@
             this.groupTypeCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refGroupTypesBindingSource, "GroupTypeCode", true));
             this.groupTypeCodeTextEdit.Location = new System.Drawing.Point(92, 355);
             this.groupTypeCodeTextEdit.Name = "groupTypeCodeTextEdit";
-            this.groupTypeCodeTextEdit.Size = new System.Drawing.Size(220, 20);
+            this.groupTypeCodeTextEdit.Size = new System.Drawing.Size(234, 20);
             this.groupTypeCodeTextEdit.StyleController = this.dataLayoutControl1;
             this.groupTypeCodeTextEdit.TabIndex = 9;
             // 
@@ -221,9 +220,9 @@
             // groupTypeDescriptionTextEdit
             // 
             this.groupTypeDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refGroupTypesBindingSource, "GroupTypeDescription", true));
-            this.groupTypeDescriptionTextEdit.Location = new System.Drawing.Point(372, 355);
+            this.groupTypeDescriptionTextEdit.Location = new System.Drawing.Point(386, 355);
             this.groupTypeDescriptionTextEdit.Name = "groupTypeDescriptionTextEdit";
-            this.groupTypeDescriptionTextEdit.Size = new System.Drawing.Size(223, 20);
+            this.groupTypeDescriptionTextEdit.Size = new System.Drawing.Size(209, 20);
             this.groupTypeDescriptionTextEdit.StyleController = this.dataLayoutControl1;
             this.groupTypeDescriptionTextEdit.TabIndex = 11;
             // 
@@ -306,30 +305,12 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(611, 417);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
             this.layoutControlGroup3});
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem5});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(587, 371);
-            this.layoutControlGroup3.Text = "Creer un nouveau type de groupe";
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.dataLayoutControl2;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(587, 371);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
@@ -386,16 +367,16 @@
             this.layoutControlItem6.Control = this.groupTypeCodeTextEdit;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(280, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(294, 24);
             this.layoutControlItem6.Text = "Code";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(53, 13);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.groupTypeDescriptionTextEdit;
-            this.layoutControlItem8.Location = new System.Drawing.Point(280, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(294, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(283, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(269, 24);
             this.layoutControlItem8.Text = "Description";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(53, 13);
             // 
@@ -416,6 +397,24 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(75, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem5});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(587, 371);
+            this.layoutControlGroup3.Text = "Creer un nouveau type de groupe";
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.dataLayoutControl2;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(587, 371);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // RefGroupTypesForm
             // 
@@ -444,8 +443,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -455,6 +452,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
