@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
+using KoloWin.CustomerService.Util;
+using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
 
 namespace KoloWin.CustomerService
@@ -46,6 +48,17 @@ namespace KoloWin.CustomerService
         public MyRefTypes TestService(MyRefTypes myRefTypes)
         {
             return myRefTypes;
+        }
+
+        [WebMethod]
+        public MobileDevice InsertMobileDevice(string jsonMobileDevice)
+        {
+            string error = "";
+            MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
+            var context = new KoloAndroidEntities4Serialization();
+            mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out  error);
+            context.Dispose();
+            return mobileDevice;
         }
     }
 }

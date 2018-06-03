@@ -2169,7 +2169,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdDistrict" Type="Int32" />
-          <NavigationProperty Name="Adresses" Relationship="Self.fk_Adresse_City" FromRole="City" ToRole="Adresse" />
           <NavigationProperty Name="Country" Relationship="Self.fk_City" FromRole="City" ToRole="Country" />
           <NavigationProperty Name="District" Relationship="Self.fk_City_0" FromRole="City" ToRole="District" />
         </EntityType>

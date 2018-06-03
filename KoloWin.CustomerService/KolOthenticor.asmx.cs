@@ -1,4 +1,5 @@
-﻿using System.Web.Services;
+﻿using System;
+using System.Web.Services;
 using KoloWin.CustomerService.Util;
 using KoloWin.Utilities;
 
@@ -13,38 +14,38 @@ namespace KoloWin.CustomerService
     public class KolOthenticor : System.Web.Services.WebService
     {
         [WebMethod]
-        public Customer DoConfirmRegistration(string jsonReg)
+        public string DoConfirmRegistration(string jsonReg)
         {
             string error = "";
             var registration = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
             var context = new KoloAndroidEntities4Serialization();
             var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
             context.Dispose();
-            return customer;
+            return SerializationHelper.SerializeToJson(customer);
         }
 
         [WebMethod]
-        public LoginAttempt DoLogin(string jsonLogAttempt)
+        public string DoLogin(string jsonLogAttempt)
         {
             string error = "";
             var logAttempt = SerializationHelper.DeserializeFromJsonString<LoginAttempt>(jsonLogAttempt);
             var context = new KoloAndroidEntities4Serialization();
             LoginHelper.DoLogin(ref logAttempt, context, out error);
             context.Dispose();
-            return logAttempt;
+            return SerializationHelper.SerializeToJson(logAttempt);
         }
 
         [WebMethod]
-        public Registration DoRegistration(string jsonReg)
+        public string DoRegistration(string jsonReg)
         {
             string error = "";
             var inReg = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
             var context = new KoloAndroidEntities4Serialization();
             var outReg = RegistrationHelper.DoRegistration(inReg, context, out error);
             context.Dispose();
-            return outReg;
+            return SerializationHelper.SerializeToJson(outReg);
         }
-
+        
         [WebMethod]
         public LoginAttempt SignIn(LoginAttempt loginAttempt)
         {
@@ -74,5 +75,15 @@ namespace KoloWin.CustomerService
             context.Dispose();
             return customer;
         }
+
+        //override
+        //public String ToString()
+        //{
+        //    if(this.GetType() == typeof(DateTime))
+        //    {
+        //        return ToString("yyyy-MM-dd hh:mm:ss");
+        //    }
+        //return ToString();
+        //}
     }
 }
