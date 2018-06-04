@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.TxtgenderCode = new DevExpress.XtraEditors.TextEdit();
-            this.refGendersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refGendersBindingSource = new System.Windows.Forms.BindingSource();
             this.refGendersGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,11 +44,6 @@
             this.btnCreer = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -59,7 +53,12 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.RefGenderCreerbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.RefGenderCreerbindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtgenderCode.Properties)).BeginInit();
@@ -71,11 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtgenderdescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
@@ -85,6 +79,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefGenderCreerbindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +111,7 @@
             this.TxtgenderCode.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refGendersBindingSource, "GenderCode", true));
             this.TxtgenderCode.Location = new System.Drawing.Point(80, 46);
             this.TxtgenderCode.Name = "TxtgenderCode";
-            this.TxtgenderCode.Size = new System.Drawing.Size(230, 20);
+            this.TxtgenderCode.Size = new System.Drawing.Size(149, 20);
             this.TxtgenderCode.StyleController = this.layoutControl1;
             this.TxtgenderCode.TabIndex = 12;
             // 
@@ -130,7 +129,7 @@
             this.refGendersGridControl.TabIndex = 4;
             this.refGendersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.refGendersGridControl.Click += new System.EventHandler(this.refGendersGridControl_Click);
+            //this.refGendersGridControl.Click += new System.EventHandler(this.refGendersGridControl_Click);
             // 
             // gridView1
             // 
@@ -202,17 +201,17 @@
             // 
             // txtgenderdescription
             // 
-            this.txtgenderdescription.Location = new System.Drawing.Point(370, 46);
+            this.txtgenderdescription.Location = new System.Drawing.Point(289, 46);
             this.txtgenderdescription.Name = "txtgenderdescription";
-            this.txtgenderdescription.Size = new System.Drawing.Size(321, 20);
+            this.txtgenderdescription.Size = new System.Drawing.Size(402, 20);
             this.txtgenderdescription.StyleController = this.layoutControl1;
             this.txtgenderdescription.TabIndex = 13;
             // 
             // btnCreer
             // 
-            this.btnCreer.Location = new System.Drawing.Point(432, 70);
+            this.btnCreer.Location = new System.Drawing.Point(581, 70);
             this.btnCreer.Name = "btnCreer";
-            this.btnCreer.Size = new System.Drawing.Size(259, 22);
+            this.btnCreer.Size = new System.Drawing.Size(110, 22);
             this.btnCreer.StyleController = this.layoutControl1;
             this.btnCreer.TabIndex = 14;
             this.btnCreer.Text = "Creer";
@@ -232,59 +231,12 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(695, 404);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
             this.layoutControlGroup3});
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem9,
-            this.emptySpaceItem2,
-            this.layoutControlItem8,
-            this.layoutControlItem7});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(671, 358);
-            this.layoutControlGroup3.Text = "Creer un nouveau genre";
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.TxtgenderCode;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(290, 24);
-            this.layoutControlItem9.Text = "Code";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(53, 13);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(408, 334);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.btnCreer;
-            this.layoutControlItem8.Location = new System.Drawing.Point(408, 24);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(263, 334);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.txtgenderdescription;
-            this.layoutControlItem7.Location = new System.Drawing.Point(290, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(381, 24);
-            this.layoutControlItem7.Text = "Description";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(53, 13);
             // 
             // layoutControlGroup2
             // 
@@ -372,6 +324,53 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem9,
+            this.emptySpaceItem2,
+            this.layoutControlItem8,
+            this.layoutControlItem7});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(671, 358);
+            this.layoutControlGroup3.Text = "Creer un nouveau genre";
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.TxtgenderCode;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(209, 24);
+            this.layoutControlItem9.Text = "Code";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(53, 13);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(557, 334);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.btnCreer;
+            this.layoutControlItem8.Location = new System.Drawing.Point(557, 24);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(114, 334);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.txtgenderdescription;
+            this.layoutControlItem7.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(462, 24);
+            this.layoutControlItem7.Text = "Description";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(53, 13);
+            // 
             // RefGenderCreerbindingSource
             // 
             this.RefGenderCreerbindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefGender);
@@ -396,11 +395,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtgenderdescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
@@ -410,6 +404,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefGenderCreerbindingSource)).EndInit();
             this.ResumeLayout(false);
 

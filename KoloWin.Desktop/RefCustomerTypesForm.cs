@@ -32,12 +32,12 @@ namespace KoloWin.Desktop
         public RefCustomerTypesForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
         private void RefCustomerTypesForm_Load(object sender, EventArgs e)
         {
-
+            btnActualiser(null, null);
         }
 
         //Lorsqu'on clique sur le bouton actualiser
@@ -56,6 +56,7 @@ namespace KoloWin.Desktop
                 {
                     Context.AddToRefCustomerTypes(customerTypeToCreate);
                     Context.SaveChanges();
+                    refCreerCustomerTypesBindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)
@@ -109,8 +110,8 @@ namespace KoloWin.Desktop
         private void btnActualiser(object sender, EventArgs e)
         {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refCustomerTypesBindingSource.DataSource = new RefCustomerType();
-            refCustomerTypesBindingSource.ResetBindings(false);
+            refCreerCustomerTypesBindingSource.DataSource = new RefCustomerType();
+            refCreerCustomerTypesBindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);

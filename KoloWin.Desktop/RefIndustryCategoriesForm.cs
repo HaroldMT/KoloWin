@@ -34,14 +34,14 @@ namespace KoloWin.Desktop
         public RefIndustryCategoriesForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
         private void btnActualiser(object sender, EventArgs e)
         {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refIndustryCategoriesBindingSource.DataSource = new RefIndustryCategory();
-            refIndustryCategoriesBindingSource.ResetBindings(false);
+            refCreerIndustryBindingSource.DataSource = new RefIndustryCategory();
+            refCreerIndustryBindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);
@@ -119,6 +119,11 @@ namespace KoloWin.Desktop
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void RefIndustryCategoriesForm_Load(object sender, EventArgs e)
+        {
+            btnActualiser(null, null);
         }
     }
 }

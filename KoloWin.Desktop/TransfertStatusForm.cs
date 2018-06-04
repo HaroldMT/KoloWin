@@ -39,8 +39,7 @@ namespace KoloWin.Desktop
             try
             {
                 var TransferStatutToCreate = refCreateTransfertStatusBindingSource.Current as RefTransfertStatu;
-                TransferStatutToCreate.TransfertStatusCode = txttransfertStatusCodeTextEdit1.Text;
-                TransferStatutToCreate.TransfertStatusDescription = txttransfertStatusDescriptionTextEdit1.Text;
+                
 
                 if (TransferStatutToCreate == null)
                 {

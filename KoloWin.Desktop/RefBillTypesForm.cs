@@ -22,26 +22,19 @@ namespace KoloWin.Desktop
         public RefBillTypesForm()
         { 
                 InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
-        }
-
-      
-
-        private void refBillTypesBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
         private void RefBillTypesForm_Load(object sender, EventArgs e)
         {
-
+            btnActualiser(null, null);
         }
 
         private void btnActualiser(object sender, EventArgs e)
         {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refBillTypesBindingSource.DataSource = new RefBillType();
-            refBillTypesBindingSource.ResetBindings(false);
+            refCreerBillTypesBindingSource.DataSource = new RefBillType();
+            refCreerBillTypesBindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);

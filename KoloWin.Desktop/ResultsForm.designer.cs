@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txtresultCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.refCreateResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refCreateResultsBindingSource = new System.Windows.Forms.BindingSource();
             this.txtresultDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -41,7 +40,7 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.resultCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.refResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refResultsBindingSource = new System.Windows.Forms.BindingSource();
             this.resultDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refResultsGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -209,7 +208,7 @@
             this.resultCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refResultsBindingSource, "ResultCode", true));
             this.resultCodeTextEdit.Location = new System.Drawing.Point(129, 270);
             this.resultCodeTextEdit.Name = "resultCodeTextEdit";
-            this.resultCodeTextEdit.Size = new System.Drawing.Size(64, 20);
+            this.resultCodeTextEdit.Size = new System.Drawing.Size(96, 20);
             this.resultCodeTextEdit.StyleController = this.dataLayoutControl1;
             this.resultCodeTextEdit.TabIndex = 6;
             // 
@@ -220,9 +219,9 @@
             // resultDescriptionTextEdit
             // 
             this.resultDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refResultsBindingSource, "ResultDescription", true));
-            this.resultDescriptionTextEdit.Location = new System.Drawing.Point(290, 270);
+            this.resultDescriptionTextEdit.Location = new System.Drawing.Point(322, 270);
             this.resultDescriptionTextEdit.Name = "resultDescriptionTextEdit";
-            this.resultDescriptionTextEdit.Size = new System.Drawing.Size(145, 20);
+            this.resultDescriptionTextEdit.Size = new System.Drawing.Size(113, 20);
             this.resultDescriptionTextEdit.StyleController = this.dataLayoutControl1;
             this.resultDescriptionTextEdit.TabIndex = 8;
             // 
@@ -261,7 +260,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(197, 294);
+            this.btnRefresh.Location = new System.Drawing.Point(229, 294);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 22);
             this.btnRefresh.StyleController = this.dataLayoutControl1;
@@ -271,9 +270,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(276, 294);
+            this.btnDelete.Location = new System.Drawing.Point(308, 294);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 22);
+            this.btnDelete.Size = new System.Drawing.Size(61, 22);
             this.btnDelete.StyleController = this.dataLayoutControl1;
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Supprimer";
@@ -281,9 +280,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(355, 294);
+            this.btnSave.Location = new System.Drawing.Point(373, 294);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 22);
+            this.btnSave.Size = new System.Drawing.Size(62, 22);
             this.btnSave.StyleController = this.dataLayoutControl1;
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Enregistrer";
@@ -303,8 +302,8 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup4;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(451, 332);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup3,
@@ -348,16 +347,16 @@
             this.layoutControlItem3.Control = this.resultCodeTextEdit;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(161, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(193, 24);
             this.layoutControlItem3.Text = "Result Code:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(90, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.resultDescriptionTextEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(161, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(193, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(242, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(210, 24);
             this.layoutControlItem5.Text = "Result Description:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(90, 13);
             // 
@@ -366,31 +365,31 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(161, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(193, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnSave;
-            this.layoutControlItem6.Location = new System.Drawing.Point(319, 24);
+            this.layoutControlItem6.Location = new System.Drawing.Point(337, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(84, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(66, 26);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnDelete;
-            this.layoutControlItem4.Location = new System.Drawing.Point(240, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(272, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(79, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(65, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnRefresh;
-            this.layoutControlItem2.Location = new System.Drawing.Point(161, 24);
+            this.layoutControlItem2.Location = new System.Drawing.Point(193, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(79, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);

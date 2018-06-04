@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.billStatusCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.RefCreerBillStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RefCreerBillStatusBindingSource = new System.Windows.Forms.BindingSource();
             this.billStatusDescriptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -41,7 +40,7 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.billStatusCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.refBillStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refBillStatusBindingSource = new System.Windows.Forms.BindingSource();
             this.billStatusDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refBillStatusGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -128,9 +127,9 @@
             // billStatusCodeTextEdit1
             // 
             this.billStatusCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RefCreerBillStatusBindingSource, "BillStatusCode", true));
-            this.billStatusCodeTextEdit1.Location = new System.Drawing.Point(72, 12);
+            this.billStatusCodeTextEdit1.Location = new System.Drawing.Point(444, 12);
             this.billStatusCodeTextEdit1.Name = "billStatusCodeTextEdit1";
-            this.billStatusCodeTextEdit1.Size = new System.Drawing.Size(206, 20);
+            this.billStatusCodeTextEdit1.Size = new System.Drawing.Size(105, 20);
             this.billStatusCodeTextEdit1.StyleController = this.dataLayoutControl2;
             this.billStatusCodeTextEdit1.TabIndex = 5;
             // 
@@ -141,17 +140,17 @@
             // billStatusDescriptionTextEdit1
             // 
             this.billStatusDescriptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RefCreerBillStatusBindingSource, "BillStatusDescription", true));
-            this.billStatusDescriptionTextEdit1.Location = new System.Drawing.Point(342, 12);
+            this.billStatusDescriptionTextEdit1.Location = new System.Drawing.Point(72, 12);
             this.billStatusDescriptionTextEdit1.Name = "billStatusDescriptionTextEdit1";
-            this.billStatusDescriptionTextEdit1.Size = new System.Drawing.Size(207, 20);
+            this.billStatusDescriptionTextEdit1.Size = new System.Drawing.Size(308, 20);
             this.billStatusDescriptionTextEdit1.StyleController = this.dataLayoutControl2;
             this.billStatusDescriptionTextEdit1.TabIndex = 7;
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(368, 36);
+            this.simpleButton4.Location = new System.Drawing.Point(447, 36);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(181, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(102, 22);
             this.simpleButton4.StyleController = this.dataLayoutControl2;
             this.simpleButton4.TabIndex = 8;
             this.simpleButton4.Text = "Creer";
@@ -173,9 +172,9 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.billStatusCodeTextEdit1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(372, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(270, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(169, 24);
             this.layoutControlItem9.Text = "Code:";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(57, 13);
             // 
@@ -184,33 +183,33 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(356, 332);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(435, 332);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.simpleButton4;
-            this.layoutControlItem8.Location = new System.Drawing.Point(356, 24);
+            this.layoutControlItem8.Location = new System.Drawing.Point(435, 24);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(185, 332);
+            this.layoutControlItem8.Size = new System.Drawing.Size(106, 332);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.billStatusDescriptionTextEdit1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(270, 0);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(271, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(372, 24);
             this.layoutControlItem11.Text = "Description:";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(57, 13);
             // 
             // billStatusCodeTextEdit
             // 
             this.billStatusCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refBillStatusBindingSource, "BillStatusCode", true));
-            this.billStatusCodeTextEdit.Location = new System.Drawing.Point(96, 364);
+            this.billStatusCodeTextEdit.Location = new System.Drawing.Point(396, 364);
             this.billStatusCodeTextEdit.Name = "billStatusCodeTextEdit";
-            this.billStatusCodeTextEdit.Size = new System.Drawing.Size(206, 20);
+            this.billStatusCodeTextEdit.Size = new System.Drawing.Size(177, 20);
             this.billStatusCodeTextEdit.StyleController = this.dataLayoutControl1;
             this.billStatusCodeTextEdit.TabIndex = 6;
             // 
@@ -221,9 +220,9 @@
             // billStatusDescriptionTextEdit
             // 
             this.billStatusDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refBillStatusBindingSource, "BillStatusDescription", true));
-            this.billStatusDescriptionTextEdit.Location = new System.Drawing.Point(366, 364);
+            this.billStatusDescriptionTextEdit.Location = new System.Drawing.Point(96, 364);
             this.billStatusDescriptionTextEdit.Name = "billStatusDescriptionTextEdit";
-            this.billStatusDescriptionTextEdit.Size = new System.Drawing.Size(207, 20);
+            this.billStatusDescriptionTextEdit.Size = new System.Drawing.Size(236, 20);
             this.billStatusDescriptionTextEdit.StyleController = this.dataLayoutControl1;
             this.billStatusDescriptionTextEdit.TabIndex = 8;
             // 
@@ -252,7 +251,7 @@
             this.colBillStatusCode.FieldName = "BillStatusCode";
             this.colBillStatusCode.Name = "colBillStatusCode";
             this.colBillStatusCode.Visible = true;
-            this.colBillStatusCode.VisibleIndex = 0;
+            this.colBillStatusCode.VisibleIndex = 1;
             // 
             // colBillStatusDescription
             // 
@@ -260,7 +259,7 @@
             this.colBillStatusDescription.FieldName = "BillStatusDescription";
             this.colBillStatusDescription.Name = "colBillStatusDescription";
             this.colBillStatusDescription.Visible = true;
-            this.colBillStatusDescription.VisibleIndex = 1;
+            this.colBillStatusDescription.VisibleIndex = 0;
             // 
             // simpleButton1
             // 
@@ -349,18 +348,18 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.billStatusCodeTextEdit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(300, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(270, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(241, 24);
             this.layoutControlItem3.Text = "Code:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(57, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.billStatusDescriptionTextEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(270, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(271, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(300, 24);
             this.layoutControlItem5.Text = "Description:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(57, 13);
             // 
@@ -425,6 +424,7 @@
             this.Controls.Add(this.dataLayoutControl1);
             this.Name = "RefBillStatusForm";
             this.Text = "RefBillStatusForm";
+            this.Load += new System.EventHandler(this.RefBillStatusForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();

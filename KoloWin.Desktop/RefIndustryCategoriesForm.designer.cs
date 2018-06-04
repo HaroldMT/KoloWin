@@ -28,71 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.refIndustryCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.industryCategoryCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.refCreerIndustryBindingSource = new System.Windows.Forms.BindingSource();
+            this.industryCategoryDescrptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.industryCategoryCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.refIndustryCategoriesBindingSource = new System.Windows.Forms.BindingSource();
+            this.industryCategoryDescrptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.refIndustryCategoriesGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIndustryCategoryCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIndustryCategoryDescrption = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.industryCategoryDescrptionTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.refCreerIndustryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.industryCategoryCodeTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.industryCategoryDescrptionTextEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.industryCategoryCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryDescrptionTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
             this.dataLayoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refCreerIndustryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.industryCategoryCodeTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refCreerIndustryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.industryCategoryDescrptionTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryDescrptionTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -112,19 +111,119 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // layoutControlGroup1
+            // dataLayoutControl2
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.tabbedControlGroup1});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(585, 425);
-            this.layoutControlGroup1.TextVisible = false;
+            this.dataLayoutControl2.Controls.Add(this.industryCategoryCodeTextEdit1);
+            this.dataLayoutControl2.Controls.Add(this.industryCategoryDescrptionTextEdit1);
+            this.dataLayoutControl2.Controls.Add(this.simpleButton4);
+            this.dataLayoutControl2.Location = new System.Drawing.Point(24, 46);
+            this.dataLayoutControl2.Name = "dataLayoutControl2";
+            this.dataLayoutControl2.Root = this.Root;
+            this.dataLayoutControl2.Size = new System.Drawing.Size(537, 355);
+            this.dataLayoutControl2.TabIndex = 12;
+            this.dataLayoutControl2.Text = "dataLayoutControl2";
+            // 
+            // industryCategoryCodeTextEdit1
+            // 
+            this.industryCategoryCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerIndustryBindingSource, "IndustryCategoryCode", true));
+            this.industryCategoryCodeTextEdit1.Location = new System.Drawing.Point(72, 12);
+            this.industryCategoryCodeTextEdit1.Name = "industryCategoryCodeTextEdit1";
+            this.industryCategoryCodeTextEdit1.Size = new System.Drawing.Size(84, 20);
+            this.industryCategoryCodeTextEdit1.StyleController = this.dataLayoutControl2;
+            this.industryCategoryCodeTextEdit1.TabIndex = 5;
+            // 
+            // refCreerIndustryBindingSource
+            // 
+            this.refCreerIndustryBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefIndustryCategory);
+            // 
+            // industryCategoryDescrptionTextEdit1
+            // 
+            this.industryCategoryDescrptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerIndustryBindingSource, "IndustryCategoryDescrption", true));
+            this.industryCategoryDescrptionTextEdit1.Location = new System.Drawing.Point(220, 12);
+            this.industryCategoryDescrptionTextEdit1.Name = "industryCategoryDescrptionTextEdit1";
+            this.industryCategoryDescrptionTextEdit1.Size = new System.Drawing.Size(305, 20);
+            this.industryCategoryDescrptionTextEdit1.StyleController = this.dataLayoutControl2;
+            this.industryCategoryDescrptionTextEdit1.TabIndex = 7;
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(411, 36);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(114, 22);
+            this.simpleButton4.StyleController = this.dataLayoutControl2;
+            this.simpleButton4.TabIndex = 8;
+            this.simpleButton4.Text = "Creer";
+            this.simpleButton4.Click += new System.EventHandler(this.btnCreer);
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem9,
+            this.emptySpaceItem2,
+            this.layoutControlItem8,
+            this.layoutControlItem11});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(537, 355);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.industryCategoryCodeTextEdit1;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(148, 24);
+            this.layoutControlItem9.Text = "Code:";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(399, 311);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.simpleButton4;
+            this.layoutControlItem8.Location = new System.Drawing.Point(399, 24);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(118, 311);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.industryCategoryDescrptionTextEdit1;
+            this.layoutControlItem11.Location = new System.Drawing.Point(148, 0);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(369, 24);
+            this.layoutControlItem11.Text = "Description:";
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(57, 13);
+            // 
+            // industryCategoryCodeTextEdit
+            // 
+            this.industryCategoryCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refIndustryCategoriesBindingSource, "IndustryCategoryCode", true));
+            this.industryCategoryCodeTextEdit.Location = new System.Drawing.Point(94, 343);
+            this.industryCategoryCodeTextEdit.Name = "industryCategoryCodeTextEdit";
+            this.industryCategoryCodeTextEdit.Size = new System.Drawing.Size(196, 20);
+            this.industryCategoryCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.industryCategoryCodeTextEdit.TabIndex = 6;
             // 
             // refIndustryCategoriesBindingSource
             // 
             this.refIndustryCategoriesBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefIndustryCategory);
+            // 
+            // industryCategoryDescrptionTextEdit
+            // 
+            this.industryCategoryDescrptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refIndustryCategoriesBindingSource, "IndustryCategoryDescrption", true));
+            this.industryCategoryDescrptionTextEdit.Location = new System.Drawing.Point(352, 343);
+            this.industryCategoryDescrptionTextEdit.Name = "industryCategoryDescrptionTextEdit";
+            this.industryCategoryDescrptionTextEdit.Size = new System.Drawing.Size(197, 20);
+            this.industryCategoryDescrptionTextEdit.StyleController = this.dataLayoutControl1;
+            this.industryCategoryDescrptionTextEdit.TabIndex = 8;
             // 
             // refIndustryCategoriesGridControl
             // 
@@ -161,26 +260,6 @@
             this.colIndustryCategoryDescrption.Visible = true;
             this.colIndustryCategoryDescrption.VisibleIndex = 1;
             // 
-            // industryCategoryDescrptionTextEdit
-            // 
-            this.industryCategoryDescrptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refIndustryCategoriesBindingSource, "IndustryCategoryDescrption", true));
-            this.industryCategoryDescrptionTextEdit.Location = new System.Drawing.Point(353, 343);
-            this.industryCategoryDescrptionTextEdit.Name = "industryCategoryDescrptionTextEdit";
-            this.industryCategoryDescrptionTextEdit.Size = new System.Drawing.Size(196, 20);
-            this.industryCategoryDescrptionTextEdit.StyleController = this.dataLayoutControl1;
-            this.industryCategoryDescrptionTextEdit.TabIndex = 8;
-            // 
-            // tabbedControlGroup1
-            // 
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(565, 405);
-            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2,
-            this.layoutControlGroup3});
-            // 
             // simpleButton1
             // 
             this.simpleButton1.Location = new System.Drawing.Point(325, 379);
@@ -211,106 +290,26 @@
             this.simpleButton3.Text = "Supprimer";
             this.simpleButton3.Click += new System.EventHandler(this.btnSupprimer);
             // 
-            // dataLayoutControl2
+            // layoutControlGroup1
             // 
-            this.dataLayoutControl2.Controls.Add(this.industryCategoryCodeTextEdit1);
-            this.dataLayoutControl2.Controls.Add(this.industryCategoryDescrptionTextEdit1);
-            this.dataLayoutControl2.Controls.Add(this.simpleButton4);
-            this.dataLayoutControl2.Location = new System.Drawing.Point(24, 46);
-            this.dataLayoutControl2.Name = "dataLayoutControl2";
-            this.dataLayoutControl2.Root = this.Root;
-            this.dataLayoutControl2.Size = new System.Drawing.Size(537, 355);
-            this.dataLayoutControl2.TabIndex = 12;
-            this.dataLayoutControl2.Text = "dataLayoutControl2";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.tabbedControlGroup1});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(585, 425);
+            this.layoutControlGroup1.TextVisible = false;
             // 
-            // Root
+            // tabbedControlGroup1
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem9,
-            this.emptySpaceItem2,
-            this.layoutControlItem8,
-            this.layoutControlItem11});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(537, 355);
-            this.Root.TextVisible = false;
-            // 
-            // refCreerIndustryBindingSource
-            // 
-            this.refCreerIndustryBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefIndustryCategory);
-            // 
-            // industryCategoryCodeTextEdit1
-            // 
-            this.industryCategoryCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerIndustryBindingSource, "IndustryCategoryCode", true));
-            this.industryCategoryCodeTextEdit1.Location = new System.Drawing.Point(73, 12);
-            this.industryCategoryCodeTextEdit1.Name = "industryCategoryCodeTextEdit1";
-            this.industryCategoryCodeTextEdit1.Size = new System.Drawing.Size(193, 20);
-            this.industryCategoryCodeTextEdit1.StyleController = this.dataLayoutControl2;
-            this.industryCategoryCodeTextEdit1.TabIndex = 5;
-            // 
-            // industryCategoryDescrptionTextEdit1
-            // 
-            this.industryCategoryDescrptionTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refCreerIndustryBindingSource, "IndustryCategoryDescrption", true));
-            this.industryCategoryDescrptionTextEdit1.Location = new System.Drawing.Point(331, 12);
-            this.industryCategoryDescrptionTextEdit1.Name = "industryCategoryDescrptionTextEdit1";
-            this.industryCategoryDescrptionTextEdit1.Size = new System.Drawing.Size(194, 20);
-            this.industryCategoryDescrptionTextEdit1.StyleController = this.dataLayoutControl2;
-            this.industryCategoryDescrptionTextEdit1.TabIndex = 7;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.industryCategoryCodeTextEdit1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(258, 24);
-            this.layoutControlItem9.Text = "Code:";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.industryCategoryDescrptionTextEdit1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(258, 0);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(259, 24);
-            this.layoutControlItem11.Text = "Description:";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Location = new System.Drawing.Point(381, 36);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(144, 22);
-            this.simpleButton4.StyleController = this.dataLayoutControl2;
-            this.simpleButton4.TabIndex = 8;
-            this.simpleButton4.Text = "Creer";
-            this.simpleButton4.Click += new System.EventHandler(this.btnCreer);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.simpleButton4;
-            this.layoutControlItem8.Location = new System.Drawing.Point(369, 24);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(148, 311);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(369, 311);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.dataLayoutControl2;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(541, 359);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
+            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(565, 405);
+            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup2,
+            this.layoutControlGroup3});
             // 
             // layoutControlGroup3
             // 
@@ -321,59 +320,14 @@
             this.layoutControlGroup3.Size = new System.Drawing.Size(541, 359);
             this.layoutControlGroup3.Text = "Creer une nouvelle categorie industrielle";
             // 
-            // layoutControlItem5
+            // layoutControlItem7
             // 
-            this.layoutControlItem5.Control = this.industryCategoryDescrptionTextEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(258, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(259, 24);
-            this.layoutControlItem5.Text = "Descrption:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(55, 13);
-            // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem5});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 267);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(541, 66);
-            this.layoutControlGroup4.Text = "Detail sur la categorie industrielle";
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 333);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(301, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.simpleButton3;
-            this.layoutControlItem6.Location = new System.Drawing.Point(461, 333);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(80, 26);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.simpleButton2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(381, 333);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(80, 26);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.simpleButton1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(301, 333);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(80, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.layoutControlItem7.Control = this.dataLayoutControl2;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(541, 359);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
@@ -398,6 +352,25 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.simpleButton1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(301, 333);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem5});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 267);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(541, 66);
+            this.layoutControlGroup4.Text = "Detail sur la categorie industrielle";
+            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.industryCategoryCodeTextEdit;
@@ -407,14 +380,40 @@
             this.layoutControlItem3.Text = "Code:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(55, 13);
             // 
-            // industryCategoryCodeTextEdit
+            // layoutControlItem5
             // 
-            this.industryCategoryCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.refIndustryCategoriesBindingSource, "IndustryCategoryCode", true));
-            this.industryCategoryCodeTextEdit.Location = new System.Drawing.Point(95, 343);
-            this.industryCategoryCodeTextEdit.Name = "industryCategoryCodeTextEdit";
-            this.industryCategoryCodeTextEdit.Size = new System.Drawing.Size(195, 20);
-            this.industryCategoryCodeTextEdit.StyleController = this.dataLayoutControl1;
-            this.industryCategoryCodeTextEdit.TabIndex = 6;
+            this.layoutControlItem5.Control = this.industryCategoryDescrptionTextEdit;
+            this.layoutControlItem5.Location = new System.Drawing.Point(258, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(259, 24);
+            this.layoutControlItem5.Text = "Descrption:";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(55, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.simpleButton2;
+            this.layoutControlItem4.Location = new System.Drawing.Point(381, 333);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.simpleButton3;
+            this.layoutControlItem6.Location = new System.Drawing.Point(461, 333);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 333);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(301, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // RefIndustryCategoriesForm
             // 
@@ -424,36 +423,37 @@
             this.Controls.Add(this.dataLayoutControl1);
             this.Name = "RefIndustryCategoriesForm";
             this.Text = "RefIndustryCategoriesForm";
+            this.Load += new System.EventHandler(this.RefIndustryCategoriesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryDescrptionTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
             this.dataLayoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refCreerIndustryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.industryCategoryCodeTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refCreerIndustryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.industryCategoryDescrptionTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryDescrptionTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refIndustryCategoriesGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.industryCategoryCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

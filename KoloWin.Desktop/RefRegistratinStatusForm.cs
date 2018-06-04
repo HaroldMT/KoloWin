@@ -32,6 +32,7 @@ namespace KoloWin.Desktop
         public RefRegistratinStatusForm()
         {
             InitializeComponent();
+            KoloUri = KoloContextHelper.KoloUri;
             
         }
 
@@ -39,8 +40,7 @@ namespace KoloWin.Desktop
         {try
             {
                 var RegistrationStatusToCreate = refCreateRegistrationStatusBindingSource.Current as RefRegistrationStatu;
-                RegistrationStatusToCreate.RegistrationStatusCode = txtregistrationStatusCodeTextEdit1.Text;
-                RegistrationStatusToCreate.RegistrationStatusDescription = txtregistrationStatusDescriptionTextEdit1.Text;
+                
                 if (RegistrationStatusToCreate == null)
                 {
                     MessageBox.Show("Status Invalide.Veuillez recommencer");

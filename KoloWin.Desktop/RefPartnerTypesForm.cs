@@ -39,9 +39,8 @@ namespace KoloWin.Desktop
         {
             try
             {
-                var PartnerTypeToCreate = new RefPartnerType();
-                PartnerTypeToCreate.PartnerTypeCode = txt2partnerTypeCodeTextEdit1.Text;
-                PartnerTypeToCreate.PartnerTypeDescription = txt2partnerTypeDescriptionTextEdit1.Text;
+                var PartnerTypeToCreate = refCreatePartnerTypesBindingSource.Current as RefPartnerType;
+                
 
                 if (PartnerTypeToCreate == null)
                 {

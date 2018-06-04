@@ -31,19 +31,16 @@ namespace KoloWin.Desktop
         public RefLoginStatusForm()
         {
             InitializeComponent();
-            KoloUri = new Uri("http://192.168.1.10/KoloWin.Web/KoloWcfService.svc/");
+            KoloUri = KoloContextHelper.KoloUri;
         }
 
-        private void refLoginStatusGridControl_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnActualiser(object sender, EventArgs e)
         {
             //Créer un nouveau RefAddressType et le lier à la source de données, qui sera utilisée pour la création
-            refLoginStatusBindingSource.DataSource = new RefLoginStatu();
-            refLoginStatusBindingSource.ResetBindings(false);
+            refCreerStatusBindingSource.DataSource = new RefLoginStatu();
+            refCreerStatusBindingSource.ResetBindings(false);
 
             //Création du proxy du service
             Context = new KoloGateway.KoloEntities(KoloUri);
@@ -118,12 +115,18 @@ namespace KoloWin.Desktop
                 {
                     Context.AddToRefLoginStatus(loginStatusToCreate);
                     Context.SaveChanges();
+                    refCreerStatusBindingSource.ResetBindings(false);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void RefLoginStatusForm_Load(object sender, EventArgs e)
+        {
+            btnActualiser(null, null);
         }
     }
 }

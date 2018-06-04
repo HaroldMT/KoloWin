@@ -40,9 +40,7 @@ namespace KoloWin.Desktop
             try
             {
                 var ResultsToCreate = refCreateResultsBindingSource.Current as RefResult;
-                ResultsToCreate.ResultCode = txtresultCodeTextEdit1.Text;
-                ResultsToCreate.ResultDescription = txtresultDescriptionTextEdit1.Text;
-
+                
                 if (ResultsToCreate == null)
                 {
                     MessageBox.Show("Saisie Invalide.Veuillez recommencer");
