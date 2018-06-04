@@ -1,4 +1,5 @@
-﻿using KoloWin.CustomerService.Utils.Transfert;
+﻿using KoloWin.CustomerService.Utils.General;
+using KoloWin.CustomerService.Utils.Transfert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,25 @@ namespace KoloWin.CustomerService.Util
         public static TransfertP2p SendTransfertA2A(TransfertP2p tA2A, KoloAndroidEntities db, out string error)
         {
             error = "";
-            if (!TransfertVerification(tA2A))
+            if (TransfertVerification(tA2A))
             {
                 try
                 {
-                    var sender = db.Customers.Find(tA2A.IdSendingCustomer);
-                    var receiver = db.Customers.Find(tA2A.IdReceiverCustomer);
+                    //var sender = db.Customers.Find(tA2A.IdSendingCustomer);
+                    //var receiver = db.Customers.Find(tA2A.IdReceiverCustomer);
 
-                    var senderBalanceHistory = new CustomerBalanceHistory();
-                    var receiverBalanceHistory = new CustomerBalanceHistory();
+                    //var senderBalanceHistory = new CustomerBalanceHistory();
+                    //var receiverBalanceHistory = new CustomerBalanceHistory();
+                    
+                    //senderBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(sender, tA2A.Amount, KoloConstants.TRANSFERT_TYPE_SEND_ACCOUNT_TO_ACCOUNT);
+                    //receiverBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(receiver, tA2A.Amount, KoloConstants.TRANSFERT_TYPE_RECIEVE_ACCOUNT_TO_ACCOUNT);
 
-
-                    senderBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(sender, tA2A.Amount, "SENDA2A");
-                    receiverBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(receiver, tA2A.Amount, "RECVA2A");
-
-                    db.CustomerBalanceHistories.Add(senderBalanceHistory);
-                    db.CustomerBalanceHistories.Add(receiverBalanceHistory);
+                    //db.CustomerBalanceHistories.Add(senderBalanceHistory);
+                    //db.CustomerBalanceHistories.Add(receiverBalanceHistory);
 
                     tA2A.TransfertDate = DateTime.Now;
 
-                    tA2A.TransfertStatusCode = "RECEIVE";
+                    tA2A.TransfertStatusCode = KoloConstants.TRANSFERT_STATUS_CODE_RECEIVE_PENDING;
                     db.SaveChanges();
                     return tA2A;
                 }
@@ -64,18 +64,8 @@ namespace KoloWin.CustomerService.Util
                 {
                     return false;
                 }
-                else
-                {
-                    if (tA2A.TransfertStatusCode != "SENDING")
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
             }
+            return true;
         }
 
         private static bool TransfertP2pExists(int idSender, int idReceiver, int amount, KoloAndroidEntities db)
