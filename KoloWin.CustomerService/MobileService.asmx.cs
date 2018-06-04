@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
-using KoloWin.Poco;
+using KoloWin.CustomerService.Util;
+using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
 
 namespace KoloWin.CustomerService
@@ -23,7 +24,7 @@ namespace KoloWin.CustomerService
     {
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Poco.RefGender GetRefGender()
+        public RefGender GetRefGender()
         {
             var refGender = new RefGender()
             { GenderCode = "M",
@@ -36,8 +37,8 @@ namespace KoloWin.CustomerService
         [WebMethod]
         public void CreatePerson(string jsonPerson)
         {
-            var person = SerializationHelper.DeserializeFromJsonString<Poco.Person>(jsonPerson);
-            var Context = new KoloEntities();
+            var person = SerializationHelper.DeserializeFromJsonString<Person>(jsonPerson);
+            var Context = new KoloAndroidEntities();
             Context.People.Add(person);
             Context.Dispose();
         }
@@ -47,6 +48,17 @@ namespace KoloWin.CustomerService
         public MyRefTypes TestService(MyRefTypes myRefTypes)
         {
             return myRefTypes;
+        }
+
+        [WebMethod]
+        public MobileDevice InsertMobileDevice(string jsonMobileDevice)
+        {
+            string error = "";
+            MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
+            var context = new KoloAndroidEntities4Serialization();
+            mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out  error);
+            context.Dispose();
+            return mobileDevice;
         }
     }
 }

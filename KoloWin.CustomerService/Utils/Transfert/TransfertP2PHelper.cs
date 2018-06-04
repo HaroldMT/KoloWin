@@ -7,7 +7,7 @@ namespace KoloWin.CustomerService.Util
 {
     public static class TransfertP2PHelper
     {
-        public static Poco.TransfertP2p SendTransfertA2A(Poco.TransfertP2p tA2A, Poco.KoloEntities db, out string error)
+        public static TransfertP2p SendTransfertA2A(TransfertP2p tA2A, KoloAndroidEntities db, out string error)
         {
             error = "";
             if (!TransfertVerification(tA2A))
@@ -17,8 +17,8 @@ namespace KoloWin.CustomerService.Util
                     var sender = db.Customers.Find(tA2A.IdSendingCustomer);
                     var receiver = db.Customers.Find(tA2A.IdReceiverCustomer);
 
-                    var senderBalanceHistory = new Poco.CustomerBalanceHistory();
-                    var receiverBalanceHistory = new Poco.CustomerBalanceHistory();
+                    var senderBalanceHistory = new CustomerBalanceHistory();
+                    var receiverBalanceHistory = new CustomerBalanceHistory();
 
 
                     senderBalanceHistory = CustomerHistoryHelper.UpdateCustomerHistory(sender, tA2A.Amount, "SENDA2A");
@@ -41,7 +41,7 @@ namespace KoloWin.CustomerService.Util
             return null;
         }
 
-        private static bool TransfertVerification(Poco.TransfertP2p tA2A)
+        private static bool TransfertVerification(TransfertP2p tA2A)
         {
             if (tA2A.Amount <= 0)
             {
@@ -78,7 +78,7 @@ namespace KoloWin.CustomerService.Util
             }
         }
 
-        private static bool TransfertP2pExists(int idSender, int idReceiver, int amount, Poco.KoloEntities db)
+        private static bool TransfertP2pExists(int idSender, int idReceiver, int amount, KoloAndroidEntities db)
         {
             return db.TransfertP2p.Count(e => e.IdSendingCustomer == idSender && e.IdReceiverCustomer == idReceiver && e.Amount == amount) > 0;
         }

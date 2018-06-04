@@ -1,6 +1,4 @@
-﻿using KoloWin.Poco;
-
-namespace KoloWin.CustomerService
+﻿namespace KoloWin.CustomerService
 {
     public class MyRefTypes
     {

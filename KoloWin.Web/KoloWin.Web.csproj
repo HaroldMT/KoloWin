@@ -106,9 +106,11 @@
     <EntityDeploy Include="KoloModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KoloModel.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EntityDeploy>
     <Content Include="KoloModel.edmx.diagram">
       <DependentUpon>KoloModel.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -128,6 +130,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KoloModel.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="KoloWcfService.svc.cs">
       <DependentUpon>KoloWcfService.svc</DependentUpon>

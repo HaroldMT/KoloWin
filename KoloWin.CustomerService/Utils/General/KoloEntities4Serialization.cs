@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace KoloWin.CustomerService.Util
 {
-    public class KoloEntities4Serialization : Poco.KoloEntities
+    public class KoloAndroidEntities4Serialization : KoloAndroidEntities
     {
-        public KoloEntities4Serialization()
+        public KoloAndroidEntities4Serialization()
         {
             Configuration.ProxyCreationEnabled = false;
         }

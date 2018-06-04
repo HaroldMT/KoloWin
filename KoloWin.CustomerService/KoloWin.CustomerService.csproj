@@ -88,6 +88,8 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,9 +108,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="KoloModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KoloModel.edmx</DependentUpon>
+      <LastGenOutput>KoloModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KoloModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KoloModel.edmx</DependentUpon>
+      <LastGenOutput>KoloModel.cs</LastGenOutput>
+    </Content>
     <Content Include="KolOSphere.asmx" />
     <Content Include="KolOthenticor.asmx" />
     <Content Include="packages.config" />
+    <EntityDeploy Include="KoloModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KoloModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="KoloModel.edmx.diagram">
+      <DependentUpon>KoloModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\EeTest.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -124,20 +143,221 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountOperation.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountOperationRequest.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Adresse.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bill.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BillPayment.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Business.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessContact.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currency.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAddress.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerBalanceHistory.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerExternalAccount.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerGroup.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerImage.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerLogin.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerTag.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="District.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalAccount.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalAccountHistory.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupImage.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KoloModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KoloModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="KoloNotification.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KolOSphere.asmx.cs">
       <DependentUpon>KolOSphere.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KoloSystemAction.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KolOthenticor.asmx.cs">
       <DependentUpon>KolOthenticor.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KoloUser.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAttempt.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MobileDevice.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MobileService.asmx.cs">
       <DependentUpon>MobileService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MyRefTypes.cs" />
+    <Compile Include="Partner.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerAddress.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerBalanceHistory.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonRelationship.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provision.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecurringContribution.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefAddressType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefBillStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefBillType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefCustomerType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefExternalAccountType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefGender.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefGroupType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefIndustryCategory.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefLoginStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefMaritalStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefOperationStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefOperationType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefPartnerType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefPersonRelationshipType.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefProvisionStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefRegistrationStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefResult.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefTransfertStatu.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reseller.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transfert2Cash.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transfert2CashDetails.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransfertE2e.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransfertGroup.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransfertGroupScheduled.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransfertP2p.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransfertScheduled.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Authentification\LoginHelper.cs" />
     <Compile Include="Utils\Authentification\RegistrationHelper.cs" />
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
@@ -147,19 +367,21 @@
     <Compile Include="Utils\Security\PasswordHasher.cs" />
     <Compile Include="Utils\Transfert\CustomerHistoryHelper.cs" />
     <Compile Include="Utils\Transfert\TransfertP2PHelper.cs" />
+    <Compile Include="Wholesaler.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KoloWin.Poco\KoloWin.Poco.csproj">
-      <Project>{9f205c19-98ea-42d9-b43e-4b710f5ce37a}</Project>
-      <Name>KoloWin.Poco</Name>
-    </ProjectReference>
     <ProjectReference Include="..\KoloWin.Utilities\KoloWin.Utilities.csproj">
       <Project>{794C60C4-2002-4CED-869B-93BEBC315F3F}</Project>
       <Name>KoloWin.Utilities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
