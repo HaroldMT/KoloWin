@@ -63,45 +63,49 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public string GetTransfertP2p(int idCustomer)
+        public string GetTransfertP2pByIdTransfert(int idTransfertP2p)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfertP2p = Context.TransfertP2p.Find(idTransfertP2p);
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfertP2p);
         }
 
         [WebMethod]
-        public string GetTransfert2Cash(int idCustomer)
+        public string GetTransfert2CashByIdTransfert(int idTransfert2Cash)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfert2Cash = Context.Transfert2Cash.Find(idTransfert2Cash);
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfert2Cash);
         }
 
 
         [WebMethod]
-        public string GetTransfert2CashDetails(int idTransfert2CashDetails)
+        public string GetTransfert2CashDetailsByIdTransfert2CashDetails(int idTransfert2CashDetails)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfert2CashDetails = Context.Transfert2CashDetails.Find(idTransfert2CashDetails);
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfert2CashDetails);
         }
 
         [WebMethod]
         public string GetTransfertP2pList(int idCustomer)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfertP2pList = Context.TransfertP2p.Where(e => e.IdReceiverCustomer == idCustomer || e.IdSendingCustomer == idCustomer).ToList();
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfertP2pList);
         }
 
-
         [WebMethod]
-        public string GetTransfert2CashList(int idCustomer)
+        public string GetTransfert2CashList(int idTransfert2CashDetails)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfert2CashList = Context.Transfert2Cash.Where(e => e.IdReceiverTransfert2CashDetails == idTransfert2CashDetails || e.IdSendingTransfert2CashDetails == idTransfert2CashDetails).ToList();
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfert2CashList);
         }
 
         #endregion

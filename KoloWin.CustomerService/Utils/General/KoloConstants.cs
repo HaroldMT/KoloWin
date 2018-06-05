@@ -23,9 +23,10 @@ namespace KoloWin.CustomerService.Utils.General
         public static string TRANSFERT_TYPE_DEPOSIT = "DEPOSIT";
         public static string TRANSFERT_TYPE_RECIEVE_WITHDRAWAL = "WITHDRAWAL";
 
+        public static string TRANSFERT_STATUS_CODE_CANCELED = "CANCELED";
         public static string TRANSFERT_STATUS_CODE_COMPLETED = "COMPLETED";
         public static string TRANSFERT_STATUS_CODE_CONFIRM_PENDING = "CONFIRM_PENDING";
-        public static string TRANSFERT_STATUS_CODE_RECEIVE_PENDING = "RECEIVE_PENDING";
+        public static string TRANSFERT_STATUS_CODE_RECEIVE_PENDING = "RECEIVE_PENDING"; 
 
 
 
