@@ -360,6 +360,7 @@
     </Compile>
     <Compile Include="Utils\Authentification\LoginHelper.cs" />
     <Compile Include="Utils\Authentification\RegistrationHelper.cs" />
+    <Compile Include="Utils\Entities\CustomerHelper.cs" />
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
     <Compile Include="Utils\General\ExceptionHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
