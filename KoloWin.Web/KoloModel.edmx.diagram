@@ -154,6 +154,12 @@
         <EntityTypeShape EntityType="KoloModel.KoloSystemHistory" Width="1.5" PointX="16.5" PointY="37.875" />
         <AssociationConnector Association="KoloModel.FK_KoloSystemHistory_KoloUser" />
         <AssociationConnector Association="KoloModel.FK_TransfertP2p_Sender" />
+        <EntityTypeShape EntityType="KoloModel.KoloGroup" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="KoloModel.KoloPermission" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="KoloModel.KoloSystemAction" Width="1.5" PointX="0.75" PointY="4.125" />
+        <AssociationConnector Association="KoloModel.FK_KoloPermission_Group" />
+        <AssociationConnector Association="KoloModel.FK_User_Group" />
+        <AssociationConnector Association="KoloModel.FK_KoloPermission_Action" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
