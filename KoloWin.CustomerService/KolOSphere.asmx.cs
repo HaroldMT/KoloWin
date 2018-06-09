@@ -18,25 +18,22 @@ namespace KoloWin.CustomerService
 
     public class KolOSphere : System.Web.Services.WebService
     {
-
-
+        
         #region Transfert Basic Methods
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public TransfertP2p DoTransfertA2A(string jsonTransfertP2p)
+        public string DoTransfertA2A(string jsonTransfertP2p)
         {
             string error = "";
             var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
             var Context = new KoloAndroidEntities4Serialization();
             tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
             Context.Dispose();
-            return tP2P;
+            return SerializationHelper.SerializeToJson(tP2P);
         }
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Transfert2Cash DoTransfertA2C(string jsonTransfert2c)
+        public string DoTransfertA2C(string jsonTransfert2c)
         {
             var Context = new KoloAndroidEntities();
             Context.Dispose();
@@ -44,8 +41,7 @@ namespace KoloWin.CustomerService
         }
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Transfert2Cash DoTransfertC2A(string jsonTransfert2c)
+        public string DoTransfertC2A(string jsonTransfert2c)
         {
             var Context = new KoloAndroidEntities();
             Context.Dispose();
@@ -53,8 +49,7 @@ namespace KoloWin.CustomerService
         }
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Transfert2Cash DoTransfertC2C(string jsonTransfert2c)
+        public string DoTransfertC2C(string jsonTransfert2c)
         {
             var Context = new KoloAndroidEntities();
             Context.Dispose();
@@ -68,32 +63,50 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public TransfertP2p GetTransfertP2p(int idCustomer)
+        public string GetTransfertP2pByIdTransfert(int idTransfertP2p)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfertP2p = Context.TransfertP2p.Find(idTransfertP2p);
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfertP2p);
         }
 
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Transfert2Cash GetTransfert2Cash(int idCustomer)
+        [WebMethod]
+        public string GetTransfert2CashByIdTransfert(int idTransfert2Cash)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfert2Cash = Context.Transfert2Cash.Find(idTransfert2Cash);
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfert2Cash);
         }
 
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public Transfert2CashDetails GetTransfert2CashDetails(int idTransfert2CashDetails)
+        public string GetTransfert2CashDetailsByIdTransfert2CashDetails(int idTransfert2CashDetails)
         {
             var Context = new KoloAndroidEntities();
+            var outTransfert2CashDetails = Context.Transfert2CashDetails.Find(idTransfert2CashDetails);
             Context.Dispose();
-            return null;
+            return SerializationHelper.SerializeToJson(outTransfert2CashDetails);
         }
 
+        [WebMethod]
+        public string GetTransfertP2pList(int idCustomer)
+        {
+            var Context = new KoloAndroidEntities();
+            var outTransfertP2pList = Context.TransfertP2p.Where(e => e.IdReceiverCustomer == idCustomer || e.IdSendingCustomer == idCustomer).ToList();
+            Context.Dispose();
+            return SerializationHelper.SerializeToJson(outTransfertP2pList);
+        }
+
+        [WebMethod]
+        public string GetTransfert2CashList(int idTransfert2CashDetails)
+        {
+            var Context = new KoloAndroidEntities();
+            var outTransfert2CashList = Context.Transfert2Cash.Where(e => e.IdReceiverTransfert2CashDetails == idTransfert2CashDetails || e.IdSendingTransfert2CashDetails == idTransfert2CashDetails).ToList();
+            Context.Dispose();
+            return SerializationHelper.SerializeToJson(outTransfert2CashList);
+        }
 
         #endregion
 

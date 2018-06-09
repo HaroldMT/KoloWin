@@ -75,15 +75,5 @@ namespace KoloWin.CustomerService
             context.Dispose();
             return customer;
         }
-
-        //override
-        //public String ToString()
-        //{
-        //    if(this.GetType() == typeof(DateTime))
-        //    {
-        //        return ToString("yyyy-MM-dd hh:mm:ss");
-        //    }
-        //return ToString();
-        //}
     }
 }

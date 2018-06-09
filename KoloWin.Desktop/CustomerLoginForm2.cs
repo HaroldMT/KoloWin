@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KoloWin.Desktop.KoloGateway;
-using System.Data.SqlClient;
+
 
 namespace KoloWin.Desktop
 {
@@ -17,47 +17,8 @@ namespace KoloWin.Desktop
         public CustomerLoginForm2()
         {
             InitializeComponent();
-        }
-
-        //private void labelControl2_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void labelControl3_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void simpleButton2_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        private void hyperlinkLabelControl1_Click(object sender, EventArgs e)
-        {
 
         }
-
-        //private void BtnContinuer(object sender, EventArgs e)
-        //{
-        //    var CustomerToLogin = new KoloUser();
-        //    //CustomerToLogin.IdCustomer = textEditNomdelutilisateur.
-        //    CustomerToLogin.Pwd = textEditMotdePasse.Text;
-        //    if(CustomerToLogin.Pwd = BtnContinuer)
-
-
-        //}
-
-        //private void BtnAnnuler(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void BtnSortir(object sender, EventArgs e)
         {
@@ -66,17 +27,30 @@ namespace KoloWin.Desktop
 
         private void BtnSeconnecter(object sender, EventArgs e)
         {
+            string user = textEditNomdelutilisateur.Text;
+            string pwd = textEditMotdePasse.Text;
 
+            try
+            {
+                //Quand on entre le nom de l'identifiant et le mot de passe correct
+                var customerToLogin = new KoloUser();
+                if (customerToLogin == null)
+                {
+                    MessageBox.Show("mot de passe ou nom de l'utilisateur incorrect, veillez recommencer");
+
+                }
+                else
+                {
+                }
+
+
+                koloUsersBindingSource.DataSource = new CustomerLoginForm2();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            }
         }
-
-        //private void pictureEdit2_EditValueChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void pictureEdit2_EditValueChanged_1(object sender, EventArgs e)
-        // {
-
-        //}
     }
-}
+

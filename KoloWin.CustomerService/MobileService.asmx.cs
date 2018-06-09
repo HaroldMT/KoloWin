@@ -17,9 +17,6 @@ namespace KoloWin.CustomerService
     [System.ComponentModel.ToolboxItem(false)]
 
 
-
-
-
     public class MobileService : System.Web.Services.WebService
     {
         [WebMethod]
@@ -60,5 +57,34 @@ namespace KoloWin.CustomerService
             context.Dispose();
             return mobileDevice;
         }
+
+
+
+        [WebMethod]
+        public string GetCustomerByIdCustomerAndNumber(int idCustomer, string number)
+        {
+            var Context = new KoloAndroidEntities();
+            Customer outCustomer;
+            if (idCustomer > 0)
+                outCustomer = Context.Customers.Find(idCustomer);
+            else
+                outCustomer = Context.Customers.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
+            Context.Dispose();
+            return SerializationHelper.SerializeToJson(outCustomer);
+        }
+
+        [WebMethod]
+        public string GetCustomerContacts(string contacts, string idCustomer)
+        {
+            var Context = new KoloAndroidEntities();
+            Customer outCustomer;
+            
+            Context.Dispose();
+            return SerializationHelper.SerializeToJson("");
+        }
+
+
+
+
     }
 }
