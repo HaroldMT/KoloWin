@@ -7,6 +7,7 @@ using KoloWin.CustomerService.Util;
 using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
 using KoloWin.CustomerService.Utils.Entities;
+using KoloWin.CustomerService.Model;
 
 namespace KoloWin.CustomerService
 {
@@ -62,24 +63,24 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public string GetCustomerByIdCustomerAndNumber(int idCustomer, string number)
+        public string FindCustomerByIdCustomerAndNumber(int idCustomer, string number)
         {
             var Context = new KoloAndroidEntities();
             string error = "";
-            var outCustomer = CustomerHelper.GetCustomerByIdCustomerAndNumber(idCustomer, number, Context,out error);
+            var outCustomer = CustomerHelper.FindCustomerByIdCustomerAndNumber(idCustomer, number, Context,out error);
             Context.Dispose();
             return SerializationHelper.SerializeToJson(outCustomer);
         }
 
         [WebMethod]
-        public string GetCustomerContacts(int idCustomer, string intContacts)
+        public string FindCustomerContacts(int idCustomer, string intContacts)
         {
             var Context = new KoloAndroidEntities();
             string error = "";
             HashSet<string> contacts = SerializationHelper.DeserializeFromJsonString<HashSet<string>>(intContacts);
-            //HashSet<Registration> registredContacts = CustomerHelper.GetCustomerContacts(idCustomer, contacts, Context, out error);
+            HashSet<SimpleContact> registredContacts = CustomerHelper.FindCustomerContacts(idCustomer, contacts, Context, out error);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson("");
+            return SerializationHelper.SerializeToJson(registredContacts);
         }
 
 

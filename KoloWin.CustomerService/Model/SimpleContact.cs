@@ -12,5 +12,6 @@ namespace KoloWin.CustomerService.Model
         public int IdCustomer { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KoloWin.CustomerService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,7 @@ namespace KoloWin.CustomerService.Utils.Entities
     public class CustomerHelper
     {
 
-        public static Customer GetCustomerByIdCustomerAndNumber(int idCustomer, string number, KoloAndroidEntities context, out string error)
+        public static Customer FindCustomerByIdCustomerAndNumber(int idCustomer, string number, KoloAndroidEntities context, out string error)
         {
             error = "";
             Customer c = null;
@@ -27,21 +28,26 @@ namespace KoloWin.CustomerService.Utils.Entities
         }
 
         
-        public static HashSet<Customer> GetCustomerContacts(int idCustomer, HashSet<string> contacts, KoloAndroidEntities context, out string error)
+        public static HashSet<SimpleContact> FindCustomerContacts(int idCustomer, HashSet<string> contacts, KoloAndroidEntities context, out string error)
         {
             error = "";
-            HashSet<Customer> registredContats = new HashSet<Customer>();
-            Customer customer = context.Customers.Find(idCustomer);
+            HashSet<SimpleContact> registredContats = new HashSet<SimpleContact>();
             try
             {
                 foreach(string number in contacts)
                 {
                     Customer tmpCustomer = null;
+                    SimpleContact tmpSimpleContact = null;
                     tmpCustomer = context.Customers.Where(c => c.Registration.PhoneNumber == number).FirstOrDefault();
                     if (tmpCustomer != null)
                     {
-                        customer.
-                        registredContats.Add(tmpCustomer);
+                        tmpSimpleContact.Email = tmpCustomer.Registration.Email;
+                        tmpSimpleContact.FirstName = tmpCustomer.Person.Firstname;
+                        tmpSimpleContact.IdCustomer = tmpCustomer.IdCustomer;
+                        tmpSimpleContact.ImageUrl = "";
+                        tmpSimpleContact.LastName = tmpCustomer.Person.Lastname;
+                        tmpSimpleContact.Telephone = tmpCustomer.Registration.PhoneNumber;
+                        registredContats.Add(tmpSimpleContact);
                     }
                 }
             }
