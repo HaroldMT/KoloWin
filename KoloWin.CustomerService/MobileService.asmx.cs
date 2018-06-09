@@ -73,6 +73,18 @@ namespace KoloWin.CustomerService
             return SerializationHelper.SerializeToJson(outCustomer);
         }
 
+        [WebMethod]
+        public string GetCustomerContacts(string contacts, string idCustomer)
+        {
+            var Context = new KoloAndroidEntities();
+            Customer outCustomer;
+            
+            Context.Dispose();
+            return SerializationHelper.SerializeToJson("");
+        }
+
+
+
 
     }
 }
