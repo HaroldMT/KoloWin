@@ -227,6 +227,13 @@
           <Property Name="IdCustomerGroup" Type="int" Nullable="false" />
           <Property Name="ImageBytes" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="KoloGroup">
+          <Key>
+            <PropertyRef Name="GroupCode" />
+          </Key>
+          <Property Name="GroupCode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="GroupDescription" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="KoloNotification">
           <Key>
             <PropertyRef Name="IdNotification" />
@@ -238,6 +245,22 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ExpiryDate" Type="datetime" />
           <Property Name="Readed" Type="bit" />
+        </EntityType>
+        <EntityType Name="KoloPermission">
+          <Key>
+            <PropertyRef Name="ActionCode" />
+            <PropertyRef Name="GroupCode" />
+          </Key>
+          <Property Name="ActionCode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="GroupCode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ExpirationDate" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="KoloSystemAction">
+          <Key>
+            <PropertyRef Name="ActionCode" />
+          </Key>
+          <Property Name="ActionCode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ActionDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="KoloSystemHistory">
           <Key>
@@ -1145,6 +1168,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_KoloPermission_Action">
+          <End Role="KoloSystemAction" Type="Self.KoloSystemAction" Multiplicity="1" />
+          <End Role="KoloPermission" Type="Self.KoloPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KoloSystemAction">
+              <PropertyRef Name="ActionCode" />
+            </Principal>
+            <Dependent Role="KoloPermission">
+              <PropertyRef Name="ActionCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KoloPermission_Group">
+          <End Role="KoloGroup" Type="Self.KoloGroup" Multiplicity="1" />
+          <End Role="KoloPermission" Type="Self.KoloPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KoloGroup">
+              <PropertyRef Name="GroupCode" />
+            </Principal>
+            <Dependent Role="KoloPermission">
+              <PropertyRef Name="GroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_KoloSystemHistory_KoloUser">
           <End Role="KoloUser" Type="Self.KoloUser" Multiplicity="1" />
           <End Role="KoloSystemHistory" Type="Self.KoloSystemHistory" Multiplicity="*" />
@@ -1644,6 +1691,18 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_Group">
+          <End Role="KoloGroup" Type="Self.KoloGroup" Multiplicity="0..1" />
+          <End Role="KoloUser" Type="Self.KoloUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KoloGroup">
+              <PropertyRef Name="GroupCode" />
+            </Principal>
+            <Dependent Role="KoloUser">
+              <PropertyRef Name="GroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Person">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="KoloUser" Type="Self.KoloUser" Multiplicity="0..1" />
@@ -1704,7 +1763,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="ExternalAccount" EntityType="Self.ExternalAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExternalAccountHistory" EntityType="Self.ExternalAccountHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupImage" EntityType="Self.GroupImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KoloGroup" EntityType="Self.KoloGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KoloNotification" EntityType="Self.KoloNotification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KoloPermission" EntityType="Self.KoloPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KoloSystemAction" EntityType="Self.KoloSystemAction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KoloSystemHistory" EntityType="Self.KoloSystemHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KoloUser" EntityType="Self.KoloUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginAttempt" EntityType="Self.LoginAttempt" Schema="dbo" store:Type="Tables" />
@@ -1917,6 +1979,14 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="CustomerGroup" EntitySet="CustomerGroup" />
             <End Role="GroupImage" EntitySet="GroupImage" />
           </AssociationSet>
+          <AssociationSet Name="FK_KoloPermission_Action" Association="Self.FK_KoloPermission_Action">
+            <End Role="KoloSystemAction" EntitySet="KoloSystemAction" />
+            <End Role="KoloPermission" EntitySet="KoloPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KoloPermission_Group" Association="Self.FK_KoloPermission_Group">
+            <End Role="KoloGroup" EntitySet="KoloGroup" />
+            <End Role="KoloPermission" EntitySet="KoloPermission" />
+          </AssociationSet>
           <AssociationSet Name="FK_KoloSystemHistory_KoloUser" Association="Self.FK_KoloSystemHistory_KoloUser">
             <End Role="KoloUser" EntitySet="KoloUser" />
             <End Role="KoloSystemHistory" EntitySet="KoloSystemHistory" />
@@ -2080,6 +2150,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_TransfertScheduled_Sender" Association="Self.fk_TransfertScheduled_Sender">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="TransfertScheduled" EntitySet="TransfertScheduled" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Group" Association="Self.FK_User_Group">
+            <End Role="KoloGroup" EntitySet="KoloGroup" />
+            <End Role="KoloUser" EntitySet="KoloUser" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Person" Association="Self.FK_User_Person">
             <End Role="Person" EntitySet="Person" />
@@ -4130,6 +4204,21 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customers" />
             <End Role="TransfertP2p" EntitySet="TransfertP2p" />
           </AssociationSet>
+          <EntitySet Name="KoloGroups" EntityType="KoloModel.KoloGroup" />
+          <EntitySet Name="KoloPermissions" EntityType="KoloModel.KoloPermission" />
+          <EntitySet Name="KoloSystemActions" EntityType="KoloModel.KoloSystemAction" />
+          <AssociationSet Name="FK_KoloPermission_Group" Association="KoloModel.FK_KoloPermission_Group">
+            <End Role="KoloGroup" EntitySet="KoloGroups" />
+            <End Role="KoloPermission" EntitySet="KoloPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Group" Association="KoloModel.FK_User_Group">
+            <End Role="KoloGroup" EntitySet="KoloGroups" />
+            <End Role="KoloUser" EntitySet="KoloUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KoloPermission_Action" Association="KoloModel.FK_KoloPermission_Action">
+            <End Role="KoloSystemAction" EntitySet="KoloSystemActions" />
+            <End Role="KoloPermission" EntitySet="KoloPermissions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="KoloUser">
           <Key>
@@ -4151,6 +4240,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="MasterUser" Type="Boolean" />
           <Property Name="GroupCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KoloSystemHistories" Relationship="KoloModel.FK_KoloSystemHistory_KoloUser" FromRole="KoloUser" ToRole="KoloSystemHistory" />
+          <NavigationProperty Name="KoloGroup" Relationship="KoloModel.FK_User_Group" FromRole="KoloUser" ToRole="KoloGroup" />
         </EntityType>
         <Association Name="FK_User_Person1">
           <End Type="KoloModel.Person" Role="Person" Multiplicity="1" />
@@ -4245,6 +4335,70 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Principal>
             <Dependent Role="TransfertP2p">
               <PropertyRef Name="IdSendingCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KoloGroup">
+          <Key>
+            <PropertyRef Name="GroupCode" />
+          </Key>
+          <Property Name="GroupCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="GroupDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KoloPermissions" Relationship="KoloModel.FK_KoloPermission_Group" FromRole="KoloGroup" ToRole="KoloPermission" />
+          <NavigationProperty Name="KoloUsers" Relationship="KoloModel.FK_User_Group" FromRole="KoloGroup" ToRole="KoloUser" />
+        </EntityType>
+        <EntityType Name="KoloPermission">
+          <Key>
+            <PropertyRef Name="ActionCode" />
+            <PropertyRef Name="GroupCode" />
+          </Key>
+          <Property Name="ActionCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="GroupCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="KoloGroup" Relationship="KoloModel.FK_KoloPermission_Group" FromRole="KoloPermission" ToRole="KoloGroup" />
+          <NavigationProperty Name="KoloSystemAction" Relationship="KoloModel.FK_KoloPermission_Action" FromRole="KoloPermission" ToRole="KoloSystemAction" />
+        </EntityType>
+        <EntityType Name="KoloSystemAction">
+          <Key>
+            <PropertyRef Name="ActionCode" />
+          </Key>
+          <Property Name="ActionCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ActionDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KoloPermissions" Relationship="KoloModel.FK_KoloPermission_Action" FromRole="KoloSystemAction" ToRole="KoloPermission" />
+        </EntityType>
+        <Association Name="FK_KoloPermission_Group">
+          <End Type="KoloModel.KoloGroup" Role="KoloGroup" Multiplicity="1" />
+          <End Type="KoloModel.KoloPermission" Role="KoloPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KoloGroup">
+              <PropertyRef Name="GroupCode" />
+            </Principal>
+            <Dependent Role="KoloPermission">
+              <PropertyRef Name="GroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Group">
+          <End Type="KoloModel.KoloGroup" Role="KoloGroup" Multiplicity="0..1" />
+          <End Type="KoloModel.KoloUser" Role="KoloUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KoloGroup">
+              <PropertyRef Name="GroupCode" />
+            </Principal>
+            <Dependent Role="KoloUser">
+              <PropertyRef Name="GroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KoloPermission_Action">
+          <End Type="KoloModel.KoloSystemAction" Role="KoloSystemAction" Multiplicity="1" />
+          <End Type="KoloModel.KoloPermission" Role="KoloPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KoloSystemAction">
+              <PropertyRef Name="ActionCode" />
+            </Principal>
+            <Dependent Role="KoloPermission">
+              <PropertyRef Name="ActionCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4928,6 +5082,31 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="HistDate" ColumnName="HistDate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="IdHistory" ColumnName="IdHistory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KoloGroups">
+            <EntityTypeMapping TypeName="KoloModel.KoloGroup">
+              <MappingFragment StoreEntitySet="KoloGroup">
+                <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KoloPermissions">
+            <EntityTypeMapping TypeName="KoloModel.KoloPermission">
+              <MappingFragment StoreEntitySet="KoloPermission">
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="ActionCode" ColumnName="ActionCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KoloSystemActions">
+            <EntityTypeMapping TypeName="KoloModel.KoloSystemAction">
+              <MappingFragment StoreEntitySet="KoloSystemAction">
+                <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
+                <ScalarProperty Name="ActionCode" ColumnName="ActionCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
