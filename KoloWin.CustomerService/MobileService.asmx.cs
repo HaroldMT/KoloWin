@@ -61,10 +61,14 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public string GetCustomerByIdCustomer(int idCustomer)
+        public string GetCustomerByIdCustomerAndNumber(int idCustomer, string number)
         {
             var Context = new KoloAndroidEntities();
-            var outCustomer = Context.Customers.Find(idCustomer);
+            Customer outCustomer;
+            if (idCustomer > 0)
+                outCustomer = Context.Customers.Find(idCustomer);
+            else
+                outCustomer = Context.Customers.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
             Context.Dispose();
             return SerializationHelper.SerializeToJson(outCustomer);
         }
