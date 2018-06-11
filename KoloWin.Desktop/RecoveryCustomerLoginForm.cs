@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KoloWin.Desktop.KoloGateway;
 
 namespace KoloWin.Desktop
 {
@@ -17,14 +18,29 @@ namespace KoloWin.Desktop
             InitializeComponent();
         }
 
-        private void labelControl2_Click(object sender, EventArgs e)
+        
+        private void BtnSeconnecter_Click(object sender, EventArgs e)
         {
+            string user = textEditAdresseemail.Text;
+            string pwd = textEditMotdepasse.Text;
+            string emailID = textEditAdresseemail.Text;
 
-        }
+            if(pwd != null)
+            {
+                if (user != null)
+                {
+                    var kUser = new KoloUser();
+                    kUser.EmailAddress = user;
+                    kUser.Pwd = pwd;
+                    MessageBox.Show("Reussi!");
+                   
+                      
+                }
+            }
+           
 
-        private void labelControl3_Click(object sender, EventArgs e)
-        {
+            }
 
         }
     }
-}
+
