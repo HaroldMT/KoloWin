@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
+using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Util;
 using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
@@ -58,19 +59,25 @@ namespace KoloWin.CustomerService
             return mobileDevice;
         }
 
-
-
         [WebMethod]
         public string GetCustomerByIdCustomerAndNumber(int idCustomer, string number)
         {
             var Context = new KoloAndroidEntities();
+            SimpleContact simpleContact = new SimpleContact()
+            {
+                FirstName = "name...", LastName = "Full",
+                Telephone = "Phone number..."
+            };
             Customer outCustomer;
+            var customerQuery = Context.Customers.Include("MobileDevice").Include("Person").Include("Registration");
             if (idCustomer > 0)
-                outCustomer = Context.Customers.Find(idCustomer);
+                outCustomer = customerQuery.Where(e => e.IdCustomer == idCustomer).FirstOrDefault();
             else
-                outCustomer = Context.Customers.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
+                outCustomer = customerQuery.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
+            if (outCustomer != null)
+                simpleContact = new SimpleContact(outCustomer);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outCustomer);
+            return SerializationHelper.SerializeToJson(simpleContact);
         }
 
         [WebMethod]
@@ -82,9 +89,5 @@ namespace KoloWin.CustomerService
             Context.Dispose();
             return SerializationHelper.SerializeToJson("");
         }
-
-
-
-
     }
 }
