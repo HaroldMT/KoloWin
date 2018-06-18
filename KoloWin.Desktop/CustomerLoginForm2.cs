@@ -32,15 +32,17 @@ namespace KoloWin.Desktop
 
             try
             {
+                var userFound = KoloContextHelper.Context.KoloUsers
+                    .Where(koloUser => koloUser.UserLogin == user & koloUser.Pwd == pwd).ToList().FirstOrDefault();
+                var isValidUser = userFound != null;
                 //Quand on entre le nom de l'identifiant et le mot de passe correct
-                var customerToLogin = new KoloUser();
-                if (customerToLogin == null)
+                if (isValidUser == true)
                 {
-                    MessageBox.Show("mot de passe ou nom de l'utilisateur incorrect, veillez recommencer");
-
+                    new KoloWinInterfaceForm().ShowDialog();
                 }
                 else
                 {
+                    MessageBox.Show("Mot de passe ou nom de l'utilisateur incorrect, veillez recommencer");
                 }
 
 
@@ -51,6 +53,31 @@ namespace KoloWin.Desktop
                 MessageBox.Show(ex.Message);
             }
             }
-        }
-    }
 
+        private void Motdepasseoublié(object sender, EventArgs e)
+        {
+            new RecoveryCustomerLoginForm().ShowDialog();
+
+       
+        }
+
+        //private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void checkSesouvenir(object sender, EventArgs e)
+        //{
+        //    if (checkEditSesouvenir.Checked)
+        //    {
+        //      textEditMotdePasse() = "true";
+        //    }
+        //     else
+        //    {
+        //        textEditMotdePasse.Text() = "false";
+        //    }
+        //}
+
+
+    }
+    }

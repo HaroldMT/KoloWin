@@ -30,36 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.dateOfBirthDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.CreatekoloUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.firstnameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.lastnameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.middlenameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.emailAddressTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.numberTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.pwdTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.countryCodeTextEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.countriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.genderCodeTextEdit = new DevExpress.XtraEditors.LookUpEdit();
-            this.refGendersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.maritalStatusCodeTextEdit = new DevExpress.XtraEditors.LookUpEdit();
-            this.refMaritalStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem33 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem35 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem37 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem39 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem41 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtlastnameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.CreatekoloUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtmiddlenameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.txtfirstnameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.txtdateOfBirthDateEdit = new DevExpress.XtraEditors.DateEdit();
@@ -72,8 +45,11 @@
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.txtUserId = new DevExpress.XtraEditors.TextEdit();
             this.txtmaritalStatusCodeTextEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.refMaritalStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtgenderCodeTextEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.refGendersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.countryCodeTextEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.countriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -125,16 +101,14 @@
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.citiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colIdCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserLogin = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -153,38 +127,10 @@
             this.emptySpaceItem16 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
-            this.dataLayoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateOfBirthDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateOfBirthDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreatekoloUsersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstnameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lastnameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.middlenameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emailAddressTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pwdTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countryCodeTextEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countriesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderCodeTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refGendersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maritalStatusCodeTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtlastnameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatekoloUsersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmiddlenameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtfirstnameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdateOfBirthDateEdit.Properties.CalendarTimeProperties)).BeginInit();
@@ -195,8 +141,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmaritalStatusCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgenderCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refGendersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
@@ -232,16 +181,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.citiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).BeginInit();
@@ -249,7 +196,6 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.dataLayoutControl2);
             this.dataLayoutControl1.Controls.Add(this.layoutControl1);
             this.dataLayoutControl1.Controls.Add(this.koloUsersGridControl);
             this.dataLayoutControl1.Controls.Add(this.btnActualiser);
@@ -263,281 +209,6 @@
             this.dataLayoutControl1.Size = new System.Drawing.Size(847, 515);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
-            // 
-            // dataLayoutControl2
-            // 
-            this.dataLayoutControl2.Controls.Add(this.dateOfBirthDateEdit);
-            this.dataLayoutControl2.Controls.Add(this.firstnameTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.lastnameTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.middlenameTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.emailAddressTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.numberTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.pwdTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.simpleButton1);
-            this.dataLayoutControl2.Controls.Add(this.countryCodeTextEdit1);
-            this.dataLayoutControl2.Controls.Add(this.genderCodeTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.maritalStatusCodeTextEdit);
-            this.dataLayoutControl2.Location = new System.Drawing.Point(24, 46);
-            this.dataLayoutControl2.Name = "dataLayoutControl2";
-            this.dataLayoutControl2.Root = this.layoutControlGroup5;
-            this.dataLayoutControl2.Size = new System.Drawing.Size(799, 445);
-            this.dataLayoutControl2.TabIndex = 47;
-            this.dataLayoutControl2.Text = "dataLayoutControl2";
-            // 
-            // dateOfBirthDateEdit
-            // 
-            this.dateOfBirthDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.DateOfBirth", true));
-            this.dateOfBirthDateEdit.EditValue = null;
-            this.dateOfBirthDateEdit.Location = new System.Drawing.Point(113, 108);
-            this.dateOfBirthDateEdit.Name = "dateOfBirthDateEdit";
-            this.dateOfBirthDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateOfBirthDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateOfBirthDateEdit.Size = new System.Drawing.Size(674, 20);
-            this.dateOfBirthDateEdit.StyleController = this.dataLayoutControl2;
-            this.dateOfBirthDateEdit.TabIndex = 13;
-            // 
-            // CreatekoloUsersBindingSource
-            // 
-            this.CreatekoloUsersBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.KoloUser);
-            // 
-            // firstnameTextEdit
-            // 
-            this.firstnameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.Firstname", true));
-            this.firstnameTextEdit.Location = new System.Drawing.Point(113, 132);
-            this.firstnameTextEdit.Name = "firstnameTextEdit";
-            this.firstnameTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.firstnameTextEdit.StyleController = this.dataLayoutControl2;
-            this.firstnameTextEdit.TabIndex = 15;
-            // 
-            // lastnameTextEdit
-            // 
-            this.lastnameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.Lastname", true));
-            this.lastnameTextEdit.Location = new System.Drawing.Point(113, 180);
-            this.lastnameTextEdit.Name = "lastnameTextEdit";
-            this.lastnameTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.lastnameTextEdit.StyleController = this.dataLayoutControl2;
-            this.lastnameTextEdit.TabIndex = 19;
-            // 
-            // middlenameTextEdit
-            // 
-            this.middlenameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.Middlename", true));
-            this.middlenameTextEdit.Location = new System.Drawing.Point(113, 228);
-            this.middlenameTextEdit.Name = "middlenameTextEdit";
-            this.middlenameTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.middlenameTextEdit.StyleController = this.dataLayoutControl2;
-            this.middlenameTextEdit.TabIndex = 23;
-            // 
-            // emailAddressTextEdit
-            // 
-            this.emailAddressTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "EmailAddress", true));
-            this.emailAddressTextEdit.Location = new System.Drawing.Point(113, 12);
-            this.emailAddressTextEdit.Name = "emailAddressTextEdit";
-            this.emailAddressTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.emailAddressTextEdit.StyleController = this.dataLayoutControl2;
-            this.emailAddressTextEdit.TabIndex = 5;
-            // 
-            // numberTextEdit
-            // 
-            this.numberTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Number", true));
-            this.numberTextEdit.Location = new System.Drawing.Point(113, 36);
-            this.numberTextEdit.Name = "numberTextEdit";
-            this.numberTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.numberTextEdit.StyleController = this.dataLayoutControl2;
-            this.numberTextEdit.TabIndex = 7;
-            // 
-            // pwdTextEdit
-            // 
-            this.pwdTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Pwd", true));
-            this.pwdTextEdit.Location = new System.Drawing.Point(113, 60);
-            this.pwdTextEdit.Name = "pwdTextEdit";
-            this.pwdTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.pwdTextEdit.StyleController = this.dataLayoutControl2;
-            this.pwdTextEdit.TabIndex = 9;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 252);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(775, 22);
-            this.simpleButton1.StyleController = this.dataLayoutControl2;
-            this.simpleButton1.TabIndex = 24;
-            this.simpleButton1.Text = "Creer";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
-            // 
-            // countryCodeTextEdit1
-            // 
-            this.countryCodeTextEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.CountryCode", true));
-            this.countryCodeTextEdit1.Location = new System.Drawing.Point(113, 84);
-            this.countryCodeTextEdit1.Name = "countryCodeTextEdit1";
-            this.countryCodeTextEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.countryCodeTextEdit1.Properties.DataSource = this.countriesBindingSource;
-            this.countryCodeTextEdit1.Properties.DisplayMember = "CountryCode";
-            this.countryCodeTextEdit1.Properties.NullText = "";
-            this.countryCodeTextEdit1.Size = new System.Drawing.Size(674, 20);
-            this.countryCodeTextEdit1.StyleController = this.dataLayoutControl2;
-            this.countryCodeTextEdit1.TabIndex = 11;
-            // 
-            // countriesBindingSource
-            // 
-            this.countriesBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.Country);
-            // 
-            // genderCodeTextEdit
-            // 
-            this.genderCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.GenderCode", true));
-            this.genderCodeTextEdit.Location = new System.Drawing.Point(113, 156);
-            this.genderCodeTextEdit.Name = "genderCodeTextEdit";
-            this.genderCodeTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.genderCodeTextEdit.Properties.DataSource = this.refGendersBindingSource;
-            this.genderCodeTextEdit.Properties.DisplayMember = "GenderCode";
-            this.genderCodeTextEdit.Properties.NullText = "";
-            this.genderCodeTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.genderCodeTextEdit.StyleController = this.dataLayoutControl2;
-            this.genderCodeTextEdit.TabIndex = 17;
-            // 
-            // refGendersBindingSource
-            // 
-            this.refGendersBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefGender);
-            // 
-            // maritalStatusCodeTextEdit
-            // 
-            this.maritalStatusCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.MaritalStatusCode", true));
-            this.maritalStatusCodeTextEdit.Location = new System.Drawing.Point(113, 204);
-            this.maritalStatusCodeTextEdit.Name = "maritalStatusCodeTextEdit";
-            this.maritalStatusCodeTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.maritalStatusCodeTextEdit.Properties.DataSource = this.refMaritalStatusBindingSource;
-            this.maritalStatusCodeTextEdit.Properties.DisplayMember = "MaritalStatusCode";
-            this.maritalStatusCodeTextEdit.Properties.NullText = "";
-            this.maritalStatusCodeTextEdit.Size = new System.Drawing.Size(674, 20);
-            this.maritalStatusCodeTextEdit.StyleController = this.dataLayoutControl2;
-            this.maritalStatusCodeTextEdit.TabIndex = 21;
-            // 
-            // refMaritalStatusBindingSource
-            // 
-            this.refMaritalStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefMaritalStatu);
-            // 
-            // layoutControlGroup5
-            // 
-            this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup5.GroupBordersVisible = false;
-            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem13,
-            this.layoutControlItem15,
-            this.layoutControlItem27,
-            this.layoutControlItem29,
-            this.layoutControlItem31,
-            this.layoutControlItem33,
-            this.layoutControlItem35,
-            this.layoutControlItem37,
-            this.layoutControlItem39,
-            this.layoutControlItem41,
-            this.layoutControlItem8});
-            this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(799, 445);
-            this.layoutControlGroup5.TextVisible = false;
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.emailAddressTextEdit;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem13.Text = "Email Address:";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem15
-            // 
-            this.layoutControlItem15.Control = this.numberTextEdit;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem15.Text = "Number:";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem27
-            // 
-            this.layoutControlItem27.Control = this.pwdTextEdit;
-            this.layoutControlItem27.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem27.Name = "layoutControlItem27";
-            this.layoutControlItem27.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem27.Text = "Pwd:";
-            this.layoutControlItem27.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem29
-            // 
-            this.layoutControlItem29.Control = this.countryCodeTextEdit1;
-            this.layoutControlItem29.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem29.Name = "layoutControlItem29";
-            this.layoutControlItem29.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem29.Text = "Country Code:";
-            this.layoutControlItem29.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem31
-            // 
-            this.layoutControlItem31.Control = this.dateOfBirthDateEdit;
-            this.layoutControlItem31.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem31.Name = "layoutControlItem31";
-            this.layoutControlItem31.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem31.Text = "Date Of Birth:";
-            this.layoutControlItem31.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem33
-            // 
-            this.layoutControlItem33.Control = this.firstnameTextEdit;
-            this.layoutControlItem33.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem33.Name = "layoutControlItem33";
-            this.layoutControlItem33.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem33.Text = "Firstname:";
-            this.layoutControlItem33.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem35
-            // 
-            this.layoutControlItem35.Control = this.genderCodeTextEdit;
-            this.layoutControlItem35.Location = new System.Drawing.Point(0, 144);
-            this.layoutControlItem35.Name = "layoutControlItem35";
-            this.layoutControlItem35.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem35.Text = "Gender Code:";
-            this.layoutControlItem35.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem37
-            // 
-            this.layoutControlItem37.Control = this.lastnameTextEdit;
-            this.layoutControlItem37.Location = new System.Drawing.Point(0, 168);
-            this.layoutControlItem37.Name = "layoutControlItem37";
-            this.layoutControlItem37.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem37.Text = "Lastname:";
-            this.layoutControlItem37.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem39
-            // 
-            this.layoutControlItem39.Control = this.maritalStatusCodeTextEdit;
-            this.layoutControlItem39.Location = new System.Drawing.Point(0, 192);
-            this.layoutControlItem39.Name = "layoutControlItem39";
-            this.layoutControlItem39.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem39.Text = "Marital Status Code:";
-            this.layoutControlItem39.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem41
-            // 
-            this.layoutControlItem41.Control = this.middlenameTextEdit;
-            this.layoutControlItem41.Location = new System.Drawing.Point(0, 216);
-            this.layoutControlItem41.Name = "layoutControlItem41";
-            this.layoutControlItem41.Size = new System.Drawing.Size(779, 24);
-            this.layoutControlItem41.Text = "Middlename:";
-            this.layoutControlItem41.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.simpleButton1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 240);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(779, 185);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControl1
             // 
@@ -571,6 +242,10 @@
             this.txtlastnameTextEdit.Size = new System.Drawing.Size(175, 20);
             this.txtlastnameTextEdit.StyleController = this.layoutControl1;
             this.txtlastnameTextEdit.TabIndex = 25;
+            // 
+            // CreatekoloUsersBindingSource
+            // 
+            this.CreatekoloUsersBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.KoloUser);
             // 
             // txtmiddlenameTextEdit
             // 
@@ -692,6 +367,10 @@
             this.txtmaritalStatusCodeTextEdit.StyleController = this.layoutControl1;
             this.txtmaritalStatusCodeTextEdit.TabIndex = 21;
             // 
+            // refMaritalStatusBindingSource
+            // 
+            this.refMaritalStatusBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefMaritalStatu);
+            // 
             // txtgenderCodeTextEdit
             // 
             this.txtgenderCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.GenderCode", true));
@@ -706,6 +385,10 @@
             this.txtgenderCodeTextEdit.StyleController = this.layoutControl1;
             this.txtgenderCodeTextEdit.TabIndex = 20;
             // 
+            // refGendersBindingSource
+            // 
+            this.refGendersBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.RefGender);
+            // 
             // countryCodeTextEdit
             // 
             this.countryCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CreatekoloUsersBindingSource, "Person.CountryCode", true));
@@ -719,6 +402,10 @@
             this.countryCodeTextEdit.Size = new System.Drawing.Size(301, 20);
             this.countryCodeTextEdit.StyleController = this.layoutControl1;
             this.countryCodeTextEdit.TabIndex = 26;
+            // 
+            // countriesBindingSource
+            // 
+            this.countriesBindingSource.DataSource = typeof(KoloWin.Desktop.KoloGateway.Country);
             // 
             // Root
             // 
@@ -1189,25 +876,25 @@
             this.tabbedControlGroup1.Size = new System.Drawing.Size(827, 495);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
-            this.layoutControlGroup3,
-            this.layoutControlGroup4});
+            this.layoutControlGroup3});
             // 
-            // layoutControlGroup4
+            // layoutControlGroup3
             // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem6});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(803, 449);
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem5});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(803, 449);
+            this.layoutControlGroup3.Text = "Creer Nouveau Utilisateur";
             // 
-            // layoutControlItem6
+            // layoutControlItem5
             // 
-            this.layoutControlItem6.Control = this.dataLayoutControl2;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(803, 449);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
+            this.layoutControlItem5.Control = this.layoutControl1;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(803, 449);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
@@ -1265,24 +952,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(803, 423);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem5});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(803, 449);
-            this.layoutControlGroup3.Text = "Creer Nouveau Utilisateur";
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.layoutControl1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(803, 449);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // citiesBindingSource
             // 
@@ -1407,38 +1076,10 @@
             this.Load += new System.EventHandler(this.KoloUserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
-            this.dataLayoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateOfBirthDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateOfBirthDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreatekoloUsersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstnameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lastnameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.middlenameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emailAddressTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pwdTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countryCodeTextEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countriesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderCodeTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refGendersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maritalStatusCodeTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtlastnameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatekoloUsersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmiddlenameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtfirstnameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdateOfBirthDateEdit.Properties.CalendarTimeProperties)).EndInit();
@@ -1449,8 +1090,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmaritalStatusCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refMaritalStatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgenderCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refGendersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
@@ -1486,16 +1130,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.citiesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).EndInit();
@@ -1601,31 +1243,5 @@
         private DevExpress.XtraEditors.LookUpEdit countryCodeTextEdit;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl2;
-        private DevExpress.XtraEditors.DateEdit dateOfBirthDateEdit;
-        private DevExpress.XtraEditors.TextEdit firstnameTextEdit;
-        private DevExpress.XtraEditors.TextEdit lastnameTextEdit;
-        private DevExpress.XtraEditors.TextEdit middlenameTextEdit;
-        private DevExpress.XtraEditors.TextEdit emailAddressTextEdit;
-        private DevExpress.XtraEditors.TextEdit numberTextEdit;
-        private DevExpress.XtraEditors.TextEdit pwdTextEdit;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem27;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem29;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem31;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem37;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem39;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem41;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraEditors.LookUpEdit countryCodeTextEdit1;
-        private DevExpress.XtraEditors.LookUpEdit genderCodeTextEdit;
-        private DevExpress.XtraEditors.LookUpEdit maritalStatusCodeTextEdit;
     }
 }
