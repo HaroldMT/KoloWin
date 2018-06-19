@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
+using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Util;
 using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
-using KoloWin.CustomerService.Utils.Entities;
-using KoloWin.CustomerService.Model;
 
 namespace KoloWin.CustomerService
 {
@@ -21,9 +20,6 @@ namespace KoloWin.CustomerService
 
     public class MobileService : System.Web.Services.WebService
     {
-
-        #region Test Method
-
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
         public RefGender GetRefGender()
@@ -52,81 +48,46 @@ namespace KoloWin.CustomerService
             return myRefTypes;
         }
 
-        #endregion
-
-
-        #region Kolo Native Method
-        
-
         [WebMethod]
-        public string InsertMobileDevice(string jsonMobileDevice)
+        public MobileDevice InsertMobileDevice(string jsonMobileDevice)
         {
             string error = "";
             MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
             var context = new KoloAndroidEntities4Serialization();
             mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out  error);
             context.Dispose();
-            return SerializationHelper.SerializeToJson(mobileDevice);
+            return mobileDevice;
         }
-        
 
         [WebMethod]
-        public string FindCustomerByIdCustomerAndNumber(int idCustomer, string number)
+        public string GetCustomerByIdCustomerAndNumber(int idCustomer, string number)
         {
             var Context = new KoloAndroidEntities();
-            string error = "";
-            var outCustomer = CustomerHelper.FindCustomerByIdCustomerAndNumber(idCustomer, number, Context,out error);
+            SimpleContact simpleContact = new SimpleContact()
+            {
+                FirstName = "name...", LastName = "Full",
+                Telephone = "Phone number..."
+            };
+            Customer outCustomer;
+            var customerQuery = Context.Customers.Include("MobileDevice").Include("Person").Include("Registration");
+            if (idCustomer > 0)
+                outCustomer = customerQuery.Where(e => e.IdCustomer == idCustomer).FirstOrDefault();
+            else
+                outCustomer = customerQuery.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
+            if (outCustomer != null)
+                simpleContact = new SimpleContact(outCustomer);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outCustomer);
+            return SerializationHelper.SerializeToJson(simpleContact);
         }
 
         [WebMethod]
-        public string FindCustomerContacts(int idCustomer, string intContacts)
+        public string GetCustomerContacts(string contacts, string idCustomer)
         {
             var Context = new KoloAndroidEntities();
-            string error = "";
-            HashSet<string> contacts = SerializationHelper.DeserializeFromJsonString<HashSet<string>>(intContacts);
-            HashSet<SimpleContact> registredContacts = CustomerHelper.FindCustomerContacts(idCustomer, contacts, Context, out error);
+            Customer outCustomer;
+            
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(registredContacts);
+            return SerializationHelper.SerializeToJson("");
         }
-
-        #endregion
-
-        #region Kolo Eneo Methods
-
-
-        [WebMethod]
-        public string FindEneoBillByBillNumber(string jsonBillNumber)
-        {
-            string error = "";
-            return "";
-        }
-
-
-        [WebMethod]
-        public string FindCustomerByIdCustomerAndNumber(int idCustomer, string number)
-        {
-            var Context = new KoloAndroidEntities();
-            string error = "";
-            var outCustomer = CustomerHelper.FindCustomerByIdCustomerAndNumber(idCustomer, number, Context, out error);
-            Context.Dispose();
-            return SerializationHelper.SerializeToJson(outCustomer);
-        }
-
-        [WebMethod]
-        public string FindCustomerContacts(int idCustomer, string intContacts)
-        {
-            var Context = new KoloAndroidEntities();
-            string error = "";
-            HashSet<string> contacts = SerializationHelper.DeserializeFromJsonString<HashSet<string>>(intContacts);
-            HashSet<SimpleContact> registredContacts = CustomerHelper.FindCustomerContacts(idCustomer, contacts, Context, out error);
-            Context.Dispose();
-            return SerializationHelper.SerializeToJson(registredContacts);
-        }
-
-        #endregion
-
-
     }
 }

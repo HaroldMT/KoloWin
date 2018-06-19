@@ -3,6 +3,7 @@ using KoloWin.CustomerService.Utils.Transfert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using KoloWin.Utilities.Office;
 
 namespace KoloWin.CustomerService.Util
 {
@@ -17,6 +18,8 @@ namespace KoloWin.CustomerService.Util
                 {
                     tA2A.TransfertDate = DateTime.Now;
                     tA2A.TransfertStatusCode = KoloConstants.TRANSFERT_STATUS_CODE_RECEIVE_PENDING;
+                    tA2A.Reference = OfficeHelper.GenerateUniqueId();
+                    db.TransfertP2p.Add(tA2A);
                     db.SaveChanges();
                     return tA2A;
                 }

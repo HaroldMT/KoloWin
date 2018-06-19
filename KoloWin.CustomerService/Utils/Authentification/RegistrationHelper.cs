@@ -23,6 +23,11 @@ namespace KoloWin.CustomerService.Util
             return db.Registrations.Any(r => r.PhoneNumber == telephone);
         }
 
+        public static Registration GetRegistration(string telephone, KoloAndroidEntities db)
+        {
+            return db.Registrations.FirstOrDefault(r => r.PhoneNumber == telephone);
+        }
+
         public static bool RegistrationExists(int id, KoloAndroidEntities db)
         {
             return db.Registrations.Any(e => e.IdRegistration == id);
@@ -95,7 +100,11 @@ namespace KoloWin.CustomerService.Util
                 }
                 else
                 {
-                    return new Registration() { IdRegistration = -10, RegistrationStatusCode = "Account arlready exists" };
+                    var oldRegistration = RegistrationHelper.GetRegistration(registration.PhoneNumber, db);
+                    oldRegistration.RegistrationStatusCode = "NEEDCONFIRM";
+                    db.SaveChanges();
+                    return oldRegistration;
+                    //return new Registration() { IdRegistration = -10, RegistrationStatusCode = "Account arlready exists" };
                 }
             }
             catch(Exception e)

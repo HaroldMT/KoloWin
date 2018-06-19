@@ -256,6 +256,7 @@
       <DependentUpon>MobileService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\P2pTransferDetails.cs" />
     <Compile Include="Model\SimpleContact.cs" />
     <Compile Include="MyRefTypes.cs" />
     <Compile Include="Partner.cs">

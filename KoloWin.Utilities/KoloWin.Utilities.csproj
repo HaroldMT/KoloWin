@@ -61,6 +61,12 @@
   <ItemGroup>
     <Compile Include="ExceptionHelper.cs" />
     <Compile Include="HtmlHelper.cs" />
+    <Compile Include="Office\DiskSaveRestoreHelper.cs" />
+    <Compile Include="Office\ExceptionHelper.cs" />
+    <Compile Include="Office\FileIOHelper.cs" />
+    <Compile Include="Office\HtmlHelper.cs" />
+    <Compile Include="Office\OfficeHelper.cs" />
+    <Compile Include="Office\TelephoneHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationHelper.cs" />
   </ItemGroup>

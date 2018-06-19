@@ -26,6 +26,7 @@ namespace KoloWin.CustomerService
         public string Reference { get; set; }
         public bool Transfert2Cash { get; set; }
     
-        public virtual Customer Customer { get; set; }
+        public virtual Customer Receiver { get; set; }
+        public virtual Customer Sender { get; set; }
     }
 }
