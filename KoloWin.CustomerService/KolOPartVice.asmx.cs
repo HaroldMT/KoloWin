@@ -48,7 +48,7 @@ namespace KoloWin.CustomerService
         #region Kolo MAD Methods
 
         [WebMethod]
-        public string DoSendMad(string jsonBillNumber, string jsonCustomer)
+        public string DoSendMad( string jsonMad)
         {
             string error = "";
             return "";
@@ -56,7 +56,7 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public string DoRecieveMad(string jsonBillNumber)
+        public string DoRecieveMad(string jsonMad)
         {
             string error = "";
             return "";
@@ -64,7 +64,23 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public string GetMadByBillReference(string jsonReference)
+        public string GetMadByReference(string jsonReference)
+        {
+            string error = "";
+            return "";
+        }
+
+
+        [WebMethod]
+        public string GetMadByBordereau(string jsonBordereau)
+        {
+            string error = "";
+            return "";
+        }
+
+
+        [WebMethod]
+        public string GetMadByCustomer(string jsonCustomer)
         {
             string error = "";
             return "";
@@ -72,6 +88,20 @@ namespace KoloWin.CustomerService
 
         #endregion
 
+
+
+        #region TopUp Methods
+
+
+        [WebMethod]
+        public string DoTopUp(string jsonTopUp)
+        {
+            string error = "";
+            return "";
+        }
+
+
+        #endregion
 
     }
 }
