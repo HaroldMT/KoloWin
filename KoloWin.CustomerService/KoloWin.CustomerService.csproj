@@ -118,6 +118,7 @@
       <DependentUpon>KoloModel.edmx</DependentUpon>
       <LastGenOutput>KoloModel.cs</LastGenOutput>
     </Content>
+    <Content Include="KolOPartVice.asmx" />
     <Content Include="KolOSphere.asmx" />
     <Content Include="KolOthenticor.asmx" />
     <Content Include="packages.config" />
@@ -229,6 +230,10 @@
     </Compile>
     <Compile Include="KoloNotification.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KolOPartVice.asmx.cs">
+      <DependentUpon>KolOPartVice.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="KolOSphere.asmx.cs">
       <DependentUpon>KolOSphere.asmx</DependentUpon>
