@@ -44,7 +44,7 @@ namespace KoloWin.CustomerService.Utils.Entities
                         tmpSimpleContact.Email = tmpCustomer.Registration.Email;
                         tmpSimpleContact.FirstName = tmpCustomer.Person.Firstname;
                         tmpSimpleContact.IdCustomer = tmpCustomer.IdCustomer;
-                        tmpSimpleContact.ImageUrl = "";
+                        //tmpSimpleContact.ImageUrl = "";
                         tmpSimpleContact.LastName = tmpCustomer.Person.Lastname;
                         tmpSimpleContact.Telephone = tmpCustomer.Registration.PhoneNumber;
                         registredContats.Add(tmpSimpleContact);

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KoloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KoloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountOperation">
           <Key>
             <PropertyRef Name="IdAccountOperation" />
@@ -1593,6 +1593,18 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TransfertP2p_Sender">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="TransfertP2p" Type="Self.TransfertP2p" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="TransfertP2p">
+              <PropertyRef Name="IdSendingCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_TransfertScheduled_Receiver">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="TransfertScheduled" Type="Self.TransfertScheduled" Multiplicity="*" />
@@ -2038,6 +2050,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customer" />
             <End Role="TransfertP2p" EntitySet="TransfertP2p" />
           </AssociationSet>
+          <AssociationSet Name="FK_TransfertP2p_Sender" Association="Self.FK_TransfertP2p_Sender">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="TransfertP2p" EntitySet="TransfertP2p" />
+          </AssociationSet>
           <AssociationSet Name="fk_TransfertScheduled_Receiver" Association="Self.fk_TransfertScheduled_Receiver">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="TransfertScheduled" EntitySet="TransfertScheduled" />
@@ -2059,8 +2075,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Wholesaler" EntitySet="Wholesaler" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KoloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2746,7 +2761,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="TransfertDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Reference" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Transfert2Cash" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.fk_TransfertP2p_Receiver" FromRole="TransfertP2p" ToRole="Customer" />
+          <NavigationProperty Name="Receiver" Relationship="Self.fk_TransfertP2p_Receiver" FromRole="TransfertP2p" ToRole="Customer" />
+          <NavigationProperty Name="Sender" Relationship="KoloModel.FK_TransfertP2p_Sender" FromRole="TransfertP2p" ToRole="Customer" />
         </EntityType>
         <EntityType Name="TransfertScheduled">
           <Key>
@@ -4176,7 +4192,23 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerGroup" EntitySet="CustomerGroups" />
           </AssociationSet>
+          <AssociationSet Name="FK_TransfertP2p_Sender" Association="KoloModel.FK_TransfertP2p_Sender">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="TransfertP2p" EntitySet="TransfertP2p" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_TransfertP2p_Sender">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.TransfertP2p" Role="TransfertP2p" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="TransfertP2p">
+              <PropertyRef Name="IdSendingCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

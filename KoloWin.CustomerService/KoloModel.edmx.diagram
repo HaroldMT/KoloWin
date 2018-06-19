@@ -152,6 +152,7 @@
         <AssociationConnector Association="KoloModel.fk_TransfertE2e_StatusCode" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.fk_TransfertGroup_StatusCode" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.CustomerGroupAdmin" ManuallyRouted="false" />
+        <AssociationConnector Association="KoloModel.FK_TransfertP2p_Sender" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

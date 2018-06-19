@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
+using KoloWin.CustomerService.Model;
 
 namespace KoloWin.CustomerService
 {
@@ -94,9 +95,13 @@ namespace KoloWin.CustomerService
         public string GetTransfertP2pList(int idCustomer)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfertP2pList = Context.TransfertP2p.Where(e => e.IdReceiverCustomer == idCustomer || e.IdSendingCustomer == idCustomer).ToList();
+            var outTransfertP2pList = Context.TransfertP2p
+                .Include("Receiver.Person").Include("Receiver.MobileDevice")
+                .Include("Sender.Person").Include("Receiver.MobileDevice")
+                .Where(e => e.IdReceiverCustomer == idCustomer || e.IdSendingCustomer == idCustomer).ToList();
+            var transfersDetails = outTransfertP2pList.Select(t =>  new P2pTransferDetails(t)).ToList();
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfertP2pList);
+            return SerializationHelper.SerializeToJson(transfersDetails);
         }
 
         [WebMethod]
