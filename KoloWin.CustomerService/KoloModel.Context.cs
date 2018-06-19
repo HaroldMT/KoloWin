@@ -88,5 +88,7 @@ namespace KoloWin.CustomerService
         public virtual DbSet<TransfertP2p> TransfertP2p { get; set; }
         public virtual DbSet<TransfertScheduled> TransfertScheduleds { get; set; }
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
+        public virtual DbSet<EneoBillPayment> EneoBillPayments { get; set; }
+        public virtual DbSet<TopUp> TopUps { get; set; }
     }
 }

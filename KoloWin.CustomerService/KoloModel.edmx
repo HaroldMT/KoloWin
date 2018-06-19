@@ -113,6 +113,10 @@
           <Property Name="Balance" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="date" Nullable="false" />
           <Property Name="IdRegistration" Type="int" />
+          <Property Name="BalanceUnavailable" Type="int" Nullable="false" />
+          <Property Name="EneoContractNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="EneoPercentage" Type="int" />
+          <Property Name="TopUpPercentage" Type="int" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -198,6 +202,19 @@
           <Property Name="IdDistrict" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DistrictName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CountryCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EneoBillPayment">
+          <Key>
+            <PropertyRef Name="IdEneoBillPayment" />
+          </Key>
+          <Property Name="IdEneoBillPayment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCustomer" Type="int" Nullable="false" />
+          <Property Name="PaymentDate" Type="date" Nullable="false" />
+          <Property Name="ContractNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BillNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fee" Type="int" Nullable="false" />
+          <Property Name="Ccion" Type="int" Nullable="false" />
+          <Property Name="BillAmount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ExternalAccount">
           <Key>
@@ -535,6 +552,18 @@
           <Property Name="IdTag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TagName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="TopUp">
+          <Key>
+            <PropertyRef Name="IdTopUp" />
+          </Key>
+          <Property Name="IdTopUp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OpDate" Type="datetime" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Amount" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="OperatorCode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Ccion" Type="int" Nullable="false" />
+          <Property Name="IdCustomer" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Transfert2Cash">
           <Key>
             <PropertyRef Name="IdTransfert2Cash" />
@@ -604,6 +633,9 @@
           <Property Name="TransfertDate" Type="datetime" Nullable="false" />
           <Property Name="Reference" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Transfert2Cash" Type="bit" Nullable="false" />
+          <Property Name="ReceiveDate" Type="datetime" />
+          <Property Name="ConfirmationDate" Type="datetime" />
+          <Property Name="CancelationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="TransfertScheduled">
           <Key>
@@ -1070,6 +1102,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EneoBillPayment_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="EneoBillPayment" Type="Self.EneoBillPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="EneoBillPayment">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_ExternalAccount_History">
           <End Role="ExternalAccount" Type="Self.ExternalAccount" Multiplicity="1" />
           <End Role="ExternalAccountHistory" Type="Self.ExternalAccountHistory" Multiplicity="*" />
@@ -1437,6 +1481,18 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TopUp_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="TopUp" Type="Self.TopUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="TopUp">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Transfert2Cash_PartnerAccount">
           <End Role="Partner" Type="Self.Partner" Multiplicity="1" />
           <End Role="Transfert2Cash" Type="Self.Transfert2Cash" Multiplicity="*" />
@@ -1686,6 +1742,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="CustomerLogin" EntityType="Self.CustomerLogin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerTags" EntityType="Self.CustomerTags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EneoBillPayment" EntityType="Self.EneoBillPayment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExternalAccount" EntityType="Self.ExternalAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExternalAccountHistory" EntityType="Self.ExternalAccountHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupImage" EntityType="Self.GroupImage" Schema="dbo" store:Type="Tables" />
@@ -1722,6 +1779,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reseller" EntityType="Self.Reseller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TopUp" EntityType="Self.TopUp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transfert2Cash" EntityType="Self.Transfert2Cash" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transfert2CashDetails" EntityType="Self.Transfert2CashDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransfertE2e" EntityType="Self.TransfertE2e" Schema="dbo" store:Type="Tables" />
@@ -1878,6 +1936,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Tag" EntitySet="Tag" />
             <End Role="CustomerTags" EntitySet="CustomerTags" />
           </AssociationSet>
+          <AssociationSet Name="FK_EneoBillPayment_Customer" Association="Self.FK_EneoBillPayment_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="EneoBillPayment" EntitySet="EneoBillPayment" />
+          </AssociationSet>
           <AssociationSet Name="fk_ExternalAccount_History" Association="Self.fk_ExternalAccount_History">
             <End Role="ExternalAccount" EntitySet="ExternalAccount" />
             <End Role="ExternalAccountHistory" EntitySet="ExternalAccountHistory" />
@@ -1997,6 +2059,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_Reseller" Association="Self.fk_Reseller">
             <End Role="Partner" EntitySet="Partner" />
             <End Role="Reseller" EntitySet="Reseller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TopUp_Customer" Association="Self.FK_TopUp_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="TopUp" EntitySet="TopUp" />
           </AssociationSet>
           <AssociationSet Name="fk_Transfert2Cash_PartnerAccount" Association="Self.fk_Transfert2Cash_PartnerAccount">
             <End Role="Partner" EntitySet="Partner" />
@@ -2220,6 +2286,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="CustomerLogin" Relationship="Self.fk_CustomerLogin" FromRole="Customer" ToRole="CustomerLogin" />
           <NavigationProperty Name="Partner" Relationship="Self.fk_Partner_Customer" FromRole="Customer" ToRole="Partner" />
           <NavigationProperty Name="Person" Relationship="Self.fk_Person_Customer" FromRole="Customer" ToRole="Person" />
+          <Property Name="BalanceUnavailable" Type="Int32" Nullable="false" />
+          <Property Name="EneoContractNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EneoPercentage" Type="Int32" />
+          <Property Name="TopUpPercentage" Type="Int32" />
           </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -2763,6 +2833,9 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="Transfert2Cash" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Receiver" Relationship="Self.fk_TransfertP2p_Receiver" FromRole="TransfertP2p" ToRole="Customer" />
           <NavigationProperty Name="Sender" Relationship="KoloModel.FK_TransfertP2p_Sender" FromRole="TransfertP2p" ToRole="Customer" />
+          <Property Name="ReceiveDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
+          <Property Name="CancelationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="TransfertScheduled">
           <Key>
@@ -4196,6 +4269,16 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customers" />
             <End Role="TransfertP2p" EntitySet="TransfertP2p" />
           </AssociationSet>
+          <EntitySet Name="EneoBillPayments" EntityType="KoloModel.EneoBillPayment" />
+          <EntitySet Name="TopUps" EntityType="KoloModel.TopUp" />
+          <AssociationSet Name="FK_EneoBillPayment_Customer" Association="KoloModel.FK_EneoBillPayment_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="EneoBillPayment" EntitySet="EneoBillPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TopUp_Customer" Association="KoloModel.FK_TopUp_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="TopUp" EntitySet="TopUps" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_TransfertP2p_Sender">
           <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
@@ -4206,6 +4289,57 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Principal>
             <Dependent Role="TransfertP2p">
               <PropertyRef Name="IdSendingCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EneoBillPayment">
+          <Key>
+            <PropertyRef Name="IdEneoBillPayment" />
+          </Key>
+          <Property Name="IdEneoBillPayment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ContractNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fee" Type="Int32" Nullable="false" />
+          <Property Name="Ccion" Type="Int32" Nullable="false" />
+          <Property Name="BillAmount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.FK_EneoBillPayment_Customer" FromRole="EneoBillPayment" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="TopUp">
+          <Key>
+            <PropertyRef Name="IdTopUp" />
+          </Key>
+          <Property Name="IdTopUp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OpDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="OperatorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Ccion" Type="Int32" Nullable="false" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.FK_TopUp_Customer" FromRole="TopUp" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_EneoBillPayment_Customer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.EneoBillPayment" Role="EneoBillPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="EneoBillPayment">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TopUp_Customer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.TopUp" Role="TopUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="TopUp">
+              <PropertyRef Name="IdCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4325,6 +4459,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="KoloModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="TopUpPercentage" ColumnName="TopUpPercentage" />
+                <ScalarProperty Name="EneoPercentage" ColumnName="EneoPercentage" />
+                <ScalarProperty Name="EneoContractNo" ColumnName="EneoContractNo" />
+                <ScalarProperty Name="BalanceUnavailable" ColumnName="BalanceUnavailable" />
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
                 <ScalarProperty Name="CustomerTypeCode" ColumnName="CustomerTypeCode" />
                 <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
@@ -4850,6 +4988,9 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="TransfertP2p">
             <EntityTypeMapping TypeName="KoloModel.TransfertP2p">
               <MappingFragment StoreEntitySet="TransfertP2p">
+                <ScalarProperty Name="CancelationDate" ColumnName="CancelationDate" />
+                <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+                <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
                 <ScalarProperty Name="IdTransfertP2p" ColumnName="IdTransfertP2p" />
                 <ScalarProperty Name="IdSendingCustomer" ColumnName="IdSendingCustomer" />
                 <ScalarProperty Name="IdReceiverCustomer" ColumnName="IdReceiverCustomer" />
@@ -4889,6 +5030,33 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
               <ScalarProperty Name="IdCustomerGroup" ColumnName="IdCustomerGroup" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="EneoBillPayments">
+            <EntityTypeMapping TypeName="KoloModel.EneoBillPayment">
+              <MappingFragment StoreEntitySet="EneoBillPayment">
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Ccion" ColumnName="Ccion" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+                <ScalarProperty Name="ContractNo" ColumnName="ContractNo" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="IdEneoBillPayment" ColumnName="IdEneoBillPayment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TopUps">
+            <EntityTypeMapping TypeName="KoloModel.TopUp">
+              <MappingFragment StoreEntitySet="TopUp">
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="Ccion" ColumnName="Ccion" />
+                <ScalarProperty Name="OperatorCode" ColumnName="OperatorCode" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="OpDate" ColumnName="OpDate" />
+                <ScalarProperty Name="IdTopUp" ColumnName="IdTopUp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -20,6 +20,10 @@ namespace KoloWin.CustomerService
         public int Balance { get; set; }
         public System.DateTime DateCreated { get; set; }
         public Nullable<int> IdRegistration { get; set; }
+        public int BalanceUnavailable { get; set; }
+        public string EneoContractNo { get; set; }
+        public Nullable<int> EneoPercentage { get; set; }
+        public Nullable<int> TopUpPercentage { get; set; }
     
         public virtual Business Business { get; set; }
         public virtual Currency Currency { get; set; }

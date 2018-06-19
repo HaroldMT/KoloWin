@@ -200,6 +200,9 @@
     <Compile Include="District.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EneoBillPayment.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ExternalAccount.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
@@ -337,6 +340,9 @@
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TopUp.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Transfert2Cash.cs">

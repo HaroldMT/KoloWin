@@ -25,6 +25,9 @@ namespace KoloWin.CustomerService
         public System.DateTime TransfertDate { get; set; }
         public string Reference { get; set; }
         public bool Transfert2Cash { get; set; }
+        public Nullable<System.DateTime> ReceiveDate { get; set; }
+        public Nullable<System.DateTime> ConfirmationDate { get; set; }
+        public Nullable<System.DateTime> CancelationDate { get; set; }
     
         public virtual Customer Receiver { get; set; }
         public virtual Customer Sender { get; set; }
