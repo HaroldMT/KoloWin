@@ -131,9 +131,6 @@
       <DependentUpon>KoloModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\EeTest.pubxml" />
-    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -141,6 +138,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ExWebSrv4Kolo\WebService4Kolo.wsdl" />
@@ -402,6 +402,7 @@
     <Compile Include="Utils\Authentification\RegistrationHelper.cs" />
     <Compile Include="Utils\Entities\CustomerHelper.cs" />
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
+    <Compile Include="Utils\General\EneoHelper.cs" />
     <Compile Include="Utils\General\ExceptionHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />

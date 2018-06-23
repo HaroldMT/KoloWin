@@ -36,16 +36,12 @@ namespace KoloWin.CustomerService
             Context.Dispose();
             return "";
         }
-
         
         [WebMethod]
         public string GetEneoBillByBillNumber(string jsonBillNumber)
         {
             string error = "";
-            ExWebSrv4Kolo.WebService4KoloSoapClient exWS4Kolo = new ExWebSrv4Kolo.WebService4KoloSoapClient();
-            ExWebSrv4Kolo.UnpaidBill tmp = exWS4Kolo.FindEneoByBillNumber(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, jsonBillNumber);
-            List<EneoBillDetails> eBDs = new List<EneoBillDetails>();
-            eBDs.Add(new EneoBillDetails(tmp));
+            List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillByBillNumber(jsonBillNumber,out error);
             return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
         }
 
@@ -54,9 +50,7 @@ namespace KoloWin.CustomerService
         public string GetEneoBillsByBillAccount(string jsonBillAccount)
         {
             string error = "";
-            ExWebSrv4Kolo.WebService4KoloSoapClient exWS4Kolo = new ExWebSrv4Kolo.WebService4KoloSoapClient();
-            ExWebSrv4Kolo.UnpaidBill[] tmp = exWS4Kolo.FindEneoByBillAccount(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, jsonBillAccount);
-            List<EneoBillDetails> eBDs = tmp.Select(e => new EneoBillDetails(e)).ToList();
+            List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillsByBillAccount(jsonBillAccount, out error);
             return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
         }
 
@@ -71,8 +65,7 @@ namespace KoloWin.CustomerService
             string error = "";
             return "";
         }
-
-
+        
         [WebMethod]
         public string DoRecieveMad(string jsonMad)
         {

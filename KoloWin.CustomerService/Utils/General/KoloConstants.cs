@@ -29,10 +29,10 @@ namespace KoloWin.CustomerService.Utils.General
         public static string TRANSFERT_STATUS_CODE_RECEIVE_PENDING = "RECEIVE_PENDING";
 
 
-        public static string KOLO_ENEO_CODETERM = "";
-        public static string KOLO_ENEO_CODEUSER = "";
-        public static string KOLO_ENEO_PASSTERM = "";
-        public static string KOLO_ENEO_PASSUSER = "";
+        public static string KOLO_ENEO_CODETERM = "KOLO";
+        public static string KOLO_ENEO_CODEUSER = "KOLO";
+        public static string KOLO_ENEO_PASSTERM = "KOLO";
+        public static string KOLO_ENEO_PASSUSER = "KOLO";
 
 
 

@@ -11,6 +11,7 @@ namespace KoloWin.CustomerService.Model
         public int Amount { get; set; }
         public String BillNumber { get; set; }
         public String ContractNumber { get; set; }
+        public String Reference { get; set; }
 
         public EneoBillDetails()
         {
@@ -25,7 +26,6 @@ namespace KoloWin.CustomerService.Model
             this.BillNumber = uPB.BillNumber;
             this.ContractNumber = uPB.BillAccountId;
         }
-
-
+        
     }
 }
