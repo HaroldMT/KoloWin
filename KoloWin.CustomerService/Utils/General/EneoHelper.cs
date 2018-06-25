@@ -24,7 +24,8 @@ namespace KoloWin.CustomerService.Utils.General
                 error = ExceptionHelper.GetExceptionMessage(ex);
             }
             List<EneoBillDetails> eBDs = new List<EneoBillDetails>();
-            eBDs.Add(new EneoBillDetails(tmp));
+            if(tmp != null)
+                eBDs.Add(new EneoBillDetails(tmp));
             return eBDs;
         }
         
@@ -41,7 +42,9 @@ namespace KoloWin.CustomerService.Utils.General
             {
                 error = ExceptionHelper.GetExceptionMessage(ex);
             }
-            List<EneoBillDetails> eBDs = tmp.Select(e => new EneoBillDetails(e)).ToList();
+            List<EneoBillDetails> eBDs = null;
+            if(tmp !=null)
+                eBDs = tmp.Select(e => new EneoBillDetails(e)).ToList();
             return eBDs;
         }
 

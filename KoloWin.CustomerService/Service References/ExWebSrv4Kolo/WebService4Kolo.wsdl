@@ -178,10 +178,10 @@
   </wsdl:binding>
   <wsdl:service name="WebService4Kolo">
     <wsdl:port name="WebService4KoloSoap" binding="tns:WebService4KoloSoap">
-      <soap:address location="http://98881cbe.ngrok.io/MobileEEWcf/WebService4Kolo.asmx" />
+      <soap:address location="http://localhost/MobileEEWcf/WebService4Kolo.asmx" />
     </wsdl:port>
     <wsdl:port name="WebService4KoloSoap12" binding="tns:WebService4KoloSoap12">
-      <soap12:address location="http://98881cbe.ngrok.io/MobileEEWcf/WebService4Kolo.asmx" />
+      <soap12:address location="http://localhost/MobileEEWcf/WebService4Kolo.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

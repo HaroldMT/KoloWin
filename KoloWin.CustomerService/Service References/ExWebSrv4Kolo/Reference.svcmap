@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf8d237c-a5fe-49ee-a72c-ecc4a42bde16" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="699fcb10-f6fc-4ba1-86f6-9d33283ab844" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://98881cbe.ngrok.io/MobileEEWcf/WebService4Kolo.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/MobileEEWcf/WebService4Kolo.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebService4Kolo.disco" MetadataType="Disco" ID="db11479a-3bfb-46ba-b199-700c9fa28330" SourceId="1" SourceUrl="http://98881cbe.ngrok.io/MobileEEWcf/WebService4Kolo.asmx?disco" />
-    <MetadataFile FileName="WebService4Kolo.wsdl" MetadataType="Wsdl" ID="3b19e621-1857-4e22-8217-62a7ae8189be" SourceId="1" SourceUrl="http://98881cbe.ngrok.io/MobileEEWcf/WebService4Kolo.asmx?wsdl" />
+    <MetadataFile FileName="WebService4Kolo.wsdl" MetadataType="Wsdl" ID="1bae6782-5c45-4d6e-a754-634686f2de51" SourceId="1" SourceUrl="http://localhost/MobileEEWcf/WebService4Kolo.asmx?wsdl" />
+    <MetadataFile FileName="WebService4Kolo.disco" MetadataType="Disco" ID="6c6279d8-a577-4b99-8db6-2fbda6f405de" SourceId="1" SourceUrl="http://localhost/MobileEEWcf/WebService4Kolo.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

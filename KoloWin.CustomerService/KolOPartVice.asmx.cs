@@ -28,13 +28,14 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var Context = new KoloAndroidEntities4Serialization();
-            Customer ctmp = SerializationHelper.DeserializeFromJsonString<Customer>(jsonCustomer);
-            Customer c = Context.Customers.Find(ctmp.IdCustomer);
+            Customer c = Context.Customers.Find(Int32.Parse(jsonCustomer));
+            c.Person = Context.People.Find(c.IdCustomer);
+            c.MobileDevice = Context.MobileDevices.FirstOrDefault(m => m.IdMobileDevice == c.IdCustomer);
             ExWebSrv4Kolo.WebService4KoloSoapClient exWS4Kolo = new ExWebSrv4Kolo.WebService4KoloSoapClient();
-            string reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, 
+            var reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, 
                                                  jsonBillNumber, c.Person.Firstname + " " + c.Person.Lastname, c.MobileDevice.LineNumber);
             Context.Dispose();
-            return "";
+            return reference;
         }
         
         [WebMethod]

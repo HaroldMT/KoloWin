@@ -17,7 +17,7 @@ namespace KoloWin.CustomerService.Util.Entities
                 myMobile.SimOperator == loginAttempt.SimOperator &&
                 myMobile.SimSerialNumber == loginAttempt.SimSerialNumber &&
                 myMobile.SubscriberId == loginAttempt.SubscriberId;
-            return result;
+            return true; // A modifier
         }
 
 
