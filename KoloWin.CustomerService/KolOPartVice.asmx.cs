@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Services;
+﻿using System.Web.Services;
 
 namespace KoloWin.CustomerService
 {
-    /// <summary>
-    /// Summary description for KolOPartVice
-    /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://kolo.cyberix.fr/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
     public class KolOPartVice : System.Web.Services.WebService
     {
-
         #region Kolo Eneo Methods
 
         [WebMethod]
@@ -26,7 +16,6 @@ namespace KoloWin.CustomerService
             return "";
         }
 
-        
         [WebMethod]
         public string GetEneoBillByBillNumber(string jsonBillNumber)
         {
@@ -34,26 +23,16 @@ namespace KoloWin.CustomerService
             return "";
         }
 
-
         [WebMethod]
-        public string GetEneoBillByBillAccount(string jsonBillAccount)
+        public string GetEneoBillsByBillAccount(string jsonBillAccount)
         {
             string error = "";
             return "";
         }
 
-        #endregion
-
+        #endregion Kolo Eneo Methods
 
         #region Kolo MAD Methods
-
-        [WebMethod]
-        public string DoSendMad( string jsonMad)
-        {
-            string error = "";
-            return "";
-        }
-
 
         [WebMethod]
         public string DoRecieveMad(string jsonMad)
@@ -62,14 +41,12 @@ namespace KoloWin.CustomerService
             return "";
         }
 
-
         [WebMethod]
-        public string GetMadByReference(string jsonReference)
+        public string DoSendMad(string jsonMad)
         {
             string error = "";
             return "";
         }
-
 
         [WebMethod]
         public string GetMadByBordereau(string jsonBordereau)
@@ -78,7 +55,6 @@ namespace KoloWin.CustomerService
             return "";
         }
 
-
         [WebMethod]
         public string GetMadByCustomer(string jsonCustomer)
         {
@@ -86,12 +62,16 @@ namespace KoloWin.CustomerService
             return "";
         }
 
-        #endregion
+        [WebMethod]
+        public string GetMadByReference(string jsonReference)
+        {
+            string error = "";
+            return "";
+        }
 
-
+        #endregion Kolo MAD Methods
 
         #region TopUp Methods
-
 
         [WebMethod]
         public string DoTopUp(string jsonTopUp)
@@ -100,8 +80,6 @@ namespace KoloWin.CustomerService
             return "";
         }
 
-
-        #endregion
-
+        #endregion TopUp Methods
     }
 }
