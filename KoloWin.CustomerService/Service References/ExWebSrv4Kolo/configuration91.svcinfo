@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="EjBQggbvwoGrKQo9/O9RwpSZUwc=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="PdVxyMCjSvyIEwGEwYJu6ZnKbgc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WebService4KoloSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WebService4KoloSoap" contract="ExWebSrv4Kolo.WebService4KoloSoap" bindingType="basicHttpBinding" address="http://localhost/MobileEEWcf/WebService4Kolo.asmx" bindingConfiguration="WebService4KoloSoap">
+    <endpoint name="WebService4KoloSoap" contract="ExWebSrv4Kolo.WebService4KoloSoap" bindingType="basicHttpBinding" address="http://195.24.211.129:9996/MobileEEWcf/WebService4Kolo.asmx" bindingConfiguration="WebService4KoloSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost/MobileEEWcf/WebService4Kolo.asmx</serializedValue>
+          <serializedValue>http://195.24.211.129:9996/MobileEEWcf/WebService4Kolo.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

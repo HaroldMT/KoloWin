@@ -12,7 +12,8 @@ namespace KoloWin.CustomerService.Util
             error = "";
             var refResult = new RefResult() { ResultCode = "FAIL" };
             var loginTime = DateTime.Now;
-            var customer = db.Customers.Find(loginAttempt.IdCustomer);
+            var idCustomer = loginAttempt.IdCustomer;
+            var customer = db.Customers.FirstOrDefault(c => c.IdCustomer == idCustomer);
             if (customer != null)
             {
                 var customerLogin = db.CustomerLogins.Find(customer.IdCustomer);
