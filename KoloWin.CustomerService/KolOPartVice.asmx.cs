@@ -46,7 +46,6 @@ namespace KoloWin.CustomerService
             return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
         }
 
-
         [WebMethod]
         public string GetEneoBillsByBillAccount(string jsonBillAccount)
         {
