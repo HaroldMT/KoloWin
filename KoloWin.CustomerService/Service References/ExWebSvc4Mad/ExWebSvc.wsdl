@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gravity.exweb.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://gravity.exweb.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://gravity.exweb.org/">
+      <s:element name="GetClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codeClient" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telephone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFrais">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="montant" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFraisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFraisResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsulterMad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codeClient" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="montant" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsulterMadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsulterMadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePmad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codeTerminal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCaisse" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOperateur" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idMad" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePmadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavePmadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codeTerminal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCaisse" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOperateur" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idClientEmetteur" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idClientBeneficiaire" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="montant" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ccion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tva" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codeVille" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idUnite" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="other" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetClientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClient" />
+  </wsdl:message>
+  <wsdl:message name="GetClientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFraisSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFrais" />
+  </wsdl:message>
+  <wsdl:message name="GetFraisSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFraisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsulterMadSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsulterMad" />
+  </wsdl:message>
+  <wsdl:message name="ConsulterMadSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsulterMadResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePmadSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePmad" />
+  </wsdl:message>
+  <wsdl:message name="SavePmadSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePmadResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMadSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMad" />
+  </wsdl:message>
+  <wsdl:message name="SaveMadSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMadResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExWebSvcSoap">
+    <wsdl:operation name="GetClient">
+      <wsdl:input message="tns:GetClientSoapIn" />
+      <wsdl:output message="tns:GetClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFrais">
+      <wsdl:input message="tns:GetFraisSoapIn" />
+      <wsdl:output message="tns:GetFraisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulterMad">
+      <wsdl:input message="tns:ConsulterMadSoapIn" />
+      <wsdl:output message="tns:ConsulterMadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePmad">
+      <wsdl:input message="tns:SavePmadSoapIn" />
+      <wsdl:output message="tns:SavePmadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMad">
+      <wsdl:input message="tns:SaveMadSoapIn" />
+      <wsdl:output message="tns:SaveMadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:input message="tns:SendSmsSoapIn" />
+      <wsdl:output message="tns:SendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterSoapIn" />
+      <wsdl:output message="tns:RegisterSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExWebSvcSoap" type="tns:ExWebSvcSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClient">
+      <soap:operation soapAction="http://gravity.exweb.org/GetClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrais">
+      <soap:operation soapAction="http://gravity.exweb.org/GetFrais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulterMad">
+      <soap:operation soapAction="http://gravity.exweb.org/ConsulterMad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePmad">
+      <soap:operation soapAction="http://gravity.exweb.org/SavePmad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMad">
+      <soap:operation soapAction="http://gravity.exweb.org/SaveMad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://gravity.exweb.org/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://gravity.exweb.org/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExWebSvcSoap12" type="tns:ExWebSvcSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClient">
+      <soap12:operation soapAction="http://gravity.exweb.org/GetClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrais">
+      <soap12:operation soapAction="http://gravity.exweb.org/GetFrais" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulterMad">
+      <soap12:operation soapAction="http://gravity.exweb.org/ConsulterMad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePmad">
+      <soap12:operation soapAction="http://gravity.exweb.org/SavePmad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMad">
+      <soap12:operation soapAction="http://gravity.exweb.org/SaveMad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap12:operation soapAction="http://gravity.exweb.org/SendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://gravity.exweb.org/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExWebSvc">
+    <wsdl:port name="ExWebSvcSoap" binding="tns:ExWebSvcSoap">
+      <soap:address location="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExWebSvcSoap12" binding="tns:ExWebSvcSoap12">
+      <soap12:address location="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

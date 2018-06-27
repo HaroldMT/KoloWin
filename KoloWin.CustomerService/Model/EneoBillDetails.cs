@@ -19,7 +19,7 @@ namespace KoloWin.CustomerService.Model
         }
 
 
-        public EneoBillDetails(ExWebSrv4Kolo.UnpaidBill uPB)
+        public EneoBillDetails(ExWebSvc4ExTools.UnpaidBill uPB)
         {
             this.DueDate = uPB.BillDueDate;
             this.Amount = (int) uPB.BillAmount;

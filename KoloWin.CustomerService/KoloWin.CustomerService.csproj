@@ -131,19 +131,38 @@
       <DependentUpon>KoloModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\EeTest.pubxml" />
-    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse.datasource">
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse.datasource">
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse.datasource">
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill.datasource">
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ExWebSrv4Kolo\WebService4Kolo.wsdl" />
+    <None Include="Service References\ExWebSvc4ExTools\WebService4Kolo.wsdl" />
+    <None Include="Service References\ExWebSvc4Mad\ExWebSvc.wsdl" />
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.ConsulterMadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.GetClientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.RegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SaveMadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SavePmadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -153,10 +172,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MobileService.asmx" />
-    <None Include="Service References\ExWebSrv4Kolo\WebService4Kolo.disco" />
-    <None Include="Service References\ExWebSrv4Kolo\configuration91.svcinfo" />
-    <None Include="Service References\ExWebSrv4Kolo\configuration.svcinfo" />
-    <None Include="Service References\ExWebSrv4Kolo\Reference.svcmap">
+    <None Include="Service References\ExWebSvc4ExTools\WebService4Kolo.disco" />
+    <None Include="Service References\ExWebSvc4ExTools\configuration91.svcinfo" />
+    <None Include="Service References\ExWebSvc4ExTools\configuration.svcinfo" />
+    <None Include="Service References\ExWebSvc4ExTools\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ExWebSvc4Mad\ExWebSvc.disco" />
+    <None Include="Service References\ExWebSvc4Mad\configuration91.svcinfo" />
+    <None Include="Service References\ExWebSvc4Mad\configuration.svcinfo" />
+    <None Include="Service References\ExWebSvc4Mad\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -368,7 +394,12 @@
     <Compile Include="Reseller.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ExWebSrv4Kolo\Reference.cs">
+    <Compile Include="Service References\ExWebSvc4ExTools\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ExWebSvc4Mad\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -411,6 +442,7 @@
     <Compile Include="Utils\General\ExceptionHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
+    <Compile Include="Utils\General\Madhelper.cs" />
     <Compile Include="Utils\Security\PasswordHasher.cs" />
     <Compile Include="Utils\Transfert\CustomerHistoryHelper.cs" />
     <Compile Include="Utils\Transfert\TransfertP2PHelper.cs" />
@@ -434,7 +466,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ExWebSrv4Kolo\" />
+    <WCFMetadataStorage Include="Service References\ExWebSvc4ExTools\" />
+    <WCFMetadataStorage Include="Service References\ExWebSvc4Mad\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

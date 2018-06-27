@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KoloWin.CustomerService.ExWebSrv4Kolo {
+namespace KoloWin.CustomerService.ExWebSvc4ExTools {
     using System.Runtime.Serialization;
     using System;
     
@@ -277,29 +277,29 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ExWebSrv4Kolo.WebService4KoloSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ExWebSvc4ExTools.WebService4KoloSoap")]
     public interface WebService4KoloSoap {
         
         // CODEGEN: Generating message contract since element name codeTerm from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoByBillNumber", ReplyAction="*")]
-        KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse FindEneoByBillNumber(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest request);
+        KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse FindEneoByBillNumber(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoByBillNumber", ReplyAction="*")]
-        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse> FindEneoByBillNumberAsync(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest request);
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse> FindEneoByBillNumberAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest request);
         
         // CODEGEN: Generating message contract since element name codeTerm from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayENEO", ReplyAction="*")]
-        KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse PayENEO(KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest request);
+        KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse PayENEO(KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayENEO", ReplyAction="*")]
-        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse> PayENEOAsync(KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest request);
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse> PayENEOAsync(KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest request);
         
         // CODEGEN: Generating message contract since element name codeTerm from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoByBillAccount", ReplyAction="*")]
-        KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse FindEneoByBillAccount(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest request);
+        KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse FindEneoByBillAccount(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoByBillAccount", ReplyAction="*")]
-        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse> FindEneoByBillAccountAsync(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest request);
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse> FindEneoByBillAccountAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -309,12 +309,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class FindEneoByBillNumberRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindEneoByBillNumber", Namespace="http://tempuri.org/", Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequestBody Body;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequestBody Body;
         
         public FindEneoByBillNumberRequest() {
         }
         
-        public FindEneoByBillNumberRequest(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequestBody Body) {
+        public FindEneoByBillNumberRequest(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -359,12 +359,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class FindEneoByBillNumberResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindEneoByBillNumberResponse", Namespace="http://tempuri.org/", Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponseBody Body;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponseBody Body;
         
         public FindEneoByBillNumberResponse() {
         }
         
-        public FindEneoByBillNumberResponse(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponseBody Body) {
+        public FindEneoByBillNumberResponse(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -376,12 +376,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class FindEneoByBillNumberResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill FindEneoByBillNumberResult;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill FindEneoByBillNumberResult;
         
         public FindEneoByBillNumberResponseBody() {
         }
         
-        public FindEneoByBillNumberResponseBody(KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill FindEneoByBillNumberResult) {
+        public FindEneoByBillNumberResponseBody(KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill FindEneoByBillNumberResult) {
             this.FindEneoByBillNumberResult = FindEneoByBillNumberResult;
         }
     }
@@ -393,12 +393,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class PayENEORequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="PayENEO", Namespace="http://tempuri.org/", Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequestBody Body;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequestBody Body;
         
         public PayENEORequest() {
         }
         
-        public PayENEORequest(KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequestBody Body) {
+        public PayENEORequest(KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequestBody Body) {
             this.Body = Body;
         }
     }
@@ -451,12 +451,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class PayENEOResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="PayENEOResponse", Namespace="http://tempuri.org/", Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponseBody Body;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponseBody Body;
         
         public PayENEOResponse() {
         }
         
-        public PayENEOResponse(KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponseBody Body) {
+        public PayENEOResponse(KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -485,12 +485,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class FindEneoByBillAccountRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindEneoByBillAccount", Namespace="http://tempuri.org/", Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequestBody Body;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequestBody Body;
         
         public FindEneoByBillAccountRequest() {
         }
         
-        public FindEneoByBillAccountRequest(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequestBody Body) {
+        public FindEneoByBillAccountRequest(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -535,12 +535,12 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class FindEneoByBillAccountResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindEneoByBillAccountResponse", Namespace="http://tempuri.org/", Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponseBody Body;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponseBody Body;
         
         public FindEneoByBillAccountResponse() {
         }
         
-        public FindEneoByBillAccountResponse(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponseBody Body) {
+        public FindEneoByBillAccountResponse(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -552,23 +552,23 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
     public partial class FindEneoByBillAccountResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill[] FindEneoByBillAccountResult;
+        public KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill[] FindEneoByBillAccountResult;
         
         public FindEneoByBillAccountResponseBody() {
         }
         
-        public FindEneoByBillAccountResponseBody(KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill[] FindEneoByBillAccountResult) {
+        public FindEneoByBillAccountResponseBody(KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill[] FindEneoByBillAccountResult) {
             this.FindEneoByBillAccountResult = FindEneoByBillAccountResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WebService4KoloSoapChannel : KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap, System.ServiceModel.IClientChannel {
+    public interface WebService4KoloSoapChannel : KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WebService4KoloSoapClient : System.ServiceModel.ClientBase<KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap>, KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap {
+    public partial class WebService4KoloSoapClient : System.ServiceModel.ClientBase<KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap>, KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap {
         
         public WebService4KoloSoapClient() {
         }
@@ -590,46 +590,46 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap.FindEneoByBillNumber(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest request) {
+        KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.FindEneoByBillNumber(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest request) {
             return base.Channel.FindEneoByBillNumber(request);
         }
         
-        public KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill FindEneoByBillNumber(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture) {
-            KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest inValue = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest();
-            inValue.Body = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequestBody();
+        public KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill FindEneoByBillNumber(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequestBody();
             inValue.Body.codeTerm = codeTerm;
             inValue.Body.passTerm = passTerm;
             inValue.Body.codeUser = codeUser;
             inValue.Body.passUser = passUser;
             inValue.Body.numeroFacture = numeroFacture;
-            KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse retVal = ((KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap)(this)).FindEneoByBillNumber(inValue);
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse retVal = ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoByBillNumber(inValue);
             return retVal.Body.FindEneoByBillNumberResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse> KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap.FindEneoByBillNumberAsync(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest request) {
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse> KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.FindEneoByBillNumberAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest request) {
             return base.Channel.FindEneoByBillNumberAsync(request);
         }
         
-        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse> FindEneoByBillNumberAsync(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture) {
-            KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest inValue = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequest();
-            inValue.Body = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberRequestBody();
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse> FindEneoByBillNumberAsync(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequestBody();
             inValue.Body.codeTerm = codeTerm;
             inValue.Body.passTerm = passTerm;
             inValue.Body.codeUser = codeUser;
             inValue.Body.passUser = passUser;
             inValue.Body.numeroFacture = numeroFacture;
-            return ((KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap)(this)).FindEneoByBillNumberAsync(inValue);
+            return ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoByBillNumberAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap.PayENEO(KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest request) {
+        KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.PayENEO(KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest request) {
             return base.Channel.PayENEO(request);
         }
         
         public string PayENEO(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture, string nomDuRemettant, string telephone) {
-            KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest inValue = new KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest();
-            inValue.Body = new KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequestBody();
+            KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequestBody();
             inValue.Body.codeTerm = codeTerm;
             inValue.Body.passTerm = passTerm;
             inValue.Body.codeUser = codeUser;
@@ -637,18 +637,18 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
             inValue.Body.numeroFacture = numeroFacture;
             inValue.Body.nomDuRemettant = nomDuRemettant;
             inValue.Body.telephone = telephone;
-            KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse retVal = ((KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap)(this)).PayENEO(inValue);
+            KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse retVal = ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).PayENEO(inValue);
             return retVal.Body.PayENEOResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse> KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap.PayENEOAsync(KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest request) {
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse> KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.PayENEOAsync(KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest request) {
             return base.Channel.PayENEOAsync(request);
         }
         
-        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse> PayENEOAsync(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture, string nomDuRemettant, string telephone) {
-            KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest inValue = new KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequest();
-            inValue.Body = new KoloWin.CustomerService.ExWebSrv4Kolo.PayENEORequestBody();
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.PayENEOResponse> PayENEOAsync(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture, string nomDuRemettant, string telephone) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.PayENEORequestBody();
             inValue.Body.codeTerm = codeTerm;
             inValue.Body.passTerm = passTerm;
             inValue.Body.codeUser = codeUser;
@@ -656,40 +656,40 @@ namespace KoloWin.CustomerService.ExWebSrv4Kolo {
             inValue.Body.numeroFacture = numeroFacture;
             inValue.Body.nomDuRemettant = nomDuRemettant;
             inValue.Body.telephone = telephone;
-            return ((KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap)(this)).PayENEOAsync(inValue);
+            return ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).PayENEOAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap.FindEneoByBillAccount(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest request) {
+        KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.FindEneoByBillAccount(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest request) {
             return base.Channel.FindEneoByBillAccount(request);
         }
         
-        public KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill[] FindEneoByBillAccount(string codeTerm, string passTerm, string codeUser, string passUser, string numeroContrat) {
-            KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest inValue = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest();
-            inValue.Body = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequestBody();
+        public KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill[] FindEneoByBillAccount(string codeTerm, string passTerm, string codeUser, string passUser, string numeroContrat) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequestBody();
             inValue.Body.codeTerm = codeTerm;
             inValue.Body.passTerm = passTerm;
             inValue.Body.codeUser = codeUser;
             inValue.Body.passUser = passUser;
             inValue.Body.numeroContrat = numeroContrat;
-            KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse retVal = ((KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap)(this)).FindEneoByBillAccount(inValue);
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse retVal = ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoByBillAccount(inValue);
             return retVal.Body.FindEneoByBillAccountResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse> KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap.FindEneoByBillAccountAsync(KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest request) {
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse> KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.FindEneoByBillAccountAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest request) {
             return base.Channel.FindEneoByBillAccountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse> FindEneoByBillAccountAsync(string codeTerm, string passTerm, string codeUser, string passUser, string numeroContrat) {
-            KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest inValue = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequest();
-            inValue.Body = new KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountRequestBody();
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountResponse> FindEneoByBillAccountAsync(string codeTerm, string passTerm, string codeUser, string passUser, string numeroContrat) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillAccountRequestBody();
             inValue.Body.codeTerm = codeTerm;
             inValue.Body.passTerm = passTerm;
             inValue.Body.codeUser = codeUser;
             inValue.Body.passUser = passUser;
             inValue.Body.numeroContrat = numeroContrat;
-            return ((KoloWin.CustomerService.ExWebSrv4Kolo.WebService4KoloSoap)(this)).FindEneoByBillAccountAsync(inValue);
+            return ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoByBillAccountAsync(inValue);
         }
     }
 }
