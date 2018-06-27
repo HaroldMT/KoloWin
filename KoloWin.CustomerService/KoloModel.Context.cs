@@ -90,5 +90,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
         public virtual DbSet<EneoBillPayment> EneoBillPayments { get; set; }
         public virtual DbSet<TopUp> TopUps { get; set; }
+        public virtual DbSet<TransferGravity> TransferGravities { get; set; }
     }
 }

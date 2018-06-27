@@ -428,6 +428,9 @@
     <Compile Include="TopUp.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TransferGravity.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Transfert2Cash.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
