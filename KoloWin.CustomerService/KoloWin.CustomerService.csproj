@@ -163,6 +163,24 @@
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

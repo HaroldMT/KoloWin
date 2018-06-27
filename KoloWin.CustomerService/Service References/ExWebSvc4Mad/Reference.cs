@@ -9,7 +9,631 @@
 //------------------------------------------------------------------------------
 
 namespace KoloWin.CustomerService.ExWebSvc4Mad {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KoloMadCustomer", Namespace="http://gravity.exweb.org/")]
+    [System.SerializableAttribute()]
+    public partial class KoloMadCustomer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdClientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeClientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrenomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumberField;
+        
+        private bool SuccessField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int IdClient {
+            get {
+                return this.IdClientField;
+            }
+            set {
+                if ((this.IdClientField.Equals(value) != true)) {
+                    this.IdClientField = value;
+                    this.RaisePropertyChanged("IdClient");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string CodeClient {
+            get {
+                return this.CodeClientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeClientField, value) != true)) {
+                    this.CodeClientField = value;
+                    this.RaisePropertyChanged("CodeClient");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Nom {
+            get {
+                return this.NomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomField, value) != true)) {
+                    this.NomField = value;
+                    this.RaisePropertyChanged("Nom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string Prenom {
+            get {
+                return this.PrenomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrenomField, value) != true)) {
+                    this.PrenomField = value;
+                    this.RaisePropertyChanged("Prenom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string Error {
+            get {
+                return this.ErrorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorField, value) != true)) {
+                    this.ErrorField = value;
+                    this.RaisePropertyChanged("Error");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KoloMadDetails", Namespace="http://gravity.exweb.org/")]
+    [System.SerializableAttribute()]
+    public partial class KoloMadDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReferenceField;
+        
+        private int BordereauField;
+        
+        private bool SuccessField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeTerminalField;
+        
+        private int IdCaisseField;
+        
+        private int IdOperateurField;
+        
+        private int IdClientEmetteurField;
+        
+        private int IdClientBeneficiaireField;
+        
+        private int MontantField;
+        
+        private int CcionField;
+        
+        private int TvaField;
+        
+        private bool ToutReseauField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeVilleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Reference {
+            get {
+                return this.ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReferenceField, value) != true)) {
+                    this.ReferenceField = value;
+                    this.RaisePropertyChanged("Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Bordereau {
+            get {
+                return this.BordereauField;
+            }
+            set {
+                if ((this.BordereauField.Equals(value) != true)) {
+                    this.BordereauField = value;
+                    this.RaisePropertyChanged("Bordereau");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string Error {
+            get {
+                return this.ErrorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorField, value) != true)) {
+                    this.ErrorField = value;
+                    this.RaisePropertyChanged("Error");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string CodeTerminal {
+            get {
+                return this.CodeTerminalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeTerminalField, value) != true)) {
+                    this.CodeTerminalField = value;
+                    this.RaisePropertyChanged("CodeTerminal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int IdCaisse {
+            get {
+                return this.IdCaisseField;
+            }
+            set {
+                if ((this.IdCaisseField.Equals(value) != true)) {
+                    this.IdCaisseField = value;
+                    this.RaisePropertyChanged("IdCaisse");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public int IdOperateur {
+            get {
+                return this.IdOperateurField;
+            }
+            set {
+                if ((this.IdOperateurField.Equals(value) != true)) {
+                    this.IdOperateurField = value;
+                    this.RaisePropertyChanged("IdOperateur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public int IdClientEmetteur {
+            get {
+                return this.IdClientEmetteurField;
+            }
+            set {
+                if ((this.IdClientEmetteurField.Equals(value) != true)) {
+                    this.IdClientEmetteurField = value;
+                    this.RaisePropertyChanged("IdClientEmetteur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public int IdClientBeneficiaire {
+            get {
+                return this.IdClientBeneficiaireField;
+            }
+            set {
+                if ((this.IdClientBeneficiaireField.Equals(value) != true)) {
+                    this.IdClientBeneficiaireField = value;
+                    this.RaisePropertyChanged("IdClientBeneficiaire");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        public int Montant {
+            get {
+                return this.MontantField;
+            }
+            set {
+                if ((this.MontantField.Equals(value) != true)) {
+                    this.MontantField = value;
+                    this.RaisePropertyChanged("Montant");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
+        public int Ccion {
+            get {
+                return this.CcionField;
+            }
+            set {
+                if ((this.CcionField.Equals(value) != true)) {
+                    this.CcionField = value;
+                    this.RaisePropertyChanged("Ccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        public int Tva {
+            get {
+                return this.TvaField;
+            }
+            set {
+                if ((this.TvaField.Equals(value) != true)) {
+                    this.TvaField = value;
+                    this.RaisePropertyChanged("Tva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public bool ToutReseau {
+            get {
+                return this.ToutReseauField;
+            }
+            set {
+                if ((this.ToutReseauField.Equals(value) != true)) {
+                    this.ToutReseauField = value;
+                    this.RaisePropertyChanged("ToutReseau");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string CodeVille {
+            get {
+                return this.CodeVilleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeVilleField, value) != true)) {
+                    this.CodeVilleField = value;
+                    this.RaisePropertyChanged("CodeVille");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AirMoneyPartnerResponse", Namespace="http://gravity.exweb.org/")]
+    [System.SerializableAttribute()]
+    public partial class AirMoneyPartnerResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool OperationSuccesField;
+        
+        private bool ServiceSuccesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResponseCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResponseDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransactionCodeField;
+        
+        private int RemainingBalanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SystemErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResultField;
+        
+        private KoloWin.CustomerService.ExWebSvc4Mad.Partner SelectedPartnerField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool OperationSucces {
+            get {
+                return this.OperationSuccesField;
+            }
+            set {
+                if ((this.OperationSuccesField.Equals(value) != true)) {
+                    this.OperationSuccesField = value;
+                    this.RaisePropertyChanged("OperationSucces");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool ServiceSucces {
+            get {
+                return this.ServiceSuccesField;
+            }
+            set {
+                if ((this.ServiceSuccesField.Equals(value) != true)) {
+                    this.ServiceSuccesField = value;
+                    this.RaisePropertyChanged("ServiceSucces");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string ResponseCode {
+            get {
+                return this.ResponseCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponseCodeField, value) != true)) {
+                    this.ResponseCodeField = value;
+                    this.RaisePropertyChanged("ResponseCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string ResponseDescription {
+            get {
+                return this.ResponseDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponseDescriptionField, value) != true)) {
+                    this.ResponseDescriptionField = value;
+                    this.RaisePropertyChanged("ResponseDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string TransactionCode {
+            get {
+                return this.TransactionCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransactionCodeField, value) != true)) {
+                    this.TransactionCodeField = value;
+                    this.RaisePropertyChanged("TransactionCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int RemainingBalance {
+            get {
+                return this.RemainingBalanceField;
+            }
+            set {
+                if ((this.RemainingBalanceField.Equals(value) != true)) {
+                    this.RemainingBalanceField = value;
+                    this.RaisePropertyChanged("RemainingBalance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string SystemError {
+            get {
+                return this.SystemErrorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemErrorField, value) != true)) {
+                    this.SystemErrorField = value;
+                    this.RaisePropertyChanged("SystemError");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string ErrorCode {
+            get {
+                return this.ErrorCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true)) {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string ErrorDescription {
+            get {
+                return this.ErrorDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorDescriptionField, value) != true)) {
+                    this.ErrorDescriptionField = value;
+                    this.RaisePropertyChanged("ErrorDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.Partner SelectedPartner {
+            get {
+                return this.SelectedPartnerField;
+            }
+            set {
+                if ((this.SelectedPartnerField.Equals(value) != true)) {
+                    this.SelectedPartnerField = value;
+                    this.RaisePropertyChanged("SelectedPartner");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Partner", Namespace="http://gravity.exweb.org/")]
+    public enum Partner : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MTN = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ORANGE = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NEXTTEL = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YOOMEE = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CAMTEL = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UNKNOWN = 5,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://gravity.exweb.org/", ConfigurationName="ExWebSvc4Mad.ExWebSvcSoap")]
@@ -21,6 +645,13 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/GetClient", ReplyAction="*")]
         System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.GetClientResponse> GetClientAsync(KoloWin.CustomerService.ExWebSvc4Mad.GetClientRequest request);
+        
+        // CODEGEN: Generating message contract since element name madCustomer from namespace http://gravity.exweb.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/GetKoloMadCustomer", ReplyAction="*")]
+        KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse GetKoloMadCustomer(KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/GetKoloMadCustomer", ReplyAction="*")]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse> GetKoloMadCustomerAsync(KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/GetFrais", ReplyAction="*")]
         int GetFrais(int montant);
@@ -49,6 +680,13 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
         [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/SaveMad", ReplyAction="*")]
         System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SaveMadResponse> SaveMadAsync(KoloWin.CustomerService.ExWebSvc4Mad.SaveMadRequest request);
         
+        // CODEGEN: Generating message contract since element name madDetail from namespace http://gravity.exweb.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/SendKoloMad", ReplyAction="*")]
+        KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse SendKoloMad(KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/SendKoloMad", ReplyAction="*")]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse> SendKoloMadAsync(KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest request);
+        
         // CODEGEN: Generating message contract since element name number from namespace http://gravity.exweb.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/SendSms", ReplyAction="*")]
         KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse SendSms(KoloWin.CustomerService.ExWebSvc4Mad.SendSmsRequest request);
@@ -62,6 +700,13 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/Register", ReplyAction="*")]
         System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.RegisterResponse> RegisterAsync(KoloWin.CustomerService.ExWebSvc4Mad.RegisterRequest request);
+        
+        // CODEGEN: Generating message contract since element name numero from namespace http://gravity.exweb.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/SendCredit", ReplyAction="*")]
+        KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse SendCredit(KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://gravity.exweb.org/SendCredit", ReplyAction="*")]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse> SendCreditAsync(KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -133,6 +778,74 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
         
         public GetClientResponseBody(string GetClientResult) {
             this.GetClientResult = GetClientResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetKoloMadCustomerRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetKoloMadCustomer", Namespace="http://gravity.exweb.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequestBody Body;
+        
+        public GetKoloMadCustomerRequest() {
+        }
+        
+        public GetKoloMadCustomerRequest(KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://gravity.exweb.org/")]
+    public partial class GetKoloMadCustomerRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer madCustomer;
+        
+        public GetKoloMadCustomerRequestBody() {
+        }
+        
+        public GetKoloMadCustomerRequestBody(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer madCustomer) {
+            this.madCustomer = madCustomer;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetKoloMadCustomerResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetKoloMadCustomerResponse", Namespace="http://gravity.exweb.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponseBody Body;
+        
+        public GetKoloMadCustomerResponse() {
+        }
+        
+        public GetKoloMadCustomerResponse(KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://gravity.exweb.org/")]
+    public partial class GetKoloMadCustomerResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer GetKoloMadCustomerResult;
+        
+        public GetKoloMadCustomerResponseBody() {
+        }
+        
+        public GetKoloMadCustomerResponseBody(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer GetKoloMadCustomerResult) {
+            this.GetKoloMadCustomerResult = GetKoloMadCustomerResult;
         }
     }
     
@@ -404,6 +1117,74 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SendKoloMadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SendKoloMad", Namespace="http://gravity.exweb.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequestBody Body;
+        
+        public SendKoloMadRequest() {
+        }
+        
+        public SendKoloMadRequest(KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://gravity.exweb.org/")]
+    public partial class SendKoloMadRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails madDetail;
+        
+        public SendKoloMadRequestBody() {
+        }
+        
+        public SendKoloMadRequestBody(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails madDetail) {
+            this.madDetail = madDetail;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SendKoloMadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SendKoloMadResponse", Namespace="http://gravity.exweb.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponseBody Body;
+        
+        public SendKoloMadResponse() {
+        }
+        
+        public SendKoloMadResponse(KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://gravity.exweb.org/")]
+    public partial class SendKoloMadResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails SendKoloMadResult;
+        
+        public SendKoloMadResponseBody() {
+        }
+        
+        public SendKoloMadResponseBody(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails SendKoloMadResult) {
+            this.SendKoloMadResult = SendKoloMadResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class SendSmsRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="SendSms", Namespace="http://gravity.exweb.org/", Order=0)]
@@ -552,6 +1333,82 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SendCreditRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SendCredit", Namespace="http://gravity.exweb.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequestBody Body;
+        
+        public SendCreditRequest() {
+        }
+        
+        public SendCreditRequest(KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://gravity.exweb.org/")]
+    public partial class SendCreditRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string numero;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int montant;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string fournisseur;
+        
+        public SendCreditRequestBody() {
+        }
+        
+        public SendCreditRequestBody(string numero, int montant, string fournisseur) {
+            this.numero = numero;
+            this.montant = montant;
+            this.fournisseur = fournisseur;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SendCreditResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SendCreditResponse", Namespace="http://gravity.exweb.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponseBody Body;
+        
+        public SendCreditResponse() {
+        }
+        
+        public SendCreditResponse(KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://gravity.exweb.org/")]
+    public partial class SendCreditResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse SendCreditResult;
+        
+        public SendCreditResponseBody() {
+        }
+        
+        public SendCreditResponseBody(KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse SendCreditResult) {
+            this.SendCreditResult = SendCreditResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ExWebSvcSoapChannel : KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap, System.ServiceModel.IClientChannel {
     }
@@ -604,6 +1461,31 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
             inValue.Body.codeClient = codeClient;
             inValue.Body.telephone = telephone;
             return ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).GetClientAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.GetKoloMadCustomer(KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest request) {
+            return base.Channel.GetKoloMadCustomer(request);
+        }
+        
+        public KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer GetKoloMadCustomer(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer madCustomer) {
+            KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest inValue = new KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequestBody();
+            inValue.Body.madCustomer = madCustomer;
+            KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse retVal = ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).GetKoloMadCustomer(inValue);
+            return retVal.Body.GetKoloMadCustomerResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse> KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.GetKoloMadCustomerAsync(KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest request) {
+            return base.Channel.GetKoloMadCustomerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse> GetKoloMadCustomerAsync(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadCustomer madCustomer) {
+            KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest inValue = new KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerRequestBody();
+            inValue.Body.madCustomer = madCustomer;
+            return ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).GetKoloMadCustomerAsync(inValue);
         }
         
         public int GetFrais(int montant) {
@@ -720,6 +1602,31 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.SendKoloMad(KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest request) {
+            return base.Channel.SendKoloMad(request);
+        }
+        
+        public KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails SendKoloMad(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails madDetail) {
+            KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest inValue = new KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequestBody();
+            inValue.Body.madDetail = madDetail;
+            KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse retVal = ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).SendKoloMad(inValue);
+            return retVal.Body.SendKoloMadResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse> KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.SendKoloMadAsync(KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest request) {
+            return base.Channel.SendKoloMadAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse> SendKoloMadAsync(KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails madDetail) {
+            KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest inValue = new KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadRequestBody();
+            inValue.Body.madDetail = madDetail;
+            return ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).SendKoloMadAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.SendSms(KoloWin.CustomerService.ExWebSvc4Mad.SendSmsRequest request) {
             return base.Channel.SendSms(request);
         }
@@ -775,6 +1682,35 @@ namespace KoloWin.CustomerService.ExWebSvc4Mad {
             inValue.Body.regCode = regCode;
             inValue.Body.info = info;
             return ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).RegisterAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.SendCredit(KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest request) {
+            return base.Channel.SendCredit(request);
+        }
+        
+        public KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse SendCredit(string numero, int montant, string fournisseur) {
+            KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest inValue = new KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequestBody();
+            inValue.Body.numero = numero;
+            inValue.Body.montant = montant;
+            inValue.Body.fournisseur = fournisseur;
+            KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse retVal = ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).SendCredit(inValue);
+            return retVal.Body.SendCreditResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse> KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap.SendCreditAsync(KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest request) {
+            return base.Channel.SendCreditAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse> SendCreditAsync(string numero, int montant, string fournisseur) {
+            KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest inValue = new KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4Mad.SendCreditRequestBody();
+            inValue.Body.numero = numero;
+            inValue.Body.montant = montant;
+            inValue.Body.fournisseur = fournisseur;
+            return ((KoloWin.CustomerService.ExWebSvc4Mad.ExWebSvcSoap)(this)).SendCreditAsync(inValue);
         }
     }
 }

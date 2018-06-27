@@ -8,17 +8,14 @@ namespace KoloWin.CustomerService.Utils.General
 {
 	public class Madhelper
 	{
-        public static string FindCustomerMad(int amount, string phone, string customerCode, string reference, out string error)
+        public static string FindCustomerMad(ref KoloWin.CustomerService.Model.KoloMadCustomer madCustomer, out string error)
         {
             error = "";
-            ExWebSvc4Mad.ExWebSvcSoapClient exWeb = new ExWebSvc4Mad.ExWebSvcSoapClient();
             try
             {
-                string mad = exWeb.ConsulterMad(customerCode, phone, reference, amount);
-                if (mad == null || mad == "")
-                    error = "Aucune transaction recupére";
-                else
-                    return mad;
+                ExWebSvc4Mad.ExWebSvcSoapClient exWeb = new ExWebSvc4Mad.ExWebSvcSoapClient();
+                ExWebSvc4Mad.KoloMadCustomer wsMadCustomer = exWeb.GetKoloMadCustomer(madCustomer.WsKoloMadCustomer());
+                madCustomer = new KoloWin.CustomerService.Model.KoloMadCustomer(wsMadCustomer);
             }
             catch (Exception ex)
             {
@@ -69,19 +66,19 @@ namespace KoloWin.CustomerService.Utils.General
             }
         }
 
-        public static int DoSendMad(int idE, int idB, int montant, out string error)
+        public static KoloWin.CustomerService.Model.KoloMadDetails DoSendMad(ref KoloWin.CustomerService.Model.KoloMadDetails koloMadDetails, out string error)
         {
             error = "";
             try
             {
-                int idMAD = new ExWebSvc4Mad.ExWebSvcSoapClient().SaveMad("TESTMOBILE", 4298, 1700, idE, idB, montant, 0, 0, "TOUTRESEAU", "TEST" + DateTime.Now);
-                return idMAD;
+                ExWebSvc4Mad.KoloMadDetails wsKoloMadDetails = new ExWebSvc4Mad.ExWebSvcSoapClient().SendKoloMad(koloMadDetails.WsKoloMadDetails());
+                koloMadDetails = new KoloWin.CustomerService.Model.KoloMadDetails(wsKoloMadDetails);
             }
             catch (Exception ex) 
             {
                 error = ExceptionHelper.GetExceptionMessage(ex);
-                return 0;
             }
+            return koloMadDetails;
         }
         
         public static int GetMADFees(int montant, out string error)

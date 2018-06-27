@@ -52,11 +52,12 @@ namespace KoloWin.CustomerService
         #region Kolo MAD Methods
 
         [WebMethod]
-        public string FindCustomerMad(int amount, string phone, string customerCode, string reference)
+        public string FindCustomerMad(string jsonMadCustomer)
         {
             string error = "";
-            var mad = Madhelper.FindCustomerMad(amount, phone, customerCode, reference, out error);
-            return mad;
+            KoloMadCustomer madCustomer = SerializationHelper.DeserializeFromJsonString<KoloMadCustomer>(jsonMadCustomer);
+            Madhelper.FindCustomerMad(ref madCustomer, out error);
+            return SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
         }
 
 
@@ -78,19 +79,20 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public int DoSendMad(int idSender, int idReciever, int amount)
+        public string DoSendMad(string jsonKoloMadDetails)
         {
             string error = "";
-            var idMad = Madhelper.DoSendMad(idSender, idReciever, amount, out error);
-            return idMad;
+            KoloMadDetails koloMadDetails = SerializationHelper.DeserializeFromJsonString<KoloMadDetails>(jsonKoloMadDetails);
+            Madhelper.DoSendMad(ref koloMadDetails, out error);
+            return SerializationHelper.SerializeToJson<KoloMadDetails>(koloMadDetails);
         }
 
         [WebMethod]
-        public int GetMADFees(int montant)
+        public string GetMADFees(int montant)
         {
             string error = "";
-            var idMad = Madhelper.GetMADFees( montant, out  error);
-            return idMad;
+            var idMad = Madhelper.GetMADFees(montant, out  error);
+            return SerializationHelper.SerializeToJson<int>(idMad);
         }
 
 
