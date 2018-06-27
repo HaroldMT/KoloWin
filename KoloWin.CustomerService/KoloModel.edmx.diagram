@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="KoloModel.City" Width="1.5" PointX="0.75" PointY="58.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.Country" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.Currency" Width="1.5" PointX="0.75" PointY="45.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KoloModel.Customer" Width="1.5" PointX="3" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoloModel.Customer" Width="1.5" PointX="3.125" PointY="42" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.CustomerAddress" Width="1.5" PointX="5.25" PointY="49.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.CustomerBalanceHistory" Width="1.5" PointX="8.25" PointY="40.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.CustomerExternalAccount" Width="1.5" PointX="5.25" PointY="77.625" IsExpanded="true" />
@@ -157,6 +157,8 @@
         <EntityTypeShape EntityType="KoloModel.TopUp" Width="1.5" PointX="5.25" PointY="31.875" />
         <AssociationConnector Association="KoloModel.FK_EneoBillPayment_Customer" />
         <AssociationConnector Association="KoloModel.FK_TopUp_Customer" />
+        <EntityTypeShape EntityType="KoloModel.TransferGravity" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="KoloModel.FK_TransferGravity_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

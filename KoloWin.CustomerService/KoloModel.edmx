@@ -117,6 +117,9 @@
           <Property Name="EneoContractNo" Type="nvarchar" MaxLength="30" />
           <Property Name="EneoPercentage" Type="int" />
           <Property Name="TopUpPercentage" Type="int" />
+          <Property Name="GravityId" Type="int" />
+          <Property Name="GravityCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="GravityPercentage" Type="int" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -563,6 +566,34 @@
           <Property Name="OperatorCode" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Ccion" Type="int" Nullable="false" />
           <Property Name="IdCustomer" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TransferGravity">
+          <Key>
+            <PropertyRef Name="TransferMadId" />
+            <PropertyRef Name="GravityReference" />
+            <PropertyRef Name="KoloReference" />
+            <PropertyRef Name="KoloSenderId" />
+            <PropertyRef Name="GravitySenderId" />
+            <PropertyRef Name="GravityReceiverId" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="Received" />
+            <PropertyRef Name="ReceiverLastName" />
+            <PropertyRef Name="ReceiverFirstName" />
+            <PropertyRef Name="ReceiverPhoneNumber" />
+          </Key>
+          <Property Name="TransferMadId" Type="int" Nullable="false" />
+          <Property Name="GravityReference" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="KoloReference" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="KoloSenderId" Type="int" Nullable="false" />
+          <Property Name="GravitySenderId" Type="int" Nullable="false" />
+          <Property Name="GravityReceiverId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Received" Type="bit" Nullable="false" />
+          <Property Name="ReceiverLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReceiverFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReceiverPhoneNumber" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="Transfert2Cash">
           <Key>
@@ -1493,6 +1524,18 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TransferGravity_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="TransferGravity" Type="Self.TransferGravity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="TransferGravity">
+              <PropertyRef Name="KoloSenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Transfert2Cash_PartnerAccount">
           <End Role="Partner" Type="Self.Partner" Multiplicity="1" />
           <End Role="Transfert2Cash" Type="Self.Transfert2Cash" Multiplicity="*" />
@@ -1788,6 +1831,21 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="TransfertP2p" EntityType="Self.TransfertP2p" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransfertScheduled" EntityType="Self.TransfertScheduled" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wholesaler" EntityType="Self.Wholesaler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferGravity" EntityType="Self.TransferGravity" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TransferGravity].[TransferMadId] AS [TransferMadId], 
+    [TransferGravity].[GravityReference] AS [GravityReference], 
+    [TransferGravity].[KoloReference] AS [KoloReference], 
+    [TransferGravity].[KoloSenderId] AS [KoloSenderId], 
+    [TransferGravity].[GravitySenderId] AS [GravitySenderId], 
+    [TransferGravity].[GravityReceiverId] AS [GravityReceiverId], 
+    [TransferGravity].[Amount] AS [Amount], 
+    [TransferGravity].[Received] AS [Received], 
+    [TransferGravity].[ReceiverLastName] AS [ReceiverLastName], 
+    [TransferGravity].[ReceiverFirstName] AS [ReceiverFirstName], 
+    [TransferGravity].[ReceiverPhoneNumber] AS [ReceiverPhoneNumber]
+    FROM [dbo].[TransferGravity] AS [TransferGravity]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="fk_AccountOperation" Association="Self.fk_AccountOperation">
             <End Role="RefOperationStatus" EntitySet="RefOperationStatus" />
             <End Role="AccountOperation" EntitySet="AccountOperation" />
@@ -2064,6 +2122,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customer" />
             <End Role="TopUp" EntitySet="TopUp" />
           </AssociationSet>
+          <AssociationSet Name="FK_TransferGravity_Customer" Association="Self.FK_TransferGravity_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="TransferGravity" EntitySet="TransferGravity" />
+          </AssociationSet>
           <AssociationSet Name="fk_Transfert2Cash_PartnerAccount" Association="Self.fk_Transfert2Cash_PartnerAccount">
             <End Role="Partner" EntitySet="Partner" />
             <End Role="Transfert2Cash" EntitySet="Transfert2Cash" />
@@ -2290,6 +2352,9 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="EneoContractNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="EneoPercentage" Type="Int32" />
           <Property Name="TopUpPercentage" Type="Int32" />
+          <Property Name="GravityId" Type="Int32" />
+          <Property Name="GravityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GravityPercentage" Type="Int32" />
           </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -4279,6 +4344,11 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customers" />
             <End Role="TopUp" EntitySet="TopUps" />
           </AssociationSet>
+          <EntitySet Name="TransferGravities" EntityType="KoloModel.TransferGravity" />
+          <AssociationSet Name="FK_TransferGravity_Customer" Association="KoloModel.FK_TransferGravity_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="TransferGravity" EntitySet="TransferGravities" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_TransfertP2p_Sender">
           <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
@@ -4340,6 +4410,45 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Principal>
             <Dependent Role="TopUp">
               <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TransferGravity">
+          <Key>
+            <PropertyRef Name="TransferMadId" />
+            <PropertyRef Name="GravityReference" />
+            <PropertyRef Name="KoloReference" />
+            <PropertyRef Name="KoloSenderId" />
+            <PropertyRef Name="GravitySenderId" />
+            <PropertyRef Name="GravityReceiverId" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="Received" />
+            <PropertyRef Name="ReceiverLastName" />
+            <PropertyRef Name="ReceiverFirstName" />
+            <PropertyRef Name="ReceiverPhoneNumber" />
+          </Key>
+          <Property Name="TransferMadId" Type="Int32" Nullable="false" />
+          <Property Name="GravityReference" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="KoloReference" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="KoloSenderId" Type="Int32" Nullable="false" />
+          <Property Name="GravitySenderId" Type="Int32" Nullable="false" />
+          <Property Name="GravityReceiverId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Received" Type="Boolean" Nullable="false" />
+          <Property Name="ReceiverLastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverFirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverPhoneNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.FK_TransferGravity_Customer" FromRole="TransferGravity" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_TransferGravity_Customer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.TransferGravity" Role="TransferGravity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="TransferGravity">
+              <PropertyRef Name="KoloSenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4459,6 +4568,9 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="KoloModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="GravityPercentage" ColumnName="GravityPercentage" />
+                <ScalarProperty Name="GravityCode" ColumnName="GravityCode" />
+                <ScalarProperty Name="GravityId" ColumnName="GravityId" />
                 <ScalarProperty Name="TopUpPercentage" ColumnName="TopUpPercentage" />
                 <ScalarProperty Name="EneoPercentage" ColumnName="EneoPercentage" />
                 <ScalarProperty Name="EneoContractNo" ColumnName="EneoContractNo" />
@@ -5054,6 +5166,23 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="OpDate" ColumnName="OpDate" />
                 <ScalarProperty Name="IdTopUp" ColumnName="IdTopUp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferGravities">
+            <EntityTypeMapping TypeName="KoloModel.TransferGravity">
+              <MappingFragment StoreEntitySet="TransferGravity">
+                <ScalarProperty Name="ReceiverPhoneNumber" ColumnName="ReceiverPhoneNumber" />
+                <ScalarProperty Name="ReceiverFirstName" ColumnName="ReceiverFirstName" />
+                <ScalarProperty Name="ReceiverLastName" ColumnName="ReceiverLastName" />
+                <ScalarProperty Name="Received" ColumnName="Received" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="GravityReceiverId" ColumnName="GravityReceiverId" />
+                <ScalarProperty Name="GravitySenderId" ColumnName="GravitySenderId" />
+                <ScalarProperty Name="KoloSenderId" ColumnName="KoloSenderId" />
+                <ScalarProperty Name="KoloReference" ColumnName="KoloReference" />
+                <ScalarProperty Name="GravityReference" ColumnName="GravityReference" />
+                <ScalarProperty Name="TransferMadId" ColumnName="TransferMadId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

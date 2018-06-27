@@ -24,6 +24,9 @@ namespace KoloWin.CustomerService
         public string EneoContractNo { get; set; }
         public Nullable<int> EneoPercentage { get; set; }
         public Nullable<int> TopUpPercentage { get; set; }
+        public Nullable<int> GravityId { get; set; }
+        public string GravityCode { get; set; }
+        public Nullable<int> GravityPercentage { get; set; }
     
         public virtual Business Business { get; set; }
         public virtual Currency Currency { get; set; }
