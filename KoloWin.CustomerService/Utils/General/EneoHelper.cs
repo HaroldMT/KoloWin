@@ -13,8 +13,8 @@ namespace KoloWin.CustomerService.Utils.General
         public static List<EneoBillDetails> GetEneoBillByBillNumber(string billNumber, out string error)
         {
             error = "";
-            ExWebSrv4Kolo.WebService4KoloSoapClient exWS4Kolo = new ExWebSrv4Kolo.WebService4KoloSoapClient();
-            ExWebSrv4Kolo.UnpaidBill tmp = null;
+            ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
+            ExWebSvc4ExTools.UnpaidBill tmp = null;
             try
             {
                 tmp = exWS4Kolo.FindEneoByBillNumber(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, billNumber);
@@ -32,8 +32,8 @@ namespace KoloWin.CustomerService.Utils.General
         public static List<EneoBillDetails> GetEneoBillsByBillAccount(string billAccount, out string error)
         {
             error = "";
-            ExWebSrv4Kolo.WebService4KoloSoapClient exWS4Kolo = new ExWebSrv4Kolo.WebService4KoloSoapClient();
-            ExWebSrv4Kolo.UnpaidBill[] tmp = null;
+            ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
+            ExWebSvc4ExTools.UnpaidBill[] tmp = null;
             try
             {
                 tmp = exWS4Kolo.FindEneoByBillAccount(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, billAccount);
@@ -48,6 +48,25 @@ namespace KoloWin.CustomerService.Utils.General
             return eBDs;
         }
 
+        public static string DoPayENEO(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture, Customer customer,out string error)
+        {
+            error = "";
+            ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
+            try
+            {
+                var reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, numeroFacture, customer.Person.Firstname + " " + customer.Person.Lastname, customer.MobileDevice.LineNumber);
+                return reference;
+            }
+            catch (Exception ex)
+            {
+                error = ExceptionHelper.GetExceptionMessage(ex);
+                return null;
+            }
+        }
+
+
+
+        
 
     }
 }

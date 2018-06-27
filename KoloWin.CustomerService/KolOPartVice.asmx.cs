@@ -31,9 +31,8 @@ namespace KoloWin.CustomerService
             Customer c = Context.Customers.Find(Int32.Parse(jsonCustomer));
             c.Person = Context.People.Find(c.IdCustomer);
             c.MobileDevice = Context.MobileDevices.FirstOrDefault(m => m.IdMobileDevice == c.IdCustomer);
-            ExWebSrv4Kolo.WebService4KoloSoapClient exWS4Kolo = new ExWebSrv4Kolo.WebService4KoloSoapClient();
-            var reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, 
-                                                 jsonBillNumber, c.Person.Firstname + " " + c.Person.Lastname, c.MobileDevice.LineNumber);
+            ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
+            var reference = EneoHelper.DoPayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER,jsonBillNumber, c,out error);
             Context.Dispose();
             return reference;
         }
@@ -45,8 +44,7 @@ namespace KoloWin.CustomerService
             List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillByBillNumber(jsonBillNumber,out error);
             return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
         }
-
-
+        
         [WebMethod]
         public string GetEneoBillsByBillAccount(string jsonBillAccount)
         {
@@ -61,42 +59,48 @@ namespace KoloWin.CustomerService
         #region Kolo MAD Methods
 
         [WebMethod]
-        public string DoSendMad( string jsonMad)
+        public string FindCustomerMad(int amount, string phone, string customerCode, string reference)
         {
             string error = "";
-            return "";
-        }
-        
-        [WebMethod]
-        public string DoRecieveMad(string jsonMad)
-        {
-            string error = "";
-            return "";
+            var mad = Madhelper.FindCustomerMad(amount, phone, customerCode, reference, out error);
+            return mad;
         }
 
 
         [WebMethod]
-        public string GetMadByReference(string jsonReference)
+        public string FindManagerCustomerByPhone(string phone)
         {
             string error = "";
-            return "";
+            var managerCustomer = Madhelper.FindManagerCustomerByPhone(phone, out error);
+            return managerCustomer;
+        }
+
+        [WebMethod]
+        public string FindManagerCustomerByCustomerCode(string customerCode)
+        {
+            string error = "";
+            var managerCustomer = Madhelper.FindManagerCustomerByCustomerCode(customerCode, out error);
+            return managerCustomer;
         }
 
 
         [WebMethod]
-        public string GetMadByBordereau(string jsonBordereau)
+        public int DoSendMad(int idSender, int idReciever, int amount)
         {
             string error = "";
-            return "";
+            var idMad = Madhelper.DoSendMad(idSender, idReciever, amount, out error);
+            return idMad;
         }
-
 
         [WebMethod]
-        public string GetMadByCustomer(string jsonCustomer)
+        public int GetMADFees(int montant)
         {
             string error = "";
-            return "";
+            var idMad = Madhelper.GetMADFees( montant, out  error);
+            return idMad;
         }
+
+
 
         #endregion
 
