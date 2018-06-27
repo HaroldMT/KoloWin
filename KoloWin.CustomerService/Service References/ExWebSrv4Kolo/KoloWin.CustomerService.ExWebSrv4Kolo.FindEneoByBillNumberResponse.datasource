@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="FindEneoByBillNumberResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse, KoloWin.CustomerService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse, Service References.ExWebSrv4Kolo.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
