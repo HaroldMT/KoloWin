@@ -48,13 +48,18 @@ namespace KoloWin.CustomerService.Utils.General
             return eBDs;
         }
 
-        public static string DoPayENEO(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture, Customer customer,out string error)
+        public static string DoPayENEO(string codeTerm, string passTerm, string codeUser, string passUser, string numeroFacture, string idCustomer,out string error)
         {
             error = "";
-            ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
             try
             {
-                var reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, numeroFacture, customer.Person.Firstname + " " + customer.Person.Lastname, customer.MobileDevice.LineNumber);
+                var Context = new KoloAndroidEntities4Serialization();
+                Customer c = Context.Customers.Find(Int32.Parse(idCustomer));
+                c.Person = Context.People.Find(c.IdCustomer);
+                c.MobileDevice = Context.MobileDevices.FirstOrDefault(m => m.IdMobileDevice == c.IdCustomer);
+                ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
+                var reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, numeroFacture, c.Person.Firstname + " " + c.Person.Lastname, c.MobileDevice.LineNumber);
+                Context.Dispose();
                 return reference;
             }
             catch (Exception ex)

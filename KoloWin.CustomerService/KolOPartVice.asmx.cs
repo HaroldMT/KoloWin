@@ -27,13 +27,7 @@ namespace KoloWin.CustomerService
         public string DoPayEneoBill(string jsonBillNumber, string jsonCustomer)
         {
             string error = "";
-            var Context = new KoloAndroidEntities4Serialization();
-            Customer c = Context.Customers.Find(Int32.Parse(jsonCustomer));
-            c.Person = Context.People.Find(c.IdCustomer);
-            c.MobileDevice = Context.MobileDevices.FirstOrDefault(m => m.IdMobileDevice == c.IdCustomer);
-            ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
-            var reference = EneoHelper.DoPayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER,jsonBillNumber, c,out error);
-            Context.Dispose();
+            var reference = EneoHelper.DoPayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER,jsonBillNumber, jsonCustomer,out error);
             return reference;
         }
         
@@ -54,8 +48,7 @@ namespace KoloWin.CustomerService
         }
 
         #endregion
-
-
+        
         #region Kolo MAD Methods
 
         [WebMethod]
@@ -103,9 +96,7 @@ namespace KoloWin.CustomerService
 
 
         #endregion
-
-
-
+        
         #region TopUp Methods
 
 
