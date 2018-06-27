@@ -64,5 +64,7 @@
         public BusinessContact a63 { get; set; }
         public City a64 { get; set; }
         public Country a65 { get; set; }
+        public TopUp a66 { get; set; }
+        public EneoBillPayment a67 { get; set; }
     }
 }
