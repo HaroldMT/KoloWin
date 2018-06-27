@@ -90,6 +90,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -130,6 +131,19 @@
       <DependentUpon>KoloModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\EeTest.pubxml" />
+    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.FindEneoByBillNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.PayENEOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSrv4Kolo\KoloWin.CustomerService.ExWebSrv4Kolo.UnpaidBill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ExWebSrv4Kolo\WebService4Kolo.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,6 +153,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MobileService.asmx" />
+    <None Include="Service References\ExWebSrv4Kolo\WebService4Kolo.disco" />
+    <None Include="Service References\ExWebSrv4Kolo\configuration91.svcinfo" />
+    <None Include="Service References\ExWebSrv4Kolo\configuration.svcinfo" />
+    <None Include="Service References\ExWebSrv4Kolo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -259,6 +280,7 @@
       <DependentUpon>MobileService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\EneoBillDetails.cs" />
     <Compile Include="Model\P2pTransferDetails.cs" />
     <Compile Include="Model\SimpleContact.cs" />
     <Compile Include="MyRefTypes.cs" />
@@ -344,6 +366,11 @@
     <Compile Include="Reseller.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ExWebSrv4Kolo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Tag.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
@@ -375,6 +402,7 @@
     <Compile Include="Utils\Authentification\RegistrationHelper.cs" />
     <Compile Include="Utils\Entities\CustomerHelper.cs" />
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
+    <Compile Include="Utils\General\EneoHelper.cs" />
     <Compile Include="Utils\General\ExceptionHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
@@ -396,6 +424,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ExWebSrv4Kolo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
