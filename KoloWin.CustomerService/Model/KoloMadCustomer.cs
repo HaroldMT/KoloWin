@@ -24,11 +24,11 @@ namespace KoloWin.CustomerService.Model
 
         public KoloMadCustomer(ExWebSvc4Mad.KoloMadCustomer madCustomer)
         {
-            this.IdClient = madCustomer.IdClient;
-            this.CodeClient = madCustomer.CodeClient;
-            this.Nom = madCustomer.Nom;
-            this.Prenom = madCustomer.Prenom;
-            this.Number = madCustomer.Number;
+            this.MadCustomerId = madCustomer.IdClient;
+            this.MadCustomerCode = madCustomer.CodeClient;
+            this.LastName = madCustomer.Nom;
+            this.FirstName = madCustomer.Prenom;
+            this.PhoneNumber = madCustomer.Number;
             this.Success = madCustomer.Success;
             this.Error = madCustomer.Error;
 
@@ -38,11 +38,11 @@ namespace KoloWin.CustomerService.Model
         {
             ExWebSvc4Mad.KoloMadCustomer madCustomer = new ExWebSvc4Mad.KoloMadCustomer();
             
-            madCustomer.IdClient = this.IdClient;
-            madCustomer.CodeClient = this.CodeClient;
-            madCustomer.Nom = this.Nom;
-            madCustomer.Prenom = this.Prenom;
-            madCustomer.Number = this.Number;
+            madCustomer.IdClient = this.MadCustomerId;
+            madCustomer.CodeClient = this.MadCustomerCode;
+            madCustomer.Nom = this.LastName;
+            madCustomer.Prenom = this.FirstName;
+            madCustomer.Number = this.PhoneNumber;
             madCustomer.Success = this.Success;
             madCustomer.Error = this.Error;
 

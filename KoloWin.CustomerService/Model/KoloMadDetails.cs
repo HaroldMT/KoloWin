@@ -31,19 +31,16 @@ namespace KoloWin.CustomerService.Model
         public KoloMadDetails(ExWebSvc4Mad.KoloMadDetails madDetails)
         {
             this.Reference = madDetails.Reference;
-            this.Bordereau = (int)madDetails.Bordereau;
+            this.MadId = (int)madDetails.Bordereau;
             this.Success = madDetails.Success;
             this.Error = madDetails.Error;
-            this.CodeTerminal = madDetails.CodeTerminal;
-            this.IdCaisse = (int)madDetails.IdCaisse;
-            this.IdOperateur = madDetails.IdOperateur;
-            this.IdClientEmetteur = madDetails.IdClientEmetteur;
-            this.IdClientBeneficiaire = madDetails.IdClientBeneficiaire;
-            this.Montant = (int)madDetails.Montant;
-            this.Ccion = madDetails.Ccion;
-            this.Tva = madDetails.Tva;
-            this.ToutReseau = madDetails.ToutReseau;
-            this.CodeVille = madDetails.CodeVille;
+            this.SenderId = madDetails.IdClientEmetteur;
+            this.ReceiverId = madDetails.IdClientBeneficiaire;
+            this.Amount = (int)madDetails.Montant;
+            this.Fee = madDetails.Ccion;
+            this.Tax = madDetails.Tva;
+            this.Everywhere = madDetails.ToutReseau;
+            this.CityCode = madDetails.CodeVille;
             this.Password = madDetails.Password;
         }
 
@@ -52,19 +49,19 @@ namespace KoloWin.CustomerService.Model
             ExWebSvc4Mad.KoloMadDetails madDetails = new ExWebSvc4Mad.KoloMadDetails();
 
             madDetails.Reference = this.Reference;
-            madDetails.Bordereau = (int)this.Bordereau;
+            madDetails.Bordereau = (int)this.MadId;
             madDetails.Success = this.Success;
             madDetails.Error = this.Error;
-            madDetails.CodeTerminal = this.CodeTerminal;
-            madDetails.IdCaisse = (int)this.IdCaisse;
-            madDetails.IdOperateur = this.IdOperateur;
-            madDetails.IdClientEmetteur = this.IdClientEmetteur;
-            madDetails.IdClientBeneficiaire = this.IdClientBeneficiaire;
-            madDetails.Montant = (int)this.Montant;
-            madDetails.Ccion = this.Ccion;
-            madDetails.Tva = this.Tva;
-            madDetails.ToutReseau = this.ToutReseau;
-            madDetails.CodeVille = this.CodeVille;
+            madDetails.CodeTerminal = TerminalCode;
+            madDetails.IdCaisse = CashBoxId;
+            madDetails.IdOperateur = CashierId;
+            madDetails.IdClientEmetteur = this.SenderId;
+            madDetails.IdClientBeneficiaire = this.ReceiverId;
+            madDetails.Montant = (int)this.Amount;
+            madDetails.Ccion = this.Fee;
+            madDetails.Tva = this.Tax;
+            madDetails.ToutReseau = this.Everywhere;
+            madDetails.CodeVille = this.CityCode;
             madDetails.Password = this.Password;
 
             return madDetails;
