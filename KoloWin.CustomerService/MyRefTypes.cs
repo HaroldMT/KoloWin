@@ -1,4 +1,6 @@
-﻿namespace KoloWin.CustomerService
+﻿using KoloWin.CustomerService.ExWebSvc4Mad;
+
+namespace KoloWin.CustomerService
 {
     public class MyRefTypes
     {
@@ -66,6 +68,7 @@
         public Country a65 { get; set; }
         public TopUp a66 { get; set; }
         public EneoBillPayment a67 { get; set; }
-        public TransferGravity a68 { get; set; }
+        public KoloMadCustomer a68 { get; set; }
+        public KoloMadDetails a69 { get; set; }
     }
 }

@@ -17,6 +17,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetKoloMadCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="madCustomer" type="tns:KoloMadCustomer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="KoloMadCustomer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdClient" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeClient" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prenom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetKoloMadCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKoloMadCustomerResult" type="tns:KoloMadCustomer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetFrais">
         <s:complexType>
           <s:sequence>
@@ -88,6 +113,39 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SendKoloMad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="madDetail" type="tns:KoloMadDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="KoloMadDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bordereau" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeTerminal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCaisse" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOperateur" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdClientEmetteur" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdClientBeneficiaire" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Montant" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ccion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tva" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToutReseau" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeVille" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendKoloMadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendKoloMadResult" type="tns:KoloMadDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SendSms">
         <s:complexType>
           <s:sequence>
@@ -120,6 +178,47 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SendCredit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="montant" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fournisseur" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCreditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendCreditResult" type="tns:AirMoneyPartnerResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AirMoneyPartnerResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperationSucces" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceSucces" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RemainingBalance" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SelectedPartner" type="tns:Partner" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Partner">
+        <s:restriction base="s:string">
+          <s:enumeration value="MTN" />
+          <s:enumeration value="ORANGE" />
+          <s:enumeration value="NEXTTEL" />
+          <s:enumeration value="YOOMEE" />
+          <s:enumeration value="CAMTEL" />
+          <s:enumeration value="UNKNOWN" />
+        </s:restriction>
+      </s:simpleType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetClientSoapIn">
@@ -127,6 +226,12 @@
   </wsdl:message>
   <wsdl:message name="GetClientSoapOut">
     <wsdl:part name="parameters" element="tns:GetClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKoloMadCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKoloMadCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetKoloMadCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKoloMadCustomerResponse" />
   </wsdl:message>
   <wsdl:message name="GetFraisSoapIn">
     <wsdl:part name="parameters" element="tns:GetFrais" />
@@ -152,6 +257,12 @@
   <wsdl:message name="SaveMadSoapOut">
     <wsdl:part name="parameters" element="tns:SaveMadResponse" />
   </wsdl:message>
+  <wsdl:message name="SendKoloMadSoapIn">
+    <wsdl:part name="parameters" element="tns:SendKoloMad" />
+  </wsdl:message>
+  <wsdl:message name="SendKoloMadSoapOut">
+    <wsdl:part name="parameters" element="tns:SendKoloMadResponse" />
+  </wsdl:message>
   <wsdl:message name="SendSmsSoapIn">
     <wsdl:part name="parameters" element="tns:SendSms" />
   </wsdl:message>
@@ -164,10 +275,20 @@
   <wsdl:message name="RegisterSoapOut">
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
   </wsdl:message>
+  <wsdl:message name="SendCreditSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCredit" />
+  </wsdl:message>
+  <wsdl:message name="SendCreditSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCreditResponse" />
+  </wsdl:message>
   <wsdl:portType name="ExWebSvcSoap">
     <wsdl:operation name="GetClient">
       <wsdl:input message="tns:GetClientSoapIn" />
       <wsdl:output message="tns:GetClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKoloMadCustomer">
+      <wsdl:input message="tns:GetKoloMadCustomerSoapIn" />
+      <wsdl:output message="tns:GetKoloMadCustomerSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetFrais">
       <wsdl:input message="tns:GetFraisSoapIn" />
@@ -185,6 +306,10 @@
       <wsdl:input message="tns:SaveMadSoapIn" />
       <wsdl:output message="tns:SaveMadSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="SendKoloMad">
+      <wsdl:input message="tns:SendKoloMadSoapIn" />
+      <wsdl:output message="tns:SendKoloMadSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendSms">
       <wsdl:input message="tns:SendSmsSoapIn" />
       <wsdl:output message="tns:SendSmsSoapOut" />
@@ -193,11 +318,24 @@
       <wsdl:input message="tns:RegisterSoapIn" />
       <wsdl:output message="tns:RegisterSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="SendCredit">
+      <wsdl:input message="tns:SendCreditSoapIn" />
+      <wsdl:output message="tns:SendCreditSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ExWebSvcSoap" type="tns:ExWebSvcSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetClient">
       <soap:operation soapAction="http://gravity.exweb.org/GetClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKoloMadCustomer">
+      <soap:operation soapAction="http://gravity.exweb.org/GetKoloMadCustomer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -241,6 +379,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendKoloMad">
+      <soap:operation soapAction="http://gravity.exweb.org/SendKoloMad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendSms">
       <soap:operation soapAction="http://gravity.exweb.org/SendSms" style="document" />
       <wsdl:input>
@@ -259,11 +406,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendCredit">
+      <soap:operation soapAction="http://gravity.exweb.org/SendCredit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ExWebSvcSoap12" type="tns:ExWebSvcSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetClient">
       <soap12:operation soapAction="http://gravity.exweb.org/GetClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKoloMadCustomer">
+      <soap12:operation soapAction="http://gravity.exweb.org/GetKoloMadCustomer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -307,6 +472,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendKoloMad">
+      <soap12:operation soapAction="http://gravity.exweb.org/SendKoloMad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendSms">
       <soap12:operation soapAction="http://gravity.exweb.org/SendSms" style="document" />
       <wsdl:input>
@@ -318,6 +492,15 @@
     </wsdl:operation>
     <wsdl:operation name="Register">
       <soap12:operation soapAction="http://gravity.exweb.org/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCredit">
+      <soap12:operation soapAction="http://gravity.exweb.org/SendCredit" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
