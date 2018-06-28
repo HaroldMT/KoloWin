@@ -8,19 +8,19 @@ namespace KoloWin.CustomerService.Model
     public class KoloMadDetails
     {
         public string Reference { get; set; }
-        public int Bordereau { get; set; }
+        public int MadId { get; set; }
         public bool Success { get; set; }
         public string Error { get; set; }
-        public string CodeTerminal { get; set; }
-        public int IdCaisse { get; set; }
-        public int IdOperateur { get; set; }
-        public int IdClientEmetteur { get; set; }
-        public int IdClientBeneficiaire { get; set; }
-        public int Montant { get; set; }
-        public int Ccion { get; set; }
-        public int Tva { get; set; }
-        public bool ToutReseau { get; set; }
-        public string CodeVille { get; set; }
+        public const string TerminalCode = "KOLO";
+        public const int CashBoxId = 4298;
+        public const int CashierId = 1700;
+        public int SenderId { get; set; }
+        public int ReceiverId { get; set; }
+        public int Amount { get; set; }
+        public int Fee { get; set; }
+        public int Tax { get; set; }
+        public bool Everywhere { get; set; }
+        public string CityCode { get; set; }
         public string Password { get; set; }
     }
 }
