@@ -130,10 +130,13 @@ namespace KoloWin.CustomerService.Util
                         {
                             reg.RegistrationStatusCode = "COMPLETED";
                             reg.RegistrationConfirmDate = DateTime.Now;
-                            var customer = RegistrationHelper.CreateCustomer(reg);
-                            customer.Registration = reg;
-
-                            db.Customers.Add(customer);
+                            Customer customer = db.Customers.FirstOrDefault(c => c.IdRegistration == reg.IdRegistration);
+                            if (customer == null)
+                            {
+                                customer = RegistrationHelper.CreateCustomer(reg);
+                                customer.Registration = reg;
+                                db.Customers.Add(customer);
+                            }
                             try
                             {
                                 db.SaveChanges();

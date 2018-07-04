@@ -22,6 +22,7 @@ namespace KoloWin.CustomerService
         public int Fee { get; set; }
         public int Ccion { get; set; }
         public int BillAmount { get; set; }
+        public string Reference { get; set; }
     
         public virtual Customer Customer { get; set; }
     }

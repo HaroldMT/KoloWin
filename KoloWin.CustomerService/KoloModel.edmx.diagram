@@ -159,6 +159,8 @@
         <AssociationConnector Association="KoloModel.FK_TopUp_Customer" />
         <EntityTypeShape EntityType="KoloModel.TransferGravity" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="KoloModel.FK_TransferGravity_Customer" />
+        <EntityTypeShape EntityType="KoloModel.CreditCardInfo" Width="1.5" PointX="3.375" PointY="1" />
+        <AssociationConnector Association="KoloModel.FK_ExternalAccount_CreditCardInfo1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
