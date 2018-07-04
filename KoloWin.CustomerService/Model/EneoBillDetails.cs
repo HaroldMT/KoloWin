@@ -34,5 +34,6 @@ namespace KoloWin.CustomerService.Model
             this.BillNumber = uPB.BillNumber;
             this.ContractNumber = uPB.BillAccountId;
         }
+        
     }
 }
