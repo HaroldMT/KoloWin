@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d510a231-cabb-48d4-b826-53e01530bd9f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a828f2a0-fa36-479a-96c5-4e42a48be593" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExWebSvc.wsdl" MetadataType="Wsdl" ID="28a49626-05f6-46f0-b639-8ade8fdbd78d" SourceId="1" SourceUrl="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx?wsdl" />
-    <MetadataFile FileName="ExWebSvc.disco" MetadataType="Disco" ID="65050371-2ef9-4e52-9767-db28eb0d203f" SourceId="1" SourceUrl="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx?disco" />
+    <MetadataFile FileName="ExWebSvc.wsdl" MetadataType="Wsdl" ID="555c0de8-012e-4ab0-aebb-0d650fd8e85e" SourceId="1" SourceUrl="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx?wsdl" />
+    <MetadataFile FileName="ExWebSvc.disco" MetadataType="Disco" ID="33c73bac-4657-4d5e-9c1c-4e135fa7a20a" SourceId="1" SourceUrl="http://195.24.211.129:9996/ExWebSvc/ExWebSvc.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
