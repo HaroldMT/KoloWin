@@ -18,6 +18,14 @@ namespace KoloWin.CustomerService.Model
 
         }
 
+        public EneoBillDetails(EneoBillPayment eBP)
+        {
+            this.DueDate = eBP.PaymentDate;
+            this.Amount = eBP.BillAmount;
+            this.BillNumber = eBP.BillNumber;
+            this.ContractNumber = eBP.ContractNo;
+            this.Reference = eBP.Reference;
+        }
 
         public EneoBillDetails(ExWebSvc4ExTools.UnpaidBill uPB)
         {

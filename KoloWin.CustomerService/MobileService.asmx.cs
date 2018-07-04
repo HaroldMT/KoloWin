@@ -6,8 +6,8 @@ using System.Web.Services;
 using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Util;
 using KoloWin.CustomerService.Util.Entities;
-using KoloWin.Utilities;
 using KoloWin.CustomerService.Utils.General;
+using KoloWin.Utilities;
 
 namespace KoloWin.CustomerService
 {
@@ -17,10 +17,10 @@ namespace KoloWin.CustomerService
     [WebService(Namespace = "http://kolo.cyberix.fr/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    
+
+
     public class MobileService : System.Web.Services.WebService
     {
-
         #region Method De Test
 
         [WebMethod]
@@ -28,8 +28,10 @@ namespace KoloWin.CustomerService
         public RefGender GetRefGender()
         {
             var refGender = new RefGender()
-            { GenderCode = "M",
-                GenderDescription = "Male", };
+            {
+                GenderCode = "M",
+                GenderDescription = "Male",
+            };
 
 
             return refGender;
@@ -62,7 +64,7 @@ namespace KoloWin.CustomerService
             string error = "";
             MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
             var context = new KoloAndroidEntities4Serialization();
-            mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out  error);
+            mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out error);
             context.Dispose();
             return mobileDevice;
         }
@@ -73,7 +75,8 @@ namespace KoloWin.CustomerService
             var Context = new KoloAndroidEntities();
             SimpleContact simpleContact = new SimpleContact()
             {
-                FirstName = "name...", LastName = "Full",
+                FirstName = "name...",
+                LastName = "Full",
                 Telephone = "Phone number..."
             };
             Customer outCustomer;
@@ -93,7 +96,7 @@ namespace KoloWin.CustomerService
         {
             var Context = new KoloAndroidEntities();
             Customer outCustomer;
-            
+
             Context.Dispose();
             return SerializationHelper.SerializeToJson("");
         }
@@ -127,7 +130,7 @@ namespace KoloWin.CustomerService
             return managerCustomer;
         }
 
-        
+
         [WebMethod]
         public string GetMADFees(int montant)
         {
@@ -166,6 +169,16 @@ namespace KoloWin.CustomerService
             var context = new KoloAndroidEntities();
             cBHs = context.CustomerBalanceHistories.Where(c => c.IdCustomerAccount == jsonIdCustomer).ToList();
             return SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+        }
+
+        [WebMethod]
+        public string GetCustomerNotifications(int jsonIdCustomer)
+        {
+            string error = "";
+            List<KoloNotification> cBHs = null;
+            var context = new KoloAndroidEntities();
+            cBHs = context.KoloNotifications.Where(c => c.IdCustomer == jsonIdCustomer).ToList();
+            return SerializationHelper.SerializeToJson<List<KoloNotification>>(cBHs);
         }
 
 

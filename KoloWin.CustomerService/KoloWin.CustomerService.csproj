@@ -236,6 +236,9 @@
     <Compile Include="Country.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CreditCardInfo.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Currency.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
