@@ -87,8 +87,9 @@ namespace KoloWin.CustomerService
                 outCustomer = customerQuery.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
             if (outCustomer != null)
                 simpleContact = new SimpleContact(outCustomer);
+            var result = SerializationHelper.SerializeToJson(simpleContact);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(simpleContact);
+            return result;
         }
 
         [WebMethod]
@@ -98,8 +99,9 @@ namespace KoloWin.CustomerService
             Customer outCustomer = Context.Customers
                 .Include("MobileDevice").Include("Person").Include("Registration")
                 .FirstOrDefault(e => e.IdCustomer == idCustomer);
+            var result = SerializationHelper.SerializeToJson(outCustomer);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outCustomer);
+            return result;
         }
 
         [WebMethod]
