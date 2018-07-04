@@ -92,7 +92,7 @@ namespace KoloWin.CustomerService
         }
 
         [WebMethod]
-        public string GetCustomerAccound(int idCustomer)
+        public string GetCustomerAccount(int idCustomer)
         {
             var Context = new KoloAndroidEntities();
             var customerQuery = Context.Customers.Include("MobileDevice").Include("Person").Include("Registration");
