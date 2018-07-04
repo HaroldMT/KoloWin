@@ -12,18 +12,21 @@ namespace KoloWin.CustomerService
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class KoloSystemAction
+    public partial class KoloGroup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KoloSystemAction()
+        public KoloGroup()
         {
             this.KoloPermissions = new ObservableCollection<KoloPermission>();
+            this.KoloUsers = new ObservableCollection<KoloUser>();
         }
     
-        public string ActionCode { get; set; }
-        public string ActionDescription { get; set; }
+        public string GroupCode { get; set; }
+        public string GroupDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<KoloPermission> KoloPermissions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<KoloUser> KoloUsers { get; set; }
     }
 }

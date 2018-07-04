@@ -10,7 +10,7 @@
 namespace KoloWin.CustomerService
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
     public partial class EneoBillPayment
     {
@@ -22,6 +22,7 @@ namespace KoloWin.CustomerService
         public int Fee { get; set; }
         public int Ccion { get; set; }
         public int BillAmount { get; set; }
+        public string Reference { get; set; }
     
         public virtual Customer Customer { get; set; }
     }

@@ -7,6 +7,7 @@ using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Util;
 using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
+using KoloWin.CustomerService.Utils.General;
 
 namespace KoloWin.CustomerService
 {
@@ -16,10 +17,12 @@ namespace KoloWin.CustomerService
     [WebService(Namespace = "http://kolo.cyberix.fr/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-
-
+    
     public class MobileService : System.Web.Services.WebService
     {
+
+        #region Method De Test
+
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
         public RefGender GetRefGender()
@@ -47,6 +50,11 @@ namespace KoloWin.CustomerService
         {
             return myRefTypes;
         }
+
+
+        #endregion
+
+        #region Generals Methods
 
         [WebMethod]
         public MobileDevice InsertMobileDevice(string jsonMobileDevice)
@@ -89,5 +97,93 @@ namespace KoloWin.CustomerService
             Context.Dispose();
             return SerializationHelper.SerializeToJson("");
         }
+
+        #endregion
+
+        #region Kolo MAD Methods
+
+        [WebMethod]
+        public string FindCustomerMad(string jsonMadCustomer)
+        {
+            string error = "";
+            KoloMadCustomer madCustomer = SerializationHelper.DeserializeFromJsonString<KoloMadCustomer>(jsonMadCustomer);
+            Madhelper.FindCustomerMad(ref madCustomer, out error);
+            return SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
+        }
+
+        [WebMethod]
+        public string FindManagerCustomerByPhone(string phone)
+        {
+            string error = "";
+            var managerCustomer = Madhelper.FindManagerCustomerByPhone(phone, out error);
+            return managerCustomer;
+        }
+
+        [WebMethod]
+        public string FindManagerCustomerByCustomerCode(string customerCode)
+        {
+            string error = "";
+            var managerCustomer = Madhelper.FindManagerCustomerByCustomerCode(customerCode, out error);
+            return managerCustomer;
+        }
+
+        
+        [WebMethod]
+        public string GetMADFees(int montant)
+        {
+            string error = "";
+            var idMad = Madhelper.GetMADFees(montant, out error);
+            return SerializationHelper.SerializeToJson<int>(idMad);
+        }
+
+
+
+        #endregion
+
+
+        #region Histories Methods
+
+        [WebMethod]
+        public string GetEneoBillPaymentHistory(int jsonIdCustomer)
+        {
+            string error = "";
+            List<EneoBillPayment> eBPs = null;
+            var context = new KoloAndroidEntities4Serialization();
+            Customer customer = context.Customers.FirstOrDefault(c => c.IdCustomer == jsonIdCustomer);
+            eBPs = context.EneoBillPayments.Where(e => e.IdCustomer == jsonIdCustomer).ToList();
+            List<EneoBillDetails> eBDs = null;
+            if (eBPs != null)
+                eBDs = eBPs.Select(e => new EneoBillDetails(e)).ToList();
+            return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+        }
+
+
+        [WebMethod]
+        public string GetCustomerBalanceHistory(int jsonIdCustomer)
+        {
+            string error = "";
+            List<CustomerBalanceHistory> cBHs = null;
+            var context = new KoloAndroidEntities();
+            cBHs = context.CustomerBalanceHistories.Where(c => c.IdCustomerAccount == jsonIdCustomer).ToList();
+            return SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+        }
+
+
+        //[WebMethod]
+        //public string GetKoloMadDetailsHistory(int jsonIdCustomer)
+        //{
+        //    string error = "";
+        //    List<KoloMadDetails> kMDs = null;
+        //    var context = new KoloAndroidEntities4Serialization();
+        //    Customer customer = context.Customers.FirstOrDefault(c => c.IdCustomer == jsonIdCustomer);
+        //    //kMDs = context.EneoBillPayments.Where(e => e.IdCustomer == jsonIdCustomer).ToList();
+        //    List<EneoBillDetails> eBDs = null;
+        //    //if (kMDs != null)
+        //        //eBDs = kMDs.Select(e => new EneoBillDetails(e)).ToList();
+        //    return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(null);
+        //}
+
+        #endregion
+
     }
 }

@@ -12,13 +12,13 @@ namespace KoloWin.CustomerService
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class Business
+    public partial class KoloPermission
     {
-        public int IdCustomer { get; set; }
-        public string IndustryCategoryCode { get; set; }
-        public string BusinessName { get; set; }
+        public string ActionCode { get; set; }
+        public string GroupCode { get; set; }
+        public string ExpirationDate { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual RefIndustryCategory RefIndustryCategory { get; set; }
+        public virtual KoloGroup KoloGroup { get; set; }
+        public virtual KoloSystemAction KoloSystemAction { get; set; }
     }
 }

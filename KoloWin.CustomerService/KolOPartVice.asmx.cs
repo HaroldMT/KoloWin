@@ -27,7 +27,7 @@ namespace KoloWin.CustomerService
         public string DoPayEneoBill(string jsonBillNumber, string jsonCustomer)
         {
             string error = "";
-            var reference = EneoHelper.DoPayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER,jsonBillNumber, jsonCustomer,out error);
+            var reference = EneoHelper.DoPayENEO(KoloConstants.EneoExTermAuth.KOLO_ENEO_CODETERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSTERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_CODEUSER, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSUSER,jsonBillNumber, jsonCustomer,out error);
             return reference;
         }
         
@@ -50,33 +50,7 @@ namespace KoloWin.CustomerService
         #endregion
         
         #region Kolo MAD Methods
-
-        [WebMethod]
-        public string FindCustomerMad(string jsonMadCustomer)
-        {
-            string error = "";
-            KoloMadCustomer madCustomer = SerializationHelper.DeserializeFromJsonString<KoloMadCustomer>(jsonMadCustomer);
-            Madhelper.FindCustomerMad(ref madCustomer, out error);
-            return SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
-        }
-
-
-        [WebMethod]
-        public string FindManagerCustomerByPhone(string phone)
-        {
-            string error = "";
-            var managerCustomer = Madhelper.FindManagerCustomerByPhone(phone, out error);
-            return managerCustomer;
-        }
-
-        [WebMethod]
-        public string FindManagerCustomerByCustomerCode(string customerCode)
-        {
-            string error = "";
-            var managerCustomer = Madhelper.FindManagerCustomerByCustomerCode(customerCode, out error);
-            return managerCustomer;
-        }
-
+        
 
         [WebMethod]
         public string DoSendMad(string jsonKoloMadDetails)
@@ -86,15 +60,7 @@ namespace KoloWin.CustomerService
             Madhelper.DoSendMad(ref koloMadDetails, out error);
             return SerializationHelper.SerializeToJson<KoloMadDetails>(koloMadDetails);
         }
-
-        [WebMethod]
-        public string GetMADFees(int montant)
-        {
-            string error = "";
-            var idMad = Madhelper.GetMADFees(montant, out  error);
-            return SerializationHelper.SerializeToJson<int>(idMad);
-        }
-
+        
 
 
         #endregion

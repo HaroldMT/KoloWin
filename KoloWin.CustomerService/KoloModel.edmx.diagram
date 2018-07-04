@@ -153,12 +153,19 @@
         <AssociationConnector Association="KoloModel.fk_TransfertGroup_StatusCode" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.CustomerGroupAdmin" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.FK_TransfertP2p_Sender" />
-        <EntityTypeShape EntityType="KoloModel.EneoBillPayment" Width="1.5" PointX="5.25" PointY="19.125" />
         <EntityTypeShape EntityType="KoloModel.TopUp" Width="1.5" PointX="5.25" PointY="31.875" />
-        <AssociationConnector Association="KoloModel.FK_EneoBillPayment_Customer" />
         <AssociationConnector Association="KoloModel.FK_TopUp_Customer" />
         <EntityTypeShape EntityType="KoloModel.TransferGravity" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="KoloModel.FK_TransferGravity_Customer" />
+        <EntityTypeShape EntityType="KoloModel.KoloGroup" Width="1.5" PointX="3.375" PointY="2.625" />
+        <EntityTypeShape EntityType="KoloModel.KoloPermission" Width="1.5" PointX="7.5" PointY="12.625" />
+        <EntityTypeShape EntityType="KoloModel.KoloSystemHistory" Width="1.5" PointX="9.75" PointY="30" />
+        <AssociationConnector Association="KoloModel.FK_KoloPermission_Group" />
+        <AssociationConnector Association="KoloModel.FK_User_Group" />
+        <AssociationConnector Association="KoloModel.FK_KoloPermission_Action" />
+        <AssociationConnector Association="KoloModel.FK_KoloSystemHistory_KoloUser" />
+        <EntityTypeShape EntityType="KoloModel.EneoBillPayment" Width="1.5" PointX="5.375" PointY="19.25" />
+        <AssociationConnector Association="KoloModel.FK_EneoBillPayment_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

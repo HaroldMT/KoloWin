@@ -88,8 +88,11 @@ namespace KoloWin.CustomerService
         public virtual DbSet<TransfertP2p> TransfertP2p { get; set; }
         public virtual DbSet<TransfertScheduled> TransfertScheduleds { get; set; }
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
-        public virtual DbSet<EneoBillPayment> EneoBillPayments { get; set; }
         public virtual DbSet<TopUp> TopUps { get; set; }
         public virtual DbSet<TransferGravity> TransferGravities { get; set; }
+        public virtual DbSet<KoloGroup> KoloGroups { get; set; }
+        public virtual DbSet<KoloPermission> KoloPermissions { get; set; }
+        public virtual DbSet<KoloSystemHistory> KoloSystemHistories { get; set; }
+        public virtual DbSet<EneoBillPayment> EneoBillPayments { get; set; }
     }
 }
