@@ -17,8 +17,10 @@ namespace KoloWin.CustomerService.Util
                 try
                 {
                     tA2A.TransfertDate = DateTime.Now;
-                    tA2A.TransfertStatusCode = KoloConstants.TRANSFERT_STATUS_CODE_RECEIVE_PENDING;
+                    tA2A.TransfertStatusCode = KoloConstants.Operation.Status.RECEIVE_PENDING.ToString();
                     tA2A.Reference = OfficeHelper.GenerateUniqueId();
+                    List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, out error);
+                    db.KoloNotifications.AddRange(notifications);
                     db.TransfertP2p.Add(tA2A);
                     db.SaveChanges();
                     return tA2A;
@@ -36,82 +38,46 @@ namespace KoloWin.CustomerService.Util
             error = "";
             if (TransfertVerification(tA2A))
             {
-                if (tA2A.TransfertStatusCode != KoloConstants.TRANSFERT_STATUS_CODE_RECEIVE_PENDING)
+                if (tA2A.TransfertStatusCode != KoloConstants.Operation.Status.RECEIVE_PENDING.ToString())
                 {
-                    if(tA2A.NeedsConfirmation)
+                    TransfertP2p tmp = db.TransfertP2p.FirstOrDefault(t => t.IdTransfertP2p == tA2A.IdTransfertP2p);
+                    if (tA2A.Secret == tmp.Secret)
                     {
-                        try
-                        {
-                            TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-                            t.TransfertStatusCode = KoloConstants.TRANSFERT_STATUS_CODE_CONFIRM_PENDING;
-                            db.SaveChanges();
-                            return t;
-                        }
-                        catch(Exception e)
-                        {
-                            error = ExceptionHelper.GetExceptionMessage(e);
-                        }
-                        return new TransfertP2p() { IdTransfertP2p = -30, TransfertStatusCode = error };
+                        if (tA2A.NeedsConfirmation) return AskConfirmationOfTransfertA2A(tA2A, db, out error);
+                        if (!tA2A.NeedsConfirmation) return ConfirmTransfertA2A(tA2A, db, out error);
                     }
-                    if (!tA2A.NeedsConfirmation)
-                    {
-                        try
-                        {
-                            TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-
-                            Customer sender = db.Customers.Find(t.IdSendingCustomer);
-                            Customer reciever = db.Customers.Find(t.IdReceiverCustomer);
-
-                            CustomerBalanceHistory senderBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.TRANSFERT_TYPE_SEND_ACCOUNT_TO_ACCOUNT);
-                            CustomerBalanceHistory recieverBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.TRANSFERT_TYPE_RECIEVE_ACCOUNT_TO_ACCOUNT);
-
-                            db.CustomerBalanceHistories.Add(senderBalanceHistory);
-                            db.CustomerBalanceHistories.Add(recieverBalanceHistory);
-
-                            t.TransfertStatusCode = KoloConstants.TRANSFERT_STATUS_CODE_COMPLETED;
-                            db.SaveChanges();
-                            return t;
-                        }
-                        catch (Exception e)
-                        {
-                            error = ExceptionHelper.GetExceptionMessage(e);
-                        }
-                        return new TransfertP2p() { IdTransfertP2p = -30, TransfertStatusCode = error };
-                    }
+                    return new TransfertP2p() { IdTransfertP2p = -30, TransfertStatusCode = "Code Secret Erroné Veuillez Ressaisir le demander a l'expediteur " };
                 }
                 return new TransfertP2p() { IdTransfertP2p = -20, TransfertStatusCode = "Le statut du transfert est inadequat pour une reception : "+ tA2A.TransfertStatusCode};
             }
             return new TransfertP2p() { IdTransfertP2p = -10 , TransfertStatusCode = "Parametres du transfert sont non conformes" };
         }
 
-
         public static TransfertP2p ConfirmTransfertA2A(TransfertP2p tA2A, KoloAndroidEntities db, out string error)
         {
             error = "";
             if (TransfertVerification(tA2A))
             {
-                if (tA2A.TransfertStatusCode != KoloConstants.TRANSFERT_STATUS_CODE_CONFIRM_PENDING)
+                if (tA2A.TransfertStatusCode != KoloConstants.Operation.Status.CONFIRM_PENDING.ToString())
                 {
                     try
                     {
                         TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-
                         Customer sender = db.Customers.Find(t.IdSendingCustomer);
                         Customer reciever = db.Customers.Find(t.IdReceiverCustomer);
-
-                        CustomerBalanceHistory senderBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.TRANSFERT_TYPE_SEND_ACCOUNT_TO_ACCOUNT);
-                        CustomerBalanceHistory recieverBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.TRANSFERT_TYPE_RECIEVE_ACCOUNT_TO_ACCOUNT);
-
+                        CustomerBalanceHistory senderBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.Operation.Category.SENDA2A.ToString());
+                        CustomerBalanceHistory recieverBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.Operation.Category.RECVA2A.ToString());
                         db.CustomerBalanceHistories.Add(senderBalanceHistory);
                         db.CustomerBalanceHistories.Add(recieverBalanceHistory);
-
-                        t.TransfertStatusCode = KoloConstants.TRANSFERT_STATUS_CODE_COMPLETED;
+                        t.TransfertStatusCode = KoloConstants.Operation.Status.COMPLETED.ToString();
+                        List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, out error);
+                        db.KoloNotifications.AddRange(notifications);
                         db.SaveChanges();
                         return t;
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        error = ExceptionHelper.GetExceptionMessage(e);
+                        error = ExceptionHelper.GetExceptionMessage(ex);
                     }
                     return new TransfertP2p() { IdTransfertP2p = -30, TransfertStatusCode = error };
                 }
@@ -120,6 +86,24 @@ namespace KoloWin.CustomerService.Util
             return new TransfertP2p() { IdTransfertP2p = -10, TransfertStatusCode = "Parametres du transfert sont non conformes" };
         }
 
+        public static TransfertP2p AskConfirmationOfTransfertA2A(TransfertP2p tA2A, KoloAndroidEntities db, out string error)
+        {
+            error = "";
+            try
+            {
+                TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
+                t.TransfertStatusCode = KoloConstants.Operation.Status.CONFIRM_PENDING.ToString();
+                List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, out error);
+                db.KoloNotifications.AddRange(notifications);
+                db.SaveChanges();
+                return t;
+            }
+            catch (Exception ex)
+            {
+                error = ExceptionHelper.GetExceptionMessage(ex);
+            }
+            return new TransfertP2p() { IdTransfertP2p = -30, TransfertStatusCode = error };
+        }
 
         private static bool TransfertVerification(TransfertP2p tA2A)
         {

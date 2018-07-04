@@ -10,10 +10,16 @@
 namespace KoloWin.CustomerService
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
     public partial class KoloUser
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public KoloUser()
+        {
+            this.KoloSystemHistories = new ObservableCollection<KoloSystemHistory>();
+        }
+    
         public int IdCustomer { get; set; }
         public string UserLogin { get; set; }
         public string Number { get; set; }
@@ -30,5 +36,8 @@ namespace KoloWin.CustomerService
     
         public virtual Person Person { get; set; }
         public virtual RefLoginStatu RefLoginStatu { get; set; }
+        public virtual KoloGroup KoloGroup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<KoloSystemHistory> KoloSystemHistories { get; set; }
     }
 }
