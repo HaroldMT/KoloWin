@@ -34,15 +34,5 @@ namespace KoloWin.CustomerService.Model
             this.BillNumber = uPB.BillNumber;
             this.ContractNumber = uPB.BillAccountId;
         }
-
-
-        public EneoBillDetails(EneoBillPayment eBP)
-        {
-            this.DueDate = eBP.PaymentDate;
-            this.Amount = eBP.BillAmount;
-            this.BillNumber = eBP.BillNumber;
-            this.ContractNumber = eBP.ContractNo;
-            this.Reference = eBP.Reference;
-        }
     }
 }
