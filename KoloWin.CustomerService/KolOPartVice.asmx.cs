@@ -36,7 +36,8 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillByBillNumber(jsonBillNumber,out error);
-            return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            return result ;
         }
         
         [WebMethod]
@@ -44,7 +45,8 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillsByBillAccount(jsonBillAccount, out error);
-            return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            return result;
         }
 
         #endregion
@@ -58,7 +60,8 @@ namespace KoloWin.CustomerService
             string error = "";
             KoloMadDetails koloMadDetails = SerializationHelper.DeserializeFromJsonString<KoloMadDetails>(jsonKoloMadDetails);
             Madhelper.DoSendMad(ref koloMadDetails, out error);
-            return SerializationHelper.SerializeToJson<KoloMadDetails>(koloMadDetails);
+            var result = SerializationHelper.SerializeToJson<KoloMadDetails>(koloMadDetails);
+            return result;
         }
         
 

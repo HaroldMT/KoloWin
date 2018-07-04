@@ -87,8 +87,9 @@ namespace KoloWin.CustomerService
                 outCustomer = customerQuery.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
             if (outCustomer != null)
                 simpleContact = new SimpleContact(outCustomer);
+            var result = SerializationHelper.SerializeToJson(simpleContact);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(simpleContact);
+            return result;
         }
 
         [WebMethod]
@@ -98,8 +99,9 @@ namespace KoloWin.CustomerService
             Customer outCustomer = Context.Customers
                 .Include("MobileDevice").Include("Person").Include("Registration")
                 .FirstOrDefault(e => e.IdCustomer == idCustomer);
+            var result = SerializationHelper.SerializeToJson(outCustomer);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outCustomer);
+            return result;
         }
 
         [WebMethod]
@@ -122,7 +124,8 @@ namespace KoloWin.CustomerService
             string error = "";
             KoloMadCustomer madCustomer = SerializationHelper.DeserializeFromJsonString<KoloMadCustomer>(jsonMadCustomer);
             Madhelper.FindCustomerMad(ref madCustomer, out error);
-            return SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
+            var result = SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
+            return result;
         }
 
         [WebMethod]
@@ -153,8 +156,7 @@ namespace KoloWin.CustomerService
 
 
         #endregion
-
-
+        
         #region Histories Methods
 
         [WebMethod]
@@ -168,10 +170,11 @@ namespace KoloWin.CustomerService
             List<EneoBillDetails> eBDs = null;
             if (eBPs != null)
                 eBDs = eBPs.Select(e => new EneoBillDetails(e)).ToList();
-            return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            context.Dispose();
+            return result;
         }
-
-
+        
         [WebMethod]
         public string GetCustomerBalanceHistory(int jsonIdCustomer)
         {
@@ -179,7 +182,9 @@ namespace KoloWin.CustomerService
             List<CustomerBalanceHistory> cBHs = null;
             var context = new KoloAndroidEntities();
             cBHs = context.CustomerBalanceHistories.Where(c => c.IdCustomerAccount == jsonIdCustomer).ToList();
-            return SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+            var result = SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+            context.Dispose();
+            return result;
         }
 
         [WebMethod]
@@ -189,7 +194,9 @@ namespace KoloWin.CustomerService
             List<KoloNotification> cBHs = null;
             var context = new KoloAndroidEntities();
             cBHs = context.KoloNotifications.Where(c => c.IdCustomer == jsonIdCustomer).ToList();
-            return SerializationHelper.SerializeToJson<List<KoloNotification>>(cBHs);
+            var result = SerializationHelper.SerializeToJson<List<KoloNotification>>(cBHs);
+            context.Dispose();
+            return result;
         }
 
 

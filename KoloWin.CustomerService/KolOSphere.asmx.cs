@@ -35,9 +35,10 @@ namespace KoloWin.CustomerService
                 tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
             else
                 tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
+            var result = SerializationHelper.SerializeToJson(tP2P);
             Context.Dispose();
             tP2P.Secret = "HIDDEN BY CYBERIX";
-            return SerializationHelper.SerializeToJson(tP2P);
+            return result;
         }
 
         [WebMethod]
@@ -68,15 +69,15 @@ namespace KoloWin.CustomerService
 
 
         #region Transfert Method For Good WOrkFlow
-
-
+        
         [WebMethod]
         public string GetTransfertP2pByIdTransfert(int idTransfertP2p)
         {
             var Context = new KoloAndroidEntities();
             var outTransfertP2p = Context.TransfertP2p.Find(idTransfertP2p);
+            var result = SerializationHelper.SerializeToJson(outTransfertP2p);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfertP2p);
+            return result;
         }
 
         [WebMethod]
@@ -84,18 +85,19 @@ namespace KoloWin.CustomerService
         {
             var Context = new KoloAndroidEntities();
             var outTransfert2Cash = Context.Transfert2Cash.Find(idTransfert2Cash);
+            var result = SerializationHelper.SerializeToJson(outTransfert2Cash);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfert2Cash);
+            return result;
         }
-
-
+        
         [WebMethod]
         public string GetTransfert2CashDetailsByIdTransfert2CashDetails(int idTransfert2CashDetails)
         {
             var Context = new KoloAndroidEntities();
             var outTransfert2CashDetails = Context.Transfert2CashDetails.Find(idTransfert2CashDetails);
+            var result = SerializationHelper.SerializeToJson(outTransfert2CashDetails);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfert2CashDetails);
+            return result;
         }
 
         [WebMethod]
@@ -107,8 +109,9 @@ namespace KoloWin.CustomerService
                 .Include("Sender.Person").Include("Receiver.MobileDevice")
                 .Where(e => e.IdReceiverCustomer == idCustomer || e.IdSendingCustomer == idCustomer).ToList();
             var transfersDetails = outTransfertP2pList.Select(t =>  new P2pTransferDetails(t)).ToList();
+            var result = SerializationHelper.SerializeToJson(transfersDetails);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(transfersDetails);
+            return result;
         }
 
         [WebMethod]
@@ -116,8 +119,9 @@ namespace KoloWin.CustomerService
         {
             var Context = new KoloAndroidEntities();
             var outTransfert2CashList = Context.Transfert2Cash.Where(e => e.IdReceiverTransfert2CashDetails == idTransfert2CashDetails || e.IdSendingTransfert2CashDetails == idTransfert2CashDetails).ToList();
+            var result = SerializationHelper.SerializeToJson(outTransfert2CashList);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfert2CashList);
+            return result;
         }
 
         #endregion
