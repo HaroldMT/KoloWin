@@ -14,16 +14,7 @@ namespace KoloWin.CustomerService
     
     public partial class KoloSystemAction
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KoloSystemAction()
-        {
-            this.KoloPermissions = new ObservableCollection<KoloPermission>();
-        }
-    
         public string ActionCode { get; set; }
         public string ActionDescription { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<KoloPermission> KoloPermissions { get; set; }
     }
 }

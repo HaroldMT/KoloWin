@@ -20,7 +20,7 @@ namespace KoloWin.CustomerService
         public string Message { get; set; }
         public System.DateTime CreationDate { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
-        public bool Readed { get; set; }
+        public Nullable<bool> Readed { get; set; }
         public string Category { get; set; }
     
         public virtual Customer Customer { get; set; }

@@ -27,7 +27,6 @@
         <EntityTypeShape EntityType="KoloModel.ExternalAccount" Width="1.5" PointX="3" PointY="69.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.ExternalAccountHistory" Width="1.5" PointX="5.25" PointY="80" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.GroupImage" Width="1.5" PointX="10.5" PointY="54.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KoloModel.KoloNotification" Width="1.5" PointX="5.25" PointY="66.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.KoloSystemAction" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.KoloUser" Width="1.5" PointX="7.5" PointY="35" IsExpanded="true" />
         <EntityTypeShape EntityType="KoloModel.LoginAttempt" Width="1.5" PointX="16.5" PointY="44.125" IsExpanded="true" />
@@ -105,7 +104,6 @@
         <AssociationConnector Association="KoloModel.FK_CustomerImage_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.fk_CustomerLogin" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.fk_customertags_customeraccount" ManuallyRouted="false" />
-        <AssociationConnector Association="KoloModel.fk_Notification_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.fk_Partner_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.fk_Person_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="KoloModel.fk_RecurringContribution_TreasuererCustomer" ManuallyRouted="false" />
@@ -161,6 +159,8 @@
         <AssociationConnector Association="KoloModel.FK_TransferGravity_Customer" />
         <EntityTypeShape EntityType="KoloModel.CreditCardInfo" Width="1.5" PointX="3.375" PointY="1" />
         <AssociationConnector Association="KoloModel.FK_ExternalAccount_CreditCardInfo1" />
+        <EntityTypeShape EntityType="KoloModel.KoloNotification" Width="1.5" PointX="5.375" PointY="65.375" />
+        <AssociationConnector Association="KoloModel.fk_Notification_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

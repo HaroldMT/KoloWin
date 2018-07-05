@@ -19,7 +19,7 @@ namespace KoloWin.CustomerService.Util
                     tA2A.TransfertDate = DateTime.Now;
                     tA2A.TransfertStatusCode = KoloConstants.Operation.Status.RECEIVE_PENDING.ToString();
                     tA2A.Reference = OfficeHelper.GenerateUniqueId();
-                    List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, out error);
+                    List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, db, out error);
                     db.KoloNotifications.AddRange(notifications);
                     db.TransfertP2p.Add(tA2A);
                     db.SaveChanges();
@@ -70,7 +70,7 @@ namespace KoloWin.CustomerService.Util
                         db.CustomerBalanceHistories.Add(senderBalanceHistory);
                         db.CustomerBalanceHistories.Add(recieverBalanceHistory);
                         t.TransfertStatusCode = KoloConstants.Operation.Status.COMPLETED.ToString();
-                        List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, out error);
+                        List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A,db, out error);
                         db.KoloNotifications.AddRange(notifications);
                         db.SaveChanges();
                         return t;
@@ -93,7 +93,7 @@ namespace KoloWin.CustomerService.Util
             {
                 TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
                 t.TransfertStatusCode = KoloConstants.Operation.Status.CONFIRM_PENDING.ToString();
-                List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, out error);
+                List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A,db, out error);
                 db.KoloNotifications.AddRange(notifications);
                 db.SaveChanges();
                 return t;
