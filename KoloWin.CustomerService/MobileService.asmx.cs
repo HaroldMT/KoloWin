@@ -124,7 +124,8 @@ namespace KoloWin.CustomerService
             string error = "";
             KoloMadCustomer madCustomer = SerializationHelper.DeserializeFromJsonString<KoloMadCustomer>(jsonMadCustomer);
             Madhelper.FindCustomerMad(ref madCustomer, out error);
-            return SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
+            var result = SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
+            return result;
         }
 
         [WebMethod]
@@ -155,8 +156,7 @@ namespace KoloWin.CustomerService
 
 
         #endregion
-
-
+        
         #region Histories Methods
 
         [WebMethod]
@@ -170,10 +170,11 @@ namespace KoloWin.CustomerService
             List<EneoBillDetails> eBDs = null;
             if (eBPs != null)
                 eBDs = eBPs.Select(e => new EneoBillDetails(e)).ToList();
-            return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            context.Dispose();
+            return result;
         }
-
-
+        
         [WebMethod]
         public string GetCustomerBalanceHistory(int jsonIdCustomer)
         {
@@ -181,7 +182,9 @@ namespace KoloWin.CustomerService
             List<CustomerBalanceHistory> cBHs = null;
             var context = new KoloAndroidEntities();
             cBHs = context.CustomerBalanceHistories.Where(c => c.IdCustomerAccount == jsonIdCustomer).ToList();
-            return SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+            var result = SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+            context.Dispose();
+            return result;
         }
 
         [WebMethod]
@@ -191,7 +194,9 @@ namespace KoloWin.CustomerService
             List<KoloNotification> cBHs = null;
             var context = new KoloAndroidEntities();
             cBHs = context.KoloNotifications.Where(c => c.IdCustomer == jsonIdCustomer).ToList();
-            return SerializationHelper.SerializeToJson<List<KoloNotification>>(cBHs);
+            var result = SerializationHelper.SerializeToJson<List<KoloNotification>>(cBHs);
+            context.Dispose();
+            return result;
         }
 
 
