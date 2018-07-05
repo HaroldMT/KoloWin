@@ -20,8 +20,9 @@ namespace KoloWin.CustomerService
             var registration = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
             var context = new KoloAndroidEntities4Serialization();
             var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
+            var result = SerializationHelper.SerializeToJson(customer);
             context.Dispose();
-            return SerializationHelper.SerializeToJson(customer);
+            return result;
         }
 
         [WebMethod]
@@ -31,8 +32,9 @@ namespace KoloWin.CustomerService
             var logAttempt = SerializationHelper.DeserializeFromJsonString<LoginAttempt>(jsonLogAttempt);
             var context = new KoloAndroidEntities4Serialization();
             LoginHelper.DoLogin(ref logAttempt, context, out error);
+            var result = SerializationHelper.SerializeToJson(logAttempt);
             context.Dispose();
-            return SerializationHelper.SerializeToJson(logAttempt);
+            return result;
         }
 
         [WebMethod]
@@ -42,8 +44,9 @@ namespace KoloWin.CustomerService
             var inReg = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
             var context = new KoloAndroidEntities4Serialization();
             var outReg = RegistrationHelper.DoRegistration(inReg, context, out error);
+            var result = SerializationHelper.SerializeToJson(outReg);
             context.Dispose();
-            return SerializationHelper.SerializeToJson(outReg);
+            return result;
         }
         
         [WebMethod]

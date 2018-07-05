@@ -96,6 +96,17 @@
           <Property Name="CountryCode" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="CountryName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="CreditCardInfo">
+          <Key>
+            <PropertyRef Name="IdCreditCardInfo" />
+          </Key>
+          <Property Name="IdCreditCardInfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOnCard" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CardNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ExpiryMonth" Type="int" Nullable="false" />
+          <Property Name="ExpiryYear" Type="int" Nullable="false" />
+          <Property Name="SecretCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
         <EntityType Name="Currency">
           <Key>
             <PropertyRef Name="CurrencyCode" />
@@ -218,6 +229,7 @@
           <Property Name="Fee" Type="int" Nullable="false" />
           <Property Name="Ccion" Type="int" Nullable="false" />
           <Property Name="BillAmount" Type="int" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="ExternalAccount">
           <Key>
@@ -227,6 +239,7 @@
           <Property Name="ExternalLogin" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ExternalPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ExternalAccountTypeCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="IdCreditCard" Type="int" />
         </EntityType>
         <EntityType Name="ExternalAccountHistory">
           <Key>
@@ -254,10 +267,11 @@
           <Property Name="IdNotification" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdCustomer" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="Message" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ExpiryDate" Type="datetime" />
           <Property Name="Readed" Type="bit" />
+          <Property Name="Category" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="KoloSystemAction">
           <Key>
@@ -1145,6 +1159,18 @@ warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ExternalAccount_CreditCardInfo1">
+          <End Role="CreditCardInfo" Type="Self.CreditCardInfo" Multiplicity="1" />
+          <End Role="ExternalAccount" Type="Self.ExternalAccount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCardInfo">
+              <PropertyRef Name="IdCreditCardInfo" />
+            </Principal>
+            <Dependent Role="ExternalAccount">
+              <PropertyRef Name="IdExternalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_ExternalAccount_History">
           <End Role="ExternalAccount" Type="Self.ExternalAccount" Multiplicity="1" />
           <End Role="ExternalAccountHistory" Type="Self.ExternalAccountHistory" Multiplicity="*" />
@@ -1774,6 +1800,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="BusinessContact" EntityType="Self.BusinessContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CreditCardInfo" EntityType="Self.CreditCardInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
@@ -1997,6 +2024,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="FK_EneoBillPayment_Customer" Association="Self.FK_EneoBillPayment_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="EneoBillPayment" EntitySet="EneoBillPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalAccount_CreditCardInfo1" Association="Self.FK_ExternalAccount_CreditCardInfo1">
+            <End Role="CreditCardInfo" EntitySet="CreditCardInfo" />
+            <End Role="ExternalAccount" EntitySet="ExternalAccount" />
           </AssociationSet>
           <AssociationSet Name="fk_ExternalAccount_History" Association="Self.fk_ExternalAccount_History">
             <End Role="ExternalAccount" EntitySet="ExternalAccount" />
@@ -2355,6 +2386,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="GravityId" Type="Int32" />
           <Property Name="GravityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GravityPercentage" Type="Int32" />
+          <NavigationProperty Name="KoloNotifications" Relationship="KoloModel.fk_Notification_Customer" FromRole="Customer" ToRole="KoloNotification" />
           </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -2455,6 +2487,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="ExternalPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ExternalAccountTypeCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="RefExternalAccountType" Relationship="Self.fk_ExternalAccount_Type" FromRole="ExternalAccount" ToRole="RefExternalAccountType" />
+          <Property Name="IdCreditCard" Type="Int32" />
+          <NavigationProperty Name="CreditCardInfo" Relationship="KoloModel.FK_ExternalAccount_CreditCardInfo1" FromRole="ExternalAccount" ToRole="CreditCardInfo" />
         </EntityType>
         <EntityType Name="ExternalAccountHistory">
           <Key>
@@ -2476,19 +2510,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="IdCustomerGroup" Type="Int32" Nullable="false" />
           <Property Name="ImageBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="CustomerGroup" Relationship="Self.FK_GroupImage_CustomerGroup" FromRole="GroupImage" ToRole="CustomerGroup" />
-        </EntityType>
-        <EntityType Name="KoloNotification">
-          <Key>
-            <PropertyRef Name="IdNotification" />
-          </Key>
-          <Property Name="IdNotification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="Readed" Type="Boolean" />
-          <NavigationProperty Name="Customer" Relationship="Self.fk_Notification_Customer" FromRole="KoloNotification" ToRole="Customer" />
         </EntityType>
         <EntityType Name="KoloSystemAction">
           <Key>
@@ -3370,18 +3391,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Notification_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="KoloNotification" Type="Self.KoloNotification" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="KoloNotification">
-              <PropertyRef Name="IdCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_Partner_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Partner" Type="Self.Partner" Multiplicity="0..1" />
@@ -3953,7 +3962,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="ExternalAccounts" EntityType="Self.ExternalAccount" />
           <EntitySet Name="ExternalAccountHistories" EntityType="Self.ExternalAccountHistory" />
           <EntitySet Name="GroupImages" EntityType="Self.GroupImage" />
-          <EntitySet Name="KoloNotifications" EntityType="Self.KoloNotification" />
           <EntitySet Name="KoloSystemActions" EntityType="Self.KoloSystemAction" />
           <EntitySet Name="KoloUsers" EntityType="Self.KoloUser" />
           <EntitySet Name="LoginAttempts" EntityType="Self.LoginAttempt" />
@@ -4141,10 +4149,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_customertags_customeraccount" Association="Self.fk_customertags_customeraccount">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerTags" EntitySet="CustomerTags" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Notification_Customer" Association="Self.fk_Notification_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="KoloNotification" EntitySet="KoloNotifications" />
           </AssociationSet>
           <AssociationSet Name="fk_Partner_Customer" Association="Self.fk_Partner_Customer">
             <End Role="Customer" EntitySet="Customers" />
@@ -4349,6 +4353,16 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customers" />
             <End Role="TransferGravity" EntitySet="TransferGravities" />
           </AssociationSet>
+          <EntitySet Name="CreditCardInfoes" EntityType="KoloModel.CreditCardInfo" />
+          <AssociationSet Name="FK_ExternalAccount_CreditCardInfo1" Association="KoloModel.FK_ExternalAccount_CreditCardInfo1">
+            <End Role="CreditCardInfo" EntitySet="CreditCardInfoes" />
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+          </AssociationSet>
+          <EntitySet Name="KoloNotifications" EntityType="KoloModel.KoloNotification" />
+          <AssociationSet Name="fk_Notification_Customer" Association="KoloModel.fk_Notification_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="KoloNotification" EntitySet="KoloNotifications" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_TransfertP2p_Sender">
           <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
@@ -4375,6 +4389,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="Ccion" Type="Int32" Nullable="false" />
           <Property Name="BillAmount" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="KoloModel.FK_EneoBillPayment_Customer" FromRole="EneoBillPayment" ToRole="Customer" />
+          <Property Name="Reference" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TopUp">
           <Key>
@@ -4449,6 +4464,56 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Principal>
             <Dependent Role="TransferGravity">
               <PropertyRef Name="KoloSenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CreditCardInfo">
+          <Key>
+            <PropertyRef Name="IdCreditCardInfo" />
+          </Key>
+          <Property Name="IdCreditCardInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOnCard" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryMonth" Type="Int32" Nullable="false" />
+          <Property Name="ExpiryYear" Type="Int32" Nullable="false" />
+          <Property Name="SecretCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ExternalAccount" Relationship="KoloModel.FK_ExternalAccount_CreditCardInfo1" FromRole="CreditCardInfo" ToRole="ExternalAccount" />
+        </EntityType>
+        <Association Name="FK_ExternalAccount_CreditCardInfo1">
+          <End Type="KoloModel.CreditCardInfo" Role="CreditCardInfo" Multiplicity="1" />
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCardInfo">
+              <PropertyRef Name="IdCreditCardInfo" />
+            </Principal>
+            <Dependent Role="ExternalAccount">
+              <PropertyRef Name="IdExternalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KoloNotification">
+          <Key>
+            <PropertyRef Name="IdNotification" />
+          </Key>
+          <Property Name="IdNotification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="Readed" Type="Boolean" />
+          <Property Name="Category" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Notification_Customer" FromRole="KoloNotification" ToRole="Customer" />
+        </EntityType>
+        <Association Name="fk_Notification_Customer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.KoloNotification" Role="KoloNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="KoloNotification">
+              <PropertyRef Name="IdCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4670,6 +4735,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="ExternalAccounts">
             <EntityTypeMapping TypeName="KoloModel.ExternalAccount">
               <MappingFragment StoreEntitySet="ExternalAccount">
+                <ScalarProperty Name="IdCreditCard" ColumnName="IdCreditCard" />
                 <ScalarProperty Name="IdExternalAccount" ColumnName="IdExternalAccount" />
                 <ScalarProperty Name="ExternalLogin" ColumnName="ExternalLogin" />
                 <ScalarProperty Name="ExternalPwd" ColumnName="ExternalPwd" />
@@ -4695,19 +4761,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
               <MappingFragment StoreEntitySet="GroupImage">
                 <ScalarProperty Name="IdCustomerGroup" ColumnName="IdCustomerGroup" />
                 <ScalarProperty Name="ImageBytes" ColumnName="ImageBytes" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KoloNotifications">
-            <EntityTypeMapping TypeName="KoloModel.KoloNotification">
-              <MappingFragment StoreEntitySet="KoloNotification">
-                <ScalarProperty Name="IdNotification" ColumnName="IdNotification" />
-                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="Readed" ColumnName="Readed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5145,6 +5198,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="EneoBillPayments">
             <EntityTypeMapping TypeName="KoloModel.EneoBillPayment">
               <MappingFragment StoreEntitySet="EneoBillPayment">
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
                 <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
                 <ScalarProperty Name="Ccion" ColumnName="Ccion" />
                 <ScalarProperty Name="Fee" ColumnName="Fee" />
@@ -5183,6 +5237,32 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="KoloReference" ColumnName="KoloReference" />
                 <ScalarProperty Name="GravityReference" ColumnName="GravityReference" />
                 <ScalarProperty Name="TransferMadId" ColumnName="TransferMadId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreditCardInfoes">
+            <EntityTypeMapping TypeName="KoloModel.CreditCardInfo">
+              <MappingFragment StoreEntitySet="CreditCardInfo">
+                <ScalarProperty Name="SecretCode" ColumnName="SecretCode" />
+                <ScalarProperty Name="ExpiryYear" ColumnName="ExpiryYear" />
+                <ScalarProperty Name="ExpiryMonth" ColumnName="ExpiryMonth" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+                <ScalarProperty Name="IdCreditCardInfo" ColumnName="IdCreditCardInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KoloNotifications">
+            <EntityTypeMapping TypeName="KoloModel.KoloNotification">
+              <MappingFragment StoreEntitySet="KoloNotification">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Readed" ColumnName="Readed" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="IdNotification" ColumnName="IdNotification" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

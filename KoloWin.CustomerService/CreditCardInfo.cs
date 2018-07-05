@@ -12,13 +12,15 @@ namespace KoloWin.CustomerService
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class Business
+    public partial class CreditCardInfo
     {
-        public int IdCustomer { get; set; }
-        public string IndustryCategoryCode { get; set; }
-        public string BusinessName { get; set; }
+        public int IdCreditCardInfo { get; set; }
+        public string NameOnCard { get; set; }
+        public string CardNumber { get; set; }
+        public int ExpiryMonth { get; set; }
+        public int ExpiryYear { get; set; }
+        public string SecretCode { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual RefIndustryCategory RefIndustryCategory { get; set; }
+        public virtual ExternalAccount ExternalAccount { get; set; }
     }
 }

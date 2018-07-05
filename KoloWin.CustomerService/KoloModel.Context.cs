@@ -47,7 +47,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<ExternalAccount> ExternalAccounts { get; set; }
         public virtual DbSet<ExternalAccountHistory> ExternalAccountHistories { get; set; }
         public virtual DbSet<GroupImage> GroupImages { get; set; }
-        public virtual DbSet<KoloNotification> KoloNotifications { get; set; }
         public virtual DbSet<KoloSystemAction> KoloSystemActions { get; set; }
         public virtual DbSet<KoloUser> KoloUsers { get; set; }
         public virtual DbSet<LoginAttempt> LoginAttempts { get; set; }
@@ -91,5 +90,7 @@ namespace KoloWin.CustomerService
         public virtual DbSet<EneoBillPayment> EneoBillPayments { get; set; }
         public virtual DbSet<TopUp> TopUps { get; set; }
         public virtual DbSet<TransferGravity> TransferGravities { get; set; }
+        public virtual DbSet<CreditCardInfo> CreditCardInfoes { get; set; }
+        public virtual DbSet<KoloNotification> KoloNotifications { get; set; }
     }
 }

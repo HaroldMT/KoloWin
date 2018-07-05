@@ -33,25 +33,25 @@ namespace KoloWin.CustomerService.Model
         {
             Customer sender = transfer.Sender;
             Customer receiver = transfer.Receiver;
-            this.SenderFirstName = sender.Person.Firstname;
-            this.SenderLastName = sender.Person.Lastname;
+            this.SenderFirstName = sender.Person.Firstname ?? "";
+            this.SenderLastName = sender.Person.Lastname ?? "";
             this.SenderIdCustomer = sender.IdCustomer;
-            this.SenderMiddleName = sender.Person.Middlename;
-            this.SenderTelephone = sender.MobileDevice?.LineNumber ?? sender.Registration?.PhoneNumber;
+            this.SenderMiddleName = sender.Person.Middlename ?? "";
+            this.SenderTelephone = sender.MobileDevice?.LineNumber ?? sender.Registration?.PhoneNumber ?? "";
 
-            this.ReceiverFirstName = receiver.Person.Firstname;
-            this.ReceiverLastName = receiver.Person.Lastname;
+            this.ReceiverFirstName = receiver.Person.Firstname ?? "";
+            this.ReceiverLastName = receiver.Person.Lastname ?? "";
             this.ReceiverIdCustomer = receiver.IdCustomer;
-            this.ReceiverMiddleName = receiver.Person.Middlename;
-            this.ReceiverTelephone = receiver.MobileDevice?.LineNumber ?? sender.Registration?.PhoneNumber;
+            this.ReceiverMiddleName = receiver.Person.Middlename ?? "";
+            this.ReceiverTelephone = receiver.MobileDevice?.LineNumber ?? sender.Registration?.PhoneNumber ?? "";
 
             this.Amount = transfer.Amount;
             this.TransferDate = transfer.TransfertDate;
-            this.PassPhrase = transfer.Secret;
-            this.NeedsConfirmation = transfer.NeedsConfirmation;
+            this.PassPhrase = transfer.Secret ?? "";
+            this.NeedsConfirmation = transfer.NeedsConfirmation == true;
             this.ScheduleDate = transfer.TransfertDate;
 
-            this.Status = transfer.TransfertStatusCode;
+            this.Status = transfer.TransfertStatusCode ?? "";
         }
     }
 }

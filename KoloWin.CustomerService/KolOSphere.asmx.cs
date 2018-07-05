@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
 using KoloWin.CustomerService.Model;
+using KoloWin.CustomerService.Utils.General;
 
 namespace KoloWin.CustomerService
 {
@@ -27,10 +28,21 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
-            var Context = new KoloAndroidEntities4Serialization();
-            tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
+            var Context = new KoloAndroidEntities();
+            if (string.IsNullOrEmpty(tP2P.TransfertStatusCode))
+                tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
+            else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.CONFIRM_PENDING.ToString()))
+                tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
+            else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.COMPLETED.ToString()))
+                tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
+            //else
+            //    re
+
+            if (tP2P != null)
+                tP2P.Secret = "HIDDEN BY CYBERIX";
+            var result = SerializationHelper.SerializeToJson(tP2P);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(tP2P);
+            return result;
         }
 
         [WebMethod]

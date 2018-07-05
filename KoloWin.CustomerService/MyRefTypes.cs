@@ -70,5 +70,6 @@ namespace KoloWin.CustomerService
         public EneoBillPayment a67 { get; set; }
         public KoloMadCustomer a68 { get; set; }
         public KoloMadDetails a69 { get; set; }
+        public CreditCardInfo a70 { get; set; }
     }
 }

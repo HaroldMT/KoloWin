@@ -44,6 +44,21 @@ namespace KoloWin.CustomerService.Model
             this.Password = madDetails.Password;
         }
 
+
+        public KoloMadDetails(TransferGravity transferGravity)
+        {
+            this.Reference = transferGravity.GravityReference;
+            this.MadId = transferGravity.TransferMadId;
+            this.SenderId = transferGravity.GravitySenderId;
+            this.ReceiverId = transferGravity.GravityReceiverId;
+            this.Amount = transferGravity.Amount;
+            //this.Fee = transferGravity.F;
+            //this.Tax = transferGravity.Tva;
+            //this.Everywhere = transferGravity.ToutReseau;
+            //this.CityCode = transferGravity.;
+            //this.Password = transferGravity.Password;
+        }
+
         public ExWebSvc4Mad.KoloMadDetails WsKoloMadDetails()
         {
             ExWebSvc4Mad.KoloMadDetails madDetails = new ExWebSvc4Mad.KoloMadDetails();

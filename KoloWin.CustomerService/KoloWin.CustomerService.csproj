@@ -145,25 +145,13 @@
     </Content>
     <None Include="Service References\ExWebSvc4ExTools\WebService4Kolo.wsdl" />
     <None Include="Service References\ExWebSvc4Mad\ExWebSvc.wsdl" />
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.ConsulterMadResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.GetClientResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.RegisterResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SaveMadResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SavePmadResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.GetKoloMadCustomerResponse.datasource">
@@ -175,10 +163,22 @@
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.KoloMadDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.RegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SaveMadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SavePmadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendCreditResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendKoloMadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
@@ -234,6 +234,9 @@
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditCardInfo.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Currency.cs">
@@ -460,6 +463,7 @@
     <Compile Include="Utils\General\ExceptionHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
+    <Compile Include="Utils\General\KoloNotifiactionHelper.cs" />
     <Compile Include="Utils\General\Madhelper.cs" />
     <Compile Include="Utils\Security\PasswordHasher.cs" />
     <Compile Include="Utils\Transfert\CustomerHistoryHelper.cs" />

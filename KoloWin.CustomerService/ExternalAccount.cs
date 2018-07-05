@@ -10,7 +10,7 @@
 namespace KoloWin.CustomerService
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
     public partial class ExternalAccount
     {
@@ -18,7 +18,9 @@ namespace KoloWin.CustomerService
         public string ExternalLogin { get; set; }
         public string ExternalPwd { get; set; }
         public string ExternalAccountTypeCode { get; set; }
+        public Nullable<int> IdCreditCard { get; set; }
     
         public virtual RefExternalAccountType RefExternalAccountType { get; set; }
+        public virtual CreditCardInfo CreditCardInfo { get; set; }
     }
 }

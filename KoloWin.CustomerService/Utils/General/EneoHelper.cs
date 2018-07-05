@@ -17,7 +17,7 @@ namespace KoloWin.CustomerService.Utils.General
             ExWebSvc4ExTools.UnpaidBill tmp = null;
             try
             {
-                tmp = exWS4Kolo.FindEneoByBillNumber(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, billNumber);
+                tmp = exWS4Kolo.FindEneoByBillNumber(KoloConstants.EneoExTermAuth.KOLO_ENEO_CODETERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSTERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_CODEUSER, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSUSER, billNumber);
             }
             catch (Exception ex)
             {
@@ -36,7 +36,7 @@ namespace KoloWin.CustomerService.Utils.General
             ExWebSvc4ExTools.UnpaidBill[] tmp = null;
             try
             {
-                tmp = exWS4Kolo.FindEneoByBillAccount(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, billAccount);
+                tmp = exWS4Kolo.FindEneoByBillAccount(KoloConstants.EneoExTermAuth.KOLO_ENEO_CODETERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSTERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_CODEUSER, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSUSER, billAccount);
             }
             catch (Exception ex)
             {
@@ -58,7 +58,7 @@ namespace KoloWin.CustomerService.Utils.General
                 c.Person = Context.People.Find(c.IdCustomer);
                 c.MobileDevice = Context.MobileDevices.FirstOrDefault(m => m.IdMobileDevice == c.IdCustomer);
                 ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
-                var reference = exWS4Kolo.PayENEO(KoloConstants.KOLO_ENEO_CODETERM, KoloConstants.KOLO_ENEO_PASSTERM, KoloConstants.KOLO_ENEO_CODEUSER, KoloConstants.KOLO_ENEO_PASSUSER, numeroFacture, c.Person.Firstname + " " + c.Person.Lastname, c.MobileDevice.LineNumber);
+                var reference = exWS4Kolo.PayENEO(codeTerm, passTerm, codeUser, passUser, numeroFacture, c.Person.Firstname + " " + c.Person.Lastname, c.MobileDevice.LineNumber);
                 Context.Dispose();
                 return reference;
             }
