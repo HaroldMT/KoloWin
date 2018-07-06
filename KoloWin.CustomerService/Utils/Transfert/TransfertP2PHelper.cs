@@ -62,13 +62,11 @@ namespace KoloWin.CustomerService.Util
                 {
                     try
                     {
-                        TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-                        Customer sender = db.Customers.Find(t.IdSendingCustomer);
-                        Customer reciever = db.Customers.Find(t.IdReceiverCustomer);
-                        CustomerBalanceHistory senderBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.Operation.Category.SENDA2A.ToString());
-                        CustomerBalanceHistory recieverBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.Operation.Category.RECVA2A.ToString());
-                        db.CustomerBalanceHistories.Add(senderBalanceHistory);
-                        db.CustomerBalanceHistories.Add(recieverBalanceHistory);
+                        TransfertP2p t = db.TransfertP2p.FirstOrDefault(tP2P => tP2P.IdTransfertP2p == tA2A.IdTransfertP2p);
+                        t.TransfertStatusCode = tA2A.TransfertStatusCode;
+                        t.Sender = db.Customers.FirstOrDefault(c => c.IdCustomer == t.IdSendingCustomer);
+                        t.Receiver = db.Customers.FirstOrDefault(c => c.IdCustomer == t.IdSendingCustomer);
+                        List<CustomerBalanceHistory> cBHs = CustomerHistoryHelper.GenerateCustomerHistories<TransfertP2p>(t, db, out error);
                         t.TransfertStatusCode = KoloConstants.Operation.Status.COMPLETED.ToString();
                         List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A,db, out error);
                         db.KoloNotifications.AddRange(notifications);
@@ -91,8 +89,8 @@ namespace KoloWin.CustomerService.Util
             error = "";
             try
             {
-                TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-                t.TransfertStatusCode = KoloConstants.Operation.Status.CONFIRM_PENDING.ToString();
+                TransfertP2p t = db.TransfertP2p.FirstOrDefault(tP2P => tP2P.IdTransfertP2p == tA2A.IdTransfertP2p);
+                t.TransfertStatusCode = tA2A.TransfertStatusCode;
                 List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A,db, out error);
                 db.KoloNotifications.AddRange(notifications);
                 db.SaveChanges();

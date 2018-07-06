@@ -276,6 +276,455 @@ namespace KoloWin.CustomerService.ExWebSvc4ExTools {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PaidBill", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class PaidBill : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransactionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubTransactionTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillPartnerCompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillPartnerCompanyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillAccountNumberField;
+        
+        private System.DateTime BillDueDateField;
+        
+        private decimal PaidAmountField;
+        
+        private decimal FraisField;
+        
+        private decimal CcionsField;
+        
+        private System.Nullable<decimal> MontantTotalField;
+        
+        private System.DateTime PaidDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaidByMSISDNField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeTypeFactureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransactionStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OMBillPaymentStatusField;
+        
+        private int IdOperatriceField;
+        
+        private int IdCaisseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomPayeurField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrenomPayeurField;
+        
+        private System.Nullable<int> StatutField;
+        
+        private System.Nullable<bool> StatutReportingField;
+        
+        private System.Nullable<bool> DegradeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OperateurField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumCompteurField;
+        
+        private System.Nullable<bool> SentToLiveCashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeTerminalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string TransactionId {
+            get {
+                return this.TransactionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransactionIdField, value) != true)) {
+                    this.TransactionIdField = value;
+                    this.RaisePropertyChanged("TransactionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string SubTransactionType {
+            get {
+                return this.SubTransactionTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubTransactionTypeField, value) != true)) {
+                    this.SubTransactionTypeField = value;
+                    this.RaisePropertyChanged("SubTransactionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string BillPartnerCompanyName {
+            get {
+                return this.BillPartnerCompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillPartnerCompanyNameField, value) != true)) {
+                    this.BillPartnerCompanyNameField = value;
+                    this.RaisePropertyChanged("BillPartnerCompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string BillPartnerCompanyCode {
+            get {
+                return this.BillPartnerCompanyCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillPartnerCompanyCodeField, value) != true)) {
+                    this.BillPartnerCompanyCodeField = value;
+                    this.RaisePropertyChanged("BillPartnerCompanyCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string BillNumber {
+            get {
+                return this.BillNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillNumberField, value) != true)) {
+                    this.BillNumberField = value;
+                    this.RaisePropertyChanged("BillNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string BillAccountNumber {
+            get {
+                return this.BillAccountNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillAccountNumberField, value) != true)) {
+                    this.BillAccountNumberField = value;
+                    this.RaisePropertyChanged("BillAccountNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public System.DateTime BillDueDate {
+            get {
+                return this.BillDueDateField;
+            }
+            set {
+                if ((this.BillDueDateField.Equals(value) != true)) {
+                    this.BillDueDateField = value;
+                    this.RaisePropertyChanged("BillDueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public decimal PaidAmount {
+            get {
+                return this.PaidAmountField;
+            }
+            set {
+                if ((this.PaidAmountField.Equals(value) != true)) {
+                    this.PaidAmountField = value;
+                    this.RaisePropertyChanged("PaidAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public decimal Frais {
+            get {
+                return this.FraisField;
+            }
+            set {
+                if ((this.FraisField.Equals(value) != true)) {
+                    this.FraisField = value;
+                    this.RaisePropertyChanged("Frais");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        public decimal Ccions {
+            get {
+                return this.CcionsField;
+            }
+            set {
+                if ((this.CcionsField.Equals(value) != true)) {
+                    this.CcionsField = value;
+                    this.RaisePropertyChanged("Ccions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
+        public System.Nullable<decimal> MontantTotal {
+            get {
+                return this.MontantTotalField;
+            }
+            set {
+                if ((this.MontantTotalField.Equals(value) != true)) {
+                    this.MontantTotalField = value;
+                    this.RaisePropertyChanged("MontantTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        public System.DateTime PaidDate {
+            get {
+                return this.PaidDateField;
+            }
+            set {
+                if ((this.PaidDateField.Equals(value) != true)) {
+                    this.PaidDateField = value;
+                    this.RaisePropertyChanged("PaidDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public string PaidByMSISDN {
+            get {
+                return this.PaidByMSISDNField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaidByMSISDNField, value) != true)) {
+                    this.PaidByMSISDNField = value;
+                    this.RaisePropertyChanged("PaidByMSISDN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string CodeTypeFacture {
+            get {
+                return this.CodeTypeFactureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeTypeFactureField, value) != true)) {
+                    this.CodeTypeFactureField = value;
+                    this.RaisePropertyChanged("CodeTypeFacture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public string TransactionStatus {
+            get {
+                return this.TransactionStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransactionStatusField, value) != true)) {
+                    this.TransactionStatusField = value;
+                    this.RaisePropertyChanged("TransactionStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
+        public string OMBillPaymentStatus {
+            get {
+                return this.OMBillPaymentStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OMBillPaymentStatusField, value) != true)) {
+                    this.OMBillPaymentStatusField = value;
+                    this.RaisePropertyChanged("OMBillPaymentStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
+        public int IdOperatrice {
+            get {
+                return this.IdOperatriceField;
+            }
+            set {
+                if ((this.IdOperatriceField.Equals(value) != true)) {
+                    this.IdOperatriceField = value;
+                    this.RaisePropertyChanged("IdOperatrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
+        public int IdCaisse {
+            get {
+                return this.IdCaisseField;
+            }
+            set {
+                if ((this.IdCaisseField.Equals(value) != true)) {
+                    this.IdCaisseField = value;
+                    this.RaisePropertyChanged("IdCaisse");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        public string NomPayeur {
+            get {
+                return this.NomPayeurField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomPayeurField, value) != true)) {
+                    this.NomPayeurField = value;
+                    this.RaisePropertyChanged("NomPayeur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
+        public string PrenomPayeur {
+            get {
+                return this.PrenomPayeurField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrenomPayeurField, value) != true)) {
+                    this.PrenomPayeurField = value;
+                    this.RaisePropertyChanged("PrenomPayeur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=20)]
+        public System.Nullable<int> Statut {
+            get {
+                return this.StatutField;
+            }
+            set {
+                if ((this.StatutField.Equals(value) != true)) {
+                    this.StatutField = value;
+                    this.RaisePropertyChanged("Statut");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=21)]
+        public System.Nullable<bool> StatutReporting {
+            get {
+                return this.StatutReportingField;
+            }
+            set {
+                if ((this.StatutReportingField.Equals(value) != true)) {
+                    this.StatutReportingField = value;
+                    this.RaisePropertyChanged("StatutReporting");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=22)]
+        public System.Nullable<bool> Degrade {
+            get {
+                return this.DegradeField;
+            }
+            set {
+                if ((this.DegradeField.Equals(value) != true)) {
+                    this.DegradeField = value;
+                    this.RaisePropertyChanged("Degrade");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
+        public string Operateur {
+            get {
+                return this.OperateurField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OperateurField, value) != true)) {
+                    this.OperateurField = value;
+                    this.RaisePropertyChanged("Operateur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
+        public string NumCompteur {
+            get {
+                return this.NumCompteurField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumCompteurField, value) != true)) {
+                    this.NumCompteurField = value;
+                    this.RaisePropertyChanged("NumCompteur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=25)]
+        public System.Nullable<bool> SentToLiveCash {
+            get {
+                return this.SentToLiveCashField;
+            }
+            set {
+                if ((this.SentToLiveCashField.Equals(value) != true)) {
+                    this.SentToLiveCashField = value;
+                    this.RaisePropertyChanged("SentToLiveCash");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
+        public string CodeTerminal {
+            get {
+                return this.CodeTerminalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeTerminalField, value) != true)) {
+                    this.CodeTerminalField = value;
+                    this.RaisePropertyChanged("CodeTerminal");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ExWebSvc4ExTools.WebService4KoloSoap")]
     public interface WebService4KoloSoap {
@@ -286,6 +735,13 @@ namespace KoloWin.CustomerService.ExWebSvc4ExTools {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoByBillNumber", ReplyAction="*")]
         System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberResponse> FindEneoByBillNumberAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoByBillNumberRequest request);
+        
+        // CODEGEN: Generating message contract since element name codeTerm from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoPaidBillByReference", ReplyAction="*")]
+        KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse FindEneoPaidBillByReference(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEneoPaidBillByReference", ReplyAction="*")]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse> FindEneoPaidBillByReferenceAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest request);
         
         // CODEGEN: Generating message contract since element name codeTerm from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayENEO", ReplyAction="*")]
@@ -383,6 +839,90 @@ namespace KoloWin.CustomerService.ExWebSvc4ExTools {
         
         public FindEneoByBillNumberResponseBody(KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill FindEneoByBillNumberResult) {
             this.FindEneoByBillNumberResult = FindEneoByBillNumberResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindEneoPaidBillByReferenceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindEneoPaidBillByReference", Namespace="http://tempuri.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequestBody Body;
+        
+        public FindEneoPaidBillByReferenceRequest() {
+        }
+        
+        public FindEneoPaidBillByReferenceRequest(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindEneoPaidBillByReferenceRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string codeTerm;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string passTerm;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string codeUser;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string passUser;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string reference;
+        
+        public FindEneoPaidBillByReferenceRequestBody() {
+        }
+        
+        public FindEneoPaidBillByReferenceRequestBody(string codeTerm, string passTerm, string codeUser, string passUser, string reference) {
+            this.codeTerm = codeTerm;
+            this.passTerm = passTerm;
+            this.codeUser = codeUser;
+            this.passUser = passUser;
+            this.reference = reference;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindEneoPaidBillByReferenceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindEneoPaidBillByReferenceResponse", Namespace="http://tempuri.org/", Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponseBody Body;
+        
+        public FindEneoPaidBillByReferenceResponse() {
+        }
+        
+        public FindEneoPaidBillByReferenceResponse(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindEneoPaidBillByReferenceResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public KoloWin.CustomerService.ExWebSvc4ExTools.PaidBill FindEneoPaidBillByReferenceResult;
+        
+        public FindEneoPaidBillByReferenceResponseBody() {
+        }
+        
+        public FindEneoPaidBillByReferenceResponseBody(KoloWin.CustomerService.ExWebSvc4ExTools.PaidBill FindEneoPaidBillByReferenceResult) {
+            this.FindEneoPaidBillByReferenceResult = FindEneoPaidBillByReferenceResult;
         }
     }
     
@@ -620,6 +1160,39 @@ namespace KoloWin.CustomerService.ExWebSvc4ExTools {
             inValue.Body.passUser = passUser;
             inValue.Body.numeroFacture = numeroFacture;
             return ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoByBillNumberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.FindEneoPaidBillByReference(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest request) {
+            return base.Channel.FindEneoPaidBillByReference(request);
+        }
+        
+        public KoloWin.CustomerService.ExWebSvc4ExTools.PaidBill FindEneoPaidBillByReference(string codeTerm, string passTerm, string codeUser, string passUser, string reference) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequestBody();
+            inValue.Body.codeTerm = codeTerm;
+            inValue.Body.passTerm = passTerm;
+            inValue.Body.codeUser = codeUser;
+            inValue.Body.passUser = passUser;
+            inValue.Body.reference = reference;
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse retVal = ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoPaidBillByReference(inValue);
+            return retVal.Body.FindEneoPaidBillByReferenceResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse> KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap.FindEneoPaidBillByReferenceAsync(KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest request) {
+            return base.Channel.FindEneoPaidBillByReferenceAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse> FindEneoPaidBillByReferenceAsync(string codeTerm, string passTerm, string codeUser, string passUser, string reference) {
+            KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest inValue = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequest();
+            inValue.Body = new KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceRequestBody();
+            inValue.Body.codeTerm = codeTerm;
+            inValue.Body.passTerm = passTerm;
+            inValue.Body.codeUser = codeUser;
+            inValue.Body.passUser = passUser;
+            inValue.Body.reference = reference;
+            return ((KoloWin.CustomerService.ExWebSvc4ExTools.WebService4KoloSoap)(this)).FindEneoPaidBillByReferenceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

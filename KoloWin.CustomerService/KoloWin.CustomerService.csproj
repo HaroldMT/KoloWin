@@ -143,6 +143,12 @@
     <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.PaidBill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ExWebSvc4ExTools\WebService4Kolo.wsdl" />
     <None Include="Service References\ExWebSvc4Mad\ExWebSvc.wsdl" />
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
