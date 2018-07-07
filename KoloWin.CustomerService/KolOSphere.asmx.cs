@@ -20,7 +20,7 @@ namespace KoloWin.CustomerService
 
     public class KolOSphere : System.Web.Services.WebService
     {
-        
+
         #region Transfert Basic Methods
 
         [WebMethod]
@@ -29,13 +29,43 @@ namespace KoloWin.CustomerService
             string error = "";
             var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
             var Context = new KoloAndroidEntities();
-            if (string.IsNullOrEmpty(tP2P.TransfertStatusCode))
-                tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
-            else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.CONFIRM_PENDING.ToString()))
-                tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
-            else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.COMPLETED.ToString()))
-                tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
-            if (tP2P != null)
+            tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
+            if (string.IsNullOrEmpty(tP2P.Secret))
+                tP2P.Secret = "HIDDEN BY CYBERIX";
+            var result = SerializationHelper.SerializeToJson(tP2P);
+            Context.Dispose();
+            return result;
+        }
+
+        [WebMethod]
+        public string DoAcceptTransfertA2A(string jsonTransfertP2p)
+        {
+            string error = "";
+            var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
+            var Context = new KoloAndroidEntities();
+            //  Conversion et recherche  Pour la future methode utilisant P2pTransferDetails
+            //var p2pTransfertDetails = SerializationHelper.DeserializeFromJsonString<P2pTransferDetails>(jsonTransfertP2p);
+            //var p2P = Context.TransfertP2p.FirstOrDefault(t => t.IdReceiverCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.IdSendingCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.Reference == p2pTransfertDetails.Reference);
+            if (tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.AskConfirmationOfTransfertA2A(tP2P, Context, out error);
+            if (!tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.ConfirmTransfertA2A(tP2P, Context, out error);
+            if (string.IsNullOrEmpty(tP2P.Secret))
+                tP2P.Secret = "HIDDEN BY CYBERIX";
+            var result = SerializationHelper.SerializeToJson(tP2P);
+            Context.Dispose();
+            return result;
+        }
+        
+        [WebMethod]
+        public string DoConfirmTransfertA2A(string jsonTransfertP2p)
+        {
+            string error = "";
+            var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
+            var Context = new KoloAndroidEntities();
+            //  Conversion et recherche  Pour la future methode utilisant P2pTransferDetails
+            //var p2pTransfertDetails = SerializationHelper.DeserializeFromJsonString<P2pTransferDetails>(jsonTransfertP2p);
+            //var p2P = Context.TransfertP2p.FirstOrDefault(t => t.IdReceiverCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.IdSendingCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.Reference == p2pTransfertDetails.Reference);
+            if (!tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.ConfirmTransfertA2A(tP2P, Context, out error);
+            if (string.IsNullOrEmpty(tP2P.Secret))
                 tP2P.Secret = "HIDDEN BY CYBERIX";
             var result = SerializationHelper.SerializeToJson(tP2P);
             Context.Dispose();
