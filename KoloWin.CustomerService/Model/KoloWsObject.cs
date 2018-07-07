@@ -5,16 +5,11 @@ using System.Web;
 
 namespace KoloWin.CustomerService.Model
 {
-    public class KoloWsObject<T>
+    public class KoloWsObject
     {
         public bool IsSucces { get; set; }
         public string ErrorMessage { get; set; }
-        public T t { get; set; }
-        
-        public KoloWsObject(T t)
-        {
-
-        }
+        public string SerializedClass { get; set; }
 
     }
 }
