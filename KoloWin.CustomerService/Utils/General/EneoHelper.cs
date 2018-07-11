@@ -74,10 +74,9 @@ namespace KoloWin.CustomerService.Utils.General
                         eBP.PaymentDate = paidBill.PaidDate;
                         eBP.Reference = paidBill.TransactionId;
                     }
-                    List<CustomerBalanceHistory> cBHs = CustomerHistoryHelper.GenerateCustomerHistories<EneoBillPayment>(eBP, Context, out error);
-                    List<KoloNotification> kNs = KoloNotifiactionHelper.GenerateNotification<EneoBillPayment>(eBP, KoloConstants.Operation.Category.PAYENEOBILL, Context, out error);
-                    Context.KoloNotifications.AddRange(kNs);
-                    Context.CustomerBalanceHistories.AddRange(cBHs);
+                    Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<EneoBillPayment>(eBP, Context, out error);
+                    Context.KoloNotifications.AddRange(tuple.Item1);
+                    Context.CustomerBalanceHistories.AddRange(tuple.Item2);
                     Context.EneoBillPayments.Add(eBP);
                     Context.SaveChanges();
                 }

@@ -1,4 +1,5 @@
-﻿using KoloWin.CustomerService.Utils.General;
+﻿using KoloWin.CustomerService.Model;
+using KoloWin.CustomerService.Utils.General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,10 @@ namespace KoloWin.CustomerService.Utils.Transfert
                     temp.Sender = db.Customers.FirstOrDefault(c => c.IdCustomer == temp.IdSendingCustomer);
                 if (temp.Receiver == null)
                     temp.Receiver = db.Customers.FirstOrDefault(c => c.IdCustomer == temp.IdReceiverCustomer);
-                
-                CustomerBalanceHistory senderBalanceHistory = CreateCustomerHistory(temp.Sender, KoloConstants.Operation.Category.SENDA2A, KoloConstants.Operation.BalanceUpdateDirection.REMOVE, temp.Amount, out  error);
+                CustomerBalanceHistory senderBalanceHistory = CreateCustomerHistory(temp.Sender, KoloConstants.Operation.Category.SENDA2A, KoloConstants.Operation.BalanceUpdateDirection.REMOVE, temp.Amount, out error);
                 CustomerBalanceHistory recieverBalanceHistory = CreateCustomerHistory(temp.Sender, KoloConstants.Operation.Category.RECVA2A, KoloConstants.Operation.BalanceUpdateDirection.ADD, temp.Amount, out error);
-
                 customerBalanceHistories.Add(recieverBalanceHistory);
                 customerBalanceHistories.Add(senderBalanceHistory);
-
             }
             else if (t.GetType() == typeof(EneoBillPayment))
             {
@@ -34,13 +32,15 @@ namespace KoloWin.CustomerService.Utils.Transfert
                     temp.Customer = db.Customers.FirstOrDefault(c => c.IdCustomer == temp.IdCustomer);
 
                 CustomerBalanceHistory eneoBalanceHistory = CreateCustomerHistory(temp.Customer, KoloConstants.Operation.Category.PAYENEOBILL, KoloConstants.Operation.BalanceUpdateDirection.REMOVE, temp.BillAmount, out error);
-
-
                 customerBalanceHistories.Add(eneoBalanceHistory);
             }
             else if (t.GetType() == typeof(TopUp))
             {
                 var temp = t as TopUp;
+            }
+            else if (t.GetType() == typeof(TransferGravity))
+            {
+                var temp = t as TransferGravity;
             }
 
 
@@ -68,5 +68,11 @@ namespace KoloWin.CustomerService.Utils.Transfert
             cBH.HistoryDate = DateTime.Now;
             return cBH;
         }
+
+        public static bool CheckCustomerBalance(Customer c, int amount)
+        {
+            return ((c.Balance - amount) > 0);
+        }
+
     }
 }

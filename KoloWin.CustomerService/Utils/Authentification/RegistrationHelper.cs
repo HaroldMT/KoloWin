@@ -119,7 +119,7 @@ namespace KoloWin.CustomerService.Util
         {
             var confirmationTime = DateTime.Now;
             error = "";
-            var reg = db.Registrations.Find(registration.IdRegistration);
+            var reg = db.Registrations.FirstOrDefault(r => r.IdRegistration == registration.IdRegistration);
             if (reg != null)
             {
                 if (reg.RegistrationTokenExpiryDate.HasValue)

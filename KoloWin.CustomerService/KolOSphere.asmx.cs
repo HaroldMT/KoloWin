@@ -106,7 +106,7 @@ namespace KoloWin.CustomerService
         public string GetTransfertP2pByIdTransfert(int idTransfertP2p)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfertP2p = Context.TransfertP2p.Find(idTransfertP2p);
+            var outTransfertP2p = Context.TransfertP2p.FirstOrDefault(t => t.IdTransfertP2p == idTransfertP2p);
             var result = SerializationHelper.SerializeToJson(outTransfertP2p);
             Context.Dispose();
             return result;
@@ -116,7 +116,7 @@ namespace KoloWin.CustomerService
         public string GetTransfert2CashByIdTransfert(int idTransfert2Cash)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfert2Cash = Context.Transfert2Cash.Find(idTransfert2Cash);
+            var outTransfert2Cash = Context.Transfert2Cash.FirstOrDefault(t => t.IdTransfert2Cash == idTransfert2Cash);
             var result = SerializationHelper.SerializeToJson(outTransfert2Cash);
             Context.Dispose();
             return result;
@@ -128,7 +128,7 @@ namespace KoloWin.CustomerService
         public string GetTransfert2CashDetailsByIdTransfert2CashDetails(int idTransfert2CashDetails)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfert2CashDetails = Context.Transfert2CashDetails.Find(idTransfert2CashDetails);
+            var outTransfert2CashDetails = Context.Transfert2CashDetails.FirstOrDefault(t => t.IdTransfert2CashDetails == idTransfert2CashDetails);
             var result = SerializationHelper.SerializeToJson(outTransfert2CashDetails);
             Context.Dispose();
             return result;
