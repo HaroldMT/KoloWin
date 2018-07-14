@@ -19,8 +19,9 @@ namespace KoloWin.CustomerService.Util
                     tA2A.TransfertDate = DateTime.Now;
                     tA2A.TransfertStatusCode = KoloConstants.Operation.Status.RECEIVE_PENDING.ToString();
                     tA2A.Reference = OfficeHelper.GenerateUniqueId();
-                    List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A, db, out error);
-                    db.KoloNotifications.AddRange(notifications);
+                    Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<TransfertP2p>(tA2A, db, out error);
+                    db.KoloNotifications.AddRange(tuple.Item1);
+                    db.CustomerBalanceHistories.AddRange(tuple.Item2);
                     db.TransfertP2p.Add(tA2A);
                     db.SaveChanges();
                     return tA2A;
@@ -62,16 +63,14 @@ namespace KoloWin.CustomerService.Util
                 {
                     try
                     {
-                        TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-                        Customer sender = db.Customers.Find(t.IdSendingCustomer);
-                        Customer reciever = db.Customers.Find(t.IdReceiverCustomer);
-                        CustomerBalanceHistory senderBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.Operation.Category.SENDA2A.ToString());
-                        CustomerBalanceHistory recieverBalanceHistory = CustomerHistoryHelper.GenerateCustomerHistory(sender, t.Amount, KoloConstants.Operation.Category.RECVA2A.ToString());
-                        db.CustomerBalanceHistories.Add(senderBalanceHistory);
-                        db.CustomerBalanceHistories.Add(recieverBalanceHistory);
+                        TransfertP2p t = db.TransfertP2p.FirstOrDefault(tP2P => tP2P.IdTransfertP2p == tA2A.IdTransfertP2p);
+                        t.TransfertStatusCode = tA2A.TransfertStatusCode;
+                        t.Sender = db.Customers.FirstOrDefault(c => c.IdCustomer == t.IdSendingCustomer);
+                        t.Receiver = db.Customers.FirstOrDefault(c => c.IdCustomer == t.IdSendingCustomer);
                         t.TransfertStatusCode = KoloConstants.Operation.Status.COMPLETED.ToString();
-                        List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A,db, out error);
-                        db.KoloNotifications.AddRange(notifications);
+                        Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<TransfertP2p>(t, db, out error);
+                        db.KoloNotifications.AddRange(tuple.Item1);
+                        db.CustomerBalanceHistories.AddRange(tuple.Item2);
                         db.SaveChanges();
                         return t;
                     }
@@ -91,10 +90,11 @@ namespace KoloWin.CustomerService.Util
             error = "";
             try
             {
-                TransfertP2p t = db.TransfertP2p.Find(tA2A.IdTransfertP2p);
-                t.TransfertStatusCode = KoloConstants.Operation.Status.CONFIRM_PENDING.ToString();
-                List<KoloNotification> notifications = KoloNotifiactionHelper.GenerateNotification<TransfertP2p>(tA2A, KoloConstants.Operation.Category.SENDA2A,db, out error);
-                db.KoloNotifications.AddRange(notifications);
+                TransfertP2p t = db.TransfertP2p.FirstOrDefault(tP2P => tP2P.IdTransfertP2p == tA2A.IdTransfertP2p);
+                t.TransfertStatusCode = tA2A.TransfertStatusCode;
+                Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<TransfertP2p>(t, db, out error);
+                db.KoloNotifications.AddRange(tuple.Item1);
+                db.CustomerBalanceHistories.AddRange(tuple.Item2);
                 db.SaveChanges();
                 return t;
             }

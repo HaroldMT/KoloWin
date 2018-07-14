@@ -1,4 +1,5 @@
 ﻿using KoloWin.CustomerService.Util;
+using KoloWin.CustomerService.Utils.Transfert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,8 +72,19 @@ namespace KoloWin.CustomerService.Utils.General
             error = "";
             try
             {
+                var Context = new KoloAndroidEntities();
                 ExWebSvc4Mad.KoloMadDetails wsKoloMadDetails = new ExWebSvc4Mad.ExWebSvcSoapClient().SendKoloMad(koloMadDetails.WsKoloMadDetails());
-                koloMadDetails = new KoloWin.CustomerService.Model.KoloMadDetails(wsKoloMadDetails);
+                if (wsKoloMadDetails != null)
+                {
+                    koloMadDetails = new KoloWin.CustomerService.Model.KoloMadDetails(wsKoloMadDetails);
+                    TransferGravity transfertGravity = koloMadDetails.GenerateTransferGravity();
+                    Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<TransferGravity>(transfertGravity, Context, out error);
+                    Context.KoloNotifications.AddRange(tuple.Item1);
+                    Context.CustomerBalanceHistories.AddRange(tuple.Item2);
+                    Context.TransferGravities.Add(transfertGravity);
+                    Context.SaveChanges();
+                }
+                
             }
             catch (Exception ex) 
             {
@@ -81,12 +93,12 @@ namespace KoloWin.CustomerService.Utils.General
             return koloMadDetails;
         }
         
-        public static int GetMADFees(int montant, out string error)
+        public static int GetMADFees(int amount, out string error)
         {
             error = "";
             try
             {
-                int frais = new ExWebSvc4Mad.ExWebSvcSoapClient().GetFrais(montant);
+                int frais = new ExWebSvc4Mad.ExWebSvcSoapClient().GetFrais(amount);
                 return frais;
             }
             catch (Exception ex)

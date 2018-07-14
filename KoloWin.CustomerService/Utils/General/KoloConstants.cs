@@ -35,6 +35,8 @@ namespace KoloWin.CustomerService.Utils.General
                 WITHDRAWAL,
                 [Description("ENEO_BILL_PAY")]
                 PAYENEOBILL,
+                [Description("SEND_MAD")]
+                SENDMAD,
                 [Description("TOPUP_ORANGE")]
                 TOPUPORANGE,
                 [Description("TOPUP_MTN")]
@@ -59,6 +61,10 @@ namespace KoloWin.CustomerService.Utils.General
                 RECEIVE_PENDING
             }
 
+            public enum BalanceUpdateDirection
+            {
+                ADD,REMOVE
+            }
         }
         
         public static class EneoExTermAuth

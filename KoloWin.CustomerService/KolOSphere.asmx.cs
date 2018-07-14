@@ -20,7 +20,7 @@ namespace KoloWin.CustomerService
 
     public class KolOSphere : System.Web.Services.WebService
     {
-        
+
         #region Transfert Basic Methods
 
         [WebMethod]
@@ -29,14 +29,43 @@ namespace KoloWin.CustomerService
             string error = "";
             var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
             var Context = new KoloAndroidEntities();
-            if (string.IsNullOrEmpty(tP2P.TransfertStatusCode))
-                tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
-            else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.CONFIRM_PENDING.ToString()))
-                tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
-            else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.COMPLETED.ToString()))
-                tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
+            tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
+            if (string.IsNullOrEmpty(tP2P.Secret))
+                tP2P.Secret = "HIDDEN BY CYBERIX";
+            var result = SerializationHelper.SerializeToJson(tP2P);
+            Context.Dispose();
+            return result;
+        }
 
-            if (!string.IsNullOrEmpty(tP2P.Secret))
+        [WebMethod]
+        public string DoAcceptTransfertA2A(string jsonTransfertP2p)
+        {
+            string error = "";
+            var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
+            var Context = new KoloAndroidEntities();
+            //  Conversion et recherche  Pour la future methode utilisant P2pTransferDetails
+            //var p2pTransfertDetails = SerializationHelper.DeserializeFromJsonString<P2pTransferDetails>(jsonTransfertP2p);
+            //var p2P = Context.TransfertP2p.FirstOrDefault(t => t.IdReceiverCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.IdSendingCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.Reference == p2pTransfertDetails.Reference);
+            if (tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.AskConfirmationOfTransfertA2A(tP2P, Context, out error);
+            if (!tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.ConfirmTransfertA2A(tP2P, Context, out error);
+            if (string.IsNullOrEmpty(tP2P.Secret))
+                tP2P.Secret = "HIDDEN BY CYBERIX";
+            var result = SerializationHelper.SerializeToJson(tP2P);
+            Context.Dispose();
+            return result;
+        }
+        
+        [WebMethod]
+        public string DoConfirmTransfertA2A(string jsonTransfertP2p)
+        {
+            string error = "";
+            var tP2P = SerializationHelper.DeserializeFromJsonString<TransfertP2p>(jsonTransfertP2p);
+            var Context = new KoloAndroidEntities();
+            //  Conversion et recherche  Pour la future methode utilisant P2pTransferDetails
+            //var p2pTransfertDetails = SerializationHelper.DeserializeFromJsonString<P2pTransferDetails>(jsonTransfertP2p);
+            //var p2P = Context.TransfertP2p.FirstOrDefault(t => t.IdReceiverCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.IdSendingCustomer == p2pTransfertDetails.ReceiverIdCustomer && t.Reference == p2pTransfertDetails.Reference);
+            if (!tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.ConfirmTransfertA2A(tP2P, Context, out error);
+            if (string.IsNullOrEmpty(tP2P.Secret))
                 tP2P.Secret = "HIDDEN BY CYBERIX";
             var result = SerializationHelper.SerializeToJson(tP2P);
             Context.Dispose();
@@ -77,18 +106,21 @@ namespace KoloWin.CustomerService
         public string GetTransfertP2pByIdTransfert(int idTransfertP2p)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfertP2p = Context.TransfertP2p.Find(idTransfertP2p);
+            var outTransfertP2p = Context.TransfertP2p.FirstOrDefault(t => t.IdTransfertP2p == idTransfertP2p);
+            var result = SerializationHelper.SerializeToJson(outTransfertP2p);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfertP2p);
+            return result;
         }
 
         [WebMethod]
         public string GetTransfert2CashByIdTransfert(int idTransfert2Cash)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfert2Cash = Context.Transfert2Cash.Find(idTransfert2Cash);
+            var outTransfert2Cash = Context.Transfert2Cash.FirstOrDefault(t => t.IdTransfert2Cash == idTransfert2Cash);
+            var result = SerializationHelper.SerializeToJson(outTransfert2Cash);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfert2Cash);
+            return result;
+            
         }
 
 
@@ -96,9 +128,10 @@ namespace KoloWin.CustomerService
         public string GetTransfert2CashDetailsByIdTransfert2CashDetails(int idTransfert2CashDetails)
         {
             var Context = new KoloAndroidEntities();
-            var outTransfert2CashDetails = Context.Transfert2CashDetails.Find(idTransfert2CashDetails);
+            var outTransfert2CashDetails = Context.Transfert2CashDetails.FirstOrDefault(t => t.IdTransfert2CashDetails == idTransfert2CashDetails);
+            var result = SerializationHelper.SerializeToJson(outTransfert2CashDetails);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfert2CashDetails);
+            return result;
         }
 
         [WebMethod]
@@ -110,8 +143,9 @@ namespace KoloWin.CustomerService
                 .Include("Sender.Person").Include("Receiver.MobileDevice")
                 .Where(e => e.IdReceiverCustomer == idCustomer || e.IdSendingCustomer == idCustomer).ToList();
             var transfersDetails = outTransfertP2pList.Select(t =>  new P2pTransferDetails(t)).ToList();
+            var result = SerializationHelper.SerializeToJson(transfersDetails);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(transfersDetails);
+            return result;
         }
 
         [WebMethod]
@@ -119,8 +153,9 @@ namespace KoloWin.CustomerService
         {
             var Context = new KoloAndroidEntities();
             var outTransfert2CashList = Context.Transfert2Cash.Where(e => e.IdReceiverTransfert2CashDetails == idTransfert2CashDetails || e.IdSendingTransfert2CashDetails == idTransfert2CashDetails).ToList();
+            var result = SerializationHelper.SerializeToJson(outTransfert2CashList);
             Context.Dispose();
-            return SerializationHelper.SerializeToJson(outTransfert2CashList);
+            return result;
         }
 
         #endregion

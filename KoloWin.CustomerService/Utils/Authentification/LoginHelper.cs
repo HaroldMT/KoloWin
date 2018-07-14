@@ -18,7 +18,7 @@ namespace KoloWin.CustomerService.Util
                 .FirstOrDefault(c => c.IdCustomer == idCustomer);
             if (customer != null)
             {
-                var customerLogin = db.CustomerLogins.Find(customer.IdCustomer);
+                var customerLogin = db.CustomerLogins.FirstOrDefault(c => c.IdCustomer == customer.IdCustomer);
                 loginAttempt.LoginTime = loginTime;
                 if (customerLogin != null)
                 {
@@ -53,7 +53,7 @@ namespace KoloWin.CustomerService.Util
 
         public static bool DeleteLoginAttempt(int id, KoloAndroidEntities db)
         {
-            var loginAttempt = db.LoginAttempts.Find(id);
+            var loginAttempt = db.LoginAttempts.FirstOrDefault(l => l.IdCustomer == id);
             if (loginAttempt == null)
             {
                 return false;

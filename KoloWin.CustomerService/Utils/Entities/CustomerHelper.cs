@@ -16,7 +16,7 @@ namespace KoloWin.CustomerService.Utils.Entities
             try
             {
                 if (idCustomer > 0)
-                    c = context.Customers.Find(idCustomer);
+                    c = context.Customers.FirstOrDefault(co => co.IdCustomer == idCustomer);
                 else
                     c = context.Customers.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
             }

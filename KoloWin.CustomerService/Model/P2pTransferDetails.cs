@@ -53,7 +53,7 @@ namespace KoloWin.CustomerService.Model
             this.ScheduleDate = transfer.TransfertDate;
 
             this.Status = transfer.TransfertStatusCode ?? "";
-            this.Reference = transfer.Reference;
+            this.Reference = transfer.Reference ??"";
         }
     }
 }

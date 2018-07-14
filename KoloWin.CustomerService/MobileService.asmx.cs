@@ -109,9 +109,9 @@ namespace KoloWin.CustomerService
         {
             var Context = new KoloAndroidEntities();
             Customer outCustomer;
-
+            var result = SerializationHelper.SerializeToJson("");
             Context.Dispose();
-            return SerializationHelper.SerializeToJson("");
+            return result;
         }
 
         #endregion
@@ -150,7 +150,8 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var idMad = Madhelper.GetMADFees(montant, out error);
-            return SerializationHelper.SerializeToJson<int>(idMad);
+            var result = SerializationHelper.SerializeToJson<int>(idMad);
+            return result;
         }
 
 
@@ -199,21 +200,7 @@ namespace KoloWin.CustomerService
             return result;
         }
 
-
-        //[WebMethod]
-        //public string GetKoloMadDetailsHistory(int jsonIdCustomer)
-        //{
-        //    string error = "";
-        //    List<KoloMadDetails> kMDs = null;
-        //    var context = new KoloAndroidEntities4Serialization();
-        //    Customer customer = context.Customers.FirstOrDefault(c => c.IdCustomer == jsonIdCustomer);
-        //    //kMDs = context.EneoBillPayments.Where(e => e.IdCustomer == jsonIdCustomer).ToList();
-        //    List<EneoBillDetails> eBDs = null;
-        //    //if (kMDs != null)
-        //        //eBDs = kMDs.Select(e => new EneoBillDetails(e)).ToList();
-        //    return SerializationHelper.SerializeToJson<List<EneoBillDetails>>(null);
-        //}
-
+        
         #endregion
 
     }

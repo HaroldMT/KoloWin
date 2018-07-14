@@ -63,11 +63,9 @@ namespace KoloWin.CustomerService
             var result = SerializationHelper.SerializeToJson<KoloMadDetails>(koloMadDetails);
             return result;
         }
-        
-
-
         #endregion
         
+
         #region TopUp Methods
 
 

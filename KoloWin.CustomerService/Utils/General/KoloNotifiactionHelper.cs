@@ -181,5 +181,19 @@ namespace KoloWin.CustomerService.Utils.General
             return ns;
         }
 
+        public static KoloNotification UnsuffisantBalanceNotification(Customer c , KoloConstants.Operation.Category category)
+        {
+            KoloNotification n = new KoloNotification();
+
+            n.Title = "Insufficant Balance";
+            n.Message = "Dear "+c.Person.Firstname+" your balance ("+c.Balance+") is insuffisant for this operation : "+category.ToString();
+            n.Category = category.ToString();
+            n.CreationDate = DateTime.Now;
+            n.Readed = false;
+            n.ExpiryDate = DateTime.Now.AddDays(3);
+
+            return n;
+        }
+
     }
 }

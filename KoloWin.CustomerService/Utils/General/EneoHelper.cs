@@ -1,5 +1,6 @@
 ﻿using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Util;
+using KoloWin.CustomerService.Utils.Transfert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,12 +54,32 @@ namespace KoloWin.CustomerService.Utils.General
             error = "";
             try
             {
+                int id = Int32.Parse(idCustomer);
                 var Context = new KoloAndroidEntities4Serialization();
-                Customer c = Context.Customers.Find(Int32.Parse(idCustomer));
-                c.Person = Context.People.Find(c.IdCustomer);
-                c.MobileDevice = Context.MobileDevices.FirstOrDefault(m => m.IdMobileDevice == c.IdCustomer);
+                Customer c = Context.Customers.Include("Person").Include("MobileDevice").FirstOrDefault(customer =>  customer.IdCustomer == id);
                 ExWebSvc4ExTools.WebService4KoloSoapClient exWS4Kolo = new ExWebSvc4ExTools.WebService4KoloSoapClient();
                 var reference = exWS4Kolo.PayENEO(codeTerm, passTerm, codeUser, passUser, numeroFacture, c.Person.Firstname + " " + c.Person.Lastname, c.MobileDevice.LineNumber);
+                if(reference != null)
+                {
+                    EneoBillPayment eBP = new EneoBillPayment();
+                    ExWebSvc4ExTools.PaidBill paidBill = exWS4Kolo.FindEneoPaidBillByReference(codeTerm, passTerm, codeUser, passUser, reference);
+                    if(paidBill != null)
+                    {
+                        eBP.BillAmount = (int)paidBill.PaidAmount;
+                        eBP.BillNumber = numeroFacture;
+                        eBP.Ccion = (int)paidBill.Ccions;
+                        eBP.ContractNo = paidBill.BillAccountNumber;
+                        eBP.IdCustomer = c.IdCustomer;
+                        eBP.Customer = c;
+                        eBP.PaymentDate = paidBill.PaidDate;
+                        eBP.Reference = paidBill.TransactionId;
+                    }
+                    Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<EneoBillPayment>(eBP, Context, out error);
+                    Context.KoloNotifications.AddRange(tuple.Item1);
+                    Context.CustomerBalanceHistories.AddRange(tuple.Item2);
+                    Context.EneoBillPayments.Add(eBP);
+                    Context.SaveChanges();
+                }
                 Context.Dispose();
                 return reference;
             }

@@ -14,6 +14,7 @@ namespace KoloWin.CustomerService.Model
         public const string TerminalCode = "KOLO";
         public const int CashBoxId = 4298;
         public const int CashierId = 1700;
+        public int CustomerId { get; set; }
         public int SenderId { get; set; }
         public int ReceiverId { get; set; }
         public int Amount { get; set; }
@@ -44,21 +45,6 @@ namespace KoloWin.CustomerService.Model
             this.Password = madDetails.Password;
         }
 
-
-        public KoloMadDetails(TransferGravity transferGravity)
-        {
-            this.Reference = transferGravity.GravityReference;
-            this.MadId = transferGravity.TransferMadId;
-            this.SenderId = transferGravity.GravitySenderId;
-            this.ReceiverId = transferGravity.GravityReceiverId;
-            this.Amount = transferGravity.Amount;
-            //this.Fee = transferGravity.F;
-            //this.Tax = transferGravity.Tva;
-            //this.Everywhere = transferGravity.ToutReseau;
-            //this.CityCode = transferGravity.;
-            //this.Password = transferGravity.Password;
-        }
-
         public ExWebSvc4Mad.KoloMadDetails WsKoloMadDetails()
         {
             ExWebSvc4Mad.KoloMadDetails madDetails = new ExWebSvc4Mad.KoloMadDetails();
@@ -81,6 +67,30 @@ namespace KoloWin.CustomerService.Model
 
             return madDetails;
         }
+
+
+
+        public TransferGravity GenerateTransferGravity()
+        {
+            TransferGravity transferGravity = new TransferGravity();
+            ExWebSvc4Mad.KoloMadCustomer reciever = new ExWebSvc4Mad.ExWebSvcSoapClient().GetKoloMadCustomer(new ExWebSvc4Mad.KoloMadCustomer() { IdClient = this.ReceiverId });
+
+            transferGravity.Amount = this.Amount;
+            transferGravity.GravityReceiverId = this.ReceiverId;
+            transferGravity.GravityReference = this.Reference;
+            transferGravity.GravitySenderId = this.SenderId;
+            transferGravity.KoloReference = this.Reference;
+            transferGravity.KoloSenderId = this.CustomerId;
+            transferGravity.Received = true;
+            transferGravity.ReceiverFirstName = reciever.Nom;
+            transferGravity.ReceiverLastName = reciever.Prenom;
+            transferGravity.ReceiverPhoneNumber = reciever.Number;
+            transferGravity.TransferMadId = this.MadId;
+
+
+            return transferGravity;
+        }
+
 
     }
 }

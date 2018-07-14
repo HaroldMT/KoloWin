@@ -143,6 +143,12 @@
     <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.UnpaidBill.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.FindEneoPaidBillByReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ExWebSvc4ExTools\KoloWin.CustomerService.ExWebSvc4ExTools.PaidBill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ExWebSvc4ExTools\WebService4Kolo.wsdl" />
     <None Include="Service References\ExWebSvc4Mad\ExWebSvc.wsdl" />
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
@@ -330,6 +336,7 @@
     <Compile Include="Model\EneoBillDetails.cs" />
     <Compile Include="Model\KoloMadCustomer.cs" />
     <Compile Include="Model\KoloMadDetails.cs" />
+    <Compile Include="Model\KoloWsObject.cs" />
     <Compile Include="Model\P2pTransferDetails.cs" />
     <Compile Include="Model\SimpleContact.cs" />
     <Compile Include="MyRefTypes.cs" />
@@ -465,8 +472,9 @@
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
     <Compile Include="Utils\General\KoloNotifiactionHelper.cs" />
     <Compile Include="Utils\General\Madhelper.cs" />
+    <Compile Include="Utils\General\OperationHelper.cs" />
     <Compile Include="Utils\Security\PasswordHasher.cs" />
-    <Compile Include="Utils\Transfert\CustomerHistoryHelper.cs" />
+    <Compile Include="Utils\General\CustomerHistoryHelper.cs" />
     <Compile Include="Utils\Transfert\TransfertP2PHelper.cs" />
     <Compile Include="Wholesaler.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
@@ -506,7 +514,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>7316</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/KoloWin.CustomerService</IISUrl>
+          <IISUrl>https://localhost/KoloWin.CustomerService</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost/KoloWin.CustomerService</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
