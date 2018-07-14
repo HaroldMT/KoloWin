@@ -514,9 +514,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>7316</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost/KoloWin.CustomerService</IISUrl>
+          <IISUrl>http://localhost/KoloWin.CustomerService</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>https://localhost/KoloWin.CustomerService</IISAppRootUrl>
+          <IISAppRootUrl>http://localhost/KoloWin.CustomerService</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

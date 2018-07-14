@@ -1,4 +1,4 @@
-﻿using KoloWin.CustomerService.ExWebSvc4Mad;
+﻿using KoloWin.CustomerService.Model;
 
 namespace KoloWin.CustomerService
 {
@@ -71,5 +71,9 @@ namespace KoloWin.CustomerService
         public KoloMadCustomer a68 { get; set; }
         public KoloMadDetails a69 { get; set; }
         public CreditCardInfo a70 { get; set; }
+        public KoloWsObject a71 { get; set; }
+        public EneoBillDetails a72 { get; set; }
+        public SimpleContact a73 { get; set; }
+        public P2pTransferDetails a74 { get; set; }
     }
 }

@@ -10,6 +10,5 @@ namespace KoloWin.CustomerService.Model
         public bool IsSucces { get; set; }
         public string ErrorMessage { get; set; }
         public string SerializedClass { get; set; }
-
     }
 }
