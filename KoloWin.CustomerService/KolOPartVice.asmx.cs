@@ -28,7 +28,9 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var reference = EneoHelper.DoPayENEO(KoloConstants.EneoExTermAuth.KOLO_ENEO_CODETERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSTERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_CODEUSER, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSUSER,jsonBillNumber, jsonCustomer,out error);
-            return reference;
+            KoloWsObject<string> koloWs = new KoloWsObject<string>(error, reference);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
         }
         
         [WebMethod]
@@ -36,8 +38,9 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillByBillNumber(jsonBillNumber,out error);
-            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
-            return result ;
+            KoloWsObject<List<EneoBillDetails>> koloWs = new KoloWsObject<List<EneoBillDetails>>(error, eBDs);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
         }
         
         [WebMethod]
@@ -45,7 +48,8 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillsByBillAccount(jsonBillAccount, out error);
-            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            KoloWsObject<List<EneoBillDetails>> koloWs = new KoloWsObject<List<EneoBillDetails>>(error, eBDs);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 
@@ -60,9 +64,11 @@ namespace KoloWin.CustomerService
             string error = "";
             KoloMadDetails koloMadDetails = SerializationHelper.DeserializeFromJsonString<KoloMadDetails>(jsonKoloMadDetails);
             Madhelper.DoSendMad(ref koloMadDetails, out error);
-            var result = SerializationHelper.SerializeToJson<KoloMadDetails>(koloMadDetails);
+            KoloWsObject<KoloMadDetails> koloWs = new KoloWsObject<KoloMadDetails>(error, koloMadDetails);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
+
         #endregion
         
 
@@ -73,6 +79,7 @@ namespace KoloWin.CustomerService
         public string DoTopUp(string jsonTopUp)
         {
             string error = "";
+
             return "";
         }
 

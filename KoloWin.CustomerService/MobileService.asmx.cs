@@ -59,14 +59,16 @@ namespace KoloWin.CustomerService
         #region Generals Methods
 
         [WebMethod]
-        public MobileDevice InsertMobileDevice(string jsonMobileDevice)
+        public string InsertMobileDevice(string jsonMobileDevice)
         {
             string error = "";
             MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
             var context = new KoloAndroidEntities4Serialization();
             mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out error);
+            KoloWsObject<MobileDevice> koloWs = new KoloWsObject<MobileDevice>(error, mobileDevice);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             context.Dispose();
-            return mobileDevice;
+            return result;
         }
 
         [WebMethod]
@@ -87,7 +89,8 @@ namespace KoloWin.CustomerService
                 outCustomer = customerQuery.Where(e => e.Registration.PhoneNumber == number).FirstOrDefault();
             if (outCustomer != null)
                 simpleContact = new SimpleContact(outCustomer);
-            var result = SerializationHelper.SerializeToJson(simpleContact);
+            KoloWsObject<SimpleContact> koloWs = new KoloWsObject<SimpleContact>("", simpleContact);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             Context.Dispose();
             return result;
         }
@@ -99,7 +102,8 @@ namespace KoloWin.CustomerService
             Customer outCustomer = Context.Customers
                 .Include("MobileDevice").Include("Person").Include("Registration")
                 .FirstOrDefault(e => e.IdCustomer == idCustomer);
-            var result = SerializationHelper.SerializeToJson(outCustomer);
+            KoloWsObject<Customer> koloWs = new KoloWsObject<Customer>("", outCustomer);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             Context.Dispose();
             return result;
         }
@@ -124,7 +128,8 @@ namespace KoloWin.CustomerService
             string error = "";
             KoloMadCustomer madCustomer = SerializationHelper.DeserializeFromJsonString<KoloMadCustomer>(jsonMadCustomer);
             Madhelper.FindCustomerMad(ref madCustomer, out error);
-            var result = SerializationHelper.SerializeToJson<KoloMadCustomer>(madCustomer);
+            KoloWsObject<KoloMadCustomer> koloWs = new KoloWsObject<KoloMadCustomer>("", madCustomer);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 
@@ -133,7 +138,9 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var managerCustomer = Madhelper.FindManagerCustomerByPhone(phone, out error);
-            return managerCustomer;
+            KoloWsObject<string> koloWs = new KoloWsObject<string>(error, managerCustomer);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
         }
 
         [WebMethod]
@@ -141,7 +148,9 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var managerCustomer = Madhelper.FindManagerCustomerByCustomerCode(customerCode, out error);
-            return managerCustomer;
+            KoloWsObject<string> koloWs = new KoloWsObject<string>(error, managerCustomer);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
         }
 
 
@@ -150,7 +159,8 @@ namespace KoloWin.CustomerService
         {
             string error = "";
             var idMad = Madhelper.GetMADFees(montant, out error);
-            var result = SerializationHelper.SerializeToJson<int>(idMad);
+            KoloWsObject<int> koloWs = new KoloWsObject<int>(error, idMad);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 
@@ -171,7 +181,8 @@ namespace KoloWin.CustomerService
             List<EneoBillDetails> eBDs = null;
             if (eBPs != null)
                 eBDs = eBPs.Select(e => new EneoBillDetails(e)).ToList();
-            var result = SerializationHelper.SerializeToJson<List<EneoBillDetails>>(eBDs);
+            KoloWsObject<List<EneoBillDetails>> koloWs = new KoloWsObject<List<EneoBillDetails>>(error, eBDs);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             context.Dispose();
             return result;
         }
@@ -183,7 +194,8 @@ namespace KoloWin.CustomerService
             List<CustomerBalanceHistory> cBHs = null;
             var context = new KoloAndroidEntities();
             cBHs = context.CustomerBalanceHistories.Where(c => c.IdCustomerAccount == jsonIdCustomer).ToList();
-            var result = SerializationHelper.SerializeToJson<List<CustomerBalanceHistory>>(cBHs);
+            KoloWsObject<List<CustomerBalanceHistory>> koloWs = new KoloWsObject<List<CustomerBalanceHistory>>(error, cBHs);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             context.Dispose();
             return result;
         }
@@ -195,7 +207,8 @@ namespace KoloWin.CustomerService
             List<KoloNotification> cBHs = null;
             var context = new KoloAndroidEntities();
             cBHs = context.KoloNotifications.Where(c => c.IdCustomer == jsonIdCustomer).ToList();
-            var result = SerializationHelper.SerializeToJson<List<KoloNotification>>(cBHs);
+            KoloWsObject<List<KoloNotification>> koloWs = new KoloWsObject<List<KoloNotification>>(error, cBHs);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             context.Dispose();
             return result;
         }
