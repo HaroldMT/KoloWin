@@ -35,10 +35,8 @@ namespace KoloWin.CustomerService
                 tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
             else if (tP2P.TransfertStatusCode.Equals(KoloConstants.Operation.Status.COMPLETED.ToString()))
                 tP2P = TransfertP2PHelper.AcceptTransfertA2A(tP2P, Context, out error);
-            //else
-            //    re
 
-            if (tP2P != null)
+            if (!string.IsNullOrEmpty(tP2P.Secret))
                 tP2P.Secret = "HIDDEN BY CYBERIX";
             var result = SerializationHelper.SerializeToJson(tP2P);
             Context.Dispose();

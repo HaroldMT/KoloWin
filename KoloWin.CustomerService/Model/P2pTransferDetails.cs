@@ -23,6 +23,7 @@ namespace KoloWin.CustomerService.Model
         public String PassPhrase { get; set; }
         public bool NeedsConfirmation { get; set; }
         public DateTime ScheduleDate { get; set; }
+        public string Reference { get; set; }
 
         public P2pTransferDetails()
         {
@@ -52,6 +53,7 @@ namespace KoloWin.CustomerService.Model
             this.ScheduleDate = transfer.TransfertDate;
 
             this.Status = transfer.TransfertStatusCode ?? "";
+            this.Reference = transfer.Reference;
         }
     }
 }
