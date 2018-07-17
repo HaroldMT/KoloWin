@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://exrmoney.expressexchange.fr/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://exrmoney.expressexchange.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://exrmoney.expressexchange.fr/">
+      <s:element name="SendAirTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectedPartner" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAirTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendAirTimeResult" type="tns:AirMoneyWebResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AirMoneyWebResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Succes" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerResponse" type="tns:AirMoneyPartnerResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AirMoneyPartnerResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperationSucces" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceSucces" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RemainingBalance" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SelectedPartner" type="tns:Partner" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Partner">
+        <s:restriction base="s:string">
+          <s:enumeration value="MTN" />
+          <s:enumeration value="ORANGE" />
+          <s:enumeration value="NEXTTEL" />
+          <s:enumeration value="YOOMEE" />
+          <s:enumeration value="CAMTEL" />
+          <s:enumeration value="UNKNOWN" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SendEmoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectedPartner" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEmoneyResult" type="tns:AirMoneyWebResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendAirTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAirTime" />
+  </wsdl:message>
+  <wsdl:message name="SendAirTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAirTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmoneySoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmoney" />
+  </wsdl:message>
+  <wsdl:message name="SendEmoneySoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmoneyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExRMoneySoap">
+    <wsdl:operation name="SendAirTime">
+      <wsdl:input message="tns:SendAirTimeSoapIn" />
+      <wsdl:output message="tns:SendAirTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmoney">
+      <wsdl:input message="tns:SendEmoneySoapIn" />
+      <wsdl:output message="tns:SendEmoneySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExRMoneySoap" type="tns:ExRMoneySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendAirTime">
+      <soap:operation soapAction="http://exrmoney.expressexchange.fr/SendAirTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmoney">
+      <soap:operation soapAction="http://exrmoney.expressexchange.fr/SendEmoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExRMoneySoap12" type="tns:ExRMoneySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendAirTime">
+      <soap12:operation soapAction="http://exrmoney.expressexchange.fr/SendAirTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmoney">
+      <soap12:operation soapAction="http://exrmoney.expressexchange.fr/SendEmoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExRMoney">
+    <wsdl:port name="ExRMoneySoap" binding="tns:ExRMoneySoap">
+      <soap:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExRMoneySoap12" binding="tns:ExRMoneySoap12">
+      <soap12:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

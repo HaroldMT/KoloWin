@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://exshinobi.expressexchange.fr/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://exshinobi.expressexchange.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://exshinobi.expressexchange.fr/">
+      <s:element name="FindTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectedPartner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindTransactionResult" type="tns:ShinobiWebResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShinobiWebResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Succes" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerResponse" type="tns:TransferPartnerResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransferPartnerResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperationSucces" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SelectedPartner" type="tns:Partner" />
+          <s:element minOccurs="0" maxOccurs="1" name="wr_transaction_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="wr_transaction_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="transaction_date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="transaction_pay_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="originating_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sending_amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="originating_currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination_currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customer_fee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="payout_amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="exchange_rate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="product" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_first_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_middle_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_last_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_dob" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender_id_issuance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_first_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_middle_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_last_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_address_1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_address_2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_state" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_mobile_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_landline_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_email_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_momo_account" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_accounttype_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_accounttype_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_idtype_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_id_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="settlement_currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="settlement_amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="correspondent_commission" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="settlement_exchange_rate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="transaction_reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="send_reason_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="send_reason_desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver_country_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_account" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="local_bank_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="swift_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_branch_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bank_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Iban" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Partner">
+        <s:restriction base="s:string">
+          <s:enumeration value="WORLDREMIT" />
+          <s:enumeration value="ECOBANK" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="PayTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectedPartner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="noPieceId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="managerIdType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayTransactionResult" type="tns:ShinobiWebResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FindTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:FindTransaction" />
+  </wsdl:message>
+  <wsdl:message name="FindTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:FindTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PayTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:PayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="PayTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:PayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExShinobiSoap">
+    <wsdl:operation name="FindTransaction">
+      <wsdl:input message="tns:FindTransactionSoapIn" />
+      <wsdl:output message="tns:FindTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PayTransaction">
+      <wsdl:input message="tns:PayTransactionSoapIn" />
+      <wsdl:output message="tns:PayTransactionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExShinobiSoap" type="tns:ExShinobiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindTransaction">
+      <soap:operation soapAction="http://exshinobi.expressexchange.fr/FindTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayTransaction">
+      <soap:operation soapAction="http://exshinobi.expressexchange.fr/PayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExShinobiSoap12" type="tns:ExShinobiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindTransaction">
+      <soap12:operation soapAction="http://exshinobi.expressexchange.fr/FindTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayTransaction">
+      <soap12:operation soapAction="http://exshinobi.expressexchange.fr/PayTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExShinobi">
+    <wsdl:port name="ExShinobiSoap" binding="tns:ExShinobiSoap">
+      <soap:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExShinobiSoap12" binding="tns:ExShinobiSoap12">
+      <soap12:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

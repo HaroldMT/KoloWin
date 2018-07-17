@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://exeneo.expressexchange.fr/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://exeneo.expressexchange.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://exeneo.expressexchange.fr/">
       <s:element name="FindEneoByBillNumber">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="codeTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="codeUser" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passUser" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="numeroFacture" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -16,10 +12,17 @@
       <s:element name="FindEneoByBillNumberResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FindEneoByBillNumberResult" type="tns:UnpaidBill" />
+            <s:element minOccurs="0" maxOccurs="1" name="FindEneoByBillNumberResult" type="tns:ExWebResponseOfUnpaidBill" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ExWebResponseOfUnpaidBill">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsSucces" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataObject" type="tns:UnpaidBill" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="UnpaidBill">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="BillNumber" type="s:string" />
@@ -42,10 +45,6 @@
       <s:element name="FindEneoPaidBillByReference">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="codeTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="codeUser" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passUser" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -53,10 +52,17 @@
       <s:element name="FindEneoPaidBillByReferenceResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FindEneoPaidBillByReferenceResult" type="tns:PaidBill" />
+            <s:element minOccurs="0" maxOccurs="1" name="FindEneoPaidBillByReferenceResult" type="tns:ExWebResponseOfPaidBill" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ExWebResponseOfPaidBill">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsSucces" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataObject" type="tns:PaidBill" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="PaidBill">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="TransactionId" type="s:string" />
@@ -86,35 +92,107 @@
           <s:element minOccurs="0" maxOccurs="1" name="NumCompteur" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="SentToLiveCash" nillable="true" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="CodeTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caisse" type="tns:Caisse" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operatrice" type="tns:Operatrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Caisse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCaisse" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeMAD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecretCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodeMG" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOperatrice" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeCaisse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Licence" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Statut" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaskLicence" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTerminal" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agence" type="tns:Agence" />
+          <s:element minOccurs="0" maxOccurs="1" name="Device" type="tns:Device" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operatrice" type="tns:Operatrice" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaidBills" type="tns:ArrayOfPaidBill" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Agence">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeAgence" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodeMg" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodeChange" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodeSaari" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColumbusId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Libelle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdVille" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPalier" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumAutoImport" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdContact" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstOuverte" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeGravity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdGravity" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NCodeAgence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caisses" type="tns:ArrayOfCaisse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCaisse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Caisse" nillable="true" type="tns:Caisse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Device">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTerminal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DevicePassword" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOperateur" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Altitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vitesse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caisses" type="tns:ArrayOfCaisse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Operatrice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOperatrice" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeMAD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeMG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgencePrincipale" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecretCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mobile" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caisses" type="tns:ArrayOfCaisse" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaidBills" type="tns:ArrayOfPaidBill" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPaidBill">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PaidBill" nillable="true" type="tns:PaidBill" />
         </s:sequence>
       </s:complexType>
       <s:element name="PayENEO">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="codeTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="codeUser" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telephone" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="numeroFacture" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="nomDuRemettant" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="telephone" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="PayENEOResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PayENEOResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayENEOResult" type="tns:ExWebResponseOfPaidBill" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="FindEneoByBillAccount">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="codeTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passTerm" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="codeUser" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="passUser" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="numeroContrat" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -122,10 +200,17 @@
       <s:element name="FindEneoByBillAccountResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FindEneoByBillAccountResult" type="tns:ArrayOfUnpaidBill" />
+            <s:element minOccurs="0" maxOccurs="1" name="FindEneoByBillAccountResult" type="tns:ExWebResponseOfListOfUnpaidBill" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ExWebResponseOfListOfUnpaidBill">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsSucces" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataObject" type="tns:ArrayOfUnpaidBill" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ArrayOfUnpaidBill">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="UnpaidBill" nillable="true" type="tns:UnpaidBill" />
@@ -157,7 +242,7 @@
   <wsdl:message name="FindEneoByBillAccountSoapOut">
     <wsdl:part name="parameters" element="tns:FindEneoByBillAccountResponse" />
   </wsdl:message>
-  <wsdl:portType name="WebService4KoloSoap">
+  <wsdl:portType name="ExEneoSoap">
     <wsdl:operation name="FindEneoByBillNumber">
       <wsdl:input message="tns:FindEneoByBillNumberSoapIn" />
       <wsdl:output message="tns:FindEneoByBillNumberSoapOut" />
@@ -175,10 +260,10 @@
       <wsdl:output message="tns:FindEneoByBillAccountSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WebService4KoloSoap" type="tns:WebService4KoloSoap">
+  <wsdl:binding name="ExEneoSoap" type="tns:ExEneoSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="FindEneoByBillNumber">
-      <soap:operation soapAction="http://tempuri.org/FindEneoByBillNumber" style="document" />
+      <soap:operation soapAction="http://exeneo.expressexchange.fr/FindEneoByBillNumber" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -187,7 +272,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindEneoPaidBillByReference">
-      <soap:operation soapAction="http://tempuri.org/FindEneoPaidBillByReference" style="document" />
+      <soap:operation soapAction="http://exeneo.expressexchange.fr/FindEneoPaidBillByReference" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -196,7 +281,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="PayENEO">
-      <soap:operation soapAction="http://tempuri.org/PayENEO" style="document" />
+      <soap:operation soapAction="http://exeneo.expressexchange.fr/PayENEO" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -205,7 +290,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindEneoByBillAccount">
-      <soap:operation soapAction="http://tempuri.org/FindEneoByBillAccount" style="document" />
+      <soap:operation soapAction="http://exeneo.expressexchange.fr/FindEneoByBillAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -214,10 +299,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WebService4KoloSoap12" type="tns:WebService4KoloSoap">
+  <wsdl:binding name="ExEneoSoap12" type="tns:ExEneoSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="FindEneoByBillNumber">
-      <soap12:operation soapAction="http://tempuri.org/FindEneoByBillNumber" style="document" />
+      <soap12:operation soapAction="http://exeneo.expressexchange.fr/FindEneoByBillNumber" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -226,7 +311,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindEneoPaidBillByReference">
-      <soap12:operation soapAction="http://tempuri.org/FindEneoPaidBillByReference" style="document" />
+      <soap12:operation soapAction="http://exeneo.expressexchange.fr/FindEneoPaidBillByReference" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -235,7 +320,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="PayENEO">
-      <soap12:operation soapAction="http://tempuri.org/PayENEO" style="document" />
+      <soap12:operation soapAction="http://exeneo.expressexchange.fr/PayENEO" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -244,7 +329,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindEneoByBillAccount">
-      <soap12:operation soapAction="http://tempuri.org/FindEneoByBillAccount" style="document" />
+      <soap12:operation soapAction="http://exeneo.expressexchange.fr/FindEneoByBillAccount" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -253,12 +338,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="WebService4Kolo">
-    <wsdl:port name="WebService4KoloSoap" binding="tns:WebService4KoloSoap">
-      <soap:address location="http://195.24.211.129:9996/MobileEEWcf/WebService4Kolo.asmx" />
+  <wsdl:service name="ExEneo">
+    <wsdl:port name="ExEneoSoap" binding="tns:ExEneoSoap">
+      <soap:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" />
     </wsdl:port>
-    <wsdl:port name="WebService4KoloSoap12" binding="tns:WebService4KoloSoap12">
-      <soap12:address location="http://195.24.211.129:9996/MobileEEWcf/WebService4Kolo.asmx" />
+    <wsdl:port name="ExEneoSoap12" binding="tns:ExEneoSoap12">
+      <soap12:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
