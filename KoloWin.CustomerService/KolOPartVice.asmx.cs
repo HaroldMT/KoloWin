@@ -27,7 +27,7 @@ namespace KoloWin.CustomerService
         public string DoPayEneoBill(string jsonBillNumber, string jsonCustomer)
         {
             string error = "";
-            var reference = EneoHelper.DoPayENEO(KoloConstants.EneoExTermAuth.KOLO_ENEO_CODETERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSTERM, KoloConstants.EneoExTermAuth.KOLO_ENEO_CODEUSER, KoloConstants.EneoExTermAuth.KOLO_ENEO_PASSUSER,jsonBillNumber, jsonCustomer,out error);
+            var reference = EneoHelper.DoPayENEO(jsonBillNumber, jsonCustomer,out error);
             KoloWsObject<string> koloWs = new KoloWsObject<string>(error, reference);
             var result = SerializationHelper.SerializeToJson(koloWs);
             return result;

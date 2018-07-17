@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a828f2a0-fa36-479a-96c5-4e42a48be593" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b812579-2975-4f67-9659-934be63e8d22" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExWebSvc1.wsdl" MetadataType="Wsdl" ID="ec99e3b6-866e-406d-ac83-60db2a6a2484" SourceId="1" SourceUrl="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx?wsdl" />
-    <MetadataFile FileName="ExWebSvc1.disco" MetadataType="Disco" ID="f4e302e4-d9c6-4877-9bc7-ca1fc035337d" SourceId="1" SourceUrl="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx?disco" />
+    <MetadataFile FileName="ExShinobi.wsdl" MetadataType="Wsdl" ID="3e45f193-f37a-4f54-baec-d23078b354a9" SourceId="1" SourceUrl="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx?wsdl" />
+    <MetadataFile FileName="ExShinobi.disco" MetadataType="Disco" ID="c087469f-af09-4ae6-8e62-9ff147bede04" SourceId="1" SourceUrl="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

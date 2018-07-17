@@ -29,20 +29,20 @@ namespace KoloWin.CustomerService.Model
 
         }
 
-        public KoloMadDetails(ExWebSvc4Mad.KoloMadDetails madDetails)
+        public static void KoloMadDetailsFromWs(ref KoloMadDetails koloMad, ExWebSvc4Mad.KoloMadDetails madDetails)
         {
-            this.Reference = madDetails.Reference;
-            this.MadId = (int)madDetails.Bordereau;
-            this.Success = madDetails.Success;
-            this.Error = madDetails.Error;
-            this.SenderId = madDetails.IdClientEmetteur;
-            this.ReceiverId = madDetails.IdClientBeneficiaire;
-            this.Amount = (int)madDetails.Montant;
-            this.Fee = madDetails.Ccion;
-            this.Tax = madDetails.Tva;
-            this.Everywhere = madDetails.ToutReseau;
-            this.CityCode = madDetails.CodeVille;
-            this.Password = madDetails.Password;
+            koloMad.Reference = madDetails.Reference;
+            koloMad.MadId = (int)madDetails.Bordereau;
+            koloMad.Success = madDetails.Success;
+            koloMad.Error = madDetails.Error;
+            koloMad.SenderId = madDetails.IdClientEmetteur;
+            koloMad.ReceiverId = madDetails.IdClientBeneficiaire;
+            koloMad.Amount = (int)madDetails.Montant;
+            koloMad.Fee = madDetails.Ccion;
+            koloMad.Tax = madDetails.Tva;
+            koloMad.Everywhere = madDetails.ToutReseau;
+            koloMad.CityCode = madDetails.CodeVille;
+            koloMad.Password = madDetails.Password;
         }
 
         public ExWebSvc4Mad.KoloMadDetails WsKoloMadDetails()
