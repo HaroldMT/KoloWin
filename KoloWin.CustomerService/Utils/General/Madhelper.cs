@@ -76,7 +76,7 @@ namespace KoloWin.CustomerService.Utils.General
                 ExWebSvc4Mad.KoloMadDetails wsKoloMadDetails = new ExWebSvc4Mad.ExWebSvcSoapClient().SendKoloMad(koloMadDetails.WsKoloMadDetails());
                 if (wsKoloMadDetails != null)
                 {
-                    koloMadDetails = new KoloWin.CustomerService.Model.KoloMadDetails(wsKoloMadDetails);
+                    Model.KoloMadDetails.KoloMadDetailsFromWs(ref koloMadDetails, wsKoloMadDetails);
                     TransferGravity transfertGravity = koloMadDetails.GenerateTransferGravity();
                     Tuple<List<KoloNotification>, List<CustomerBalanceHistory>> tuple = OperationHelper.MakeOperation<TransferGravity>(transfertGravity, Context, out error);
                     Context.KoloNotifications.AddRange(tuple.Item1);

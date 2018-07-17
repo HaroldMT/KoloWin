@@ -2,6 +2,7 @@
 using System.Web.Services;
 using KoloWin.CustomerService.Util;
 using KoloWin.Utilities;
+using KoloWin.CustomerService.Model;
 
 namespace KoloWin.CustomerService
 {
@@ -20,8 +21,9 @@ namespace KoloWin.CustomerService
             var registration = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
             var context = new KoloAndroidEntities4Serialization();
             var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
-            var result = SerializationHelper.SerializeToJson(customer);
+            KoloWsObject<Customer> koloWs = new KoloWsObject<Customer>(error, customer);
             context.Dispose();
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 
@@ -32,8 +34,9 @@ namespace KoloWin.CustomerService
             var logAttempt = SerializationHelper.DeserializeFromJsonString<LoginAttempt>(jsonLogAttempt);
             var context = new KoloAndroidEntities4Serialization();
             LoginHelper.DoLogin(ref logAttempt, context, out error);
-            var result = SerializationHelper.SerializeToJson(logAttempt);
+            KoloWsObject<LoginAttempt> koloWs = new KoloWsObject<LoginAttempt>(error, logAttempt);
             context.Dispose();
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 
@@ -44,39 +47,40 @@ namespace KoloWin.CustomerService
             var inReg = SerializationHelper.DeserializeFromJsonString<Registration>(jsonReg);
             var context = new KoloAndroidEntities4Serialization();
             var outReg = RegistrationHelper.DoRegistration(inReg, context, out error);
-            var result = SerializationHelper.SerializeToJson(outReg);
+            KoloWsObject<Registration> koloWs = new KoloWsObject<Registration>(error, outReg);
             context.Dispose();
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
         
-        [WebMethod]
-        public LoginAttempt SignIn(LoginAttempt loginAttempt)
-        {
-            string error = "";
-            var context = new KoloAndroidEntities4Serialization();
-            LoginHelper.DoLogin(ref loginAttempt, context, out error);
-            context.Dispose();
-            return loginAttempt;
-        }
+        //[WebMethod]
+        //public LoginAttempt SignIn(LoginAttempt loginAttempt)
+        //{
+        //    string error = "";
+        //    var context = new KoloAndroidEntities4Serialization();
+        //    LoginHelper.DoLogin(ref loginAttempt, context, out error);
+        //    context.Dispose();
+        //    return loginAttempt;
+        //}
 
-        [WebMethod]
-        public Registration SignUp(Registration registration)
-        {
-            string error = "";
-            var context = new KoloAndroidEntities4Serialization();
-            var outReg = RegistrationHelper.DoRegistration(registration, context, out error);
-            context.Dispose();
-            return outReg;
-        }
+        //[WebMethod]
+        //public Registration SignUp(Registration registration)
+        //{
+        //    string error = "";
+        //    var context = new KoloAndroidEntities4Serialization();
+        //    var outReg = RegistrationHelper.DoRegistration(registration, context, out error);
+        //    context.Dispose();
+        //    return outReg;
+        //}
 
-        [WebMethod]
-        public Customer SignUpVerification(Registration registration)
-        {
-            string error = "";
-            var context = new KoloAndroidEntities4Serialization();
-            var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
-            context.Dispose();
-            return customer;
-        }
+        //[WebMethod]
+        //public Customer SignUpVerification(Registration registration)
+        //{
+        //    string error = "";
+        //    var context = new KoloAndroidEntities4Serialization();
+        //    var customer = RegistrationHelper.DoRegistrationConfirmation(registration, context, out error);
+        //    context.Dispose();
+        //    return customer;
+        //}
     }
 }

@@ -32,7 +32,8 @@ namespace KoloWin.CustomerService
             tP2P = TransfertP2PHelper.SendTransfertA2A(tP2P, Context, out error);
             if (string.IsNullOrEmpty(tP2P.Secret))
                 tP2P.Secret = "HIDDEN BY CYBERIX";
-            var result = SerializationHelper.SerializeToJson(tP2P);
+            KoloWsObject<TransfertP2p> koloWs = new KoloWsObject<TransfertP2p>(error,tP2P);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             Context.Dispose();
             return result;
         }
@@ -50,7 +51,8 @@ namespace KoloWin.CustomerService
             if (!tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.ConfirmTransfertA2A(tP2P, Context, out error);
             if (string.IsNullOrEmpty(tP2P.Secret))
                 tP2P.Secret = "HIDDEN BY CYBERIX";
-            var result = SerializationHelper.SerializeToJson(tP2P);
+            KoloWsObject<TransfertP2p> koloWs = new KoloWsObject<TransfertP2p>(error, tP2P);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             Context.Dispose();
             return result;
         }
@@ -67,7 +69,8 @@ namespace KoloWin.CustomerService
             if (!tP2P.NeedsConfirmation) tP2P = TransfertP2PHelper.ConfirmTransfertA2A(tP2P, Context, out error);
             if (string.IsNullOrEmpty(tP2P.Secret))
                 tP2P.Secret = "HIDDEN BY CYBERIX";
-            var result = SerializationHelper.SerializeToJson(tP2P);
+            KoloWsObject<TransfertP2p> koloWs = new KoloWsObject<TransfertP2p>(error, tP2P);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             Context.Dispose();
             return result;
         }
