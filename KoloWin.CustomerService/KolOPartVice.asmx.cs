@@ -1,12 +1,8 @@
-﻿using KoloWin.CustomerService.Model;
-using KoloWin.CustomerService.Util;
+﻿using System.Collections.Generic;
+using System.Web.Services;
+using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Utils.General;
 using KoloWin.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Services;
 
 namespace KoloWin.CustomerService
 {
@@ -16,33 +12,32 @@ namespace KoloWin.CustomerService
     [WebService(Namespace = "http://kolo.cyberix.fr/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
     // [System.Web.Script.Services.ScriptService]
     public class KolOPartVice : System.Web.Services.WebService
     {
-
         #region Kolo Eneo Methods
 
         [WebMethod]
         public string DoPayEneoBill(string jsonBillNumber, string jsonCustomer)
         {
             string error = "";
-            var reference = EneoHelper.DoPayENEO(jsonBillNumber, jsonCustomer,out error);
+            var reference = EneoHelper.DoPayENEO(jsonBillNumber, jsonCustomer, out error);
             KoloWsObject<string> koloWs = new KoloWsObject<string>(error, reference);
             var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
-        
+
         [WebMethod]
         public string GetEneoBillByBillNumber(string jsonBillNumber)
         {
             string error = "";
-            List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillByBillNumber(jsonBillNumber,out error);
+            List<EneoBillDetails> eBDs = EneoHelper.GetEneoBillByBillNumber(jsonBillNumber, out error);
             KoloWsObject<List<EneoBillDetails>> koloWs = new KoloWsObject<List<EneoBillDetails>>(error, eBDs);
             var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
-        
+
         [WebMethod]
         public string GetEneoBillsByBillAccount(string jsonBillAccount)
         {
@@ -53,12 +48,10 @@ namespace KoloWin.CustomerService
             return result;
         }
 
-        #endregion
-        
-
+        #endregion Kolo Eneo Methods
 
         #region Kolo MAD Methods
-        
+
         [WebMethod]
         public string DoSendMad(string jsonKoloMadDetails)
         {
@@ -70,11 +63,9 @@ namespace KoloWin.CustomerService
             return result;
         }
 
-        #endregion
-        
+        #endregion Kolo MAD Methods
 
         #region TopUp Methods
-
 
         [WebMethod]
         public string DoTopUp(string jsonTopUp)
@@ -82,13 +73,11 @@ namespace KoloWin.CustomerService
             string error = "";
             TopUpDetails topDetails = SerializationHelper.DeserializeFromJsonString<TopUpDetails>(jsonTopUp);
             var success = TopUpHelper.DoTopUp(topDetails, out error);
-            KoloWsObject<TopUpDetails> koloWs = new KoloWsObject<TopUpDetails>(success,error, topDetails);
+            KoloWsObject<TopUpDetails> koloWs = new KoloWsObject<TopUpDetails>(success, error, topDetails);
             var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 
-
-        #endregion
-
+        #endregion TopUp Methods
     }
 }

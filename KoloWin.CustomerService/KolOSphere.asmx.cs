@@ -99,12 +99,32 @@ namespace KoloWin.CustomerService
             return null;
         }
 
+        [WebMethod]
+        public string SendBill(string jsonBill)
+        {
+            return "";
+        }
+
+        [WebMethod]
+        public string CancelBill(string jsonBill)
+        {
+            return "";
+        }
+
+        [WebMethod]
+        public string PayBill(string jsonBill)
+        {
+            return "";
+        }
+
+        [WebMethod]
+        public string RejectBill(string jsonBill)
+        {
+            return "";
+        }
         #endregion
 
-
         #region Transfert Method For Good WOrkFlow
-
-
         [WebMethod]
         public string GetTransfertP2pByIdTransfert(int idTransfertP2p)
         {
