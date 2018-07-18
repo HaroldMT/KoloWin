@@ -395,6 +395,7 @@
     <Compile Include="Model\KoloMadDetails.cs" />
     <Compile Include="Model\KoloWsObject.cs" />
     <Compile Include="Model\P2pTransferDetails.cs" />
+    <Compile Include="Model\ParameterInfo.cs" />
     <Compile Include="Model\SimpleContact.cs" />
     <Compile Include="MyRefTypes.cs" />
     <Compile Include="Partner.cs">
