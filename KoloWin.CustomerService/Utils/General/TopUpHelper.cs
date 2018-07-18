@@ -1,4 +1,5 @@
 ﻿using KoloWin.CustomerService.Model;
+using KoloWin.CustomerService.Util;
 using KoloWin.CustomerService.Utils.Transfert;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace KoloWin.CustomerService.Utils.General
             TopUp topUp = topUpDetails.GeneraTopUp();
 
             ExRMoneySvc.ExRMoneySoapClient exMoneyClient = new ExRMoneySvc.ExRMoneySoapClient();
-            if(!CustomerHistoryHelper.CheckCustomerBalance(topUp.IdCustomer, topUp.Amount))
+            if(!CustomerHistoryHelper.CheckCustomerBalance(topUp.IdCustomer, Int32.Parse(topUp.Amount)))
             {
                 error = "INSUFFISANT BANLANCE";
                 return false;
@@ -30,7 +31,15 @@ namespace KoloWin.CustomerService.Utils.General
                 Context.KoloNotifications.AddRange(tuple.Item1);
                 Context.CustomerBalanceHistories.AddRange(tuple.Item2);
                 Context.TopUps.Add(topUp);
-                Context.SaveChanges();
+                topUp.OpDate = DateTime.Now;
+                try
+                {
+                    Context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    error = ExceptionHelper.GetExceptionMessage(ex);
+                }
                 Context.Dispose();
             }
             return result.Succes;

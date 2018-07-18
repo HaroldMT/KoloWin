@@ -82,7 +82,9 @@ namespace KoloWin.CustomerService
             string error = "";
             TopUpDetails topDetails = SerializationHelper.DeserializeFromJsonString<TopUpDetails>(jsonTopUp);
             var success = TopUpHelper.DoTopUp(topDetails, out error);
-            return "";
+            KoloWsObject<TopUpDetails> koloWs = new KoloWsObject<TopUpDetails>(success,error, topDetails);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
         }
 
 
