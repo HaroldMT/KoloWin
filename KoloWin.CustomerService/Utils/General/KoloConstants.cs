@@ -38,15 +38,23 @@ namespace KoloWin.CustomerService.Utils.General
                 [Description("SEND_MAD")]
                 SENDMAD,
                 [Description("TOPUP_ORANGE")]
-                TOPUPORANGE,
+                ORANGE,
                 [Description("TOPUP_MTN")]
-                TOPUPMTN,
+                MTN,
                 [Description("TOPUP_NEXTTEL")]
-                TOPUPNEXTTEL,
+                NEXTTEL,
                 [Description("TOPUP_YOOMEE")]
-                TOPUPYOOMEE,
+                YOOMEE,
                 [Description("TOPUP_CAMTEL")]
-                TOPUPCAMTEL
+                CAMTEL,
+                [Description("SEND_ORANGE_MONEY")]
+                SENDOM,
+                [Description("RECIEVE_ORANGE_MONEY")]
+                RECVOM,
+                [Description("SEND_MTN_MOBILE_MONEY")]
+                SENDMOMO,
+                [Description("RECIEVE_MTN_MOBILE_MONEY")]
+                RECVMOMO
             }
             
             public enum Status
@@ -67,15 +75,6 @@ namespace KoloWin.CustomerService.Utils.General
             }
         }
         
-        public static class EneoExTermAuth
-        {
-            public static string KOLO_ENEO_CODETERM = "KOLO";
-            public static string KOLO_ENEO_CODEUSER = "KOLO";
-            public static string KOLO_ENEO_PASSTERM = "KOLO";
-            public static string KOLO_ENEO_PASSUSER = "KOLO";
-
-        }
-        
         public static string GetEnumDescription(Enum en)
         {
             Type type = en.GetType();
@@ -88,6 +87,8 @@ namespace KoloWin.CustomerService.Utils.General
             }
             return en.ToString();
         }
+
+
 
     }
 }

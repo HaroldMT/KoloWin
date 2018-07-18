@@ -396,6 +396,7 @@
     <Compile Include="Model\KoloWsObject.cs" />
     <Compile Include="Model\P2pTransferDetails.cs" />
     <Compile Include="Model\SimpleContact.cs" />
+    <Compile Include="Model\TopUpDetails.cs" />
     <Compile Include="MyRefTypes.cs" />
     <Compile Include="Partner.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
@@ -540,6 +541,7 @@
     <Compile Include="Utils\General\KoloNotifiactionHelper.cs" />
     <Compile Include="Utils\General\Madhelper.cs" />
     <Compile Include="Utils\General\OperationHelper.cs" />
+    <Compile Include="Utils\General\TopUpHelper.cs" />
     <Compile Include="Utils\Security\PasswordHasher.cs" />
     <Compile Include="Utils\General\CustomerHistoryHelper.cs" />
     <Compile Include="Utils\Transfert\TransfertP2PHelper.cs" />

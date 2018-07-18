@@ -37,10 +37,20 @@ namespace KoloWin.CustomerService.Utils.Transfert
             else if (t.GetType() == typeof(TopUp))
             {
                 var temp = t as TopUp;
+                if (temp.Customer == null)
+                    temp.Customer = db.Customers.FirstOrDefault(c => c.IdCustomer == temp.IdCustomer);
+
+                CustomerBalanceHistory topUpBalanceHistory = CreateCustomerHistory(temp.Customer, KoloConstants.Operation.Category.ORANGE, KoloConstants.Operation.BalanceUpdateDirection.REMOVE,Int32.Parse(temp.Amount), out error);
+                customerBalanceHistories.Add(topUpBalanceHistory);
             }
             else if (t.GetType() == typeof(TransferGravity))
             {
                 var temp = t as TransferGravity;
+                if (temp.Customer == null)
+                    temp.Customer = db.Customers.FirstOrDefault(c => c.IdCustomer == temp.KoloSenderId);
+
+                CustomerBalanceHistory madBalanceHistory = CreateCustomerHistory(temp.Customer, KoloConstants.Operation.Category.SENDMAD, KoloConstants.Operation.BalanceUpdateDirection.REMOVE, temp.Amount, out error);
+                customerBalanceHistories.Add(madBalanceHistory);
             }
 
 
@@ -72,6 +82,21 @@ namespace KoloWin.CustomerService.Utils.Transfert
         public static bool CheckCustomerBalance(Customer c, int amount)
         {
             return ((c.Balance - amount) > 0);
+        }
+
+        public static bool CheckCustomerBalance(int id, int amount)
+        {
+            var context = new KoloAndroidEntities();
+            try
+            {
+                Customer c = context.Customers.FirstOrDefault(custm => custm.IdCustomer == id);
+                return ((c.Balance - amount) > 0); ;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
 
     }

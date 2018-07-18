@@ -51,15 +51,61 @@ namespace KoloWin.CustomerService.Utils.General
             {
                 var tmp = t as TopUp;
                 tmp.Customer = db.Customers.Include("Person").FirstOrDefault(c => c.IdCustomer == tmp.IdCustomer);
+                
                 if (!CheckCustomerBalance(tmp.Customer, Int32.Parse(tmp.Amount)))
                 {
-                    KoloNotification n = KoloNotifiactionHelper.UnsuffisantBalanceNotification(tmp.Customer, KoloConstants.Operation.Category.TOPUPCAMTEL);
-                    koloNotifications.Add(n);
+
+                    switch (tmp.OperatorCode)
+                    {
+
+                        case nameof(KoloConstants.Operation.Category.ORANGE):
+                            KoloNotification n = KoloNotifiactionHelper.UnsuffisantBalanceNotification(tmp.Customer, KoloConstants.Operation.Category.ORANGE);
+                            koloNotifications.Add(n);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.MTN):
+                            n = KoloNotifiactionHelper.UnsuffisantBalanceNotification(tmp.Customer, KoloConstants.Operation.Category.MTN);
+                            koloNotifications.Add(n);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.NEXTTEL):
+                            n = KoloNotifiactionHelper.UnsuffisantBalanceNotification(tmp.Customer, KoloConstants.Operation.Category.NEXTTEL);
+                            koloNotifications.Add(n);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.YOOMEE):
+                            n = KoloNotifiactionHelper.UnsuffisantBalanceNotification(tmp.Customer, KoloConstants.Operation.Category.YOOMEE);
+                            koloNotifications.Add(n);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.CAMTEL):
+                            n = KoloNotifiactionHelper.UnsuffisantBalanceNotification(tmp.Customer, KoloConstants.Operation.Category.CAMTEL);
+                            koloNotifications.Add(n);
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 else
                 {
                     customerBalanceHistories = CustomerHistoryHelper.GenerateCustomerHistories<TopUp>(tmp, db, out error);
-                    koloNotifications = KoloNotifiactionHelper.GenerateNotification<TopUp>(tmp, KoloConstants.Operation.Category.SENDMAD, db, out error);
+                    switch (tmp.OperatorCode)
+                    {
+
+                        case nameof(KoloConstants.Operation.Category.ORANGE):
+                            koloNotifications = KoloNotifiactionHelper.GenerateNotification<TopUp>(tmp, KoloConstants.Operation.Category.ORANGE, db, out error);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.MTN):
+                            koloNotifications = KoloNotifiactionHelper.GenerateNotification<TopUp>(tmp, KoloConstants.Operation.Category.MTN, db, out error);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.NEXTTEL):
+                            koloNotifications = KoloNotifiactionHelper.GenerateNotification<TopUp>(tmp, KoloConstants.Operation.Category.NEXTTEL, db, out error);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.YOOMEE):
+                            koloNotifications = KoloNotifiactionHelper.GenerateNotification<TopUp>(tmp, KoloConstants.Operation.Category.YOOMEE, db, out error);
+                            break;
+                        case nameof(KoloConstants.Operation.Category.CAMTEL):
+                            koloNotifications = KoloNotifiactionHelper.GenerateNotification<TopUp>(tmp, KoloConstants.Operation.Category.CAMTEL, db, out error);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             else if (t.GetType() == typeof(TransferGravity))

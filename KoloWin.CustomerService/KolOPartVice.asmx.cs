@@ -55,9 +55,10 @@ namespace KoloWin.CustomerService
 
         #endregion
         
+
+
         #region Kolo MAD Methods
         
-
         [WebMethod]
         public string DoSendMad(string jsonKoloMadDetails)
         {
@@ -79,7 +80,8 @@ namespace KoloWin.CustomerService
         public string DoTopUp(string jsonTopUp)
         {
             string error = "";
-
+            TopUpDetails topDetails = SerializationHelper.DeserializeFromJsonString<TopUpDetails>(jsonTopUp);
+            var success = TopUpHelper.DoTopUp(topDetails, out error);
             return "";
         }
 
