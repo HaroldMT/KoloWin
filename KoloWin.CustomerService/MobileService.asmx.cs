@@ -109,6 +109,19 @@ namespace KoloWin.CustomerService
         }
 
         [WebMethod]
+        public string GetParameters()
+        {
+            var Context = new KoloAndroidEntities();
+            ParameterInfo parameters = new ParameterInfo();
+            String error;
+            parameters.Refresh(Context, out error);
+            KoloWsObject<ParameterInfo> koloWs = new KoloWsObject<ParameterInfo>(error, parameters);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            Context.Dispose();
+            return result;
+        }
+
+        [WebMethod]
         public string GetCustomerContacts(string contacts, string idCustomer)
         {
             var Context = new KoloAndroidEntities();
