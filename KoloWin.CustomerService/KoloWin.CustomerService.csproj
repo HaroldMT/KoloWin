@@ -504,6 +504,7 @@
     <Compile Include="Tag.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ToDo.cs" />
     <Compile Include="TopUp.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
