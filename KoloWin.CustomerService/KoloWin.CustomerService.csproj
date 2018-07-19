@@ -126,6 +126,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="KolOAcMerg.asmx" />
     <Content Include="KoloModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KoloModel.edmx</DependentUpon>
@@ -346,6 +347,10 @@
     </Compile>
     <Compile Include="GroupImage.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KolOAcMerg.asmx.cs">
+      <DependentUpon>KolOAcMerg.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="KoloModel.Context.cs">
       <AutoGen>True</AutoGen>
