@@ -14,6 +14,12 @@ namespace KoloWin.CustomerService
     
     public partial class Bill
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Bill()
+        {
+            this.BillDetails = new ObservableCollection<BillDetail>();
+        }
+    
         public int IdBill { get; set; }
         public int IdIssuingCustomer { get; set; }
         public int IdPayingCustomer { get; set; }
@@ -22,10 +28,13 @@ namespace KoloWin.CustomerService
         public System.DateTime DateIssued { get; set; }
         public int TotalBillAmount { get; set; }
         public int LeftToPay { get; set; }
+        public bool AllowPartialPayment { get; set; }
     
         public virtual RefBillStatu RefBillStatu { get; set; }
         public virtual RefBillType RefBillType { get; set; }
         public virtual Customer Issuer { get; set; }
         public virtual Customer Payer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<BillDetail> BillDetails { get; set; }
     }
 }

@@ -161,6 +161,9 @@
         <AssociationConnector Association="KoloModel.FK_ExternalAccount_CreditCardInfo1" />
         <EntityTypeShape EntityType="KoloModel.KoloNotification" Width="1.5" PointX="5.375" PointY="65.375" />
         <AssociationConnector Association="KoloModel.fk_Notification_Customer" />
+        <EntityTypeShape EntityType="KoloModel.BillDetail" Width="1.5" PointX="10.5" PointY="30" />
+        <AssociationConnector Association="KoloModel.FK_BillDetail_Bill" />
+        <AssociationConnector Association="KoloModel.fk_Customer_Mobile1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

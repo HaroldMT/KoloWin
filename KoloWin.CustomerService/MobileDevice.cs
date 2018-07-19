@@ -28,7 +28,9 @@ namespace KoloWin.CustomerService
         public string SimSerialNumber { get; set; }
         public string SimState { get; set; }
         public string SubscriberId { get; set; }
+        public int IdCustomer { get; set; }
     
         public virtual Customer Customer { get; set; }
+        public virtual Customer Customer1 { get; set; }
     }
 }

@@ -284,6 +284,9 @@
     <Compile Include="Bill.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BillDetail.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="BillPayment.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
@@ -504,6 +507,7 @@
     <Compile Include="Tag.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ToDo.cs" />
     <Compile Include="TopUp.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>

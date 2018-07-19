@@ -92,5 +92,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<TransferGravity> TransferGravities { get; set; }
         public virtual DbSet<CreditCardInfo> CreditCardInfoes { get; set; }
         public virtual DbSet<KoloNotification> KoloNotifications { get; set; }
+        public virtual DbSet<BillDetail> BillDetails { get; set; }
     }
 }

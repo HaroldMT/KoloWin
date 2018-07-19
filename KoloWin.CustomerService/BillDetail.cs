@@ -12,18 +12,16 @@ namespace KoloWin.CustomerService
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class BillPayment
+    public partial class BillDetail
     {
-        public int IdBillPayment { get; set; }
+        public int IdBillDetail { get; set; }
         public int IdBill { get; set; }
-        public int IdPayingCustomer { get; set; }
-        public int IdIssuingCustomer { get; set; }
-        public System.DateTime DatePaid { get; set; }
-        public Nullable<int> PaidAmount { get; set; }
-        public bool LastPayment { get; set; }
+        public string Description { get; set; }
+        public string Unit { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> UnitPrice { get; set; }
+        public Nullable<int> Amount { get; set; }
     
         public virtual Bill Bill { get; set; }
-        public virtual Customer Issuer { get; set; }
-        public virtual Customer Payer { get; set; }
     }
 }
