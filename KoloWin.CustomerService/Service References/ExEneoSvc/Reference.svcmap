@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExEneo.wsdl" MetadataType="Wsdl" ID="2f6325e1-5fcb-4bdf-b033-e8db8df36f64" SourceId="1" SourceUrl="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx?wsdl" />
-    <MetadataFile FileName="ExEneo.disco" MetadataType="Disco" ID="182761f5-68dd-4227-a21d-06eff5f1aefe" SourceId="1" SourceUrl="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx?disco" />
+    <MetadataFile FileName="ExEneo1.disco" MetadataType="Disco" ID="97e44b92-bafe-4010-9b40-d720f2fa7326" SourceId="1" SourceUrl="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx?disco" />
+    <MetadataFile FileName="ExEneo1.wsdl" MetadataType="Wsdl" ID="73f8279a-9db3-477e-82bc-cdd49ea17294" SourceId="1" SourceUrl="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

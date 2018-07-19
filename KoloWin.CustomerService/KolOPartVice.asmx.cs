@@ -79,5 +79,44 @@ namespace KoloWin.CustomerService
         }
 
         #endregion TopUp Methods
+
+        #region External Accounts Methods
+
+        [WebMethod]
+        public string AddExternalAccount(string json)
+        {
+            string error = "";
+            TopUpDetails topDetails = SerializationHelper.DeserializeFromJsonString<TopUpDetails>(jsonTopUp);
+            var success = TopUpHelper.DoTopUp(topDetails, out error);
+            KoloWsObject<TopUpDetails> koloWs = new KoloWsObject<TopUpDetails>(success, error, topDetails);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+        [WebMethod]
+        public string GetExternalAccounts(string jsonTopUp)
+        {
+            string error = "";
+            TopUpDetails topDetails = SerializationHelper.DeserializeFromJsonString<TopUpDetails>(jsonTopUp);
+            var success = TopUpHelper.DoTopUp(topDetails, out error);
+            KoloWsObject<TopUpDetails> koloWs = new KoloWsObject<TopUpDetails>(success, error, topDetails);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+        
+
+        [WebMethod]
+        public string GetExternalAccountsHistories(string jsonCustomerId)
+        {
+            string error = "";
+            TopUpDetails topDetails = SerializationHelper.DeserializeFromJsonString<TopUpDetails>(jsonCustomerId);
+            var success = TopUpHelper.DoTopUp(topDetails, out error);
+            KoloWsObject<TopUpDetails> koloWs = new KoloWsObject<TopUpDetails>(success, error, topDetails);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+        
+        #endregion
+
     }
 }

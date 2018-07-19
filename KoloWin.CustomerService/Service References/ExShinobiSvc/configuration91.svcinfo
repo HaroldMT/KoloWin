@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="d6AQVVJPznUPnkIVhQa2fw2RY7g=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QRnBvufZNgOP7E2yLBnnci1HrrU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ExShinobiSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ExShinobiSoap" contract="ExShinobiSvc.ExShinobiSoap" bindingType="basicHttpBinding" address="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" bindingConfiguration="ExShinobiSoap">
+    <endpoint name="ExShinobiSoap" contract="ExShinobiSvc.ExShinobiSoap" bindingType="basicHttpBinding" address="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" bindingConfiguration="ExShinobiSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx</serializedValue>
+          <serializedValue>http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

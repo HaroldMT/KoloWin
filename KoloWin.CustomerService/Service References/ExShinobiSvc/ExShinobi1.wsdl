@@ -179,10 +179,10 @@
   </wsdl:binding>
   <wsdl:service name="ExShinobi">
     <wsdl:port name="ExShinobiSoap" binding="tns:ExShinobiSoap">
-      <soap:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" />
+      <soap:address location="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" />
     </wsdl:port>
     <wsdl:port name="ExShinobiSoap12" binding="tns:ExShinobiSoap12">
-      <soap12:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" />
+      <soap12:address location="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

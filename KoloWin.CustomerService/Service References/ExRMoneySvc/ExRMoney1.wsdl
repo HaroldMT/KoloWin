@@ -134,10 +134,10 @@
   </wsdl:binding>
   <wsdl:service name="ExRMoney">
     <wsdl:port name="ExRMoneySoap" binding="tns:ExRMoneySoap">
-      <soap:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" />
+      <soap:address location="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" />
     </wsdl:port>
     <wsdl:port name="ExRMoneySoap12" binding="tns:ExRMoneySoap12">
-      <soap12:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" />
+      <soap12:address location="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

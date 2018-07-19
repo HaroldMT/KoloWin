@@ -107,7 +107,7 @@ namespace KoloWin.CustomerService
 
         [WebMethod]
         public string CancelBill(string jsonBill)
-        {
+        { 
             return "";
         }
 

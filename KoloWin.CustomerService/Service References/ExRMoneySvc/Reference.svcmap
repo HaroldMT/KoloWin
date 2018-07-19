@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExRMoney.wsdl" MetadataType="Wsdl" ID="fe2502d2-585a-4c14-ac69-e30d4a1bfd7b" SourceId="1" SourceUrl="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx?wsdl" />
-    <MetadataFile FileName="ExRMoney.disco" MetadataType="Disco" ID="01fc6da3-13de-41a9-a5e3-770b6e19253c" SourceId="1" SourceUrl="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx?disco" />
+    <MetadataFile FileName="ExRMoney1.wsdl" MetadataType="Wsdl" ID="4e338c9b-dc64-4458-b17a-407577b397b5" SourceId="1" SourceUrl="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx?wsdl" />
+    <MetadataFile FileName="ExRMoney1.disco" MetadataType="Disco" ID="bceab834-46fe-4151-b972-953a26aee5e1" SourceId="1" SourceUrl="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExRMoney.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
