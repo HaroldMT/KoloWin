@@ -51,6 +51,22 @@
           <Property Name="DateIssued" Type="datetime" Nullable="false" />
           <Property Name="TotalBillAmount" Type="int" Nullable="false" />
           <Property Name="LeftToPay" Type="int" Nullable="false" />
+          <Property Name="AllowPartialPayment" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Kolo.dbo.BillDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="IdBillDetail" />
+            <PropertyRef Name="IdBill" />
+          </Key>
+          <Property Name="IdBillDetail" Type="int" Nullable="false" />
+          <Property Name="IdBill" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="20" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="UnitPrice" Type="int" />
+          <Property Name="Amount" Type="int" />
         </EntityType>
         <EntityType Name="BillPayment">
           <Key>
@@ -62,6 +78,7 @@
           <Property Name="IdIssuingCustomer" Type="int" Nullable="false" />
           <Property Name="DatePaid" Type="datetime" Nullable="false" />
           <Property Name="PaidAmount" Type="int" />
+          <Property Name="LastPayment" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Business">
           <Key>
@@ -320,7 +337,8 @@
           <Key>
             <PropertyRef Name="IdMobileDevice" />
           </Key>
-          <Property Name="IdMobileDevice" Type="int" Nullable="false" />
+          <Property Name="IdMobileDevice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCustomer" Type="int" Nullable="false" />
           <Property Name="DeviceId" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="LineNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="NetworkCountryIso" Type="nvarchar" MaxLength="3" />
@@ -817,6 +835,18 @@ warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BillDetail_Bill">
+          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="IdBill" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="IdBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_BillPayement_Bill">
           <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
           <End Role="BillPayment" Type="Self.BillPayment" Multiplicity="*" />
@@ -979,13 +1009,13 @@ warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary 
           <End Role="Customer" Type="Self.Customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="MobileDevice" Type="Self.MobileDevice" Multiplicity="0..1" />
+          <End Role="MobileDevice" Type="Self.MobileDevice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="IdCustomer" />
             </Principal>
             <Dependent Role="MobileDevice">
-              <PropertyRef Name="IdMobileDevice" />
+              <PropertyRef Name="IdCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1858,6 +1888,17 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="TransfertP2p" EntityType="Self.TransfertP2p" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransfertScheduled" EntityType="Self.TransfertScheduled" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wholesaler" EntityType="Self.Wholesaler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillDetail" EntityType="Self.BillDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BillDetail].[IdBillDetail] AS [IdBillDetail], 
+    [BillDetail].[IdBill] AS [IdBill], 
+    [BillDetail].[Description] AS [Description], 
+    [BillDetail].[Unit] AS [Unit], 
+    [BillDetail].[Quantity] AS [Quantity], 
+    [BillDetail].[UnitPrice] AS [UnitPrice], 
+    [BillDetail].[Amount] AS [Amount]
+    FROM [dbo].[BillDetail] AS [BillDetail]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="TransferGravity" EntityType="Self.TransferGravity" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [TransferGravity].[TransferMadId] AS [TransferMadId], 
@@ -1912,6 +1953,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_Bill" Association="Self.fk_Bill">
             <End Role="RefBillStatus" EntitySet="RefBillStatus" />
             <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetail_Bill" Association="Self.FK_BillDetail_Bill">
+            <End Role="Bill" EntitySet="Bill" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
           <AssociationSet Name="fk_BillPayement_Bill" Association="Self.fk_BillPayement_Bill">
             <End Role="Bill" EntitySet="Bill" />
@@ -2299,6 +2344,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="RefBillType" Relationship="Self.fk_Facture" FromRole="Bill" ToRole="RefBillType" />
           <NavigationProperty Name="Issuer" Relationship="Self.fk_Facture_IssuingCustomer" FromRole="Bill" ToRole="Customer" />
           <NavigationProperty Name="Payer" Relationship="Self.fk_Facture_PayingCustomer" FromRole="Bill" ToRole="Customer" />
+          <Property Name="AllowPartialPayment" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BillDetails" Relationship="KoloModel.FK_BillDetail_Bill" FromRole="Bill" ToRole="BillDetail" />
         </EntityType>
         <EntityType Name="BillPayment">
           <Key>
@@ -2313,6 +2360,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="Bill" Relationship="Self.fk_BillPayement_Bill" FromRole="BillPayment" ToRole="Bill" />
           <NavigationProperty Name="Issuer" Relationship="Self.fk_BillPayment_IssuingCustomer" FromRole="BillPayment" ToRole="Customer" />
           <NavigationProperty Name="Payer" Relationship="Self.fk_BillPayment_PayingCustomer" FromRole="BillPayment" ToRole="Customer" />
+          <Property Name="LastPayment" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Business">
           <Key>
@@ -2387,6 +2435,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="GravityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GravityPercentage" Type="Int32" />
           <NavigationProperty Name="KoloNotifications" Relationship="KoloModel.fk_Notification_Customer" FromRole="Customer" ToRole="KoloNotification" />
+          <NavigationProperty Name="MobileDevices" Relationship="KoloModel.fk_Customer_Mobile1" FromRole="Customer" ToRole="MobileDevice" />
           </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -2577,6 +2626,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="SimState" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="SubscriberId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.fk_Customer_Mobile" FromRole="MobileDevice" ToRole="Customer" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer1" Relationship="KoloModel.fk_Customer_Mobile1" FromRole="MobileDevice" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Partner">
           <Key>
@@ -4363,6 +4414,15 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customers" />
             <End Role="KoloNotification" EntitySet="KoloNotifications" />
           </AssociationSet>
+          <EntitySet Name="BillDetails" EntityType="KoloModel.BillDetail" />
+          <AssociationSet Name="FK_BillDetail_Bill" Association="KoloModel.FK_BillDetail_Bill">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Customer_Mobile1" Association="KoloModel.fk_Customer_Mobile1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="MobileDevice" EntitySet="MobileDevices" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_TransfertP2p_Sender">
           <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
@@ -4517,6 +4577,46 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="IdBillDetail" />
+            <PropertyRef Name="IdBill" />
+          </Key>
+          <Property Name="IdBillDetail" Type="Int32" Nullable="false" />
+          <Property Name="IdBill" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="UnitPrice" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <NavigationProperty Name="Bill" Relationship="KoloModel.FK_BillDetail_Bill" FromRole="BillDetail" ToRole="Bill" />
+        </EntityType>
+        <Association Name="FK_BillDetail_Bill">
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="KoloModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="IdBill" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="IdBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Customer_Mobile1">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KoloModel.MobileDevice" Role="MobileDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="MobileDevice">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4563,6 +4663,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="KoloModel.Bill">
               <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="AllowPartialPayment" ColumnName="AllowPartialPayment" />
                 <ScalarProperty Name="IdBill" ColumnName="IdBill" />
                 <ScalarProperty Name="IdIssuingCustomer" ColumnName="IdIssuingCustomer" />
                 <ScalarProperty Name="IdPayingCustomer" ColumnName="IdPayingCustomer" />
@@ -4577,6 +4678,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="BillPayments">
             <EntityTypeMapping TypeName="KoloModel.BillPayment">
               <MappingFragment StoreEntitySet="BillPayment">
+                <ScalarProperty Name="LastPayment" ColumnName="LastPayment" />
                 <ScalarProperty Name="IdBillPayment" ColumnName="IdBillPayment" />
                 <ScalarProperty Name="IdBill" ColumnName="IdBill" />
                 <ScalarProperty Name="IdPayingCustomer" ColumnName="IdPayingCustomer" />
@@ -4813,6 +4915,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="MobileDevices">
             <EntityTypeMapping TypeName="KoloModel.MobileDevice">
               <MappingFragment StoreEntitySet="MobileDevice">
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
                 <ScalarProperty Name="IdMobileDevice" ColumnName="IdMobileDevice" />
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
                 <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
@@ -5263,6 +5366,19 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
                 <ScalarProperty Name="IdNotification" ColumnName="IdNotification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillDetails">
+            <EntityTypeMapping TypeName="KoloModel.BillDetail">
+              <MappingFragment StoreEntitySet="BillDetail">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
+                <ScalarProperty Name="IdBillDetail" ColumnName="IdBillDetail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
