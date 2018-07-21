@@ -34,7 +34,8 @@ namespace KoloWin.CustomerService
          * 
          * GetExternalAccountsHistoriesGlobal(idCustomer) : Added + filled not tested
          * GetExternalAccountsHistoriesSpecific(idCustomer) : Added + filled not tested
-         * 
+         * SyncAccountData(idCustomer) : Added not filled 
+         * GetAccountDatas : Added, filled , tested with json (Just Application test remining) 
          * 
          * 
          * KolOSphere 
@@ -46,5 +47,6 @@ namespace KoloWin.CustomerService
          * 
          * 
          * */
+
     }
 }

@@ -130,6 +130,26 @@ namespace KoloWin.CustomerService
             Context.Dispose();
             return result;
         }
+        
+        
+        [WebMethod]
+        public string GetAccountDatas(int idCustomer)
+        {
+            var Context = new KoloAndroidEntities();
+            Context.Configuration.ProxyCreationEnabled = false;
+            Customer customer = Context.Customers.FirstOrDefault(c => c.IdCustomer == idCustomer);
+            List<ExternalAccount> externalAccounts = Context.ExternalAccounts.Where(c => c.IdCustomer == idCustomer).ToList();
+            List<CreditCardInfo> cards = new List<CreditCardInfo>();
+            foreach(ExternalAccount e in externalAccounts)
+                if (e.IdCreditCard > 0)
+                    cards.Add(Context.CreditCardInfoes.FirstOrDefault(c => c.IdCreditCardInfo == e.IdCreditCard));
+            Person person = Context.People.FirstOrDefault(p => p.IdCustomer == idCustomer);
+            var tuple = new Tuple<Customer, List<ExternalAccount>, List<CreditCardInfo>, Person>(customer, externalAccounts, cards, person);
+            KoloWsObject<Tuple<Customer, List<ExternalAccount>, List<CreditCardInfo>, Person>> koloWs = new KoloWsObject<Tuple<Customer, List<ExternalAccount>, List<CreditCardInfo>, Person>>("", tuple);
+            Context.Dispose();
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
 
         #endregion
 
