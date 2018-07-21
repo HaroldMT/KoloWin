@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefIndustryCategory
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefIndustryCategory()
+        {
+            this.Businesses = new ObservableCollection<Business>();
+        }
+    
         public string IndustryCategoryCode { get; set; }
         public string IndustryCategoryDescrption { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Business> Businesses { get; set; }
     }
 }

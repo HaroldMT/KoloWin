@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefExternalAccountType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefExternalAccountType()
+        {
+            this.ExternalAccounts = new ObservableCollection<ExternalAccount>();
+        }
+    
         public string ExternalAccountTypeCode { get; set; }
         public string ExternalAccountTypeDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<ExternalAccount> ExternalAccounts { get; set; }
     }
 }

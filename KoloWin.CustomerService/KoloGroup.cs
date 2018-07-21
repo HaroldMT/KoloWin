@@ -12,20 +12,20 @@ namespace KoloWin.CustomerService
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class RefLoginStatu
+    public partial class KoloGroup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RefLoginStatu()
+        public KoloGroup()
         {
-            this.CustomerLogins = new ObservableCollection<CustomerLogin>();
+            this.KoloPermissions = new ObservableCollection<KoloPermission>();
             this.KoloUsers = new ObservableCollection<KoloUser>();
         }
     
-        public string LoginStatusCode { get; set; }
-        public string LoginStatusDescription { get; set; }
+        public string GroupCode { get; set; }
+        public string GroupDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<CustomerLogin> CustomerLogins { get; set; }
+        public virtual ObservableCollection<KoloPermission> KoloPermissions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<KoloUser> KoloUsers { get; set; }
     }

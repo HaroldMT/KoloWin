@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="c3yloaTJR49NPDbxnkdTl/VOySw=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="CDxmC86Zi5cETx63ZQuILllXSgw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ExEneoSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ExEneoSoap" contract="ExEneoSvc.ExEneoSoap" bindingType="basicHttpBinding" address="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" bindingConfiguration="ExEneoSoap">
+    <endpoint name="ExEneoSoap" contract="ExEneoSvc.ExEneoSoap" bindingType="basicHttpBinding" address="http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" bindingConfiguration="ExEneoSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx</serializedValue>
+          <serializedValue>http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

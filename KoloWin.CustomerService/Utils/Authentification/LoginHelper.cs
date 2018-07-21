@@ -14,7 +14,7 @@ namespace KoloWin.CustomerService.Util
             var loginTime = DateTime.Now;
             var idCustomer = loginAttempt.IdCustomer;
             var customer = db.Customers
-                .Include("MobileDevice").Include("Person").Include("Registration")
+                .Include("MobileDevices").Include("Person").Include("Registration")
                 .FirstOrDefault(c => c.IdCustomer == idCustomer);
             if (customer != null)
             {

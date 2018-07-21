@@ -56,9 +56,9 @@ namespace KoloWin.CustomerService.Utils.General
             {
                 int id = Int32.Parse(idCustomer);
                 var Context = new KoloAndroidEntities4Serialization();
-                Customer c = Context.Customers.Include("Person").Include("MobileDevice").FirstOrDefault(customer =>  customer.IdCustomer == id);
+                Customer c = Context.Customers.Include("Person").Include("MobileDevices").FirstOrDefault(customer =>  customer.IdCustomer == id);
                 ExEneoSvc.ExEneoSoapClient exWS4Kolo = new ExEneoSvc.ExEneoSoapClient();
-                var tmp = exWS4Kolo.PayENEO(c.MobileDevice.LineNumber,numeroFacture, c.Person.Firstname + " " + c.Person.Lastname);
+                var tmp = exWS4Kolo.PayENEO(c.MobileDevices[0].LineNumber,numeroFacture, c.Person.Firstname + " " + c.Person.Lastname);
                 EneoBillPayment eBP = new EneoBillPayment();
                 if (tmp.IsSucces)
                 {

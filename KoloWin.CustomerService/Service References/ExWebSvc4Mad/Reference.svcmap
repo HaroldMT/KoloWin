@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExWebSvc1.wsdl" MetadataType="Wsdl" ID="ec99e3b6-866e-406d-ac83-60db2a6a2484" SourceId="1" SourceUrl="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx?wsdl" />
-    <MetadataFile FileName="ExWebSvc1.disco" MetadataType="Disco" ID="f4e302e4-d9c6-4877-9bc7-ca1fc035337d" SourceId="1" SourceUrl="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx?disco" />
+    <MetadataFile FileName="ExWebSvc1.disco" MetadataType="Disco" ID="d63b52b7-5f11-41ae-b07f-410b3cdc60e3" SourceId="1" SourceUrl="http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx?disco" />
+    <MetadataFile FileName="ExWebSvc1.wsdl" MetadataType="Wsdl" ID="915f2ba1-d49f-46db-985c-347bb6089552" SourceId="1" SourceUrl="http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

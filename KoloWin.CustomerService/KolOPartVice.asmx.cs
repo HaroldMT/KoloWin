@@ -79,5 +79,57 @@ namespace KoloWin.CustomerService
         }
 
         #endregion TopUp Methods
+
+        #region External Accounts Methods
+
+        [WebMethod]
+        public string AddExternalAccount(string jsonExternalAccount)
+        {
+            string error = "";
+            ExternalAccount externalAccount = SerializationHelper.DeserializeFromJsonString<ExternalAccount>(jsonExternalAccount);
+            ExternalAccountHelper.AddExternalAccount(ref externalAccount, out error);
+            KoloWsObject<ExternalAccount> koloWs = new KoloWsObject<ExternalAccount>(error,externalAccount);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+        [WebMethod]
+        public string GetExternalAccounts(string jsonIdCustomer)
+        {
+            string error = "";
+            Customer customer = SerializationHelper.DeserializeFromJsonString<Customer>(jsonIdCustomer);
+            List<ExternalAccount> externalAccounts = ExternalAccountHelper.GetExternalAccounts(customer, out error);
+            KoloWsObject<List<ExternalAccount>> koloWs = new KoloWsObject<List<ExternalAccount>>(error, externalAccounts);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+
+        [WebMethod]
+        public string UpdateExternalAccount(string jsonExternalAccount)
+        {
+            string error = "";
+            ExternalAccount externalAccount = SerializationHelper.DeserializeFromJsonString<ExternalAccount>(jsonExternalAccount);
+            var tmp = ExternalAccountHelper.UpdateExternalAccount(externalAccount, out error);
+            KoloWsObject<ExternalAccount> koloWs = new KoloWsObject<ExternalAccount>(error, tmp);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+
+        [WebMethod]
+        public string RemoveExternalAccount(string jsonExternalAccount)
+        {
+            string error = "";
+            ExternalAccount externalAccount = SerializationHelper.DeserializeFromJsonString<ExternalAccount>(jsonExternalAccount);
+            var isRemoved = ExternalAccountHelper.RemoveExternalAccount(externalAccount, out error);
+            KoloWsObject<ExternalAccount> koloWs = new KoloWsObject<ExternalAccount>(isRemoved, error, externalAccount);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+
+        #endregion
+
     }
 }

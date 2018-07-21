@@ -15,6 +15,7 @@ namespace KoloWin.CustomerService
     public partial class MobileDevice
     {
         public int IdMobileDevice { get; set; }
+        public int IdCustomer { get; set; }
         public string DeviceId { get; set; }
         public string LineNumber { get; set; }
         public string NetworkCountryIso { get; set; }
@@ -28,9 +29,7 @@ namespace KoloWin.CustomerService
         public string SimSerialNumber { get; set; }
         public string SimState { get; set; }
         public string SubscriberId { get; set; }
-        public int IdCustomer { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Customer Customer1 { get; set; }
     }
 }

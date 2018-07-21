@@ -14,7 +14,19 @@ namespace KoloWin.CustomerService
     
     public partial class RefTransfertStatu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefTransfertStatu()
+        {
+            this.TransfertE2e = new ObservableCollection<TransfertE2e>();
+            this.TransfertGroups = new ObservableCollection<TransfertGroup>();
+        }
+    
         public string TransfertStatusCode { get; set; }
         public string TransfertStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertE2e> TransfertE2e { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertGroup> TransfertGroups { get; set; }
     }
 }

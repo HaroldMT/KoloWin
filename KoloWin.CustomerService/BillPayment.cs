@@ -19,11 +19,11 @@ namespace KoloWin.CustomerService
         public int IdPayingCustomer { get; set; }
         public int IdIssuingCustomer { get; set; }
         public System.DateTime DatePaid { get; set; }
-        public Nullable<int> PaidAmount { get; set; }
+        public int PaidAmount { get; set; }
         public bool LastPayment { get; set; }
     
         public virtual Bill Bill { get; set; }
-        public virtual Customer Issuer { get; set; }
-        public virtual Customer Payer { get; set; }
+        public virtual Customer IssuingCustomer { get; set; }
+        public virtual Customer PayingCustomer { get; set; }
     }
 }

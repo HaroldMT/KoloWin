@@ -126,6 +126,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="KolOAcMerg.asmx" />
     <Content Include="KoloModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KoloModel.edmx</DependentUpon>
@@ -151,9 +152,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\EeTest.pubxml" />
-    <None Include="Service References\ExEneoSvc\ExEneo.disco" />
     <None Include="Service References\ExEneoSvc\configuration91.svcinfo" />
     <None Include="Service References\ExEneoSvc\configuration.svcinfo" />
+    <None Include="Service References\ExEneoSvc\ExEneo.disco" />
     <Content Include="Service References\ExEneoSvc\KoloWin.CustomerService.ExEneoSvc.FindEneoByBillAccountResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -175,13 +176,14 @@
     <Content Include="Service References\ExEneoSvc\KoloWin.CustomerService.ExEneoSvc.ExWebResponseOfUnpaidBill.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\ExEneoSvc\ExEneo.wsdl" />
     <None Include="Service References\ExEneoSvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ExRMoneySvc\ExRMoney.disco" />
     <None Include="Service References\ExRMoneySvc\configuration91.svcinfo" />
     <None Include="Service References\ExRMoneySvc\configuration.svcinfo" />
+    <None Include="Service References\ExRMoneySvc\ExRMoney.disco" />
     <Content Include="Service References\ExRMoneySvc\KoloWin.CustomerService.ExRMoneySvc.SendAirTimeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -191,13 +193,14 @@
     <Content Include="Service References\ExRMoneySvc\KoloWin.CustomerService.ExRMoneySvc.AirMoneyWebResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\ExRMoneySvc\ExRMoney.wsdl" />
     <None Include="Service References\ExRMoneySvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ExShinobiSvc\ExShinobi.disco" />
     <None Include="Service References\ExShinobiSvc\configuration91.svcinfo" />
     <None Include="Service References\ExShinobiSvc\configuration.svcinfo" />
+    <None Include="Service References\ExShinobiSvc\ExShinobi.disco" />
     <Content Include="Service References\ExShinobiSvc\KoloWin.CustomerService.ExShinobiSvc.FindTransactionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -207,13 +210,11 @@
     <Content Include="Service References\ExShinobiSvc\KoloWin.CustomerService.ExShinobiSvc.ShinobiWebResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\ExShinobiSvc\ExShinobi.wsdl" />
     <None Include="Service References\ExShinobiSvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ExEneoSvc\ExEneo.wsdl" />
-    <None Include="Service References\ExRMoneySvc\ExRMoney.wsdl" />
-    <None Include="Service References\ExShinobiSvc\ExShinobi.wsdl" />
     <None Include="Service References\ExWebSvc4Mad\ExWebSvc1.disco" />
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -347,6 +348,13 @@
     <Compile Include="GroupImage.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="KolOAcMerg.asmx.cs">
+      <DependentUpon>KolOAcMerg.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KoloGroup.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KoloModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -369,11 +377,17 @@
       <DependentUpon>KolOPartVice.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KoloPermission.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KolOSphere.asmx.cs">
       <DependentUpon>KolOSphere.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="KoloSystemAction.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloSystemHistory.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KolOthenticor.asmx.cs">
@@ -541,6 +555,7 @@
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
     <Compile Include="Utils\General\EneoHelper.cs" />
     <Compile Include="Utils\General\ExceptionHelper.cs" />
+    <Compile Include="Utils\General\ExternalAccountHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
     <Compile Include="Utils\General\KoloNotifiactionHelper.cs" />

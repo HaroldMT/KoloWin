@@ -37,14 +37,14 @@ namespace KoloWin.CustomerService
             return refGender;
         }
 
-        [WebMethod]
-        public void CreatePerson(string jsonPerson)
-        {
-            var person = SerializationHelper.DeserializeFromJsonString<Person>(jsonPerson);
-            var Context = new KoloAndroidEntities();
-            Context.People.Add(person);
-            Context.Dispose();
-        }
+        //[WebMethod]
+        //public void CreatePerson(string jsonPerson)
+        //{
+        //    var person = SerializationHelper.DeserializeFromJsonString<Person>(jsonPerson);
+        //    var Context = new KoloAndroidEntities();
+        //    Context.People.Add(person);
+        //    Context.Dispose();
+        //}
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
@@ -58,18 +58,18 @@ namespace KoloWin.CustomerService
 
         #region Generals Methods
 
-        [WebMethod]
-        public string InsertMobileDevice(string jsonMobileDevice)
-        {
-            string error = "";
-            MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
-            var context = new KoloAndroidEntities4Serialization();
-            mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out error);
-            KoloWsObject<MobileDevice> koloWs = new KoloWsObject<MobileDevice>(error, mobileDevice);
-            var result = SerializationHelper.SerializeToJson(koloWs);
-            context.Dispose();
-            return result;
-        }
+        //[WebMethod]
+        //public string InsertMobileDevice(string jsonMobileDevice)
+        //{
+        //    string error = "";
+        //    MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice) as MobileDevice;
+        //    var context = new KoloAndroidEntities4Serialization();
+        //    mobileDevice = MobileDeviceHelper.InsertMobileDevice(ref mobileDevice, context, out error);
+        //    KoloWsObject<MobileDevice> koloWs = new KoloWsObject<MobileDevice>(error, mobileDevice);
+        //    var result = SerializationHelper.SerializeToJson(koloWs);
+        //    context.Dispose();
+        //    return result;
+        //}
 
         [WebMethod]
         public string GetCustomerByIdCustomerAndNumber(int idCustomer, string number)
@@ -226,7 +226,31 @@ namespace KoloWin.CustomerService
             return result;
         }
 
-        
+
+        [WebMethod]
+        public string GetExternalAccountsHistoriesGlobal(string jsonCustomer)
+        {
+            string error = "";
+            Customer customer = SerializationHelper.DeserializeFromJsonString<Customer>(jsonCustomer);
+            List<ExternalAccountHistory> externalAccountHistories = ExternalAccountHelper.GetExternalAccountsHistoriesGlobal(customer, out error);
+            KoloWsObject<List<ExternalAccountHistory>> koloWs = new KoloWsObject<List<ExternalAccountHistory>>( error, externalAccountHistories);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+
+        [WebMethod]
+        public string GetExternalAccountsHistoriesSpecific(string jsonExternalAccount)
+        {
+            string error = "";
+            ExternalAccount externalAccount = SerializationHelper.DeserializeFromJsonString<ExternalAccount>(jsonExternalAccount);
+            List<ExternalAccountHistory> externalAccountHistories = ExternalAccountHelper.GetExternalAccountsHistoriesSpecific(externalAccount, out error);
+            KoloWsObject<List<ExternalAccountHistory>> koloWs = new KoloWsObject<List<ExternalAccountHistory>>(error, externalAccountHistories);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            return result;
+        }
+
+
         #endregion
 
     }

@@ -14,7 +14,19 @@ namespace KoloWin.CustomerService
     
     public partial class RefOperationStatu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefOperationStatu()
+        {
+            this.AccountOperations = new ObservableCollection<AccountOperation>();
+            this.AccountOperationRequests = new ObservableCollection<AccountOperationRequest>();
+        }
+    
         public string OperationStatusCode { get; set; }
         public string OperationStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<AccountOperation> AccountOperations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<AccountOperationRequest> AccountOperationRequests { get; set; }
     }
 }

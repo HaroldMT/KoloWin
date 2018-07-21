@@ -511,10 +511,10 @@
   </wsdl:binding>
   <wsdl:service name="ExWebSvc">
     <wsdl:port name="ExWebSvcSoap" binding="tns:ExWebSvcSoap">
-      <soap:address location="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx" />
+      <soap:address location="http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx" />
     </wsdl:port>
     <wsdl:port name="ExWebSvcSoap12" binding="tns:ExWebSvcSoap12">
-      <soap12:address location="http://88791d80.ngrok.io/ExWebSvc/ExWebSvc.asmx" />
+      <soap12:address location="http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

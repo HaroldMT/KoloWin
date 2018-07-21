@@ -14,8 +14,17 @@ namespace KoloWin.CustomerService
     
     public partial class District
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public District()
+        {
+            this.Cities = new ObservableCollection<City>();
+        }
+    
         public int IdDistrict { get; set; }
         public string DistrictName { get; set; }
         public string CountryCode { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<City> Cities { get; set; }
     }
 }

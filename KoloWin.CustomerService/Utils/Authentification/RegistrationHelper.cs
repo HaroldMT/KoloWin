@@ -64,22 +64,24 @@ namespace KoloWin.CustomerService.Util
                 Pwd = pwd.Item1,
                 PwdSalt = pwd.Item2,
             };
+
+            List<MobileDevice> mobiles = new List<MobileDevice>();
+            mobiles.Add(mobileDevice);
+
             var customer = new Customer()
             {
                 Balance = 0,
                 CurrencyCode = "XAF",
                 CustomerTypeCode = "Standard",
                 DateCreated = timeCreated,
-                MobileDevice = mobileDevice,
+                MobileDevices = new System.Collections.ObjectModel.ObservableCollection<MobileDevice>(mobiles),
                 Person = person,
                 IdRegistration = registration.IdRegistration,
                 CustomerLogin = customerLogin,
             };
             return customer;
         }
-
-
-
+        
         public static Registration DoRegistration(Registration registration, KoloAndroidEntities db,out string error)
         {
             error = "";
@@ -156,5 +158,7 @@ namespace KoloWin.CustomerService.Util
             }
             return new Customer() { IdCustomer = -10 };
         }
+
+
     }
 }

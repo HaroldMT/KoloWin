@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefResult
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefResult()
+        {
+            this.LoginAttempts = new ObservableCollection<LoginAttempt>();
+        }
+    
         public string ResultCode { get; set; }
         public string ResultDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<LoginAttempt> LoginAttempts { get; set; }
     }
 }

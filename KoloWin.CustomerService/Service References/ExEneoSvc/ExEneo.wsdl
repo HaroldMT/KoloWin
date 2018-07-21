@@ -340,10 +340,10 @@
   </wsdl:binding>
   <wsdl:service name="ExEneo">
     <wsdl:port name="ExEneoSoap" binding="tns:ExEneoSoap">
-      <soap:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" />
+      <soap:address location="http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" />
     </wsdl:port>
     <wsdl:port name="ExEneoSoap12" binding="tns:ExEneoSoap12">
-      <soap12:address location="http://88791d80.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" />
+      <soap12:address location="http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExEneo.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

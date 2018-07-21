@@ -14,11 +14,19 @@ namespace KoloWin.CustomerService
     
     public partial class Business
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Business()
+        {
+            this.BusinessContacts = new ObservableCollection<BusinessContact>();
+        }
+    
         public int IdCustomer { get; set; }
         public string IndustryCategoryCode { get; set; }
         public string BusinessName { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual RefIndustryCategory RefIndustryCategory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<BusinessContact> BusinessContacts { get; set; }
     }
 }

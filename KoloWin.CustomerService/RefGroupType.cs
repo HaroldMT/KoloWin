@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefGroupType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefGroupType()
+        {
+            this.CustomerGroups = new ObservableCollection<CustomerGroup>();
+        }
+    
         public string GroupTypeCode { get; set; }
         public string GroupTypeDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<CustomerGroup> CustomerGroups { get; set; }
     }
 }
