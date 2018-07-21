@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="+HC9TL0aDPaCuVMGGVRHZtTzptE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="cx646d2il3IrB9uHP5tquRYgQAM=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ExWebSvcSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ExWebSvcSoap" contract="ExWebSvc4Mad.ExWebSvcSoap" bindingType="basicHttpBinding" address="http://968630c1.ngrok.io/ExWebSvc/ExWebSvc.asmx" bindingConfiguration="ExWebSvcSoap">
+    <endpoint name="ExWebSvcSoap" contract="ExWebSvc4Mad.ExWebSvcSoap" bindingType="basicHttpBinding" address="http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx" bindingConfiguration="ExWebSvcSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://968630c1.ngrok.io/ExWebSvc/ExWebSvc.asmx</serializedValue>
+          <serializedValue>http://bdc473d5.ngrok.io/ExWebSvc/ExWebSvc.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

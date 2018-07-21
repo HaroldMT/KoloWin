@@ -154,7 +154,7 @@
     <None Include="Properties\PublishProfiles\EeTest.pubxml" />
     <None Include="Service References\ExEneoSvc\configuration91.svcinfo" />
     <None Include="Service References\ExEneoSvc\configuration.svcinfo" />
-    <None Include="Service References\ExEneoSvc\ExEneo1.disco" />
+    <None Include="Service References\ExEneoSvc\ExEneo.disco" />
     <Content Include="Service References\ExEneoSvc\KoloWin.CustomerService.ExEneoSvc.FindEneoByBillAccountResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -176,14 +176,14 @@
     <Content Include="Service References\ExEneoSvc\KoloWin.CustomerService.ExEneoSvc.ExWebResponseOfUnpaidBill.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ExEneoSvc\ExEneo1.wsdl" />
+    <None Include="Service References\ExEneoSvc\ExEneo.wsdl" />
     <None Include="Service References\ExEneoSvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\ExRMoneySvc\configuration91.svcinfo" />
     <None Include="Service References\ExRMoneySvc\configuration.svcinfo" />
-    <None Include="Service References\ExRMoneySvc\ExRMoney1.disco" />
+    <None Include="Service References\ExRMoneySvc\ExRMoney.disco" />
     <Content Include="Service References\ExRMoneySvc\KoloWin.CustomerService.ExRMoneySvc.SendAirTimeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -193,14 +193,14 @@
     <Content Include="Service References\ExRMoneySvc\KoloWin.CustomerService.ExRMoneySvc.AirMoneyWebResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ExRMoneySvc\ExRMoney1.wsdl" />
+    <None Include="Service References\ExRMoneySvc\ExRMoney.wsdl" />
     <None Include="Service References\ExRMoneySvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\ExShinobiSvc\configuration91.svcinfo" />
     <None Include="Service References\ExShinobiSvc\configuration.svcinfo" />
-    <None Include="Service References\ExShinobiSvc\ExShinobi1.disco" />
+    <None Include="Service References\ExShinobiSvc\ExShinobi.disco" />
     <Content Include="Service References\ExShinobiSvc\KoloWin.CustomerService.ExShinobiSvc.FindTransactionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -210,12 +210,12 @@
     <Content Include="Service References\ExShinobiSvc\KoloWin.CustomerService.ExShinobiSvc.ShinobiWebResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ExShinobiSvc\ExShinobi1.wsdl" />
+    <None Include="Service References\ExShinobiSvc\ExShinobi.wsdl" />
     <None Include="Service References\ExShinobiSvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ExWebSvc4Mad\ExWebSvc.disco" />
+    <None Include="Service References\ExWebSvc4Mad\ExWebSvc1.disco" />
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.AirMoneyPartnerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -252,7 +252,7 @@
     <Content Include="Service References\ExWebSvc4Mad\KoloWin.CustomerService.ExWebSvc4Mad.SendSmsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ExWebSvc4Mad\ExWebSvc.wsdl" />
+    <None Include="Service References\ExWebSvc4Mad\ExWebSvc1.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

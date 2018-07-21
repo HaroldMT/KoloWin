@@ -7,6 +7,7 @@ namespace KoloWin.CustomerService.Model
 {
     public class P2pTransferDetails
     {
+        public int TransfertId { get; set; }
         public int SenderIdCustomer { get; set; }
         public String SenderTelephone { get; set; }
         public String SenderLastName { get; set; }
@@ -32,6 +33,7 @@ namespace KoloWin.CustomerService.Model
 
         public P2pTransferDetails(TransfertP2p transfer)
         {
+            this.TransfertId = transfer.IdTransfertP2p;
             Customer sender = transfer.Sender;
             Customer receiver = transfer.Receiver;
             this.SenderFirstName = sender.Person.Firstname ?? "";

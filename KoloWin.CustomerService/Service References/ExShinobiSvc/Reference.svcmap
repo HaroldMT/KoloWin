@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExShinobi1.wsdl" MetadataType="Wsdl" ID="f91ff0e7-13c8-4360-8e92-0814b0d99199" SourceId="1" SourceUrl="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx?wsdl" />
-    <MetadataFile FileName="ExShinobi1.disco" MetadataType="Disco" ID="02948069-e02e-4069-8c6d-f01243b63624" SourceId="1" SourceUrl="http://968630c1.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx?disco" />
+    <MetadataFile FileName="ExShinobi.wsdl" MetadataType="Wsdl" ID="58f17238-f5ec-490e-af08-2db7ae6bea6c" SourceId="1" SourceUrl="http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx?wsdl" />
+    <MetadataFile FileName="ExShinobi.disco" MetadataType="Disco" ID="83e70ff3-bcac-42a7-a37f-6301310e8958" SourceId="1" SourceUrl="http://bdc473d5.ngrok.io/Gravity.Partners.PartVice/ExShinobi.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
