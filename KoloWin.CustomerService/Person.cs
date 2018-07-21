@@ -14,6 +14,13 @@ namespace KoloWin.CustomerService
     
     public partial class Person
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Person()
+        {
+            this.BusinessContacts = new ObservableCollection<BusinessContact>();
+            this.PersonRelationships = new ObservableCollection<PersonRelationship>();
+        }
+    
         public int IdCustomer { get; set; }
         public string GenderCode { get; set; }
         public string MaritalStatusCode { get; set; }
@@ -24,11 +31,15 @@ namespace KoloWin.CustomerService
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string CountryCode { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<BusinessContact> BusinessContacts { get; set; }
         public virtual Country Country { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual KoloUser KoloUser { get; set; }
         public virtual RefGender RefGender { get; set; }
         public virtual RefMaritalStatu RefMaritalStatu { get; set; }
         public virtual PersonRelationship PersonRelationship { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<PersonRelationship> PersonRelationships { get; set; }
     }
 }

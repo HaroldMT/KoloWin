@@ -352,6 +352,9 @@
       <DependentUpon>KolOAcMerg.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KoloGroup.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KoloModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -374,11 +377,17 @@
       <DependentUpon>KolOPartVice.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KoloPermission.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KolOSphere.asmx.cs">
       <DependentUpon>KolOSphere.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="KoloSystemAction.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KoloSystemHistory.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KolOthenticor.asmx.cs">
@@ -546,6 +555,7 @@
     <Compile Include="Utils\Entities\MobileDeviceHelper.cs" />
     <Compile Include="Utils\General\EneoHelper.cs" />
     <Compile Include="Utils\General\ExceptionHelper.cs" />
+    <Compile Include="Utils\General\ExternalAccountHelper.cs" />
     <Compile Include="Utils\General\KoloConstants.cs" />
     <Compile Include="Utils\General\KoloEntities4Serialization.cs" />
     <Compile Include="Utils\General\KoloNotifiactionHelper.cs" />

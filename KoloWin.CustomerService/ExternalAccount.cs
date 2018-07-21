@@ -14,13 +14,26 @@ namespace KoloWin.CustomerService
     
     public partial class ExternalAccount
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ExternalAccount()
+        {
+            this.ExternalAccountHistories = new ObservableCollection<ExternalAccountHistory>();
+            this.TransfertE2e = new ObservableCollection<TransfertE2e>();
+        }
+    
         public int IdExternalAccount { get; set; }
         public string ExternalLogin { get; set; }
         public string ExternalPwd { get; set; }
         public string ExternalAccountTypeCode { get; set; }
         public Nullable<int> IdCreditCard { get; set; }
+        public int IdCustomer { get; set; }
     
-        public virtual RefExternalAccountType RefExternalAccountType { get; set; }
         public virtual CreditCardInfo CreditCardInfo { get; set; }
+        public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<ExternalAccountHistory> ExternalAccountHistories { get; set; }
+        public virtual RefExternalAccountType RefExternalAccountType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertE2e> TransfertE2e { get; set; }
     }
 }

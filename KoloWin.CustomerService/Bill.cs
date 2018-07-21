@@ -18,12 +18,13 @@ namespace KoloWin.CustomerService
         public Bill()
         {
             this.BillDetails = new ObservableCollection<BillDetail>();
+            this.BillPayments = new ObservableCollection<BillPayment>();
         }
     
         public int IdBill { get; set; }
         public int IdIssuingCustomer { get; set; }
         public int IdPayingCustomer { get; set; }
-        public string CodeRefFactureType { get; set; }
+        public string CodeRefBillType { get; set; }
         public string CodeRefBillStatus { get; set; }
         public System.DateTime DateIssued { get; set; }
         public int TotalBillAmount { get; set; }
@@ -31,10 +32,12 @@ namespace KoloWin.CustomerService
         public bool AllowPartialPayment { get; set; }
     
         public virtual RefBillStatu RefBillStatu { get; set; }
-        public virtual RefBillType RefBillType { get; set; }
-        public virtual Customer Issuer { get; set; }
-        public virtual Customer Payer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<BillDetail> BillDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<BillPayment> BillPayments { get; set; }
+        public virtual RefBillType RefBillType { get; set; }
+        public virtual Customer IssuingCustomer { get; set; }
+        public virtual Customer PayingCustomer { get; set; }
     }
 }

@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefPartnerType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefPartnerType()
+        {
+            this.Partners = new ObservableCollection<Partner>();
+        }
+    
         public string PartnerTypeCode { get; set; }
         public string PartnerTypeDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Partner> Partners { get; set; }
     }
 }

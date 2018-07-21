@@ -14,6 +14,15 @@ namespace KoloWin.CustomerService
     
     public partial class CustomerGroup
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CustomerGroup()
+        {
+            this.RecurringContributions = new ObservableCollection<RecurringContribution>();
+            this.TransfertGroups = new ObservableCollection<TransfertGroup>();
+            this.TransfertGroupScheduleds = new ObservableCollection<TransfertGroupScheduled>();
+            this.Customers = new ObservableCollection<Customer>();
+        }
+    
         public int IdCustomerGroup { get; set; }
         public int IdMemberCustomer { get; set; }
         public string GroupTypeCode { get; set; }
@@ -23,5 +32,13 @@ namespace KoloWin.CustomerService
         public virtual Customer Customer { get; set; }
         public virtual RefGroupType RefGroupType { get; set; }
         public virtual GroupImage GroupImage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<RecurringContribution> RecurringContributions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertGroup> TransfertGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertGroupScheduled> TransfertGroupScheduleds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Customer> Customers { get; set; }
     }
 }

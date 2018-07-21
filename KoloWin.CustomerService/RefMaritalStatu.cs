@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefMaritalStatu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefMaritalStatu()
+        {
+            this.People = new ObservableCollection<Person>();
+        }
+    
         public string MaritalStatusCode { get; set; }
         public string MaritalStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Person> People { get; set; }
     }
 }

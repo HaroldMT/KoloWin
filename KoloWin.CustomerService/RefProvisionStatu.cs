@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefProvisionStatu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefProvisionStatu()
+        {
+            this.Provisions = new ObservableCollection<Provision>();
+        }
+    
         public string ProvisionStatusCode { get; set; }
         public string ProvisionStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Provision> Provisions { get; set; }
     }
 }

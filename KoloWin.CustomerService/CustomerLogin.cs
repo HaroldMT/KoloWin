@@ -14,6 +14,12 @@ namespace KoloWin.CustomerService
     
     public partial class CustomerLogin
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CustomerLogin()
+        {
+            this.LoginAttempts = new ObservableCollection<LoginAttempt>();
+        }
+    
         public int IdCustomer { get; set; }
         public string Number { get; set; }
         public Nullable<bool> NumberVerified { get; set; }
@@ -27,5 +33,7 @@ namespace KoloWin.CustomerService
     
         public virtual Customer Customer { get; set; }
         public virtual RefLoginStatu RefLoginStatu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<LoginAttempt> LoginAttempts { get; set; }
     }
 }

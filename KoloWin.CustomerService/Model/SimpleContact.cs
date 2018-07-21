@@ -25,7 +25,7 @@ namespace KoloWin.CustomerService.Model
             this.LastName = customer.Person.Lastname;
             this.IdCustomer = customer.IdCustomer;
             this.Email = customer.Registration.Email;
-            this.Telephone = customer.MobileDevice.LineNumber ?? customer.Registration.PhoneNumber;
+            this.Telephone = customer.MobileDevices[0].LineNumber ?? customer.Registration.PhoneNumber;
         }
     }
 }

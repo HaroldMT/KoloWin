@@ -11,6 +11,7 @@ namespace KoloWin.CustomerService.Utils.General
     {
         public static class Operation
         {
+
             public enum Category
             {
                 [Description("TRANSFERT_SEND_ACCOUNT_TO_ACCOUNT")]
@@ -73,8 +74,18 @@ namespace KoloWin.CustomerService.Utils.General
             {
                 ADD,REMOVE
             }
+
         }
-        
+
+        public static class ExternalAccount
+        {
+            public enum Management
+            {
+                ADD, DELETE , UPDATE
+            }
+
+        }
+
         public static string GetEnumDescription(Enum en)
         {
             Type type = en.GetType();

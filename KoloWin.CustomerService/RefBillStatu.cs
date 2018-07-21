@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefBillStatu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefBillStatu()
+        {
+            this.Bills = new ObservableCollection<Bill>();
+        }
+    
         public string BillStatusCode { get; set; }
         public string BillStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Bill> Bills { get; set; }
     }
 }

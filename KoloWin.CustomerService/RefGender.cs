@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefGender
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefGender()
+        {
+            this.People = new ObservableCollection<Person>();
+        }
+    
         public string GenderCode { get; set; }
         public string GenderDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Person> People { get; set; }
     }
 }

@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefPersonRelationshipType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefPersonRelationshipType()
+        {
+            this.PersonRelationships = new ObservableCollection<PersonRelationship>();
+        }
+    
         public string RelationshipTypeCode { get; set; }
         public string RelationshipTypeDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<PersonRelationship> PersonRelationships { get; set; }
     }
 }

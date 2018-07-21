@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefCustomerType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefCustomerType()
+        {
+            this.Customers = new ObservableCollection<Customer>();
+        }
+    
         public string CustomerTypeCode { get; set; }
         public string CustomerTypeDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Customer> Customers { get; set; }
     }
 }

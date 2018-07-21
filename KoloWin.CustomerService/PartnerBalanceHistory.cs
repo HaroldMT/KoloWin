@@ -14,11 +14,23 @@ namespace KoloWin.CustomerService
     
     public partial class PartnerBalanceHistory
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PartnerBalanceHistory()
+        {
+            this.AccountOperations = new ObservableCollection<AccountOperation>();
+            this.Provisions = new ObservableCollection<Provision>();
+        }
+    
         public int IdPatnerHistory { get; set; }
         public int IdPartnerAccount { get; set; }
         public System.DateTime HistoryDate { get; set; }
         public int OldBalance { get; set; }
         public int NewBalance { get; set; }
         public int Amount { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<AccountOperation> AccountOperations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Provision> Provisions { get; set; }
     }
 }

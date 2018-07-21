@@ -14,6 +14,12 @@ namespace KoloWin.CustomerService
     
     public partial class Registration
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Registration()
+        {
+            this.Customers = new ObservableCollection<Customer>();
+        }
+    
         public int IdRegistration { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -31,6 +37,8 @@ namespace KoloWin.CustomerService
         public string Pwd { get; set; }
         public string DeviceId { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Customer> Customers { get; set; }
         public virtual RefRegistrationStatu RefRegistrationStatu { get; set; }
     }
 }

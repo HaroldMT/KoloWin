@@ -226,16 +226,27 @@ namespace KoloWin.CustomerService
             return result;
         }
 
+
         [WebMethod]
-        public string GetExternalAccountsHistories(int jsonIdCustomer)
+        public string GetExternalAccountsHistoriesGlobal(string jsonCustomer)
         {
             string error = "";
-            List<KoloNotification> cBHs = null;
-            var context = new KoloAndroidEntities();
-            cBHs = context.KoloNotifications.Where(c => c.IdCustomer == jsonIdCustomer).ToList();
-            KoloWsObject<List<KoloNotification>> koloWs = new KoloWsObject<List<KoloNotification>>(error, cBHs);
+            Customer customer = SerializationHelper.DeserializeFromJsonString<Customer>(jsonCustomer);
+            List<ExternalAccountHistory> externalAccountHistories = ExternalAccountHelper.GetExternalAccountsHistoriesGlobal(customer, out error);
+            KoloWsObject<List<ExternalAccountHistory>> koloWs = new KoloWsObject<List<ExternalAccountHistory>>( error, externalAccountHistories);
             var result = SerializationHelper.SerializeToJson(koloWs);
-            context.Dispose();
+            return result;
+        }
+
+
+        [WebMethod]
+        public string GetExternalAccountsHistoriesSpecific(string jsonExternalAccount)
+        {
+            string error = "";
+            ExternalAccount externalAccount = SerializationHelper.DeserializeFromJsonString<ExternalAccount>(jsonExternalAccount);
+            List<ExternalAccountHistory> externalAccountHistories = ExternalAccountHelper.GetExternalAccountsHistoriesSpecific(externalAccount, out error);
+            KoloWsObject<List<ExternalAccountHistory>> koloWs = new KoloWsObject<List<ExternalAccountHistory>>(error, externalAccountHistories);
+            var result = SerializationHelper.SerializeToJson(koloWs);
             return result;
         }
 

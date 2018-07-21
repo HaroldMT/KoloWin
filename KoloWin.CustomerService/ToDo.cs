@@ -11,27 +11,27 @@ namespace KoloWin.CustomerService
          * 
          * KoloPartVice
          * 
-         * AddExternalAccount : Added by not filled
-         * GetExternalAccounts : Added by not filled
-         * UpdateExternalAccount  : Added by not filled
-         * RemoveExternalAccount : Added by not filled
+         * AddExternalAccount : Added + filled not tested
+         * GetExternalAccounts : Added + filled not tested
+         * UpdateExternalAccount  : Added + filled not tested
+         * RemoveExternalAccount : Added + filled not tested
          * 
          * 
          * KolOAccMerg
          * 
-         * UpdateCustomerAccount : Added by not filled
-         * ConvertToBusinessAccount : Added by not filled
-         * UpdateBusinessAccount : Added by not filled
-         * AddMobileDevice : Added by not filled
-         * RevokeMobileDevice(idMobileDevice) : Added by not filled
-         * GetProfileImage(idCustomer) : Added by not filled
-         * UpdateProfileImage(idCustomer) : Added by not filled
+         * UpdateCustomerAccount : Added not filled 
+         * ConvertToBusinessAccount : Added not filled 
+         * UpdateBusinessAccount : Added not filled 
+         * AddMobileDevice : Added not filled 
+         * RevokeMobileDevice(idMobileDevice) : Added not filled 
+         * GetProfileImage(idCustomer) : Added not filled 
+         * UpdateProfileImage(idCustomer) : Added not filled 
          * 
          * 
          * MobileService
          * 
-         * GetExternalAccountsHistories(idCustomer) : Added by not filled
-         * 
+         * GetExternalAccountsHistoriesGlobal(idCustomer) : Added + filled not tested
+         * GetExternalAccountsHistoriesSpecific(idCustomer) : Added + filled not tested
          * 
          * */
     }

@@ -17,8 +17,26 @@ namespace KoloWin.CustomerService
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            this.KoloNotifications = new ObservableCollection<KoloNotification>();
+            this.AccountOperationRequests = new ObservableCollection<AccountOperationRequest>();
+            this.Bills = new ObservableCollection<Bill>();
+            this.BillPayments = new ObservableCollection<BillPayment>();
             this.MobileDevices = new ObservableCollection<MobileDevice>();
+            this.CustomerAddresses = new ObservableCollection<CustomerAddress>();
+            this.CustomerBalanceHistories = new ObservableCollection<CustomerBalanceHistory>();
+            this.CustomerGroups = new ObservableCollection<CustomerGroup>();
+            this.CustomerTags = new ObservableCollection<CustomerTag>();
+            this.EneoBillPayments = new ObservableCollection<EneoBillPayment>();
+            this.ExternalAccounts = new ObservableCollection<ExternalAccount>();
+            this.KoloNotifications = new ObservableCollection<KoloNotification>();
+            this.RecurringContributions = new ObservableCollection<RecurringContribution>();
+            this.TopUps = new ObservableCollection<TopUp>();
+            this.TransferGravities = new ObservableCollection<TransferGravity>();
+            this.Transfert2CashDetails = new ObservableCollection<Transfert2CashDetails>();
+            this.TransfertE2e = new ObservableCollection<TransfertE2e>();
+            this.TransfertGroups = new ObservableCollection<TransfertGroup>();
+            this.TransfertGroupScheduleds = new ObservableCollection<TransfertGroupScheduled>();
+            this.TransfertP2p = new ObservableCollection<TransfertP2p>();
+            this.TransfertScheduleds = new ObservableCollection<TransfertScheduled>();
         }
     
         public int IdCustomer { get; set; }
@@ -35,18 +53,53 @@ namespace KoloWin.CustomerService
         public string GravityCode { get; set; }
         public Nullable<int> GravityPercentage { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<AccountOperationRequest> AccountOperationRequests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Bill> Bills { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<BillPayment> BillPayments { get; set; }
         public virtual Business Business { get; set; }
         public virtual Currency Currency { get; set; }
         public virtual Registration Registration { get; set; }
         public virtual RefCustomerType RefCustomerType { get; set; }
-        public virtual MobileDevice MobileDevice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<MobileDevice> MobileDevices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<CustomerAddress> CustomerAddresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<CustomerBalanceHistory> CustomerBalanceHistories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<CustomerGroup> CustomerGroups { get; set; }
         public virtual CustomerImage CustomerImage { get; set; }
         public virtual CustomerLogin CustomerLogin { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<CustomerTag> CustomerTags { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<EneoBillPayment> EneoBillPayments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<ExternalAccount> ExternalAccounts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<KoloNotification> KoloNotifications { get; set; }
         public virtual Partner Partner { get; set; }
         public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<KoloNotification> KoloNotifications { get; set; }
+        public virtual ObservableCollection<RecurringContribution> RecurringContributions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<MobileDevice> MobileDevices { get; set; }
+        public virtual ObservableCollection<TopUp> TopUps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransferGravity> TransferGravities { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Transfert2CashDetails> Transfert2CashDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertE2e> TransfertE2e { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertGroup> TransfertGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertGroupScheduled> TransfertGroupScheduleds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertP2p> TransfertP2p { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertScheduled> TransfertScheduleds { get; set; }
     }
 }

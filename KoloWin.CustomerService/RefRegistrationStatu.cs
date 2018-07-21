@@ -14,7 +14,16 @@ namespace KoloWin.CustomerService
     
     public partial class RefRegistrationStatu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RefRegistrationStatu()
+        {
+            this.Registrations = new ObservableCollection<Registration>();
+        }
+    
         public string RegistrationStatusCode { get; set; }
         public string RegistrationStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<Registration> Registrations { get; set; }
     }
 }

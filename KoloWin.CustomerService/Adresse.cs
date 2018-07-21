@@ -14,6 +14,13 @@ namespace KoloWin.CustomerService
     
     public partial class Adresse
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Adresse()
+        {
+            this.CustomerAddresses = new ObservableCollection<CustomerAddress>();
+            this.PartnerAddresses = new ObservableCollection<PartnerAddress>();
+        }
+    
         public int IdAddress { get; set; }
         public string Line_1 { get; set; }
         public string Line_2 { get; set; }
@@ -24,5 +31,9 @@ namespace KoloWin.CustomerService
     
         public virtual City City { get; set; }
         public virtual RefAddressType RefAddressType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<CustomerAddress> CustomerAddresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<PartnerAddress> PartnerAddresses { get; set; }
     }
 }

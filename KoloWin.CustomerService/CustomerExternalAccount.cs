@@ -16,7 +16,5 @@ namespace KoloWin.CustomerService
     {
         public int IdCustomer { get; set; }
         public int IdExternalAccount { get; set; }
-    
-        public virtual ExternalAccount ExternalAccount { get; set; }
     }
 }
