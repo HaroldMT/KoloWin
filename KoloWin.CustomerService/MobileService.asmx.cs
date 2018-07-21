@@ -219,6 +219,7 @@ namespace KoloWin.CustomerService
             string error = "";
             List<KoloNotification> cBHs = null;
             var context = new KoloAndroidEntities();
+            context.Configuration.ProxyCreationEnabled = false;
             cBHs = context.KoloNotifications.Where(c => c.IdCustomer == jsonIdCustomer).ToList();
             KoloWsObject<List<KoloNotification>> koloWs = new KoloWsObject<List<KoloNotification>>(error, cBHs);
             var result = SerializationHelper.SerializeToJson(koloWs);
