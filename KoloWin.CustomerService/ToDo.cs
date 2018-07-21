@@ -17,6 +17,7 @@ namespace KoloWin.CustomerService
          * RemoveExternalAccount : Added + filled not tested
          * 
          * 
+         * 
          * KolOAccMerg
          * 
          * UpdateCustomerAccount : Added not filled 
@@ -28,10 +29,21 @@ namespace KoloWin.CustomerService
          * UpdateProfileImage(idCustomer) : Added not filled 
          * 
          * 
+         * 
          * MobileService
          * 
          * GetExternalAccountsHistoriesGlobal(idCustomer) : Added + filled not tested
          * GetExternalAccountsHistoriesSpecific(idCustomer) : Added + filled not tested
+         * 
+         * 
+         * 
+         * KolOSphere 
+         * 
+         * SendBill  : Added not filled 
+         * CancelBill  : Added not filled 
+         * PayBill  : Added not filled 
+         * RejectBill  : Added not filled 
+         * 
          * 
          * */
     }
