@@ -44,9 +44,15 @@ namespace KoloWin.CustomerService.Util
                     }
                 }
             }
-            loginAttempt.ResultCode = "FAIL";
-            db.LoginAttempts.Add(loginAttempt);
-            db.SaveChanges();
+            using (KoloAndroidEntities dbFail = new KoloAndroidEntities())
+            {
+                LoginAttempt la = new LoginAttempt()
+                {
+                    ResultCode = "FAIL",
+                };
+                dbFail.LoginAttempts.Add(la);
+                dbFail.SaveChanges();
+            }            
             return loginAttempt.IdLoginAttempt;
         }
 
