@@ -7,7 +7,7 @@ using System.Web;
 
 namespace KoloWin.CustomerService.Utils.General
 {
-	public class Madhelper
+	public static class Madhelper
 	{
         public static string FindCustomerMad(ref KoloWin.CustomerService.Model.KoloMadCustomer madCustomer, out string error)
         {

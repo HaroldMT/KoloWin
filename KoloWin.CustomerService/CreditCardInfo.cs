@@ -14,6 +14,12 @@ namespace KoloWin.CustomerService
     
     public partial class CreditCardInfo
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CreditCardInfo()
+        {
+            this.ExternalAccounts = new ObservableCollection<ExternalAccount>();
+        }
+    
         public int IdCreditCardInfo { get; set; }
         public string NameOnCard { get; set; }
         public string CardNumber { get; set; }
@@ -21,6 +27,7 @@ namespace KoloWin.CustomerService
         public int ExpiryYear { get; set; }
         public string SecretCode { get; set; }
     
-        public virtual ExternalAccount ExternalAccount { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<ExternalAccount> ExternalAccounts { get; set; }
     }
 }

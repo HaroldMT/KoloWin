@@ -8,14 +8,13 @@ using System.Web;
 
 namespace KoloWin.CustomerService.Utils.General
 {
-    public class TopUpHelper
+    public static class TopUpHelper
     {
 
         public static bool DoTopUp(TopUpDetails topUpDetails,out string error)
         {
             error = "";
             TopUp topUp = topUpDetails.GeneraTopUp();
-
             ExRMoneySvc.ExRMoneySoapClient exMoneyClient = new ExRMoneySvc.ExRMoneySoapClient();
             if(!CustomerHistoryHelper.CheckCustomerBalance(topUp.IdCustomer, Int32.Parse(topUp.Amount)))
             {
@@ -43,8 +42,6 @@ namespace KoloWin.CustomerService.Utils.General
                 Context.Dispose();
             }
             return result.Succes;
-
-
         }
 
     }

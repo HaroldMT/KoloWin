@@ -26,16 +26,15 @@ namespace KoloWin.CustomerService.Utils.General
             }
             return null;
         }
-
-
-        public static List<ExternalAccount> GetExternalAccounts(Customer customer, out string error)
+        
+        public static List<ExternalAccount> GetExternalAccounts(int idCustomer, out string error)
         {
             error = "";
+            var context = new KoloAndroidEntities();
             List<ExternalAccount> externalAccounts = new List<ExternalAccount>();
-            KoloAndroidEntities context = new KoloAndroidEntities();
             try
             {
-                externalAccounts = context.ExternalAccounts.Where(e => e.IdCustomer == customer.IdCustomer).ToList();
+                externalAccounts = context.ExternalAccounts.Where(e => e.IdCustomer == idCustomer).ToList();
             }
             catch (Exception ex)
             {
@@ -83,14 +82,14 @@ namespace KoloWin.CustomerService.Utils.General
         }
 
         
-        public static List<ExternalAccountHistory> GetExternalAccountsHistoriesGlobal(Customer customer, out string error)
+        public static List<ExternalAccountHistory> GetExternalAccountsHistoriesGlobal(int idCustomer, out string error)
         {
             error = "";
             List<ExternalAccountHistory> externalAccountHistories = new List<ExternalAccountHistory>();
             KoloAndroidEntities context = new KoloAndroidEntities();
             try
             {
-                List<ExternalAccount> externalAccounts = GetExternalAccounts(customer, out error);
+                List<ExternalAccount> externalAccounts = GetExternalAccounts(idCustomer, out error);
                 if (externalAccounts != null)
                 {
                     foreach(ExternalAccount externalAccount in externalAccounts)

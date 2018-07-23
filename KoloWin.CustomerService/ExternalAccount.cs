@@ -19,6 +19,7 @@ namespace KoloWin.CustomerService
         {
             this.ExternalAccountHistories = new ObservableCollection<ExternalAccountHistory>();
             this.TransfertE2e = new ObservableCollection<TransfertE2e>();
+            this.TransfertE2e1 = new ObservableCollection<TransfertE2e>();
         }
     
         public int IdExternalAccount { get; set; }
@@ -35,5 +36,7 @@ namespace KoloWin.CustomerService
         public virtual RefExternalAccountType RefExternalAccountType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<TransfertE2e> TransfertE2e { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<TransfertE2e> TransfertE2e1 { get; set; }
     }
 }

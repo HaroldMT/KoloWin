@@ -376,6 +376,7 @@
           <Property Name="SimSerialNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="SimState" Type="nvarchar" MaxLength="15" />
           <Property Name="SubscriberId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Partner">
           <Key>
@@ -1201,15 +1202,15 @@ warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ExternalAccount_CreditCardInfo1">
-          <End Role="CreditCardInfo" Type="Self.CreditCardInfo" Multiplicity="1" />
-          <End Role="ExternalAccount" Type="Self.ExternalAccount" Multiplicity="0..1" />
+        <Association Name="FK_ExternalAccount_CreditCardInfo">
+          <End Role="CreditCardInfo" Type="Self.CreditCardInfo" Multiplicity="0..1" />
+          <End Role="ExternalAccount" Type="Self.ExternalAccount" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CreditCardInfo">
               <PropertyRef Name="IdCreditCardInfo" />
             </Principal>
             <Dependent Role="ExternalAccount">
-              <PropertyRef Name="IdExternalAccount" />
+              <PropertyRef Name="IdCreditCard" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2131,7 +2132,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Customer" EntitySet="Customer" />
             <End Role="EneoBillPayment" EntitySet="EneoBillPayment" />
           </AssociationSet>
-          <AssociationSet Name="FK_ExternalAccount_CreditCardInfo1" Association="Self.FK_ExternalAccount_CreditCardInfo1">
+          <AssociationSet Name="FK_ExternalAccount_CreditCardInfo" Association="Self.FK_ExternalAccount_CreditCardInfo">
             <End Role="CreditCardInfo" EntitySet="CreditCardInfo" />
             <End Role="ExternalAccount" EntitySet="ExternalAccount" />
           </AssociationSet>
@@ -2387,7 +2388,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="CustomerTags" EntityType="KoloModel.CustomerTag" />
           <EntitySet Name="Districts" EntityType="KoloModel.District" />
           <EntitySet Name="EneoBillPayments" EntityType="KoloModel.EneoBillPayment" />
-          <EntitySet Name="ExternalAccounts" EntityType="KoloModel.ExternalAccount" />
           <EntitySet Name="ExternalAccountHistories" EntityType="KoloModel.ExternalAccountHistory" />
           <EntitySet Name="GroupImages" EntityType="KoloModel.GroupImage" />
           <EntitySet Name="KoloGroups" EntityType="KoloModel.KoloGroup" />
@@ -2544,10 +2544,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Country" EntitySet="Countries" />
             <End Role="Person" EntitySet="People" />
           </AssociationSet>
-          <AssociationSet Name="FK_ExternalAccount_CreditCardInfo1" Association="KoloModel.FK_ExternalAccount_CreditCardInfo1">
-            <End Role="CreditCardInfo" EntitySet="CreditCardInfoes" />
-            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-          </AssociationSet>
           <AssociationSet Name="fk_Customer_Currency" Association="KoloModel.fk_Customer_Currency">
             <End Role="Currency" EntitySet="Currencies" />
             <End Role="Customer" EntitySet="Customers" />
@@ -2595,10 +2591,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="FK_EneoBillPayment_Customer" Association="KoloModel.FK_EneoBillPayment_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="EneoBillPayment" EntitySet="EneoBillPayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ExternalAccount_Customer" Association="KoloModel.FK_ExternalAccount_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
           </AssociationSet>
           <AssociationSet Name="fk_Notification_Customer" Association="KoloModel.fk_Notification_Customer">
             <End Role="Customer" EntitySet="Customers" />
@@ -2691,22 +2683,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_customertags_tag" Association="KoloModel.fk_customertags_tag">
             <End Role="Tag" EntitySet="Tags" />
             <End Role="CustomerTag" EntitySet="CustomerTags" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ExternalAccount_History" Association="KoloModel.fk_ExternalAccount_History">
-            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-            <End Role="ExternalAccountHistory" EntitySet="ExternalAccountHistories" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ExternalAccount_Type" Association="KoloModel.fk_ExternalAccount_Type">
-            <End Role="RefExternalAccountType" EntitySet="RefExternalAccountTypes" />
-            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TransfertE2e_ExternalReceiver" Association="KoloModel.fk_TransfertE2e_ExternalReceiver">
-            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-            <End Role="TransfertE2e" EntitySet="TransfertE2e" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TransfertE2e_ExternalSender" Association="KoloModel.fk_TransfertE2e_ExternalSender">
-            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
-            <End Role="TransfertE2e" EntitySet="TransfertE2e" />
           </AssociationSet>
           <AssociationSet Name="FK_KoloPermission_Group" Association="KoloModel.FK_KoloPermission_Group">
             <End Role="KoloGroup" EntitySet="KoloGroups" />
@@ -2811,6 +2787,31 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="CustomerGroupAdmin" Association="KoloModel.CustomerGroupAdmin">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+          </AssociationSet>
+          <EntitySet Name="ExternalAccounts" EntityType="KoloModel.ExternalAccount" />
+          <AssociationSet Name="FK_ExternalAccount_CreditCardInfo" Association="KoloModel.FK_ExternalAccount_CreditCardInfo">
+            <End Role="CreditCardInfo" EntitySet="CreditCardInfoes" />
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalAccount_Customer" Association="KoloModel.FK_ExternalAccount_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ExternalAccount_History" Association="KoloModel.fk_ExternalAccount_History">
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+            <End Role="ExternalAccountHistory" EntitySet="ExternalAccountHistories" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ExternalAccount_Type" Association="KoloModel.fk_ExternalAccount_Type">
+            <End Role="RefExternalAccountType" EntitySet="RefExternalAccountTypes" />
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TransfertE2e_ExternalReceiver" Association="KoloModel.fk_TransfertE2e_ExternalReceiver">
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+            <End Role="TransfertE2e" EntitySet="TransfertE2e" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TransfertE2e_ExternalSender" Association="KoloModel.fk_TransfertE2e_ExternalSender">
+            <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
+            <End Role="TransfertE2e" EntitySet="TransfertE2e" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AccountOperation">
@@ -2961,8 +2962,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="ExpiryMonth" Type="Int32" Nullable="false" />
           <Property Name="ExpiryYear" Type="Int32" Nullable="false" />
           <Property Name="SecretCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ExternalAccount" Relationship="KoloModel.FK_ExternalAccount_CreditCardInfo1" FromRole="CreditCardInfo" ToRole="ExternalAccount" />
-        </EntityType>
+          <NavigationProperty Name="ExternalAccounts" Relationship="KoloModel.FK_ExternalAccount_CreditCardInfo" FromRole="CreditCardInfo" ToRole="ExternalAccount" />
+          </EntityType>
         <EntityType Name="Currency">
           <Key>
             <PropertyRef Name="CurrencyCode" />
@@ -3004,7 +3005,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="CustomerLogin" Relationship="KoloModel.fk_CustomerLogin" FromRole="Customer" ToRole="CustomerLogin" />
           <NavigationProperty Name="CustomerTags" Relationship="KoloModel.fk_customertags_customeraccount" FromRole="Customer" ToRole="CustomerTag" />
           <NavigationProperty Name="EneoBillPayments" Relationship="KoloModel.FK_EneoBillPayment_Customer" FromRole="Customer" ToRole="EneoBillPayment" />
-          <NavigationProperty Name="ExternalAccounts" Relationship="KoloModel.FK_ExternalAccount_Customer" FromRole="Customer" ToRole="ExternalAccount" />
           <NavigationProperty Name="KoloNotifications" Relationship="KoloModel.fk_Notification_Customer" FromRole="Customer" ToRole="KoloNotification" />
           <NavigationProperty Name="Partner" Relationship="KoloModel.fk_Partner_Customer" FromRole="Customer" ToRole="Partner" />
           <NavigationProperty Name="Person" Relationship="KoloModel.fk_Person_Customer" FromRole="Customer" ToRole="Person" />
@@ -3017,6 +3017,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="TransfertGroupScheduleds" Relationship="KoloModel.fk_TransfertGroupScheduled_Sender" FromRole="Customer" ToRole="TransfertGroupScheduled" />
           <NavigationProperty Name="TransfertP2p" Relationship="KoloModel.fk_TransfertP2p_Receiver" FromRole="Customer" ToRole="TransfertP2p" />
           <NavigationProperty Name="TransfertScheduleds" Relationship="KoloModel.fk_TransfertScheduled_Receiver" FromRole="Customer" ToRole="TransfertScheduled" />
+          <NavigationProperty Name="ExternalAccounts" Relationship="KoloModel.FK_ExternalAccount_Customer" FromRole="Customer" ToRole="ExternalAccount" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -3127,22 +3128,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="BillAmount" Type="Int32" Nullable="false" />
           <Property Name="Reference" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="KoloModel.FK_EneoBillPayment_Customer" FromRole="EneoBillPayment" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="ExternalAccount">
-          <Key>
-            <PropertyRef Name="IdExternalAccount" />
-          </Key>
-          <Property Name="IdExternalAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ExternalLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ExternalPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ExternalAccountTypeCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="IdCreditCard" Type="Int32" />
-          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CreditCardInfo" Relationship="KoloModel.FK_ExternalAccount_CreditCardInfo1" FromRole="ExternalAccount" ToRole="CreditCardInfo" />
-          <NavigationProperty Name="Customer" Relationship="KoloModel.FK_ExternalAccount_Customer" FromRole="ExternalAccount" ToRole="Customer" />
-          <NavigationProperty Name="ExternalAccountHistories" Relationship="KoloModel.fk_ExternalAccount_History" FromRole="ExternalAccount" ToRole="ExternalAccountHistory" />
-          <NavigationProperty Name="RefExternalAccountType" Relationship="KoloModel.fk_ExternalAccount_Type" FromRole="ExternalAccount" ToRole="RefExternalAccountType" />
-          <NavigationProperty Name="TransfertE2e" Relationship="KoloModel.fk_TransfertE2e_ExternalReceiver" FromRole="ExternalAccount" ToRole="TransfertE2e" />
         </EntityType>
         <EntityType Name="ExternalAccountHistory">
           <Key>
@@ -3280,6 +3265,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="SimState" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="SubscriberId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Customer_Mobile" FromRole="MobileDevice" ToRole="Customer" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Partner">
           <Key>
@@ -3624,9 +3610,10 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="OperationTypeCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Reference" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="KoloModel.fk_TransfertE2e_Customer" FromRole="TransfertE2e" ToRole="Customer" />
-          <NavigationProperty Name="ExternalAccount" Relationship="KoloModel.fk_TransfertE2e_ExternalReceiver" FromRole="TransfertE2e" ToRole="ExternalAccount" />
           <NavigationProperty Name="RefOperationType" Relationship="KoloModel.fk_TransfertE2e_OperationtType" FromRole="TransfertE2e" ToRole="RefOperationType" />
           <NavigationProperty Name="RefTransfertStatu" Relationship="KoloModel.fk_TransfertE2e_StatusCode" FromRole="TransfertE2e" ToRole="RefTransfertStatu" />
+          <NavigationProperty Name="ExternalAccount" Relationship="KoloModel.fk_TransfertE2e_ExternalReceiver" FromRole="TransfertE2e" ToRole="ExternalAccount" />
+          <NavigationProperty Name="ExternalAccount1" Relationship="KoloModel.fk_TransfertE2e_ExternalSender" FromRole="TransfertE2e" ToRole="ExternalAccount" />
         </EntityType>
         <EntityType Name="TransfertGroup">
           <Key>
@@ -4042,18 +4029,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ExternalAccount_CreditCardInfo1">
-          <End Type="KoloModel.CreditCardInfo" Role="CreditCardInfo" Multiplicity="1" />
-          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CreditCardInfo">
-              <PropertyRef Name="IdCreditCardInfo" />
-            </Principal>
-            <Dependent Role="ExternalAccount">
-              <PropertyRef Name="IdExternalAccount" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_Customer_Currency">
           <End Type="KoloModel.Currency" Role="Currency" Multiplicity="1" />
           <End Type="KoloModel.Customer" Role="Customer" Multiplicity="*" />
@@ -4200,18 +4175,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
               <PropertyRef Name="IdCustomer" />
             </Principal>
             <Dependent Role="EneoBillPayment">
-              <PropertyRef Name="IdCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ExternalAccount_Customer">
-          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="ExternalAccount">
               <PropertyRef Name="IdCustomer" />
             </Dependent>
           </ReferentialConstraint>
@@ -4493,54 +4456,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Principal>
             <Dependent Role="CustomerTag">
               <PropertyRef Name="IdTag" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ExternalAccount_History">
-          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
-          <End Type="KoloModel.ExternalAccountHistory" Role="ExternalAccountHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ExternalAccount">
-              <PropertyRef Name="IdExternalAccount" />
-            </Principal>
-            <Dependent Role="ExternalAccountHistory">
-              <PropertyRef Name="IdExternalAccount" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ExternalAccount_Type">
-          <End Type="KoloModel.RefExternalAccountType" Role="RefExternalAccountType" Multiplicity="1" />
-          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefExternalAccountType">
-              <PropertyRef Name="ExternalAccountTypeCode" />
-            </Principal>
-            <Dependent Role="ExternalAccount">
-              <PropertyRef Name="ExternalAccountTypeCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_TransfertE2e_ExternalReceiver">
-          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
-          <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ExternalAccount">
-              <PropertyRef Name="IdExternalAccount" />
-            </Principal>
-            <Dependent Role="TransfertE2e">
-              <PropertyRef Name="IdReceiverExternalAccount" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_TransfertE2e_ExternalSender">
-          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
-          <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ExternalAccount">
-              <PropertyRef Name="IdExternalAccount" />
-            </Principal>
-            <Dependent Role="TransfertE2e">
-              <PropertyRef Name="IdSendingExternalAccount" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4848,6 +4763,95 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <End Type="KoloModel.Customer" Role="Customer" Multiplicity="*" />
           <End Type="KoloModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
         </Association>
+        <EntityType Name="ExternalAccount">
+          <Key>
+            <PropertyRef Name="IdExternalAccount" />
+          </Key>
+          <Property Name="IdExternalAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExternalLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalAccountTypeCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IdCreditCard" Type="Int32" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CreditCardInfo" Relationship="KoloModel.FK_ExternalAccount_CreditCardInfo" FromRole="ExternalAccount" ToRole="CreditCardInfo" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.FK_ExternalAccount_Customer" FromRole="ExternalAccount" ToRole="Customer" />
+          <NavigationProperty Name="ExternalAccountHistories" Relationship="KoloModel.fk_ExternalAccount_History" FromRole="ExternalAccount" ToRole="ExternalAccountHistory" />
+          <NavigationProperty Name="RefExternalAccountType" Relationship="KoloModel.fk_ExternalAccount_Type" FromRole="ExternalAccount" ToRole="RefExternalAccountType" />
+          <NavigationProperty Name="TransfertE2e" Relationship="KoloModel.fk_TransfertE2e_ExternalReceiver" FromRole="ExternalAccount" ToRole="TransfertE2e" />
+          <NavigationProperty Name="TransfertE2e1" Relationship="KoloModel.fk_TransfertE2e_ExternalSender" FromRole="ExternalAccount" ToRole="TransfertE2e" />
+        </EntityType>
+        <Association Name="FK_ExternalAccount_CreditCardInfo">
+          <End Type="KoloModel.CreditCardInfo" Role="CreditCardInfo" Multiplicity="0..1" />
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCardInfo">
+              <PropertyRef Name="IdCreditCardInfo" />
+            </Principal>
+            <Dependent Role="ExternalAccount">
+              <PropertyRef Name="IdCreditCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalAccount_Customer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="ExternalAccount">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ExternalAccount_History">
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
+          <End Type="KoloModel.ExternalAccountHistory" Role="ExternalAccountHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalAccount">
+              <PropertyRef Name="IdExternalAccount" />
+            </Principal>
+            <Dependent Role="ExternalAccountHistory">
+              <PropertyRef Name="IdExternalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ExternalAccount_Type">
+          <End Type="KoloModel.RefExternalAccountType" Role="RefExternalAccountType" Multiplicity="1" />
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefExternalAccountType">
+              <PropertyRef Name="ExternalAccountTypeCode" />
+            </Principal>
+            <Dependent Role="ExternalAccount">
+              <PropertyRef Name="ExternalAccountTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TransfertE2e_ExternalReceiver">
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
+          <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalAccount">
+              <PropertyRef Name="IdExternalAccount" />
+            </Principal>
+            <Dependent Role="TransfertE2e">
+              <PropertyRef Name="IdReceiverExternalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TransfertE2e_ExternalSender">
+          <End Type="KoloModel.ExternalAccount" Role="ExternalAccount" Multiplicity="1" />
+          <End Type="KoloModel.TransfertE2e" Role="TransfertE2e" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalAccount">
+              <PropertyRef Name="IdExternalAccount" />
+            </Principal>
+            <Dependent Role="TransfertE2e">
+              <PropertyRef Name="IdSendingExternalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5105,18 +5109,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ExternalAccounts">
-            <EntityTypeMapping TypeName="KoloModel.ExternalAccount">
-              <MappingFragment StoreEntitySet="ExternalAccount">
-                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
-                <ScalarProperty Name="IdCreditCard" ColumnName="IdCreditCard" />
-                <ScalarProperty Name="ExternalAccountTypeCode" ColumnName="ExternalAccountTypeCode" />
-                <ScalarProperty Name="ExternalPwd" ColumnName="ExternalPwd" />
-                <ScalarProperty Name="ExternalLogin" ColumnName="ExternalLogin" />
-                <ScalarProperty Name="IdExternalAccount" ColumnName="IdExternalAccount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ExternalAccountHistories">
             <EntityTypeMapping TypeName="KoloModel.ExternalAccountHistory">
               <MappingFragment StoreEntitySet="ExternalAccountHistory">
@@ -5229,6 +5221,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySetMapping Name="MobileDevices">
             <EntityTypeMapping TypeName="KoloModel.MobileDevice">
               <MappingFragment StoreEntitySet="MobileDevice">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
                 <ScalarProperty Name="SimState" ColumnName="SimState" />
                 <ScalarProperty Name="SimSerialNumber" ColumnName="SimSerialNumber" />
@@ -5642,6 +5635,18 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
               <ScalarProperty Name="IdCustomer" ColumnName="IdAdminCustomer" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="ExternalAccounts">
+            <EntityTypeMapping TypeName="KoloModel.ExternalAccount">
+              <MappingFragment StoreEntitySet="ExternalAccount">
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="IdCreditCard" ColumnName="IdCreditCard" />
+                <ScalarProperty Name="ExternalAccountTypeCode" ColumnName="ExternalAccountTypeCode" />
+                <ScalarProperty Name="ExternalPwd" ColumnName="ExternalPwd" />
+                <ScalarProperty Name="ExternalLogin" ColumnName="ExternalLogin" />
+                <ScalarProperty Name="IdExternalAccount" ColumnName="IdExternalAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
