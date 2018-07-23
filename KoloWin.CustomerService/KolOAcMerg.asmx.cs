@@ -1,4 +1,5 @@
 ﻿using KoloWin.CustomerService.Model;
+using KoloWin.CustomerService.Util.Entities;
 using KoloWin.Utilities;
 using System;
 using System.Collections.Generic;
@@ -63,30 +64,35 @@ namespace KoloWin.CustomerService
         }
         
         [WebMethod]
-        public string AddMobileDevice(string jsonIdCustomer)
+        public string AddMobileDevice(string jsonMobileDevice)
         {
             string error = "";
-            List<KoloNotification> cBHs = null;
+            MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonMobileDevice);
             var context = new KoloAndroidEntities();
-            cBHs = context.KoloNotifications.Where(c => c.IdCustomer == 1).ToList();
-            KoloWsObject<List<KoloNotification>> koloWs = new KoloWsObject<List<KoloNotification>>(error, cBHs);
+            context.MobileDevices.Add(mobileDevice);
+            context.SaveChanges();
+            KoloWsObject<MobileDevice> koloWs = new KoloWsObject<MobileDevice> (error, mobileDevice);
             var result = SerializationHelper.SerializeToJson(koloWs);
             context.Dispose();
             return result;
         }
         
         [WebMethod]
-        public string RevokeMobileDevice(string jsonIdCustomer)
+        public string RevokeMobileDevice(string jsonIdMobileDevice)
         {
             string error = "";
-            List<KoloNotification> cBHs = null;
+            MobileDevice mobileDevice = SerializationHelper.DeserializeFromJsonString<MobileDevice>(jsonIdMobileDevice);
             var context = new KoloAndroidEntities();
-            cBHs = context.KoloNotifications.Where(c => c.IdCustomer == 1).ToList();
-            KoloWsObject<List<KoloNotification>> koloWs = new KoloWsObject<List<KoloNotification>>(error, cBHs);
+            context.Configuration.ProxyCreationEnabled = false;
+            var tmp = context.MobileDevices.FirstOrDefault(c => c.IdMobileDevice == mobileDevice.IdMobileDevice);
+            tmp.isActive = false;
+            context.SaveChanges();
+            KoloWsObject<MobileDevice> koloWs = new KoloWsObject<MobileDevice>(error, tmp);
             var result = SerializationHelper.SerializeToJson(koloWs);
             context.Dispose();
             return result;
         }
+
 
         [WebMethod]
         public string GetProfileImage(string jsonIdCustomer)

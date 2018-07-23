@@ -27,8 +27,7 @@
         <EntityTypeShape EntityType="KoloModel.CustomerTag" Width="1.5" PointX="8.25" PointY="58.125" />
         <EntityTypeShape EntityType="KoloModel.District" Width="1.5" PointX="6.75" PointY="31.75" />
         <EntityTypeShape EntityType="KoloModel.EneoBillPayment" Width="1.5" PointX="5.25" PointY="107.875" />
-        <EntityTypeShape EntityType="KoloModel.ExternalAccount" Width="1.5" PointX="8.25" PointY="61.5" />
-        <EntityTypeShape EntityType="KoloModel.ExternalAccountHistory" Width="1.5" PointX="10.5" PointY="63.875" />
+        <EntityTypeShape EntityType="KoloModel.ExternalAccountHistory" Width="1.75" PointX="10.5" PointY="63.875" />
         <EntityTypeShape EntityType="KoloModel.GroupImage" Width="1.5" PointX="13.5" PointY="64.25" />
         <EntityTypeShape EntityType="KoloModel.KoloGroup" Width="1.5" PointX="20.25" PointY="48.25" />
         <EntityTypeShape EntityType="KoloModel.KoloNotification" Width="1.5" PointX="5.25" PointY="111.5" />
@@ -103,7 +102,6 @@
         <AssociationConnector Association="KoloModel.fk_City" />
         <AssociationConnector Association="KoloModel.fk_City_0" />
         <AssociationConnector Association="KoloModel.fk_Person" />
-        <AssociationConnector Association="KoloModel.FK_ExternalAccount_CreditCardInfo1" />
         <AssociationConnector Association="KoloModel.fk_Customer_Currency" />
         <AssociationConnector Association="KoloModel.fk_Partner_0" />
         <AssociationConnector Association="KoloModel.fk_Customer" />
@@ -116,7 +114,6 @@
         <AssociationConnector Association="KoloModel.fk_CustomerLogin" />
         <AssociationConnector Association="KoloModel.fk_customertags_customeraccount" />
         <AssociationConnector Association="KoloModel.FK_EneoBillPayment_Customer" />
-        <AssociationConnector Association="KoloModel.FK_ExternalAccount_Customer" />
         <AssociationConnector Association="KoloModel.fk_Notification_Customer" />
         <AssociationConnector Association="KoloModel.fk_Partner_Customer" />
         <AssociationConnector Association="KoloModel.fk_Person_Customer" />
@@ -140,10 +137,6 @@
         <AssociationConnector Association="KoloModel.fk_CustomerLogin_StatusCode" />
         <AssociationConnector Association="KoloModel.fk_LoginAttempt_Customer" />
         <AssociationConnector Association="KoloModel.fk_customertags_tag" />
-        <AssociationConnector Association="KoloModel.fk_ExternalAccount_History" />
-        <AssociationConnector Association="KoloModel.fk_ExternalAccount_Type" />
-        <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalReceiver" />
-        <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalSender" />
         <AssociationConnector Association="KoloModel.FK_KoloPermission_Group" />
         <AssociationConnector Association="KoloModel.FK_User_Group" />
         <AssociationConnector Association="KoloModel.FK_KoloPermission_Action" />
@@ -170,6 +163,13 @@
         <AssociationConnector Association="KoloModel.fk_TransfertE2e_StatusCode" />
         <AssociationConnector Association="KoloModel.fk_TransfertGroup_StatusCode" />
         <AssociationConnector Association="KoloModel.CustomerGroupAdmin" />
+        <EntityTypeShape EntityType="KoloModel.ExternalAccount" Width="1.5" PointX="8.25" PointY="61.25" />
+        <AssociationConnector Association="KoloModel.FK_ExternalAccount_CreditCardInfo" />
+        <AssociationConnector Association="KoloModel.FK_ExternalAccount_Customer" />
+        <AssociationConnector Association="KoloModel.fk_ExternalAccount_History" />
+        <AssociationConnector Association="KoloModel.fk_ExternalAccount_Type" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalReceiver" />
+        <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalSender" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

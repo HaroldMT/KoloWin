@@ -3,6 +3,8 @@ using System.Web.Services;
 using KoloWin.CustomerService.Model;
 using KoloWin.CustomerService.Utils.General;
 using KoloWin.Utilities;
+using KoloWin.CustomerService.Util;
+using System.Linq;
 
 namespace KoloWin.CustomerService
 {
@@ -94,11 +96,10 @@ namespace KoloWin.CustomerService
         }
 
         [WebMethod]
-        public string GetExternalAccounts(string jsonIdCustomer)
+        public string GetExternalAccounts(int jsonIdCustomer)
         {
             string error = "";
-            Customer customer = SerializationHelper.DeserializeFromJsonString<Customer>(jsonIdCustomer);
-            List<ExternalAccount> externalAccounts = ExternalAccountHelper.GetExternalAccounts(customer, out error);
+            List<ExternalAccount> externalAccounts = ExternalAccountHelper.GetExternalAccounts(jsonIdCustomer, out error);
             KoloWsObject<List<ExternalAccount>> koloWs = new KoloWsObject<List<ExternalAccount>>(error, externalAccounts);
             var result = SerializationHelper.SerializeToJson(koloWs);
             return result;

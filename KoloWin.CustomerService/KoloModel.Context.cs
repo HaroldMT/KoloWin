@@ -47,7 +47,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<CustomerTag> CustomerTags { get; set; }
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<EneoBillPayment> EneoBillPayments { get; set; }
-        public virtual DbSet<ExternalAccount> ExternalAccounts { get; set; }
         public virtual DbSet<ExternalAccountHistory> ExternalAccountHistories { get; set; }
         public virtual DbSet<GroupImage> GroupImages { get; set; }
         public virtual DbSet<KoloGroup> KoloGroups { get; set; }
@@ -96,5 +95,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<TransfertScheduled> TransfertScheduleds { get; set; }
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
         public virtual DbSet<TransferGravity> TransferGravities { get; set; }
+        public virtual DbSet<ExternalAccount> ExternalAccounts { get; set; }
     }
 }

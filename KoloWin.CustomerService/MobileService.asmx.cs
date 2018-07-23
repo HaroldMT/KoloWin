@@ -125,7 +125,6 @@ namespace KoloWin.CustomerService
         public string GetCustomerContacts(string contacts, string idCustomer)
         {
             var Context = new KoloAndroidEntities();
-            Customer outCustomer;
             var result = SerializationHelper.SerializeToJson("");
             Context.Dispose();
             return result;
@@ -249,11 +248,10 @@ namespace KoloWin.CustomerService
 
 
         [WebMethod]
-        public string GetExternalAccountsHistoriesGlobal(string jsonCustomer)
+        public string GetExternalAccountsHistoriesGlobal(int jsonIdCustomer)
         {
             string error = "";
-            Customer customer = SerializationHelper.DeserializeFromJsonString<Customer>(jsonCustomer);
-            List<ExternalAccountHistory> externalAccountHistories = ExternalAccountHelper.GetExternalAccountsHistoriesGlobal(customer, out error);
+            List<ExternalAccountHistory> externalAccountHistories = ExternalAccountHelper.GetExternalAccountsHistoriesGlobal(jsonIdCustomer, out error);
             KoloWsObject<List<ExternalAccountHistory>> koloWs = new KoloWsObject<List<ExternalAccountHistory>>( error, externalAccountHistories);
             var result = SerializationHelper.SerializeToJson(koloWs);
             return result;

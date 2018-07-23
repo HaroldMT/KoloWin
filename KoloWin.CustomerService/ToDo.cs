@@ -7,23 +7,25 @@ namespace KoloWin.CustomerService
 {
     public class ToDo
     {
+
+
         /*TODO
          * 
          * KoloPartVice
          * 
-         * AddExternalAccount : Added + filled not tested
-         * GetExternalAccounts : Added + filled not tested
+         * AddExternalAccount : Added, filled , tested with json (Just Application test remining)
+         * GetExternalAccounts : Added, filled , tested with json (Just Application test remining)
          * UpdateExternalAccount  : Added + filled not tested
          * RemoveExternalAccount : Added + filled not tested
          * 
          * 
          * 
-         * KolOAccMerg
+         * KolOAcMerg
          * 
          * UpdateCustomerAccount : Added not filled 
          * ConvertToBusinessAccount : Added not filled 
          * UpdateBusinessAccount : Added not filled 
-         * AddMobileDevice : Added not filled 
+         * AddMobileDevice : Added, filled , tested with json (Just Application test remining)
          * RevokeMobileDevice(idMobileDevice) : Added not filled 
          * GetProfileImage(idCustomer) : Added not filled 
          * UpdateProfileImage(idCustomer) : Added not filled 
@@ -45,6 +47,14 @@ namespace KoloWin.CustomerService
          * PayBill  : Added not filled 
          * RejectBill  : Added not filled 
          * 
+         * 
+         * 
+         * To check Not FOrget
+         * 
+         * All Methods on try/catch brackets
+         * Adding mobileDevices and revokeIt
+         * Verification des parametres GSM Du telephone (ICCID , IMEI ,  MSISDN , IMSI , Sim_Details )
+         * Verification des parametres GSM Du Reseau (LAC , MNC ,  MSISDN ,  )
          * 
          * */
 

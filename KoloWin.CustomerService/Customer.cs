@@ -26,7 +26,6 @@ namespace KoloWin.CustomerService
             this.CustomerGroups = new ObservableCollection<CustomerGroup>();
             this.CustomerTags = new ObservableCollection<CustomerTag>();
             this.EneoBillPayments = new ObservableCollection<EneoBillPayment>();
-            this.ExternalAccounts = new ObservableCollection<ExternalAccount>();
             this.KoloNotifications = new ObservableCollection<KoloNotification>();
             this.RecurringContributions = new ObservableCollection<RecurringContribution>();
             this.TopUps = new ObservableCollection<TopUp>();
@@ -37,6 +36,7 @@ namespace KoloWin.CustomerService
             this.TransfertGroupScheduleds = new ObservableCollection<TransfertGroupScheduled>();
             this.TransfertP2p = new ObservableCollection<TransfertP2p>();
             this.TransfertScheduleds = new ObservableCollection<TransfertScheduled>();
+            this.ExternalAccounts = new ObservableCollection<ExternalAccount>();
         }
     
         public int IdCustomer { get; set; }
@@ -78,8 +78,6 @@ namespace KoloWin.CustomerService
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<EneoBillPayment> EneoBillPayments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<ExternalAccount> ExternalAccounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<KoloNotification> KoloNotifications { get; set; }
         public virtual Partner Partner { get; set; }
         public virtual Person Person { get; set; }
@@ -101,5 +99,7 @@ namespace KoloWin.CustomerService
         public virtual ObservableCollection<TransfertP2p> TransfertP2p { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<TransfertScheduled> TransfertScheduleds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<ExternalAccount> ExternalAccounts { get; set; }
     }
 }
