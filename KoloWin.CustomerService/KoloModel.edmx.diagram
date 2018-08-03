@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="964d9460ecf1437eaa16cab258d5a1f9" Name="Diagram1" ZoomLevel="71">
+      <Diagram DiagramId="964d9460ecf1437eaa16cab258d5a1f9" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="KoloModel.AccountOperation" Width="1.5" PointX="16.5" PointY="53.875" />
         <EntityTypeShape EntityType="KoloModel.AccountOperationRequest" Width="1.5" PointX="5.25" PointY="54.625" />
         <EntityTypeShape EntityType="KoloModel.Adresse" Width="1.5" PointX="11.25" PointY="33.625" />
@@ -170,6 +170,9 @@
         <AssociationConnector Association="KoloModel.fk_ExternalAccount_Type" />
         <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalReceiver" />
         <AssociationConnector Association="KoloModel.fk_TransfertE2e_ExternalSender" />
+        <EntityTypeShape EntityType="KoloModel.BusinessContactUpdateHistory" Width="1.5" PointX="22.5" PointY="60" />
+        <AssociationConnector Association="KoloModel.FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory" />
+        <AssociationConnector Association="KoloModel.FK_BusinessContactUpdateHistory_Person" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

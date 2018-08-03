@@ -94,6 +94,17 @@
           <Property Name="IdContact" Type="int" Nullable="false" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="BusinessContactUpdateHistory">
+          <Key>
+            <PropertyRef Name="IdBusinessContactUpdateHistory" />
+          </Key>
+          <Property Name="IdBusinessContactUpdateHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBusiness" Type="int" Nullable="false" />
+          <Property Name="IdContact" Type="int" Nullable="false" />
+          <Property Name="OldJobTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewJobTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="IdCity" />
@@ -505,7 +516,7 @@
             <PropertyRef Name="IndustryCategoryCode" />
           </Key>
           <Property Name="IndustryCategoryCode" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="IndustryCategoryDescrption" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndustryCategoryDescrption" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="RefLoginStatus">
           <Key>
@@ -952,6 +963,30 @@ warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary 
               <PropertyRef Name="IdCustomer" />
             </Principal>
             <Dependent Role="BusinessContact">
+              <PropertyRef Name="IdContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="BusinessContactUpdateHistory" Type="Self.BusinessContactUpdateHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="BusinessContactUpdateHistory">
+              <PropertyRef Name="IdBusiness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessContactUpdateHistory_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="BusinessContactUpdateHistory" Type="Self.BusinessContactUpdateHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="BusinessContactUpdateHistory">
               <PropertyRef Name="IdContact" />
             </Dependent>
           </ReferentialConstraint>
@@ -1902,6 +1937,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="BillPayment" EntityType="Self.BillPayment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BusinessContact" EntityType="Self.BusinessContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessContactUpdateHistory" EntityType="Self.BusinessContactUpdateHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CreditCardInfo" EntityType="Self.CreditCardInfo" Schema="dbo" store:Type="Tables" />
@@ -2051,6 +2087,14 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_BusinessContact_Contact" Association="Self.fk_BusinessContact_Contact">
             <End Role="Person" EntitySet="Person" />
             <End Role="BusinessContact" EntitySet="BusinessContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory" Association="Self.FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="BusinessContactUpdateHistory" EntitySet="BusinessContactUpdateHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessContactUpdateHistory_Person" Association="Self.FK_BusinessContactUpdateHistory_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="BusinessContactUpdateHistory" EntitySet="BusinessContactUpdateHistory" />
           </AssociationSet>
           <AssociationSet Name="fk_City" Association="Self.fk_City">
             <End Role="Country" EntitySet="Country" />
@@ -2813,6 +2857,15 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="ExternalAccount" EntitySet="ExternalAccounts" />
             <End Role="TransfertE2e" EntitySet="TransfertE2e" />
           </AssociationSet>
+          <EntitySet Name="BusinessContactUpdateHistories" EntityType="KoloModel.BusinessContactUpdateHistory" />
+          <AssociationSet Name="FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory" Association="KoloModel.FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="BusinessContactUpdateHistory" EntitySet="BusinessContactUpdateHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessContactUpdateHistory_Person" Association="KoloModel.FK_BusinessContactUpdateHistory_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="BusinessContactUpdateHistory" EntitySet="BusinessContactUpdateHistories" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AccountOperation">
           <Key>
@@ -2919,6 +2972,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Business" FromRole="Business" ToRole="Customer" />
           <NavigationProperty Name="RefIndustryCategory" Relationship="KoloModel.fk_Business_IndustryCategory" FromRole="Business" ToRole="RefIndustryCategory" />
           <NavigationProperty Name="BusinessContacts" Relationship="KoloModel.fk_BusinessContact_Business" FromRole="Business" ToRole="BusinessContact" />
+          <NavigationProperty Name="BusinessContactUpdateHistories" Relationship="KoloModel.FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory" FromRole="Business" ToRole="BusinessContactUpdateHistory" />
         </EntityType>
         <EntityType Name="BusinessContact">
           <Key>
@@ -3332,6 +3386,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="RefMaritalStatu" Relationship="KoloModel.fk_Person_MaritalStatus" FromRole="Person" ToRole="RefMaritalStatu" />
           <NavigationProperty Name="PersonRelationship" Relationship="KoloModel.fk_Relationship_Customer" FromRole="Person" ToRole="PersonRelationship" />
           <NavigationProperty Name="PersonRelationships" Relationship="KoloModel.fk_Relationship_PersonRelation" FromRole="Person" ToRole="PersonRelationship" />
+          <NavigationProperty Name="BusinessContactUpdateHistories" Relationship="KoloModel.FK_BusinessContactUpdateHistory_Person" FromRole="Person" ToRole="BusinessContactUpdateHistory" />
         </EntityType>
         <EntityType Name="PersonRelationship">
           <Key>
@@ -3432,7 +3487,7 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <PropertyRef Name="IndustryCategoryCode" />
           </Key>
           <Property Name="IndustryCategoryCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="IndustryCategoryDescrption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndustryCategoryDescrption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Businesses" Relationship="KoloModel.fk_Business_IndustryCategory" FromRole="RefIndustryCategory" ToRole="Business" />
         </EntityType>
         <EntityType Name="RefLoginStatu">
@@ -4852,6 +4907,43 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BusinessContactUpdateHistory">
+          <Key>
+            <PropertyRef Name="IdBusinessContactUpdateHistory" />
+          </Key>
+          <Property Name="IdBusinessContactUpdateHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBusiness" Type="Int32" Nullable="false" />
+          <Property Name="IdContact" Type="Int32" Nullable="false" />
+          <Property Name="OldJobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewJobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Business" Relationship="KoloModel.FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory" FromRole="BusinessContactUpdateHistory" ToRole="Business" />
+          <NavigationProperty Name="Person" Relationship="KoloModel.FK_BusinessContactUpdateHistory_Person" FromRole="BusinessContactUpdateHistory" ToRole="Person" />
+        </EntityType>
+        <Association Name="FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory">
+          <End Type="KoloModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="KoloModel.BusinessContactUpdateHistory" Role="BusinessContactUpdateHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="BusinessContactUpdateHistory">
+              <PropertyRef Name="IdBusiness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessContactUpdateHistory_Person">
+          <End Type="KoloModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="KoloModel.BusinessContactUpdateHistory" Role="BusinessContactUpdateHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="BusinessContactUpdateHistory">
+              <PropertyRef Name="IdContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5644,6 +5736,18 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="ExternalPwd" ColumnName="ExternalPwd" />
                 <ScalarProperty Name="ExternalLogin" ColumnName="ExternalLogin" />
                 <ScalarProperty Name="IdExternalAccount" ColumnName="IdExternalAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessContactUpdateHistories">
+            <EntityTypeMapping TypeName="KoloModel.BusinessContactUpdateHistory">
+              <MappingFragment StoreEntitySet="BusinessContactUpdateHistory">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="NewJobTitle" ColumnName="NewJobTitle" />
+                <ScalarProperty Name="OldJobTitle" ColumnName="OldJobTitle" />
+                <ScalarProperty Name="IdContact" ColumnName="IdContact" />
+                <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
+                <ScalarProperty Name="IdBusinessContactUpdateHistory" ColumnName="IdBusinessContactUpdateHistory" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

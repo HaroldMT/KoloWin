@@ -96,5 +96,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
         public virtual DbSet<TransferGravity> TransferGravities { get; set; }
         public virtual DbSet<ExternalAccount> ExternalAccounts { get; set; }
+        public virtual DbSet<BusinessContactUpdateHistory> BusinessContactUpdateHistories { get; set; }
     }
 }

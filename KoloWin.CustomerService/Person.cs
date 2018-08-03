@@ -19,6 +19,7 @@ namespace KoloWin.CustomerService
         {
             this.BusinessContacts = new ObservableCollection<BusinessContact>();
             this.PersonRelationships = new ObservableCollection<PersonRelationship>();
+            this.BusinessContactUpdateHistories = new ObservableCollection<BusinessContactUpdateHistory>();
         }
     
         public int IdCustomer { get; set; }
@@ -41,5 +42,7 @@ namespace KoloWin.CustomerService
         public virtual PersonRelationship PersonRelationship { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<PersonRelationship> PersonRelationships { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableCollection<BusinessContactUpdateHistory> BusinessContactUpdateHistories { get; set; }
     }
 }

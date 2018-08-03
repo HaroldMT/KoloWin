@@ -297,6 +297,9 @@
     <Compile Include="BusinessContact.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BusinessContactUpdateHistory.cs">
+      <DependentUpon>KoloModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="City.cs">
       <DependentUpon>KoloModel.tt</DependentUpon>
     </Compile>
