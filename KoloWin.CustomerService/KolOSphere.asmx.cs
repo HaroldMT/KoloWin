@@ -101,31 +101,127 @@ namespace KoloWin.CustomerService
         #endregion
 
 
-        #region Bill Methods
+        #region Bill Methods  (Without Any Control => Balance notifications , .....)
 
 
         [WebMethod]
-        public string SendBill(string jsonBill)
+        public string SendBill(string jsonBillDetails)
         {
+            BillDetails billDetails = SerializationHelper.DeserializeFromJsonString<BillDetails>(jsonBillDetails);
+            KoloAndroidEntities context = new KoloAndroidEntities();
+            Tuple<Bill, BillDetail> tuple = billDetails.GetBillAndDetails();
+            Bill bill = tuple.Item1;
+            BillDetail billDetail = tuple.Item2;
+            bill.BillDetails.Add(billDetail);
+            context.Bills.Add(bill);
+            context.SaveChanges();
+            KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>("", bill);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            context.Dispose();
+            return result;
+        }
+
+        [WebMethod]
+        public string CancelBill(int jsonIdBill)
+        {
+            KoloAndroidEntities context = new KoloAndroidEntities();
+            Bill bill = context.Bills.FirstOrDefault(b => b.IdBill == jsonIdBill);
+            bill.CodeRefBillStatus = KoloConstants.Operation.BillStatus.CANCELED.ToString();
+            context.SaveChanges();
+            KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(true,"",null);
+            var result = SerializationHelper.SerializeToJson(koloWs);
+            context.Dispose();
+            return result;
+        }
+
+        [WebMethod]
+        public string PayBill(string jsonBillPayement)
+        {
+            BillPayment billPayment = SerializationHelper.DeserializeFromJsonString<BillPayment>(jsonBillPayement);
+            KoloAndroidEntities context = new KoloAndroidEntities();
+            Bill bill = context.Bills.FirstOrDefault(b => b.IdBill == billPayment.IdBill);
+            if(bill == null)
+            {
+                KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(false, "Bill Not Found", null);
+                var result = SerializationHelper.SerializeToJson(koloWs);
+                context.Dispose();
+                return result;
+            }
+            if(!bill.AllowPartialPayment && bill.TotalBillAmount > billPayment.PaidAmount)
+            {
+                KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(false, "This bill don't allow partial paiment please send all money", null);
+                var result = SerializationHelper.SerializeToJson(koloWs);
+                context.Dispose();
+                return result;
+            }
+            else if(!bill.AllowPartialPayment && bill.TotalBillAmount == billPayment.PaidAmount)
+            {
+                billPayment.DatePaid = DateTime.Now;
+                billPayment.LastPayment = true;
+
+                bill.CodeRefBillStatus = KoloConstants.Operation.BillStatus.PAID.ToString();
+                bill.LeftToPay -= billPayment.PaidAmount;
+
+                KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(true, "", bill);
+                var result = SerializationHelper.SerializeToJson(koloWs);
+                context.Dispose();
+                return result;
+
+            }
+            if(bill.AllowPartialPayment)
+            {
+                if (bill.LeftToPay == billPayment.PaidAmount)
+                {
+                    billPayment.DatePaid = DateTime.Now;
+                    billPayment.LastPayment = true;
+
+                    bill.CodeRefBillStatus = KoloConstants.Operation.BillStatus.PAID.ToString();
+                    bill.LeftToPay -= billPayment.PaidAmount;
+
+                    KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(true, "", bill);
+                    var result = SerializationHelper.SerializeToJson(koloWs);
+                    context.Dispose();
+                    return result;
+                }
+                if (bill.LeftToPay > billPayment.PaidAmount)
+                {
+                    billPayment.DatePaid = DateTime.Now;
+                    billPayment.LastPayment = false;
+
+                    bill.CodeRefBillStatus = KoloConstants.Operation.BillStatus.PAY_PROCESSING.ToString();
+                    bill.LeftToPay -= billPayment.PaidAmount;
+
+                    KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(true, "", bill);
+                    var result = SerializationHelper.SerializeToJson(koloWs);
+                    context.Dispose();
+                    return result;
+                }
+            }
             return "";
         }
 
         [WebMethod]
-        public string CancelBill(string jsonBill)
-        { 
-            return "";
-        }
-
-        [WebMethod]
-        public string PayBill(string jsonBill)
+        public string RejectBill(string jsonIdBill)
         {
-            return "";
-        }
-
-        [WebMethod]
-        public string RejectBill(string jsonBill)
-        {
-            return "";
+            KoloAndroidEntities context = new KoloAndroidEntities();
+            int idBill = 0;
+            if (!Int32.TryParse(jsonIdBill, out idBill))
+            {
+                KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(false, "Bill Not Found", null);
+                var result = SerializationHelper.SerializeToJson(koloWs);
+                context.Dispose();
+                return result;
+            }
+            else
+            {
+                Bill bill = context.Bills.FirstOrDefault(b => b.IdBill == idBill);
+                bill.CodeRefBillStatus = KoloConstants.Operation.BillStatus.CANCELED.ToString();
+                context.SaveChanges();
+                KoloWsObject<Bill> koloWs = new KoloWsObject<Bill>(true, "", bill);
+                var result = SerializationHelper.SerializeToJson(koloWs);
+                context.Dispose();
+                return result;
+            }
         }
         
         #endregion

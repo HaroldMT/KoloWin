@@ -52,6 +52,7 @@
           <Property Name="TotalBillAmount" Type="int" Nullable="false" />
           <Property Name="LeftToPay" Type="int" Nullable="false" />
           <Property Name="AllowPartialPayment" Type="bit" Nullable="false" />
+          <Property Name="DateCreation" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="BillDetail">
           <Key>
@@ -71,8 +72,6 @@
           </Key>
           <Property Name="IdBillPayment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdBill" Type="int" Nullable="false" />
-          <Property Name="IdPayingCustomer" Type="int" Nullable="false" />
-          <Property Name="IdIssuingCustomer" Type="int" Nullable="false" />
           <Property Name="DatePaid" Type="datetime" Nullable="false" />
           <Property Name="PaidAmount" Type="int" Nullable="false" />
           <Property Name="LastPayment" Type="bit" Nullable="false" />
@@ -892,30 +891,6 @@ warning 6002: The table/view 'Kolo.dbo.TransferGravity' does not have a primary 
             </Principal>
             <Dependent Role="BillPayment">
               <PropertyRef Name="IdBill" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BillPayment_IssuingCustomer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="BillPayment" Type="Self.BillPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="BillPayment">
-              <PropertyRef Name="IdIssuingCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BillPayment_PayingCustomer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="BillPayment" Type="Self.BillPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="BillPayment">
-              <PropertyRef Name="IdPayingCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2064,14 +2039,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Bill" EntitySet="Bill" />
             <End Role="BillPayment" EntitySet="BillPayment" />
           </AssociationSet>
-          <AssociationSet Name="fk_BillPayment_IssuingCustomer" Association="Self.fk_BillPayment_IssuingCustomer">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="BillPayment" EntitySet="BillPayment" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BillPayment_PayingCustomer" Association="Self.fk_BillPayment_PayingCustomer">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="BillPayment" EntitySet="BillPayment" />
-          </AssociationSet>
           <AssociationSet Name="fk_Business" Association="Self.fk_Business">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Business" EntitySet="Business" />
@@ -2413,9 +2380,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <EntitySet Name="AccountOperations" EntityType="KoloModel.AccountOperation" />
           <EntitySet Name="AccountOperationRequests" EntityType="KoloModel.AccountOperationRequest" />
           <EntitySet Name="Adresses" EntityType="KoloModel.Adresse" />
-          <EntitySet Name="Bills" EntityType="KoloModel.Bill" />
-          <EntitySet Name="BillDetails" EntityType="KoloModel.BillDetail" />
-          <EntitySet Name="BillPayments" EntityType="KoloModel.BillPayment" />
           <EntitySet Name="Businesses" EntityType="KoloModel.Business" />
           <EntitySet Name="BusinessContacts" EntityType="KoloModel.BusinessContact" />
           <EntitySet Name="Cities" EntityType="KoloModel.City" />
@@ -2527,38 +2491,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <AssociationSet Name="fk_PartnerAddress_Address" Association="KoloModel.fk_PartnerAddress_Address">
             <End Role="Adresse" EntitySet="Adresses" />
             <End Role="PartnerAddress" EntitySet="PartnerAddresses" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Bill" Association="KoloModel.fk_Bill">
-            <End Role="RefBillStatu" EntitySet="RefBillStatus" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BillDetail_Bill" Association="KoloModel.FK_BillDetail_Bill">
-            <End Role="Bill" EntitySet="Bills" />
-            <End Role="BillDetail" EntitySet="BillDetails" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BillPayement_Bill" Association="KoloModel.fk_BillPayement_Bill">
-            <End Role="Bill" EntitySet="Bills" />
-            <End Role="BillPayment" EntitySet="BillPayments" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Facture" Association="KoloModel.fk_Facture">
-            <End Role="RefBillType" EntitySet="RefBillTypes" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Facture_IssuingCustomer" Association="KoloModel.fk_Facture_IssuingCustomer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Facture_PayingCustomer" Association="KoloModel.fk_Facture_PayingCustomer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BillPayment_IssuingCustomer" Association="KoloModel.fk_BillPayment_IssuingCustomer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="BillPayment" EntitySet="BillPayments" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BillPayment_PayingCustomer" Association="KoloModel.fk_BillPayment_PayingCustomer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="BillPayment" EntitySet="BillPayments" />
           </AssociationSet>
           <AssociationSet Name="fk_Business" Association="KoloModel.fk_Business">
             <End Role="Customer" EntitySet="Customers" />
@@ -2866,6 +2798,33 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             <End Role="Person" EntitySet="People" />
             <End Role="BusinessContactUpdateHistory" EntitySet="BusinessContactUpdateHistories" />
           </AssociationSet>
+          <EntitySet Name="Bills" EntityType="KoloModel.Bill" />
+          <AssociationSet Name="fk_Bill" Association="KoloModel.fk_Bill">
+            <End Role="RefBillStatu" EntitySet="RefBillStatus" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Facture" Association="KoloModel.fk_Facture">
+            <End Role="RefBillType" EntitySet="RefBillTypes" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Facture_IssuingCustomer" Association="KoloModel.fk_Facture_IssuingCustomer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Facture_PayingCustomer" Association="KoloModel.fk_Facture_PayingCustomer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <EntitySet Name="BillDetails" EntityType="KoloModel.BillDetail" />
+          <EntitySet Name="BillPayments" EntityType="KoloModel.BillPayment" />
+          <AssociationSet Name="FK_BillDetail_Bill" Association="KoloModel.FK_BillDetail_Bill">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillPayement_Bill" Association="KoloModel.fk_BillPayement_Bill">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="BillPayment" EntitySet="BillPayments" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AccountOperation">
           <Key>
@@ -2913,54 +2872,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="RefAddressType" Relationship="KoloModel.FK_Adresse_RefAddressType" FromRole="Adresse" ToRole="RefAddressType" />
           <NavigationProperty Name="CustomerAddresses" Relationship="KoloModel.fk_CustomerAddress" FromRole="Adresse" ToRole="CustomerAddress" />
           <NavigationProperty Name="PartnerAddresses" Relationship="KoloModel.fk_PartnerAddress_Address" FromRole="Adresse" ToRole="PartnerAddress" />
-        </EntityType>
-        <EntityType Name="Bill">
-          <Key>
-            <PropertyRef Name="IdBill" />
-          </Key>
-          <Property Name="IdBill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdIssuingCustomer" Type="Int32" Nullable="false" />
-          <Property Name="IdPayingCustomer" Type="Int32" Nullable="false" />
-          <Property Name="CodeRefBillType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CodeRefBillStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="DateIssued" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TotalBillAmount" Type="Int32" Nullable="false" />
-          <Property Name="LeftToPay" Type="Int32" Nullable="false" />
-          <Property Name="AllowPartialPayment" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="RefBillStatu" Relationship="KoloModel.fk_Bill" FromRole="Bill" ToRole="RefBillStatu" />
-          <NavigationProperty Name="BillDetails" Relationship="KoloModel.FK_BillDetail_Bill" FromRole="Bill" ToRole="BillDetail" />
-          <NavigationProperty Name="BillPayments" Relationship="KoloModel.fk_BillPayement_Bill" FromRole="Bill" ToRole="BillPayment" />
-          <NavigationProperty Name="RefBillType" Relationship="KoloModel.fk_Facture" FromRole="Bill" ToRole="RefBillType" />
-          <NavigationProperty Name="IssuingCustomer" Relationship="KoloModel.fk_Facture_IssuingCustomer" FromRole="Bill" ToRole="Customer" />
-          <NavigationProperty Name="PayingCustomer" Relationship="KoloModel.fk_Facture_PayingCustomer" FromRole="Bill" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="BillDetail">
-          <Key>
-            <PropertyRef Name="IdBillDetail" />
-          </Key>
-          <Property Name="IdBillDetail" Type="Int32" Nullable="false" />
-          <Property Name="IdBill" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="UnitPrice" Type="Int32" />
-          <Property Name="Amount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bill" Relationship="KoloModel.FK_BillDetail_Bill" FromRole="BillDetail" ToRole="Bill" />
-        </EntityType>
-        <EntityType Name="BillPayment">
-          <Key>
-            <PropertyRef Name="IdBillPayment" />
-          </Key>
-          <Property Name="IdBillPayment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdBill" Type="Int32" Nullable="false" />
-          <Property Name="IdPayingCustomer" Type="Int32" Nullable="false" />
-          <Property Name="IdIssuingCustomer" Type="Int32" Nullable="false" />
-          <Property Name="DatePaid" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PaidAmount" Type="Int32" Nullable="false" />
-          <Property Name="LastPayment" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Bill" Relationship="KoloModel.fk_BillPayement_Bill" FromRole="BillPayment" ToRole="Bill" />
-          <NavigationProperty Name="IssuingCustomer" Relationship="KoloModel.fk_BillPayment_IssuingCustomer" FromRole="BillPayment" ToRole="Customer" />
-          <NavigationProperty Name="PayingCustomer" Relationship="KoloModel.fk_BillPayment_PayingCustomer" FromRole="BillPayment" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Business">
           <Key>
@@ -3045,8 +2956,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <Property Name="GravityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GravityPercentage" Type="Int32" />
           <NavigationProperty Name="AccountOperationRequests" Relationship="KoloModel.fk_OperationRequest_CustomerAccount" FromRole="Customer" ToRole="AccountOperationRequest" />
-          <NavigationProperty Name="Bills" Relationship="KoloModel.fk_Facture_IssuingCustomer" FromRole="Customer" ToRole="Bill" />
-          <NavigationProperty Name="BillPayments" Relationship="KoloModel.fk_BillPayment_IssuingCustomer" FromRole="Customer" ToRole="BillPayment" />
           <NavigationProperty Name="Business" Relationship="KoloModel.fk_Business" FromRole="Customer" ToRole="Business" />
           <NavigationProperty Name="Currency" Relationship="KoloModel.fk_Customer_Currency" FromRole="Customer" ToRole="Currency" />
           <NavigationProperty Name="Registration" Relationship="KoloModel.fk_Customer" FromRole="Customer" ToRole="Registration" />
@@ -3072,6 +2981,8 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
           <NavigationProperty Name="TransfertP2p" Relationship="KoloModel.fk_TransfertP2p_Receiver" FromRole="Customer" ToRole="TransfertP2p" />
           <NavigationProperty Name="TransfertScheduleds" Relationship="KoloModel.fk_TransfertScheduled_Receiver" FromRole="Customer" ToRole="TransfertScheduled" />
           <NavigationProperty Name="ExternalAccounts" Relationship="KoloModel.FK_ExternalAccount_Customer" FromRole="Customer" ToRole="ExternalAccount" />
+          <NavigationProperty Name="Bills" Relationship="KoloModel.fk_Facture_IssuingCustomer" FromRole="Customer" ToRole="Bill" />
+          <NavigationProperty Name="Bills1" Relationship="KoloModel.fk_Facture_PayingCustomer" FromRole="Customer" ToRole="Bill" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -3901,102 +3812,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Principal>
             <Dependent Role="PartnerAddress">
               <PropertyRef Name="IdAddress" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Bill">
-          <End Type="KoloModel.RefBillStatu" Role="RefBillStatu" Multiplicity="0..1" />
-          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefBillStatu">
-              <PropertyRef Name="BillStatusCode" />
-            </Principal>
-            <Dependent Role="Bill">
-              <PropertyRef Name="CodeRefBillStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BillDetail_Bill">
-          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
-          <End Type="KoloModel.BillDetail" Role="BillDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bill">
-              <PropertyRef Name="IdBill" />
-            </Principal>
-            <Dependent Role="BillDetail">
-              <PropertyRef Name="IdBill" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BillPayement_Bill">
-          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
-          <End Type="KoloModel.BillPayment" Role="BillPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bill">
-              <PropertyRef Name="IdBill" />
-            </Principal>
-            <Dependent Role="BillPayment">
-              <PropertyRef Name="IdBill" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Facture">
-          <End Type="KoloModel.RefBillType" Role="RefBillType" Multiplicity="0..1" />
-          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefBillType">
-              <PropertyRef Name="BillTypeCode" />
-            </Principal>
-            <Dependent Role="Bill">
-              <PropertyRef Name="CodeRefBillType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Facture_IssuingCustomer">
-          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="Bill">
-              <PropertyRef Name="IdIssuingCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Facture_PayingCustomer">
-          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="Bill">
-              <PropertyRef Name="IdPayingCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BillPayment_IssuingCustomer">
-          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="KoloModel.BillPayment" Role="BillPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="BillPayment">
-              <PropertyRef Name="IdIssuingCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BillPayment_PayingCustomer">
-          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="KoloModel.BillPayment" Role="BillPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IdCustomer" />
-            </Principal>
-            <Dependent Role="BillPayment">
-              <PropertyRef Name="IdPayingCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4944,6 +4759,123 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="IdBill" />
+          </Key>
+          <Property Name="IdBill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdIssuingCustomer" Type="Int32" Nullable="false" />
+          <Property Name="IdPayingCustomer" Type="Int32" Nullable="false" />
+          <Property Name="CodeRefBillType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CodeRefBillStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DateIssued" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TotalBillAmount" Type="Int32" Nullable="false" />
+          <Property Name="LeftToPay" Type="Int32" Nullable="false" />
+          <Property Name="AllowPartialPayment" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RefBillStatu" Relationship="KoloModel.fk_Bill" FromRole="Bill" ToRole="RefBillStatu" />
+          <NavigationProperty Name="RefBillType" Relationship="KoloModel.fk_Facture" FromRole="Bill" ToRole="RefBillType" />
+          <NavigationProperty Name="Customer" Relationship="KoloModel.fk_Facture_IssuingCustomer" FromRole="Bill" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="KoloModel.fk_Facture_PayingCustomer" FromRole="Bill" ToRole="Customer" />
+          <NavigationProperty Name="BillDetails" Relationship="KoloModel.FK_BillDetail_Bill" FromRole="Bill" ToRole="BillDetail" />
+          <NavigationProperty Name="BillPayments" Relationship="KoloModel.fk_BillPayement_Bill" FromRole="Bill" ToRole="BillPayment" />
+        </EntityType>
+        <Association Name="fk_Bill">
+          <End Type="KoloModel.RefBillStatu" Role="RefBillStatu" Multiplicity="0..1" />
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBillStatu">
+              <PropertyRef Name="BillStatusCode" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="CodeRefBillStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Facture">
+          <End Type="KoloModel.RefBillType" Role="RefBillType" Multiplicity="0..1" />
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBillType">
+              <PropertyRef Name="BillTypeCode" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="CodeRefBillType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Facture_IssuingCustomer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="IdIssuingCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Facture_PayingCustomer">
+          <End Type="KoloModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="IdCustomer" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="IdPayingCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="IdBillDetail" />
+          </Key>
+          <Property Name="IdBillDetail" Type="Int32" Nullable="false" />
+          <Property Name="IdBill" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="UnitPrice" Type="Int32" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bill" Relationship="KoloModel.FK_BillDetail_Bill" FromRole="BillDetail" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="BillPayment">
+          <Key>
+            <PropertyRef Name="IdBillPayment" />
+          </Key>
+          <Property Name="IdBillPayment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBill" Type="Int32" Nullable="false" />
+          <Property Name="DatePaid" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaidAmount" Type="Int32" Nullable="false" />
+          <Property Name="LastPayment" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Bill" Relationship="KoloModel.fk_BillPayement_Bill" FromRole="BillPayment" ToRole="Bill" />
+        </EntityType>
+        <Association Name="FK_BillDetail_Bill">
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="KoloModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="IdBill" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="IdBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillPayement_Bill">
+          <End Type="KoloModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="KoloModel.BillPayment" Role="BillPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="IdBill" />
+            </Principal>
+            <Dependent Role="BillPayment">
+              <PropertyRef Name="IdBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4984,47 +4916,6 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="Line_2" ColumnName="Line_2" />
                 <ScalarProperty Name="Line_1" ColumnName="Line_1" />
                 <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Bills">
-            <EntityTypeMapping TypeName="KoloModel.Bill">
-              <MappingFragment StoreEntitySet="Bill">
-                <ScalarProperty Name="AllowPartialPayment" ColumnName="AllowPartialPayment" />
-                <ScalarProperty Name="LeftToPay" ColumnName="LeftToPay" />
-                <ScalarProperty Name="TotalBillAmount" ColumnName="TotalBillAmount" />
-                <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
-                <ScalarProperty Name="CodeRefBillStatus" ColumnName="CodeRefBillStatus" />
-                <ScalarProperty Name="CodeRefBillType" ColumnName="CodeRefBillType" />
-                <ScalarProperty Name="IdPayingCustomer" ColumnName="IdPayingCustomer" />
-                <ScalarProperty Name="IdIssuingCustomer" ColumnName="IdIssuingCustomer" />
-                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BillDetails">
-            <EntityTypeMapping TypeName="KoloModel.BillDetail">
-              <MappingFragment StoreEntitySet="BillDetail">
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
-                <ScalarProperty Name="IdBillDetail" ColumnName="IdBillDetail" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BillPayments">
-            <EntityTypeMapping TypeName="KoloModel.BillPayment">
-              <MappingFragment StoreEntitySet="BillPayment">
-                <ScalarProperty Name="LastPayment" ColumnName="LastPayment" />
-                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
-                <ScalarProperty Name="DatePaid" ColumnName="DatePaid" />
-                <ScalarProperty Name="IdIssuingCustomer" ColumnName="IdIssuingCustomer" />
-                <ScalarProperty Name="IdPayingCustomer" ColumnName="IdPayingCustomer" />
-                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
-                <ScalarProperty Name="IdBillPayment" ColumnName="IdBillPayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5748,6 +5639,46 @@ warning 6035: The relationship 'fk_Partner_History' has columns that are not par
                 <ScalarProperty Name="IdContact" ColumnName="IdContact" />
                 <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
                 <ScalarProperty Name="IdBusinessContactUpdateHistory" ColumnName="IdBusinessContactUpdateHistory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="KoloModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="AllowPartialPayment" ColumnName="AllowPartialPayment" />
+                <ScalarProperty Name="LeftToPay" ColumnName="LeftToPay" />
+                <ScalarProperty Name="TotalBillAmount" ColumnName="TotalBillAmount" />
+                <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+                <ScalarProperty Name="CodeRefBillStatus" ColumnName="CodeRefBillStatus" />
+                <ScalarProperty Name="CodeRefBillType" ColumnName="CodeRefBillType" />
+                <ScalarProperty Name="IdPayingCustomer" ColumnName="IdPayingCustomer" />
+                <ScalarProperty Name="IdIssuingCustomer" ColumnName="IdIssuingCustomer" />
+                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillDetails">
+            <EntityTypeMapping TypeName="KoloModel.BillDetail">
+              <MappingFragment StoreEntitySet="BillDetail">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
+                <ScalarProperty Name="IdBillDetail" ColumnName="IdBillDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillPayments">
+            <EntityTypeMapping TypeName="KoloModel.BillPayment">
+              <MappingFragment StoreEntitySet="BillPayment">
+                <ScalarProperty Name="LastPayment" ColumnName="LastPayment" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="DatePaid" ColumnName="DatePaid" />
+                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
+                <ScalarProperty Name="IdBillPayment" ColumnName="IdBillPayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

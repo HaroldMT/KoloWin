@@ -28,9 +28,6 @@ namespace KoloWin.CustomerService
         public virtual DbSet<AccountOperation> AccountOperations { get; set; }
         public virtual DbSet<AccountOperationRequest> AccountOperationRequests { get; set; }
         public virtual DbSet<Adresse> Adresses { get; set; }
-        public virtual DbSet<Bill> Bills { get; set; }
-        public virtual DbSet<BillDetail> BillDetails { get; set; }
-        public virtual DbSet<BillPayment> BillPayments { get; set; }
         public virtual DbSet<Business> Businesses { get; set; }
         public virtual DbSet<BusinessContact> BusinessContacts { get; set; }
         public virtual DbSet<City> Cities { get; set; }
@@ -97,5 +94,8 @@ namespace KoloWin.CustomerService
         public virtual DbSet<TransferGravity> TransferGravities { get; set; }
         public virtual DbSet<ExternalAccount> ExternalAccounts { get; set; }
         public virtual DbSet<BusinessContactUpdateHistory> BusinessContactUpdateHistories { get; set; }
+        public virtual DbSet<Bill> Bills { get; set; }
+        public virtual DbSet<BillDetail> BillDetails { get; set; }
+        public virtual DbSet<BillPayment> BillPayments { get; set; }
     }
 }

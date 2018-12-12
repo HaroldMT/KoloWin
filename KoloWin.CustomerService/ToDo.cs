@@ -61,7 +61,6 @@ namespace KoloWin.CustomerService
          * 
          * - Une tables BusinessContactUpdateHistory a été ajoutée au projet pour que nous ayons un suivi des modifications de chaque utilisateurs
          * 
-         *  
          * 
          * */
 

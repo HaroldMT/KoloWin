@@ -70,6 +70,18 @@ namespace KoloWin.CustomerService.Utils.General
                 RECEIVE_PENDING
             }
 
+            public enum BillStatus
+            {
+                [Description("CANCELED")]
+                CANCELED,
+                [Description("PAID")]
+                PAID,
+                [Description("PAY_IN_PROCESSING")]
+                PAY_PROCESSING,
+                [Description("RECEIVE_PENDING")]
+                RECEIVE_PENDING
+            }
+
             public enum BalanceUpdateDirection
             {
                 ADD,REMOVE

@@ -410,6 +410,7 @@
       <DependentUpon>MobileService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\BillDetails.cs" />
     <Compile Include="Model\EneoBillDetails.cs" />
     <Compile Include="Model\KoloMadCustomer.cs" />
     <Compile Include="Model\KoloMadDetails.cs" />

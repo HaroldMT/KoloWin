@@ -20,6 +20,7 @@ namespace KoloWin.CustomerService
     {
         #region Kolo Eneo Methods
 
+
         [WebMethod]
         public string DoPayEneoBill(string jsonBillNumber, string jsonCustomer)
         {

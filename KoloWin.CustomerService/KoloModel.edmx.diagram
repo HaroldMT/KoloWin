@@ -4,13 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="964d9460ecf1437eaa16cab258d5a1f9" Name="Diagram1" ZoomLevel="73">
+      <Diagram DiagramId="964d9460ecf1437eaa16cab258d5a1f9" Name="Diagram1" ZoomLevel="46">
         <EntityTypeShape EntityType="KoloModel.AccountOperation" Width="1.5" PointX="16.5" PointY="53.875" />
         <EntityTypeShape EntityType="KoloModel.AccountOperationRequest" Width="1.5" PointX="5.25" PointY="54.625" />
         <EntityTypeShape EntityType="KoloModel.Adresse" Width="1.5" PointX="11.25" PointY="33.625" />
-        <EntityTypeShape EntityType="KoloModel.Bill" Width="1.5" PointX="11.25" PointY="59.25" />
-        <EntityTypeShape EntityType="KoloModel.BillDetail" Width="1.5" PointX="13.5" PointY="67.5" />
-        <EntityTypeShape EntityType="KoloModel.BillPayment" Width="1.5" PointX="19.5" PointY="62.625" />
         <EntityTypeShape EntityType="KoloModel.Business" Width="1.5" PointX="8.25" PointY="55" />
         <EntityTypeShape EntityType="KoloModel.BusinessContact" Width="1.5" PointX="16.5" PointY="58.125" />
         <EntityTypeShape EntityType="KoloModel.City" Width="1.5" PointX="9" PointY="32.75" />
@@ -87,14 +84,6 @@
         <AssociationConnector Association="KoloModel.FK_Adresse_RefAddressType" />
         <AssociationConnector Association="KoloModel.fk_CustomerAddress" />
         <AssociationConnector Association="KoloModel.fk_PartnerAddress_Address" />
-        <AssociationConnector Association="KoloModel.fk_Bill" />
-        <AssociationConnector Association="KoloModel.FK_BillDetail_Bill" />
-        <AssociationConnector Association="KoloModel.fk_BillPayement_Bill" />
-        <AssociationConnector Association="KoloModel.fk_Facture" />
-        <AssociationConnector Association="KoloModel.fk_Facture_IssuingCustomer" />
-        <AssociationConnector Association="KoloModel.fk_Facture_PayingCustomer" />
-        <AssociationConnector Association="KoloModel.fk_BillPayment_IssuingCustomer" />
-        <AssociationConnector Association="KoloModel.fk_BillPayment_PayingCustomer" />
         <AssociationConnector Association="KoloModel.fk_Business" />
         <AssociationConnector Association="KoloModel.fk_Business_IndustryCategory" />
         <AssociationConnector Association="KoloModel.fk_BusinessContact_Business" />
@@ -173,6 +162,15 @@
         <EntityTypeShape EntityType="KoloModel.BusinessContactUpdateHistory" Width="1.5" PointX="22.5" PointY="60" />
         <AssociationConnector Association="KoloModel.FK_BusinessContactUpdateHistory_BusinessContactUpdateHistory" />
         <AssociationConnector Association="KoloModel.FK_BusinessContactUpdateHistory_Person" />
+        <EntityTypeShape EntityType="KoloModel.Bill" Width="1.5" PointX="11.25" PointY="58.625" />
+        <AssociationConnector Association="KoloModel.fk_Bill" />
+        <AssociationConnector Association="KoloModel.fk_Facture" />
+        <AssociationConnector Association="KoloModel.fk_Facture_IssuingCustomer" />
+        <AssociationConnector Association="KoloModel.fk_Facture_PayingCustomer" />
+        <EntityTypeShape EntityType="KoloModel.BillDetail" Width="1.5" PointX="13.5" PointY="66.875" />
+        <EntityTypeShape EntityType="KoloModel.BillPayment" Width="1.5" PointX="13.5" PointY="74.25" />
+        <AssociationConnector Association="KoloModel.FK_BillDetail_Bill" />
+        <AssociationConnector Association="KoloModel.fk_BillPayement_Bill" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
